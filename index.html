@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OK-Trainer</title>
+<meta name="theme-color" content="#eee8d9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12181a" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="OK-Trainer">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<style>
+  :root{
+    --chassis:#12181a;
+    --panel:#1b2426;
+    --panel-2:#212c2e;
+    --border:#2a3436;
+    --text:#eae6d9;
+    --text-muted:#8b9a95;
+    --panel-accent:#ffb020;
+    --panel-accent-dim:#8a6a2c;
+    --green-ui:#6fe3a0;
+    --green-dim-ui:#2f5c48;
+    --red-ui:#e2543a;
+    --red-dim-ui:#6b2f26;
+
+    --lcd:#0c1a17;
+    --lcd-border:#324442;
+    --lcd-text:#eae6d9;
+    --lcd-muted:#8b9a95;
+    --amber:#ffb020;
+    --green:#6fe3a0;
+    --red:#e2543a;
+
+    --mono: ui-monospace, Menlo, Consolas, "Cascadia Code", "SF Mono", "Courier New", monospace;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --chassis:#eee8d9;
+      --panel:#ffffff;
+      --panel-2:#efe8d6;
+      --border:#d9d2bd;
+      --text:#2b2a25;
+      --text-muted:#6b6558;
+      --panel-accent:#a85d00;
+      --panel-accent-dim:#d9b27a;
+      --green-ui:#1f8a5c;
+      --green-dim-ui:#8fc7ac;
+      --red-ui:#c23b26;
+      --red-dim-ui:#e3a89a;
+      --lcd:#ffffff;
+      --lcd-border:#d9d2bd;
+      --lcd-text:#2b2a25;
+      --lcd-muted:#948c78;
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--chassis);
+    color:var(--text);
+    font-family:var(--sans);
+    font-feature-settings: "zero" 1, "ss01" 1;
+    min-height:100vh;
+    padding:24px 16px 60px;
+    display:flex;
+    justify-content:center;
+  }
+  .wrap{width:100%;max-width:640px;}
+  header{margin-bottom:18px;text-align:center;}
+  .callsign{
+    font-family:var(--serif);
+    font-size:26px;
+    letter-spacing:2px;
+    color:var(--panel-accent);
+    margin:0 0 4px;
+  }
+  .sub{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-muted);
+    letter-spacing:0.5px;
+    padding:0 8px;
+  }
+
+  .set-row{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin:20px 0 10px;
+  }
+  .set-row select{
+    flex:1;
+    min-width:0;
+    font-family:var(--mono);
+    font-size:13px;
+    padding:10px 12px;
+    background:var(--panel);
+    color:var(--panel-accent);
+    border:1px solid var(--border);
+    border-radius:8px;
+  }
+  .icon-btn{
+    flex-shrink:0;
+    width:40px;
+    height:40px;
+    font-size:16px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:8px;
+    cursor:pointer;
+    color:var(--text);
+  }
+  .icon-btn:hover{background:var(--panel-2);}
+  .icon-btn:disabled{opacity:0.3;cursor:default;}
+
+  nav.bandswitch{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin:0 0 10px;
+    background:var(--panel);
+    padding:6px;
+    border-radius:10px;
+    border:1px solid var(--border);
+  }
+  nav.bandswitch button{
+    flex:1 1 auto;
+    min-width:70px;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.5px;
+    padding:10px 8px;
+    background:transparent;
+    color:var(--text-muted);
+    border:1px solid transparent;
+    border-radius:6px;
+    cursor:pointer;
+  }
+  nav.bandswitch button.active{
+    background:var(--panel-2);
+    color:var(--panel-accent);
+    border-color:var(--panel-accent-dim);
+  }
+  .subgroupbar{
+    margin-bottom:14px;
+    display:none;
+    position:relative;
+  }
+  .subgroupbar.visible{display:block;}
+  .subgroupbar select{
+    width:100%;
+    font-family:var(--mono);
+    font-size:13px;
+    padding:10px 12px;
+    background:var(--panel);
+    color:var(--panel-accent);
+    border:1px solid var(--border);
+    border-radius:8px;
+    appearance:none;
+    -webkit-appearance:none;
+  }
+  .subgroupbar::after{
+    content:"▾";
+    position:absolute;
+    right:16px;
+    top:12px;
+    color:var(--text-muted);
+    font-size:12px;
+    pointer-events:none;
+  }
+  .statbar{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:8px;
+  }
+  .counts{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-muted);
+    display:flex;
+    gap:14px;
+  }
+  .counts b{color:var(--text);font-weight:600;}
+  .counts .ok{color:var(--green-ui);}
+  .counts .bad{color:var(--red-ui);}
+  .header-progress-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+  }
+  .header-progress-label{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-muted);
+  }
+  .header-progress{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+  }
+  .header-progress .stats-bar{width:90px;height:8px;}
+  .card{
+    background:var(--lcd);
+    border:2px solid var(--lcd-border);
+    border-radius:12px;
+    min-height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:32px 24px;
+    cursor:pointer;
+    user-select:none;
+    position:relative;
+  }
+  .card .tag{
+    position:absolute;
+    top:12px;
+    left:16px;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:1px;
+    color:var(--lcd-muted);
+    text-transform:uppercase;
+    max-width:70%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .card .hint{
+    position:absolute;
+    bottom:12px;
+    right:16px;
+    font-family:var(--mono);
+    font-size:10px;
+    color:var(--lcd-muted);
+  }
+  .card .face{
+    font-family:var(--serif);
+    font-size:20px;
+    line-height:1.5;
+    color:var(--lcd-text);
+  }
+  .card.flipped .face{
+    font-family:var(--mono);
+    font-size:24px;
+    color:var(--panel-accent);
+    font-weight:600;
+  }
+  .card.done{
+    color:var(--green-ui);
+  }
+  .controls{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:16px;
+  }
+  .controls button{
+    font-family:var(--sans);
+    font-size:14px;
+    font-weight:600;
+    padding:14px 10px;
+    border-radius:8px;
+    cursor:pointer;
+    border:1px solid;
+  }
+  #btnBad{
+    background:transparent;
+    color:var(--red-ui);
+    border-color:var(--red-dim-ui);
+  }
+  #btnBad:hover{background:rgba(226,84,58,0.1);}
+  #btnGood{
+    background:transparent;
+    color:var(--green-ui);
+    border-color:var(--green-dim-ui);
+  }
+  #btnGood:hover{background:rgba(111,227,160,0.1);}
+  .controls button:disabled{opacity:0.35;cursor:default;}
+  .driving-row{
+    margin-top:14px;
+    text-align:center;
+  }
+  .driving-btn{
+    width:100%;
+    font-family:var(--sans);
+    font-size:14px;
+    font-weight:600;
+    padding:12px 10px;
+    border-radius:8px;
+    cursor:pointer;
+    background:transparent;
+    color:var(--panel-accent);
+    border:1px solid var(--panel-accent-dim);
+  }
+  .driving-btn:hover{background:rgba(255,176,32,0.08);}
+  .driving-btn.active{
+    background:var(--panel-accent);
+    color:var(--chassis);
+    border-color:var(--panel-accent);
+  }
+  .driving-hint{
+    margin:8px 0 0;
+    font-family:var(--mono);
+    font-size:10.5px;
+    line-height:1.5;
+    color:var(--text-muted);
+  }
+  .toolbar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:18px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .toolbar label{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-muted);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .reset-row{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:24px;
+  }
+  .reset-btn{
+    font-family:var(--sans);
+    font-size:12px;
+    font-weight:600;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    background:transparent;
+    color:var(--red-ui);
+    border:1px solid var(--red-dim-ui);
+  }
+  .reset-btn:hover{background:rgba(226,84,58,0.08);}
+  .keys{
+    margin-top:22px;
+    text-align:center;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-muted);
+  }
+  .keys kbd{
+    background:var(--panel-2);
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:1px 6px;
+    color:var(--text);
+  }
+  .stats{margin-top:30px;}
+  .stats-title{
+    font-family:var(--serif);
+    font-size:15px;
+    color:var(--text-muted);
+    text-align:center;
+    letter-spacing:1px;
+    margin:0 0 12px;
+  }
+  .stats-cat{
+    margin-top:16px;
+    padding:8px 10px;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  .stats-cat:first-child{margin-top:0;}
+  .stats-cat:hover{background:var(--panel);}
+  .stats-cat-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .stats-cat-name{
+    flex:1;
+    font-family:var(--serif);
+    font-size:16px;
+    font-weight:700;
+    color:var(--text);
+  }
+  .stats-pct{
+    font-family:var(--mono);
+    font-size:12px;
+    width:38px;
+    text-align:right;
+    flex-shrink:0;
+  }
+  .stats-bar{
+    width:72px;
+    height:6px;
+    border-radius:3px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .stats-cat .stats-bar{height:8px;width:90px;}
+  .stats-bar-fill{
+    height:100%;
+    border-radius:3px;
+  }
+  .stats-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:5px 10px 5px 22px;
+    border-radius:6px;
+    cursor:pointer;
+  }
+  .stats-row:hover{background:var(--panel);}
+  .stats-row-name{
+    flex:1;
+    font-family:var(--sans);
+    font-size:13px;
+    color:var(--text-muted);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  footer a{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-muted);
+    text-decoration:none;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="callsign">OK-TRAINER</p>
+    <p class="sub" id="subLabel">…</p>
+  </header>
+
+  <div class="set-row">
+    <select id="setSelect"></select>
+    <button id="btnImportSet" class="icon-btn" title="Importovat sadu">📥</button>
+    <button id="btnDeleteSet" class="icon-btn" title="Smazat sadu">🗑️</button>
+    <input type="file" id="fileImportInput" accept="application/json,.json" style="display:none;">
+  </div>
+
+  <nav class="bandswitch" id="bandswitch"></nav>
+
+  <div class="subgroupbar" id="subgroupbar">
+    <select id="subgroupSelect"></select>
+  </div>
+
+  <div class="statbar">
+    <div class="counts">
+      <span>umím <b class="ok" id="cntGood">0</b></span>
+      <span>neumím <b class="bad" id="cntBad">0</b></span>
+      <span>zbývá <b id="cntLeft">0</b></span>
+    </div>
+  </div>
+
+  <div class="header-progress-row">
+    <span class="header-progress-label">Celková statistika vybrané oblasti:</span>
+    <div class="header-progress" id="headerProgress">
+      <div class="stats-bar"><div class="stats-bar-fill" id="headerBarFill"></div></div>
+      <span class="stats-pct" id="headerPct">0%</span>
+    </div>
+  </div>
+
+  <div class="card" id="card">
+    <span class="tag" id="cardTag">—</span>
+    <div class="face" id="cardFace">načítám…</div>
+    <span class="hint" id="cardHint">klikni pro otočení</span>
+  </div>
+
+  <div class="controls">
+    <button id="btnBad" disabled>✗ Neznal jsem</button>
+    <button id="btnGood" disabled>✓ Znal jsem</button>
+  </div>
+
+  <div class="driving-row">
+    <button id="btnDriving" class="driving-btn">🎧 Spustit režim handsfree</button>
+    <p class="driving-hint" id="drivingHint">TTS přečte kartičku, dál se ovládá tlačítky Next/Prev na headsetu, hodinkách nebo ve voze. Obrazovka zůstane svítit (kvůli spolehlivému ovládání) — jas si před jízdou stáhni na minimum.</p>
+  </div>
+
+  <div class="toolbar">
+    <label><input type="checkbox" id="onlyHard"> jen obtížné</label>
+  </div>
+
+  <p class="keys">
+    <kbd>mezerník</kbd> otočit &nbsp; <kbd>←</kbd> neznal jsem &nbsp; <kbd>→</kbd> znal jsem
+  </p>
+
+  <section class="stats">
+    <p class="stats-title">Statistiky úspěšnosti</p>
+    <div id="statsList"></div>
+  </section>
+
+  <div class="reset-row">
+    <button id="btnResetScope" class="reset-btn">🔄 reset statistiky vybrané (pod)oblasti</button>
+    <button id="btnResetAll" class="reset-btn">🗑️ reset všech statistik sady</button>
+  </div>
+
+  <footer style="margin-top:28px;text-align:center;">
+    <a href="https://github.com/" target="_blank" rel="noopener" id="footerLink">OK-Trainer</a>
+  </footer>
+</div>
+
+<script>
+// ============================================================
+// Vestavěná výuková sada — zároveň funguje jako ukázka formátu.
+// ============================================================
+const TUTORIAL_SET = {
+  "shortName": "Tutoriál",
+  "longName": "Ukázková sada — jak OK-Trainer používat",
+  "language": "cs-CZ",
+  "areas": [
+    {
+      "name": "Základy ovládání",
+      "subareas": [
+        {
+          "name": "Kartičky",
+          "cards": [
+            { "front": "Jak otočíš kartičku a uvidíš odpověď?", "back": "Klepnutím na kartičku, nebo klávesou mezerník." },
+            { "front": "Co znamená barva pruhu ve statistikách dole?", "back": "Červená = ještě netestováno nebo špatné výsledky, oranžová = někde uprostřed, zelená = spolehlivě umíš." }
+          ]
+        },
+        {
+          "name": "Skupiny a výběr",
+          "cards": [
+            { "front": "Jak appka rozděluje otázky?", "back": "Do oblastí a podoblastí — nahoře si vybereš oblast, pod ní konkrétní podoblast nebo „vše\"." },
+            { "front": "Co udělá tlačítko „reset statistiky vybrané (pod)oblasti\"?", "back": "Vynuluje jen uloženou úspěšnost pro danou (pod)oblast, obsah kartiček zůstane beze změny." }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pokročilé funkce",
+      "subareas": [
+        {
+          "name": "Handsfree režim",
+          "cards": [
+            { "front": "K čemu slouží tlačítko 🎧 „Spustit režim handsfree\"?", "back": "Zapne hlasové čtení kartiček ovládané tlačítky Next/Previous track na sluchátkách, hodinkách nebo ve voze." },
+            { "front": "Jak appku donutíš přečíst otázku znovu, dokud ještě neznáš odpověď?", "back": "Stiskni Prev/Previous track, dokud je kartička otočená na přední straně." }
+          ]
+        },
+        {
+          "name": "Vlastní sady otázek",
+          "cards": [
+            { "front": "Odkud appka bere otázky?", "back": "Z naimportovaného JSON souboru — appka sama žádné konkrétní otázky nezná, jen umí s takovým souborem pracovat." },
+            { "front": "Co se stane, když naimportuješ sadu se stejným krátkým názvem, jaký už appka zná?", "back": "Appka se zeptá na potvrzení a po odsouhlasení vynuluje dosavadní statistiky pro tuto sadu a nahradí ji novým obsahem." }
+          ]
+        }
+      ]
+    }
+  ]
+};
+const BUILTIN_ID = TUTORIAL_SET.shortName;
+const MAX_AREAS = 8;
+const MAX_SUBAREAS = 32;
+
+// ============================================================
+// Úložiště: knihovna sad + postup/statistiky vázané na aktivní sadu
+// ============================================================
+const LIB_KEY = "oktrainer_library_v1";
+const ACTIVE_KEY = "oktrainer_active_v1";
+
+function loadLibrary(){
+  try{
+    const raw = localStorage.getItem(LIB_KEY);
+    const lib = raw ? JSON.parse(raw) : {};
+    if(!lib[BUILTIN_ID]) lib[BUILTIN_ID] = TUTORIAL_SET;
+    return lib;
+  }catch(e){
+    return {[BUILTIN_ID]: TUTORIAL_SET};
+  }
+}
+function saveLibrary(){
+  try{ localStorage.setItem(LIB_KEY, JSON.stringify(library)); }catch(e){}
+}
+
+function progressKey(id){ return "oktrainer_progress_v1__" + id; }
+function statsKey(id){ return "oktrainer_stats_v1__" + id; }
+function navKey(id){ return "oktrainer_lastnav_v1__" + id; }
+
+function loadProgressFor(id){
+  try{
+    const raw = localStorage.getItem(progressKey(id));
+    return raw ? JSON.parse(raw) : {};
+  }catch(e){ return {}; }
+}
+function saveProgress(){
+  try{ localStorage.setItem(progressKey(activeSetId), JSON.stringify(progress)); }catch(e){}
+}
+function loadStatsFor(id){
+  try{
+    const raw = localStorage.getItem(statsKey(id));
+    return raw ? JSON.parse(raw) : {};
+  }catch(e){ return {}; }
+}
+function saveStats(){
+  try{ localStorage.setItem(statsKey(activeSetId), JSON.stringify(cardStats)); }catch(e){}
+}
+function wipeSetData(id){
+  try{
+    localStorage.removeItem(progressKey(id));
+    localStorage.removeItem(statsKey(id));
+    localStorage.removeItem(navKey(id));
+  }catch(e){}
+}
+
+let library = loadLibrary();
+let activeSetId = localStorage.getItem(ACTIVE_KEY) || BUILTIN_ID;
+if(!library[activeSetId]) activeSetId = BUILTIN_ID;
+
+let progress = {};
+let cardStats = {};
+
+// DATA / GROUP_ORDER / CAT_LABELS jsou sestaveny dynamicky z aktivní sady
+// při každém přepnutí — vše ostatní v appce (boxy, míchání, statistiky,
+// handsfree) pracuje s "cat" jen jako s obecným klíčem, stejně jako dřív.
+let DATA = {};
+let GROUP_ORDER = {};
+let CAT_LABELS = {};
+let STATS_CAT_LABELS = {};
+let ALL_LABEL = {};
+
+function applyActiveSet(setObj){
+  DATA = {}; GROUP_ORDER = {}; CAT_LABELS = {}; STATS_CAT_LABELS = {}; ALL_LABEL = {};
+  setObj.areas.forEach((area, ai) => {
+    const key = String(ai);
+    CAT_LABELS[key] = area.name.toUpperCase();
+    STATS_CAT_LABELS[key] = area.name;
+    ALL_LABEL[key] = "Vše — " + area.name;
+    GROUP_ORDER[key] = area.subareas.map(sa => sa.name);
+    DATA[key] = [];
+    area.subareas.forEach(sa => {
+      sa.cards.forEach(c => {
+        DATA[key].push([c.front, c.back, sa.name]);
+      });
+    });
+  });
+}
+
+// ============================================================
+// Validace importovaného souboru
+// ============================================================
+function validateSet(obj){
+  const errs = [];
+  if(!obj || typeof obj !== "object"){ errs.push("Soubor není platný JSON objekt."); return errs; }
+  if(!obj.shortName || typeof obj.shortName !== "string") errs.push("Chybí textové pole \"shortName\".");
+  if(!obj.longName || typeof obj.longName !== "string") errs.push("Chybí textové pole \"longName\".");
+  if(!obj.language || typeof obj.language !== "string") errs.push("Chybí textové pole \"language\" (např. \"cs-CZ\").");
+  if(!Array.isArray(obj.areas) || obj.areas.length === 0){
+    errs.push("Chybí neprázdné pole \"areas\".");
+    return errs;
+  }
+  if(obj.areas.length > MAX_AREAS) errs.push("Příliš mnoho oblastí (max. " + MAX_AREAS + ", nalezeno " + obj.areas.length + ").");
+  obj.areas.forEach((area, ai) => {
+    const label = "Oblast #" + (ai+1) + (area && area.name ? " (\"" + area.name + "\")" : "");
+    if(!area || !area.name || typeof area.name !== "string") errs.push(label + " nemá platné pole \"name\".");
+    if(!area || !Array.isArray(area.subareas) || area.subareas.length === 0){
+      errs.push(label + " nemá neprázdné pole \"subareas\".");
+      return;
+    }
+    if(area.subareas.length > MAX_SUBAREAS) errs.push(label + " má příliš mnoho podoblastí (max. " + MAX_SUBAREAS + ", nalezeno " + area.subareas.length + ").");
+    area.subareas.forEach((sa, si) => {
+      const slabel = label + " → podoblast #" + (si+1) + (sa && sa.name ? " (\"" + sa.name + "\")" : "");
+      if(!sa || !sa.name || typeof sa.name !== "string") errs.push(slabel + " nemá platné pole \"name\".");
+      if(!sa || !Array.isArray(sa.cards) || sa.cards.length === 0){
+        errs.push(slabel + " nemá neprázdné pole \"cards\".");
+        return;
+      }
+      sa.cards.forEach((c, ci) => {
+        if(!c || typeof c.front !== "string" || !c.front) errs.push(slabel + " → kartička #" + (ci+1) + " nemá platné pole \"front\".");
+        if(!c || typeof c.back !== "string" || !c.back) errs.push(slabel + " → kartička #" + (ci+1) + " nemá platné pole \"back\".");
+      });
+    });
+  });
+  return errs;
+}
+
+// ============================================================
+// Přepínání / import / mazání sad
+// ============================================================
+function renderSetSelect(){
+  const sel = document.getElementById("setSelect");
+  const ids = Object.keys(library).sort((a,b) => a === BUILTIN_ID ? -1 : b === BUILTIN_ID ? 1 : a.localeCompare(b));
+  sel.innerHTML = ids.map(id => '<option value="' + id.replace(/"/g,'&quot;') + '">' + id + '</option>').join("");
+  sel.value = activeSetId;
+  const delBtn = document.getElementById("btnDeleteSet");
+  delBtn.disabled = (activeSetId === BUILTIN_ID);
+}
+
+function renderHeaderTexts(){
+  const set = library[activeSetId];
+  document.getElementById("subLabel").textContent = set.longName;
+}
+
+function switchToSet(id, forcedNav){
+  if(!library[id]) return;
+  activeSetId = id;
+  try{ localStorage.setItem(ACTIVE_KEY, id); }catch(e){}
+  applyActiveSet(library[id]);
+  progress = loadProgressFor(id);
+  cardStats = loadStatsFor(id);
+  renderSetSelect();
+  renderHeaderTexts();
+  renderAreaNav();
+
+  let cat, group;
+  if(forcedNav){
+    cat = forcedNav.cat; group = forcedNav.group;
+  }else{
+    try{
+      const raw = localStorage.getItem(navKey(id));
+      const saved = raw ? JSON.parse(raw) : null;
+      if(saved && CAT_LABELS[saved.cat]){ cat = saved.cat; group = saved.group; }
+    }catch(e){}
+  }
+  if(!cat || !CAT_LABELS[cat]) cat = Object.keys(CAT_LABELS)[0];
+
+  setCategory(cat, group);
+  renderStats();
+}
+
+function saveLastNav(){
+  try{ localStorage.setItem(navKey(activeSetId), JSON.stringify({cat: state.cat, group: state.group})); }catch(e){}
+}
+
+document.getElementById("setSelect").addEventListener("change", (e) => {
+  switchToSet(e.target.value);
+});
+
+document.getElementById("btnImportSet").addEventListener("click", () => {
+  document.getElementById("fileImportInput").click();
+});
+
+document.getElementById("fileImportInput").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    let obj;
+    try{
+      obj = JSON.parse(reader.result);
+    }catch(err){
+      alert("Soubor se nepodařilo načíst jako platný JSON:\n" + err.message);
+      e.target.value = "";
+      return;
+    }
+    const errs = validateSet(obj);
+    if(errs.length){
+      alert("Soubor má neplatnou strukturu:\n\n" + errs.join("\n"));
+      e.target.value = "";
+      return;
+    }
+    const exists = !!library[obj.shortName];
+    if(exists){
+      const ok = confirm(
+        "Sada \"" + obj.shortName + "\" už v appce existuje.\n\n" +
+        "Import ji přepíše novým obsahem a VYNULUJE dosavadní statistiky pro tuto sadu. Pokračovat?"
+      );
+      if(!ok){ e.target.value = ""; return; }
+      wipeSetData(obj.shortName);
+    }
+    library[obj.shortName] = obj;
+    saveLibrary();
+    switchToSet(obj.shortName, {cat: "0", group: "__all__"});
+    e.target.value = "";
+  };
+  reader.readAsText(file, "utf-8");
+});
+
+document.getElementById("btnDeleteSet").addEventListener("click", () => {
+  if(activeSetId === BUILTIN_ID) return;
+  const ok = confirm("Opravdu smazat sadu \"" + activeSetId + "\" včetně všech jejích statistik? Tuto akci nelze vrátit zpět.");
+  if(!ok) return;
+  wipeSetData(activeSetId);
+  delete library[activeSetId];
+  saveLibrary();
+  switchToSet(BUILTIN_ID);
+});
+
+// ============================================================
+// Leitnerovy "boxy" (řízení opakování) — vázané na aktivní sadu
+// ============================================================
+function cardKey(cat, idx){ return cat + ":" + idx; }
+function getBox(cat, idx){
+  return progress[cardKey(cat, idx)] || 1;
+}
+function setBox(cat, idx, box){
+  progress[cardKey(cat, idx)] = Math.max(1, Math.min(5, box));
+  saveProgress();
+}
+
+// Trvalá počítadla pro statistiky úspěšnosti — nezávislá na boxu.
+function getCardStats(cat, idx){
+  return cardStats[cardKey(cat, idx)] || {correct: 0, wrong: 0};
+}
+function recordAnswer(cat, idx, good){
+  const k = cardKey(cat, idx);
+  const s = cardStats[k] || {correct: 0, wrong: 0};
+  if(good) s.correct++; else s.wrong++;
+  cardStats[k] = s;
+  saveStats();
+}
+function resetCardStats(cat, idx){
+  delete cardStats[cardKey(cat, idx)];
+  saveStats();
+}
+
+// ============================================================
+// Stav aktuálního kola
+// ============================================================
+let state = {
+  cat: "0",
+  group: "__all__",
+  deck: [],
+  pos: 0,
+  flipped: false,
+  sessionGood: 0,
+  sessionBad: 0
+};
+
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
+}
+
+// Sestaví pořadí kartiček tak, aby se stejná kartička nikdy neobjevila
+// dvakrát za sebou, ale zachovalo se procentuální zastoupení podle
+// Leitnerova boxu (greedy podle zbývajícího počtu).
+function buildNoAdjacentSequence(countsObj){
+  let items = Object.keys(countsObj).map(k => ({idx: Number(k), count: countsObj[k]}));
+  const total = items.reduce((a,b) => a + b.count, 0);
+  let result = [];
+  let last = null;
+  while(result.length < total){
+    let candidates = items.filter(i => i.count > 0 && i.idx !== last);
+    if(candidates.length === 0){
+      candidates = items.filter(i => i.count > 0);
+    }
+    const maxCount = Math.max(...candidates.map(c => c.count));
+    const top = candidates.filter(c => c.count === maxCount);
+    const choice = top[Math.floor(Math.random() * top.length)];
+    result.push(choice.idx);
+    choice.count--;
+    last = choice.idx;
+  }
+  return result;
+}
+
+function hasGroups(cat){
+  return !!GROUP_ORDER[cat];
+}
+
+function renderSubgroupBar(){
+  const bar = document.getElementById("subgroupbar");
+  const sel = document.getElementById("subgroupSelect");
+  if(!hasGroups(state.cat)){
+    bar.classList.remove("visible");
+    return;
+  }
+  bar.classList.add("visible");
+  const groups = GROUP_ORDER[state.cat];
+  const label = ALL_LABEL[state.cat] || "Vše";
+  let html = '<option value="__all__">' + label + '</option>';
+  groups.forEach(g => {
+    html += '<option value="' + g.replace(/"/g,'&quot;') + '">' + g + '</option>';
+  });
+  sel.innerHTML = html;
+  sel.value = state.group;
+}
+
+function buildDeck(){
+  const items = DATA[state.cat] || [];
+  const onlyHard = document.getElementById("onlyHard").checked;
+  let indices = items.map((_, i) => i);
+  if(hasGroups(state.cat) && state.group !== "__all__"){
+    indices = indices.filter(i => items[i][2] === state.group);
+  }
+  if(onlyHard){
+    const filteredByHard = indices.filter(i => getBox(state.cat, i) <= 2);
+    if(filteredByHard.length > 0) indices = filteredByHard;
+  }
+  const counts = {};
+  indices.forEach(i => {
+    const box = getBox(state.cat, i);
+    counts[i] = Math.max(1, 6 - box);
+  });
+  state.deck = Object.keys(counts).length ? buildNoAdjacentSequence(counts) : [];
+  state.pos = 0;
+  state.flipped = false;
+}
+
+function currentItem(){
+  const items = DATA[state.cat] || [];
+  if(state.pos >= state.deck.length) return null;
+  const idx = state.deck[state.pos];
+  return {idx, front: items[idx][0], back: items[idx][1]};
+}
+
+function renderCard(){
+  const card = document.getElementById("card");
+  const face = document.getElementById("cardFace");
+  const hint = document.getElementById("cardHint");
+  const tag = document.getElementById("cardTag");
+  const groupLabel = hasGroups(state.cat) && state.group !== "__all__" ? " · " + state.group : "";
+  tag.textContent = (CAT_LABELS[state.cat] || "") + groupLabel;
+  const item = currentItem();
+  const btnGood = document.getElementById("btnGood");
+  const btnBad = document.getElementById("btnBad");
+
+  if(!item){
+    card.classList.remove("flipped");
+    card.classList.add("done");
+    face.textContent = "Výběr procvičen ✓ — klikni pro nové kolo";
+    hint.textContent = "";
+    btnGood.disabled = true;
+    btnBad.disabled = true;
+    updateStats();
+    return;
+  }
+  card.classList.remove("done");
+  if(state.flipped){
+    card.classList.add("flipped");
+    face.textContent = item.back;
+    hint.textContent = "klikni pro otočení zpět";
+    btnGood.disabled = false;
+    btnBad.disabled = false;
+  }else{
+    card.classList.remove("flipped");
+    face.textContent = item.front;
+    hint.textContent = "klikni pro otočení";
+    btnGood.disabled = true;
+    btnBad.disabled = true;
+  }
+  updateStats();
+}
+
+function updateStats(){
+  document.getElementById("cntGood").textContent = state.sessionGood;
+  document.getElementById("cntBad").textContent = state.sessionBad;
+  document.getElementById("cntLeft").textContent = Math.max(0, state.deck.length - state.pos);
+  updateHeaderProgress();
+}
+
+function cssVar(name, fallback){
+  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  return v || fallback;
+}
+
+function currentScopePct(){
+  const items = DATA[state.cat] || [];
+  let idxs = items.map((_,i) => i);
+  if(hasGroups(state.cat) && state.group !== "__all__"){
+    idxs = idxs.filter(i => items[i][2] === state.group);
+  }
+  return idxs.length ? idxs.reduce((s,i) => s + itemSuccessPct(state.cat,i), 0) / idxs.length : 0;
+}
+
+function updateHeaderProgress(){
+  const pct = currentScopePct();
+  const color = successColor(pct);
+  const fill = document.getElementById("headerBarFill");
+  const label = document.getElementById("headerPct");
+  if(fill){ fill.style.width = pct + "%"; fill.style.background = color; }
+  if(label){ label.textContent = Math.round(pct) + "%"; label.style.color = color; }
+}
+
+function flip(){
+  if(!currentItem()){
+    state.sessionGood = 0; state.sessionBad = 0;
+    buildDeck();
+    renderCard();
+    return;
+  }
+  state.flipped = !state.flipped;
+  renderCard();
+}
+
+function grade(good){
+  const item = currentItem();
+  if(!item) return;
+  const box = getBox(state.cat, item.idx);
+  setBox(state.cat, item.idx, good ? box+1 : 1);
+  recordAnswer(state.cat, item.idx, good);
+  if(good) state.sessionGood++; else state.sessionBad++;
+  state.pos++;
+  state.flipped = false;
+  renderCard();
+  renderStats();
+}
+
+function renderAreaNav(){
+  const nav = document.getElementById("bandswitch");
+  nav.innerHTML = Object.keys(CAT_LABELS).map(cat =>
+    '<button data-cat="' + cat + '">' + CAT_LABELS[cat] + '</button>'
+  ).join("");
+}
+
+function setCategory(cat, forcedGroup){
+  state.cat = cat;
+  if(forcedGroup !== undefined && forcedGroup !== null){
+    state.group = forcedGroup;
+  }else{
+    const validGroups = GROUP_ORDER[cat] || [];
+    state.group = validGroups.length ? "__all__" : "__all__";
+  }
+  document.querySelectorAll("#bandswitch button").forEach(b => {
+    b.classList.toggle("active", b.dataset.cat === cat);
+  });
+  state.sessionGood = 0;
+  state.sessionBad = 0;
+  renderSubgroupBar();
+  buildDeck();
+  renderCard();
+  saveLastNav();
+}
+
+function setGroup(group){
+  state.group = group;
+  state.sessionGood = 0;
+  state.sessionBad = 0;
+  buildDeck();
+  renderCard();
+  saveLastNav();
+}
+
+// ============================================================
+// Statistiky úspěšnosti
+// ============================================================
+function hexToRgb(hex){
+  hex = hex.replace('#','').trim();
+  if(hex.length === 3) hex = hex.split('').map(c => c+c).join('');
+  const num = parseInt(hex, 16) || 0;
+  return {r:(num>>16)&255, g:(num>>8)&255, b:num&255};
+}
+function rgbToHex(r,g,b){
+  const h = x => Math.max(0,Math.min(255,Math.round(x))).toString(16).padStart(2,'0');
+  return '#' + h(r) + h(g) + h(b);
+}
+function lerpColor(c1, c2, t){
+  return {r:c1.r+(c2.r-c1.r)*t, g:c1.g+(c2.g-c1.g)*t, b:c1.b+(c2.b-c1.b)*t};
+}
+function successColor(pct){
+  const red = hexToRgb(cssVar('--red-ui','#e2543a'));
+  const mid = hexToRgb(cssVar('--panel-accent','#ffb020'));
+  const green = hexToRgb(cssVar('--green-ui','#6fe3a0'));
+  const c = pct <= 50 ? lerpColor(red, mid, pct/50) : lerpColor(mid, green, (pct-50)/50);
+  return rgbToHex(c.r, c.g, c.b);
+}
+
+function itemSuccessPct(cat, idx){
+  const s = getCardStats(cat, idx);
+  const total = s.correct + s.wrong;
+  return total ? (s.correct / total) * 100 : 0;
+}
+
+function computeCategoryStats(cat){
+  const items = DATA[cat] || [];
+  const groups = GROUP_ORDER[cat] || [];
+  const groupStats = groups.map(g => {
+    const idxs = items.map((_,i) => i).filter(i => items[i][2] === g);
+    const pct = idxs.length ? idxs.reduce((s,i) => s + itemSuccessPct(cat,i), 0) / idxs.length : 0;
+    return {group: g, pct};
+  });
+  const allIdxs = items.map((_,i) => i);
+  const catPct = allIdxs.length ? allIdxs.reduce((s,i) => s + itemSuccessPct(cat,i), 0) / allIdxs.length : 0;
+  return {catPct, groupStats};
+}
+
+function renderStats(){
+  const container = document.getElementById("statsList");
+  if(!container) return;
+  let html = "";
+  Object.keys(STATS_CAT_LABELS).forEach(cat => {
+    const {catPct, groupStats} = computeCategoryStats(cat);
+    const catColor = successColor(catPct);
+    html += '<div class="stats-cat" data-cat="'+cat+'" data-group="__all__">'
+      + '<div class="stats-cat-head">'
+      + '<span class="stats-cat-name">'+STATS_CAT_LABELS[cat]+'</span>'
+      + '<div class="stats-bar"><div class="stats-bar-fill" style="width:'+catPct+'%;background:'+catColor+';"></div></div>'
+      + '<span class="stats-pct" style="color:'+catColor+';">'+Math.round(catPct)+'%</span>'
+      + '</div></div>';
+    groupStats.forEach(({group, pct}) => {
+      const color = successColor(pct);
+      const safeGroup = group.replace(/"/g, '&quot;');
+      html += '<div class="stats-row" data-cat="'+cat+'" data-group="'+safeGroup+'">'
+        + '<span class="stats-row-name">'+group+'</span>'
+        + '<div class="stats-bar"><div class="stats-bar-fill" style="width:'+pct+'%;background:'+color+';"></div></div>'
+        + '<span class="stats-pct" style="color:'+color+';">'+Math.round(pct)+'%</span>'
+        + '</div>';
+    });
+  });
+  container.innerHTML = html;
+}
+
+document.getElementById("statsList").addEventListener("click", e => {
+  const row = e.target.closest("[data-cat]");
+  if(!row) return;
+  setCategory(row.dataset.cat, row.dataset.group);
+  document.querySelector(".wrap").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+// ============================================================
+// Režim handsfree (TTS + Media Session ovládání přes Next/Prev Track)
+// ============================================================
+let drivingModeActive = false;
+let silentAudioEl = null;
+let wakeLockSentinel = null;
+
+async function requestWakeLock(){
+  if(!("wakeLock" in navigator)) return;
+  try{
+    wakeLockSentinel = await navigator.wakeLock.request("screen");
+    wakeLockSentinel.addEventListener("release", () => { wakeLockSentinel = null; });
+  }catch(e){
+    wakeLockSentinel = null;
+  }
+}
+function releaseWakeLock(){
+  if(wakeLockSentinel){
+    try{ wakeLockSentinel.release(); }catch(e){}
+    wakeLockSentinel = null;
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if(drivingModeActive && document.visibilityState === "visible" && !wakeLockSentinel){
+    requestWakeLock();
+  }
+});
+
+function speak(text, onDone){
+  if(!("speechSynthesis" in window) || !text){
+    if(onDone) onDone();
+    return;
+  }
+  try{
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
+    if(onDone){
+      u.onend = onDone;
+      u.onerror = onDone;
+    }
+    window.speechSynthesis.speak(u);
+  }catch(e){
+    if(onDone) onDone();
+  }
+}
+
+function speakFront(){
+  const item = currentItem();
+  if(item) speak(item.front);
+}
+function speakBack(){
+  const item = currentItem();
+  if(item) speak(item.back);
+}
+function announceCurrentState(){
+  if(!drivingModeActive) return;
+  const item = currentItem();
+  if(!item){ speak("Kolo dokončeno."); return; }
+  if(state.flipped) speakBack(); else speakFront();
+}
+
+function scopeSpokenLabel(cat, group){
+  const catName = STATS_CAT_LABELS[cat] || cat;
+  return (group && group !== "__all__") ? (catName + ", " + group) : ("celá oblast " + catName);
+}
+
+function allSubgroupScopes(){
+  const scopes = [];
+  Object.keys(CAT_LABELS).forEach(cat => {
+    (GROUP_ORDER[cat] || []).forEach(g => scopes.push({cat, group: g}));
+  });
+  return scopes;
+}
+function allCategoryScopes(){
+  return Object.keys(CAT_LABELS).map(cat => ({cat, group: "__all__"}));
+}
+
+function advanceScope(){
+  if(state.group === "__all__"){
+    const scopes = allCategoryScopes();
+    const i = scopes.findIndex(s => s.cat === state.cat && s.group === "__all__");
+    const next = scopes[(i + 1) % scopes.length];
+    setCategory(next.cat, next.group);
+  }else{
+    const scopes = allSubgroupScopes();
+    const i = scopes.findIndex(s => s.cat === state.cat && s.group === state.group);
+    const next = scopes[(i + 1) % scopes.length];
+    setCategory(next.cat, next.group);
+  }
+  updateDrivingMetadata();
+}
+
+function updateDrivingMetadata(){
+  if(!drivingModeActive || !("mediaSession" in navigator)) return;
+  try{
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: scopeSpokenLabel(state.cat, state.group),
+      artist: "OK-Trainer — " + (library[activeSetId] ? library[activeSetId].shortName : "")
+    });
+  }catch(e){}
+}
+
+function speakNextCardOrDone(){
+  if(currentItem()) speakFront();
+  else speak("Kolo dokončeno.");
+}
+
+function drivingNext(){
+  if(!currentItem()){
+    advanceScope();
+    speak("Další výběr. " + scopeSpokenLabel(state.cat, state.group) + ".", speakFront);
+    return;
+  }
+  if(!state.flipped){
+    flip();
+    speakBack();
+  }else{
+    grade(true);
+    speak("Znal jsi.", speakNextCardOrDone);
+  }
+}
+
+function drivingPrev(){
+  if(!currentItem()){
+    state.sessionGood = 0; state.sessionBad = 0;
+    buildDeck();
+    renderCard();
+    speak("Výběr restartován.", speakFront);
+    return;
+  }
+  if(!state.flipped){
+    speak("Čtu znovu.", speakFront);
+  }else{
+    grade(false);
+    speak("Neznal jsi.", speakNextCardOrDone);
+  }
+}
+
+function startDrivingMode(){
+  if(!("speechSynthesis" in window) || !("mediaSession" in navigator)){
+    alert("Tento prohlížeč nepodporuje hlasové čtení nebo ovládání přes media tlačítka.");
+    return;
+  }
+
+  if(!silentAudioEl){
+    silentAudioEl = new Audio("keepalive.wav");
+    silentAudioEl.loop = true;
+    // Zvuk musí aktivně hrát, aby appka vůbec získala audio focus (bez
+    // přehrávaného <audio> elementu Media Session API na Androidu
+    // nefunguje). Ověřeno na reálném zařízení: volume = 0 appku z audio
+    // focusu úplně vyřadí, zatímco jakákoliv nenulová hodnota funguje —
+    // 0.00001 je prakticky neslyšitelná. Spolehlivost s vypnutou obrazovkou
+    // řeší Wake Lock níže, ne hlasitost.
+    silentAudioEl.volume = 0.00001;
+  }
+  silentAudioEl.play().catch(() => {});
+  requestWakeLock();
+
+  const actions = {
+    "nexttrack": drivingNext,
+    "previoustrack": drivingPrev,
+    "seekforward": drivingNext,
+    "seekbackward": drivingPrev,
+    "play": () => {},
+    "pause": () => {},
+    "stop": stopDrivingMode,
+  };
+  Object.keys(actions).forEach(name => {
+    try{ navigator.mediaSession.setActionHandler(name, actions[name]); }catch(e){}
+  });
+  navigator.mediaSession.playbackState = "playing";
+
+  drivingModeActive = true;
+  updateDrivingMetadata();
+  const btn = document.getElementById("btnDriving");
+  if(btn){ btn.textContent = "🎧 Ukončit režim handsfree"; btn.classList.add("active"); }
+
+  speak(
+    "Režim handsfree aktivní. Program ovládejte tlačítky pro další nebo předchozí skladbu. " + scopeSpokenLabel(state.cat, state.group) + ".",
+    speakFront
+  );
+}
+
+function stopDrivingMode(){
+  drivingModeActive = false;
+  releaseWakeLock();
+  if(silentAudioEl){ silentAudioEl.pause(); }
+  try{
+    ["nexttrack","previoustrack","seekforward","seekbackward","play","pause","stop"].forEach(name => {
+      try{ navigator.mediaSession.setActionHandler(name, null); }catch(e){}
+    });
+    navigator.mediaSession.playbackState = "none";
+  }catch(e){}
+  if("speechSynthesis" in window) window.speechSynthesis.cancel();
+  const btn = document.getElementById("btnDriving");
+  if(btn){ btn.textContent = "🎧 Spustit režim handsfree"; btn.classList.remove("active"); }
+}
+
+document.getElementById("btnDriving") && document.getElementById("btnDriving").addEventListener("click", () => {
+  if(drivingModeActive) stopDrivingMode(); else startDrivingMode();
+});
+
+// ============================================================
+// Ovládání
+// ============================================================
+document.getElementById("bandswitch").addEventListener("click", e => {
+  const btn = e.target.closest("button[data-cat]");
+  if(btn) setCategory(btn.dataset.cat);
+});
+document.getElementById("subgroupSelect").addEventListener("change", e => {
+  setGroup(e.target.value);
+});
+document.getElementById("card").addEventListener("click", () => {
+  flip();
+  announceCurrentState();
+});
+document.getElementById("btnGood").addEventListener("click", () => {
+  grade(true);
+  announceCurrentState();
+});
+document.getElementById("btnBad").addEventListener("click", () => {
+  grade(false);
+  announceCurrentState();
+});
+document.getElementById("btnResetScope").addEventListener("click", () => {
+  const scope = hasGroups(state.cat) && state.group !== "__all__" ? state.group : CAT_LABELS[state.cat];
+  if(!confirm("Resetovat statistiky i uložený postup pro \"" + scope + "\" (sada \"" + activeSetId + "\")?")) return;
+  const items = DATA[state.cat] || [];
+  items.forEach((it, i) => {
+    if(state.group === "__all__" || it[2] === state.group){
+      delete progress[cardKey(state.cat, i)];
+      resetCardStats(state.cat, i);
+    }
+  });
+  saveProgress();
+  state.sessionGood = 0; state.sessionBad = 0;
+  buildDeck(); renderCard(); renderStats();
+});
+document.getElementById("btnResetAll").addEventListener("click", () => {
+  if(!confirm("Opravdu vynulovat úplně všechny statistiky a uložený postup v celé sadě \"" + activeSetId + "\"? Tuto akci nelze vrátit zpět.")) return;
+  progress = {};
+  cardStats = {};
+  saveProgress();
+  saveStats();
+  state.sessionGood = 0; state.sessionBad = 0;
+  buildDeck(); renderCard(); renderStats();
+});
+document.getElementById("onlyHard").addEventListener("change", () => {
+  state.sessionGood = 0; state.sessionBad = 0;
+  buildDeck(); renderCard();
+});
+document.addEventListener("keydown", e => {
+  if(e.code === "Space"){ e.preventDefault(); flip(); announceCurrentState(); }
+  else if(e.code === "ArrowRight" && state.flipped){ grade(true); announceCurrentState(); }
+  else if(e.code === "ArrowLeft" && state.flipped){ grade(false); announceCurrentState(); }
+  else if(drivingModeActive){
+    if(e.key === "MediaTrackNext"){ drivingNext(); }
+    else if(e.key === "MediaTrackPrevious"){ drivingPrev(); }
+  }
+});
+
+if(window.matchMedia){
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    updateHeaderProgress();
+    renderStats();
+  });
+}
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
+}
+
+// ============================================================
+// Inicializace
+// ============================================================
+switchToSet(activeSetId);
+</script>
+</body>
+</html>
