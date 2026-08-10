@@ -4,6 +4,510 @@
   "language": "cs-CZ",
   "areas": [
     {
+      "name": "Radiokomunikační předpisy",
+      "subareas": [
+        {
+          "name": "Předpisy Mezinárodní telekomunikační unie (ITU) - 1. část",
+          "cards": [
+            {
+              "front": "Amatérskou radiokomunikační službou se rozumí:",
+              "back": "radiokomunikační služba pro sebevzdělávání a technická studia"
+            },
+            {
+              "front": "Stanicí amatérské radiokomunikační služby se rozumí:",
+              "back": "jedno nebo více vysílacích a přijímacích zařízení včetně příslušenství, umožňující komunikaci v amatérských pásmech"
+            },
+            {
+              "front": "Obecná ustanovení Radiokomunikačního řádu Mezinárodní telekomunikační unie (ITU) se týkají:",
+              "back": "i amatérské služby"
+            },
+            {
+              "front": "Maximální výstupní výkon amatérských stanic stanovuje:",
+              "back": "národní povolovací orgán"
+            },
+            {
+              "front": "Krátkodobé vysílání držitele oprávnění amatérské služby z území jiného státu závisí na:",
+              "back": "povolovacím orgánu navštíveného státu"
+            },
+            {
+              "front": "Česká republika se nachází v regionu podle Mezinárodní telekomunikační unie (ITU):",
+              "back": "1"
+            },
+            {
+              "front": "Status amatérské radiokomunikační služby v jednotlivých radioamatérských pásmech je:",
+              "back": "různý"
+            },
+            {
+              "front": "Radioamatérská stanice může být použita v zájmu třetí osoby:",
+              "back": "pro zajištění komunikace v případě přírodních katastrof"
+            }
+          ]
+        },
+        {
+          "name": "Předpisy Mezinárodní telekomunikační unie (ITU) - 2. část",
+          "cards": [
+            {
+              "front": "Požadavky na zkoušky amatérských stanic určuje:",
+              "back": "národní povolovací orgán"
+            },
+            {
+              "front": "Tvar volací značky radioamatérské stanice je určen:",
+              "back": "Radiokomunikačním řádem Mezinárodní telekomunikační unie (ITU)"
+            },
+            {
+              "front": "Radiokomunikační řád Mezinárodní telekomunikační unie (ITU) nepovoluje:",
+              "back": "třípísmenný sufix amatérské stanice, který začíná písmenem Q"
+            },
+            {
+              "front": "Série mezinárodních volacích znaků pro jednotlivé státy přiděluje:",
+              "back": "Mezinárodní telekomunikační unie (ITU)"
+            },
+            {
+              "front": "Status pásem přidělených amatérské radiokomunikační službě je určen:",
+              "back": "Radiokomunikačním řádem Mezinárodní telekomunikační unie (ITU)"
+            },
+            {
+              "front": "Česká republika má přiděleny série volacích značek:",
+              "back": "OKA až OKZ a OLA až OLZ"
+            },
+            {
+              "front": "Na stanice amatérské družicové radiokomunikační služby:",
+              "back": "se vztahují všechna ustanovení amatérské radiokomunikační služby"
+            },
+            {
+              "front": "Má-li služba pásmo přiděleno na podružné bázi, pak:",
+              "back": "vysílání nesmí způsobit škodlivé rušení stanicím přednostních služeb"
+            }
+          ]    
+        },
+        {
+          "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) - 1. část",
+          "cards": [
+            {
+              "front": "Doporučení CEPT T/R 61-02 stanoví:",
+              "back": "požadavky na zkoušky pro získání průkazu odborné způsobilosti k obsluze stanice amatérské radiokomunikační služby"
+            },
+            {
+              "front": "V navštívené zemi se používá volací značka, sestávající z:",
+              "back": "prefixu navštívené země podle Doporučení T/R 61-01, odděleného znakem „/“ od vlastní volací značky"
+            },
+            {
+              "front": "Držitel oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT) může ze zahraničí vysílat nepřetržitě:",
+              "back": "3 měsíce"
+            },
+            {
+              "front": "V navštívené zemi je nutno dodržovat:",
+              "back": "předpisy a nařízení navštívené země"
+            },
+            {
+              "front": "V souladu s Doporučením CEPT T/R 61-01 je možno krátkodobě vysílat:",
+              "back": "i z nečlenských zemí CEPT které k Doporučení CEPT T/R 61-01 přistoupily"
+            },
+            {
+              "front": "Volací znak pro navštívenou zemi je složen z národního volacího znaku držitele povolení, kterému je předřazen prefix navštívené země, jak je stanoveno:",
+              "back": "Doporučením CEPT T/R 61-01"
+            },
+            {
+              "front": "Třídy oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT) jsou:",
+              "back": "pouze jedna třída"
+            },
+            {
+              "front": "Ačkoliv sylabus podle doporučení CEPT nepožaduje zkoušku pro ověření znalosti telegrafie, některé země tuto znalost vyžadují. Aktuální přehled požadavků na znalost telegrafie je uveden v:",
+              "back": "doporučení CEPT T/R 61-02"
+            }
+          ]
+        },
+        {
+          "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) - 2. část",
+          "cards": [          
+            {
+              "front": "Na základě průkazu odborné způsobilosti HAREC je možno bez zkoušky získat radioamatérské oprávnění v zemích",
+              "back": "které přistoupily k Doporučení CEPT T/R 61-02"
+            },
+            {
+              "front": "Na oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT) nemusí být uvedeno:",
+              "back": "rodné číslo držitele oprávnění"
+            },
+            {
+              "front": "Doporučení T/R 61-01 se vztahuje na:",
+              "back": "oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT)"
+            },
+            {
+              "front": "Na základě Doporučení T/R 61-01 držitel oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT:",
+              "back": "může vysílat ze země, která k tomuto doporučení přistoupila"
+            },
+            {
+              "front": "Průkaz odborné způsobilosti HAREC opravňuje:",
+              "back": "k žádosti o vydání oprávnění k provozu stanice amatérské radiokomunikační služby v zemích, které přistoupily k Doporučení CEPT T/R 61-02"
+            },
+            {
+              "front": "Průkaz odborné způsobilosti HAREC vystaví:",
+              "back": "povolovací orgán na základě úspěšně vykonané zkoušky"
+            },
+            {
+              "front": "Země, ze kterých je možno vysílat v souladu s Doporučením CEPT T/R 61-01 jsou uvedeny:",
+              "back": "v Doporučení CEPT T/R 61-01"
+            },
+            {
+              "front": "Doporučení CEPT T/R 61-01 se nevztahuje na:",
+              "back": "klubové stanice"
+            }
+          ]      
+        },
+        {
+          "name": "Předpisy vycházející z legislativy České republiky - 1. část",
+          "cards": [                    
+            {
+              "front": "Stanici amatérské radiokomunikační služby lze provozovat:",
+              "back": "na základě oprávnění, které vydal Český telekomunikační úřad"
+            },            
+            {
+              "front": "Staniční deník je požadován:",
+              "back": "pouze u klubových stanic"
+            },            
+            {
+              "front": "Během změny vysílacího kmitočtu",
+              "back": "nesmí být vyzařována žádná energie s výjimkou provozu přes družice"
+            },            
+            {
+              "front": "Zkušební provoz vysílače musí být:",
+              "back": "prováděn pouze do umělé zátěže s výjimkou nastavení antén a výstupních obvodů vysílače"
+            },            
+            {
+              "front": "Při vysílání mimo stanovišť uvedených v oprávnění",
+              "back": "doplníme volací značku o „/p“ při provozu z pevného stanoviště"
+            },            
+            {
+              "front": "Při vysílání mimo stanovišť uvedených v oprávnění",
+              "back": "doplníme volací značku o „/m“ při mobilním provozu"
+            },
+            {
+              "front": "Použití „/p“ a „/m“ není na přechodném stanovišti povinné:",
+              "back": "při radioamatérských závodech"
+            },            
+            {
+              "front": "K radioamatérskému provozu na prostředcích lodní a letecké dopravy:",
+              "back": "je nutný souhlas majitele, respektive provozovatele tohoto prostředku"
+            }
+          ]
+        },
+        {
+          "name": "Předpisy vycházející z legislativy České republiky - 2. část",
+          "cards": [                    
+            {
+              "front": "Jednotlivé úseky pásem pro různé druhy provozu určuje:",
+              "back": "doporučení Mezinárodní radioamatérské unie (IARU)"
+            },            
+            {
+              "front": "Vysílání může obsahovat:",
+              "back": "radioamatérské zkratky a Q kódy"
+            },            
+            {
+              "front": "Za obsluhu klubové stanice odpovídá:",
+              "back": "dozírající operátor"
+            },            
+            {
+              "front": "Během mezinárodního závodu může operátor třídy A obsluhovat stanici o maximálním výkonu:",
+              "back": "1,5 kW v zastavěném obytném území"
+            },            
+            {
+              "front": "Jaká radioamatérská stanice automaticky přenáší signály jiné stanice?",
+              "back": "Převáděč."
+            },            
+            {
+              "front": "Který druh radioamatérské stanice zajišťuje pouze jednocestnou komunikaci?",
+              "back": "Maják."
+            },
+            {
+              "front": "Kdy se mohou v radioamatérském provozu vysílat kódované zprávy?",
+              "back": "Nikdy."
+            },            
+            {
+              "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během závodu na kmitočtu 7 105 kHz?",
+              "back": "750 W PEP"
+            }
+          ]
+        },
+        {
+          "name": "Předpisy vycházející z legislativy České republiky - 3. část",
+          "cards": [                    
+            {
+              "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít na kmitočtu 24 950 kHz?",
+              "back": "750 W PEP"
+            },            
+            {
+              "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během závodu na kmitočtu 50 105 kHz?",
+              "back": "25 W PEP"
+            },            
+            {
+              "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během běžného provozu na kmitočtu 1 820 kHz?",
+              "back": "750 W PEP"
+            },            
+            {
+              "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít na kmitočtu 1 900 kHz?",
+              "back": "10 W PEP"
+            },            
+            {
+              "front": "Oprávnění amatérské radiokomunikační služby má platnost:",
+              "back": "zpravidla 5 let, pokud není vydáno na dobu kratší"
+            },            
+            {
+              "front": "Vysílače pro rádiový orientační běh vysílají:",
+              "back": "pouze mezinárodně používané znaky MO, MOE, MOI, MOS, MOH a MO5"
+            },
+            {
+              "front": "Označení druhů provozu podle Přílohy č. 2 vyhlášky č. 156/2005 Sb., o technických a provozních podmínkách amatérské radiokomunikační služby, určuje:",
+              "back": "Radiokomunikační řád Mezinárodní telekomunikační unie (ITU)"
+            },            
+            {
+              "front": "Vysílací zařízení s výkonem nad 6 W musí být opatřeno:",
+              "back": "nesymetrickým výstupem o impedanci 50 Ohm až 100 Ohm"
+            }
+          ]
+        },
+        {
+          "name": "Předpisy vycházející z legislativy České republiky - 4. část",
+          "cards": [                              
+            {
+              "front": "Fonický provoz LSB na kmitočtu 10,14 MHz:",
+              "back": "nelze uskutečnit"
+            },            
+            {
+              "front": "Fonický provoz USB na kmitočtu 14,35 MHz:",
+              "back": "nelze uskutečnit"
+            },            
+            {
+              "front": "Při současném použití více koncových stupňů pro napájení různých antén na stejném kmitočtu:",
+              "back": "nesmí být překročeny povolené výkony v jejich součtu výkonů jednotlivých zařízení"
+            },            
+            {
+              "front": "Operátor, který není držitelem průkazu HAREC nebo NOVICE, může klubovou stanici obsluhovat",
+              "back": "ve třídě N pod dozorem oprávněného operátora"
+            },            
+            {
+              "front": "Obsahem vysílání může být:",
+              "back": "vysílání mezinárodních zkratek a kódů a mezinárodně uznávaných protokolů"
+            },            
+            {
+              "front": "K získání průkazu odborné způsobilosti HAREC není nutno skládat zkoušku:",
+              "back": "příjmu a vysílání telegrafie"
+            },
+            {
+              "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače provozovaného v pásmu 6 m:",
+              "back": "musí být potlačen minimálně o 40 dB, smí být však maximálně 25 μW"
+            },            
+            {
+              "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 W provozovaného v pásmu 2 m:",
+              "back": "musí být potlačen minimálně o 60 dB, smí být však maximálně 1 mW"
+            }
+          ]
+        },
+        {
+          "name": "Předpisy vycházející z legislativy České republiky - 5. část",
+          "cards": [                    
+            {
+              "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače provozovaného na kmitočtech nižších než 29,7 MHz:",
+              "back": "musí být potlačen minimálně o 40 dB, smí být však maximálně 50 mW"
+            },            
+            {
+              "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 W provozovaného v pásmu 430 až 440 MHz:",
+              "back": "musí být potlačen minimálně o 60 dB, smí být však maximálně 20 mW"
+            },            
+            {
+              "front": "Na kmitočtu 1840 kHz nelze uskutečnit:",
+              "back": "SSB spojení"
+            },            
+            {
+              "front": "Na kmitočtu 10145 kHz lze provozovat:",
+              "back": "pouze úzkopásmové datové provozy"
+            },            
+            {
+              "front": "Zápis do staničního deníku klubové stanice během spojení provádí:",
+              "back": "operátor"
+            },            
+            {
+              "front": "Vlastní volací značku je nutno uvádět:",
+              "back": "na začátku a konci spojení, je-li kratší než 10 minut"
+            },
+            {
+              "front": "Vlastní volací značku při delším spojení je nutno uvádět:",
+              "back": "na začátku a konci spojení a při delším spojení každých 10 minut"
+            },            
+            {
+              "front": "Při ohrožení života, zdraví a majetku lze stanici použít k tísňové komunikaci:",
+              "back": "v libovolných pásmech amatérské radiokomunikační služby"
+            }
+          ]
+        },
+        {
+          "name": "Předpisy vycházející z legislativy České republiky - 6. část",
+          "cards": [                    
+            {
+              "front": "Pro účely státní kontroly musí být na stanici:",
+              "back": "výstupní konektor zařízení typu N nebo BNC, případně redukce z výstupu vysílače na jeden z těchto konektorů"
+            },            
+            {
+              "front": "Označení druhu provozu podle Přílohy č. 2 vyhlášky o technických a provozních podmínkách amatérské radiokomunikační služby neurčuje:",
+              "back": "druh radioamatérského provozu"
+            },            
+            {
+              "front": "Mezi neobsluhované stanice nepatří:",
+              "back": "pozemní stanice amatérské družicové radioamatérské služby"
+            },            
+            {
+              "front": "Maximální výstupní výkon neobsluhované stanice může být:",
+              "back": "50 W"
+            },            
+            {
+              "front": "Neobsluhované stanice používají volací značku, která sestává:",
+              "back": "z prefixu OK0 a sufixu, který obsahuje jedno, dvě nebo tři písmena"
+            },            
+            {
+              "front": "Volací značka klubové stanice sestává:",
+              "back": "z prefixu OK1 nebo OK2 a sufixu, který má tři písmena, z nichž prvé je K, O nebo R"
+            },
+            {
+              "front": "Mezi přednostní pásma přidělená amatérské radiokomunikační službě nepatří pásmo:",
+              "back": "1850 až 2000 kHz"
+            },            
+            {
+              "front": "Na neinterferenční bázi má držitel oprávnění třídy A amatérské radiokomunikační služby v České republice povoleno pásmo:",
+              "back": "50 až 52 MHz"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hláskovací abeceda (česká/mezinárodní)",
+      "subareas": [
+        {
+          "name": "Hláskovací abeceda (česká/mezinárodní) - A - G",
+          "cards": [
+            {
+              "front": "A:",
+              "back": "Adam / Alpha"
+            },
+            {
+              "front": "B:",
+              "back": "Božena / Bravo"
+            },
+            {
+              "front": "C:",
+              "back": "Cyril / Charlie"
+            },
+            {
+              "front": "D:",
+              "back": "David / Delta"
+            },
+            {
+              "front": "E:",
+              "back": "Emil / Echo"
+            },
+            {
+              "front": "F:",
+              "back": "František / Foxtrot"
+            },
+            {
+              "front": "G:",
+              "back": "Gustav / Golf"
+            }
+          ]
+        },
+        {
+          "name": "Hláskovací abeceda (česká/mezinárodní) - H - N",
+          "cards": [
+            {
+              "front": "H:",
+              "back": "Helean / Hotel"
+            },
+            {
+              "front": "I:",
+              "back": "Ivan / India"
+            },
+            {
+              "front": "J:",
+              "back": "Josef / Juliett"
+            },
+            {
+              "front": "K:",
+              "back": "Karel / Kilo"
+            },
+            {
+              "front": "L:",
+              "back": "Ludvík / Lima"
+            },
+            {
+              "front": "M:",
+              "back": "Marie / Mike"
+            },
+            {
+              "front": "N:",
+              "back": "Norbert / November"
+            }
+          ]
+        },
+        {
+          "name": "Hláskovací abeceda (česká/mezinárodní) - O - T",
+          "cards": [
+            {
+              "front": "O:",
+              "back": "Otakar / Oscar"
+            },
+            {
+              "front": "P:",
+              "back": "Petr / Papa"
+            },
+            {
+              "front": "Q:",
+              "back": "Quido / Quebec"
+            },
+            {
+              "front": "R:",
+              "back": "Rudolf / Romeo"
+            },
+            {
+              "front": "S:",
+              "back": "Svatopluk / Sierra"
+            },
+            {
+              "front": "T:",
+              "back": "Tomáš / Tango"
+            }
+          ]
+        },
+        {
+          "name": "Hláskovací abeceda (česká/mezinárodní) - U - Z",
+          "cards": [
+            {
+              "front": "U:",
+              "back": "Urban / Uniform"
+            },
+            {
+              "front": "V:",
+              "back": "Václav / Victor"
+            },
+            {
+              "front": "W:",
+              "back": "dvojité V / Whiskey"
+            },
+            {
+              "front": "X:",
+              "back": "Xaver / X-ray"
+            },
+            {
+              "front": "Y:",
+              "back": "Ypsilon / Yankee"
+            },
+            {
+              "front": "Z:",
+              "back": "Zuzana / Zulu"
+            }
+          ]
+        }
+      ]
+    },    
+    {
       "name": "Q-kódy",
       "subareas": [
         {
@@ -1266,7 +1770,7 @@
           ]
         }
       ]
-    },
+    },    
     {
       "name": "Pásma",
       "subareas": [
@@ -1480,6 +1984,146 @@
             {
               "front": "Lze uskutečnit fonický provoz USB na kmitočtu 14,35 MHz?",
               "back": "Ne. (Je to horní hrana pásma \"fone\" na 20 m.)"
+            }
+          ]
+        }
+      ]
+    },    
+    {
+      "name": "Provozní dovednosti",
+      "subareas": [
+        {
+          "name": "Provozní dovednosti - 1. část",
+          "cards": [
+            {
+              "front": "Pod jakým azimutem se za normálních podmínek šíření směruje z Prahy nejkratším směrem na USA?",
+              "back": "315°"
+            },
+            {
+              "front": "Pod jakým azimutem se za normálních podmínek šíření směruje z Prahy nejkratším směrem na Austrálii?",
+              "back": "85°"
+            },
+            {
+              "front": "Pod jakým azimutem se za normálních podmínek šíření směruje z Prahy nejkratším směrem na Japonsko?",
+              "back": "45°"
+            },
+            {
+              "front": "Pod jakým azimutem se za normálních podmínek šíření směruje z Prahy nejkratším směrem na Karibskou oblast?",
+              "back": "280°"
+            },
+            {
+              "front": "Pod jakým azimutem se za normálních podmínek šíření směruje z Prahy nejkratším směrem na Jihoafrickou republiku?",
+              "back": "175°"
+            },
+            {
+              "front": "Pod jakým azimutem se za normálních podmínek šíření směruje z Prahy nejkratším směrem na Havaj?",
+              "back": "355°"
+            },
+            {
+              "front": "Pod jakým azimutem se za normálních podmínek šíření směruje z Prahy nejkratším směrem na Argentinu?",
+              "back": "240°"
+            },
+            {
+              "front": "Tísňové volání pro CW provoz je:",
+              "back": "SOS"
+            },
+            {
+              "front": "Tísňové volání pro FONE provoz je:",
+              "back": "MAYDAY"
+            },
+            {
+              "front": "Volací značka FK/DL1YD/p znamená:",
+              "back": "DL1YD vysílá v rámci oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT) z Nové Kaledonie"
+            }
+          ]
+        },
+        {
+          "name": "Provozní dovednosti - 2. část",
+          "cards": [
+            {
+              "front": "10 DWN“ znamená:",
+              "back": "přeladit se o 10 kHz dolů"
+            },
+            {
+              "front": "stanicemi předávaný report (RST) znamená:",
+              "back": "čitelnost, sílu signálu a tón"
+            },
+            {
+              "front": "Při ladění po pásmu zaslechnu „QRL“ . Znamená to:",
+              "back": "před voláním všeobecné výzvy se stanice dotazuje, je-li tento kmitočet volný"
+            },
+            {
+              "front": "Při ladění po pásmu zaslechnu volání „CQ DX“. Znamená to:",
+              "back": "stanice chce navázat spojení se vzdálenou stanicí (na KV mimo vlastní kontinent)"
+            },
+            {
+              "front": "Při ladění po pásmu zaslechnu volání „CQ SA“. Znamená to:",
+              "back": "stanice chce navázat spojení se stanicí z jižní Ameriky"
+            },
+            {
+              "front": "Při ladění po pásmu zaslechnu volání „CQ CQ DE TU5BB PSE UP 5 K“. Znamená to:",
+              "back": "stanice z Pobřeží Slonoviny volá všeobecnou výzvu a chce být volána o 5 kHz výše"
+            },
+            {
+              "front": "Když stanice pracující na KV dostane report „588“ znamená to:",
+              "back": "dokonale čitelné, 25 μV na 50 Ohm vstupu RX, čistý tón s nádechem střídavé složky"
+            },
+            {
+              "front": "Když stanice pracující na VKV dostane report „599“ znamená to:",
+              "back": "dokonale čitelné, 5 μV na 50 Ohm vstupu RX, zcela čistý tón"
+            },
+            {
+              "front": "I will not operate with OK stations for one hour“ znamená:",
+              "back": "stanice nebude pracovat s OK stanicemi 1 hodinu"
+            },
+            {
+              "front": "Short path znamená:",
+              "back": "spojení krátkou cestou šíření"
+            }
+          ]
+        },
+        {
+          "name": "Provozní dovednosti - 3. část",
+          "cards": [
+            {
+              "front": "Is this frequency in use?“ znamená:",
+              "back": "před voláním všeobecné výzvy se stanice dotazuje, je-li tento kmitočet volný"
+            },
+            {
+              "front": "Když stanice pracuje z listu, tak to znamená::",
+              "back": "pracuje podle předem sestaveného pořadí"
+            },
+            {
+              "front": "Split provoz znamená:",
+              "back": "příjem a vysílání na různých kmitočtech"
+            },
+            {
+              "front": "Pro radioamatérské závody by neměla být používána:",
+              "back": "pásma WARC"
+            },
+            {
+              "front": "Radioamatérské majáky jsou určeny pro:",
+              "back": "rychlé určení stavu podmínek šíření"
+            },
+            {
+              "front": "Při vysílání SSTV signálů se zpravidla používá:",
+              "back": "počítač s odpovídajícím softwarem"
+            },
+            {
+              "front": "Co označuje termín pile-up:",
+              "back": "současné volání populární stanice mnoha stanicemi najednou"
+            },
+            {
+              "front": "Mezi digitální komunikační módy patří:",
+              "back": "RTTY"
+            },
+            {
+              "front": "Některé komunikační módy potřebují pro správnou funkci přesný čas. Jaký je jeden z možných způsobů, jak ho získat?",
+              "back": "pomocí GPS přijímače"
+            },
+            {
+              "front": "Kdy označujeme rádiový provoz jako „remote“?",
+              "back": "operátor pracuje s vysílacím pracovištěm vzdáleně"
             }
           ]
         }
