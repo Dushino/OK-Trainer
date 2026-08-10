@@ -541,7 +541,7 @@ const TUTORIAL_SET = {
         {
           "name": "Skupiny a výběr",
           "cards": [
-            { "front": "Jak appka rozděluje otázky?", "back": "Do oblastí a podoblastí — nahoře si vybereš oblast, pod ní konkrétní podoblast nebo „vše\"." },
+            { "front": "Jak apka rozděluje otázky?", "back": "Do oblastí a podoblastí — nahoře si vybereš oblast, pod ní konkrétní podoblast nebo „vše\"." },
             { "front": "Co udělá tlačítko „reset statistiky vybrané (pod)oblasti\"?", "back": "Vynuluje jen uloženou úspěšnost pro danou (pod)oblast, obsah kartiček zůstane beze změny." }
           ]
         }
@@ -554,14 +554,14 @@ const TUTORIAL_SET = {
           "name": "Handsfree režim",
           "cards": [
             { "front": "K čemu slouží tlačítko 🎧 „Spustit režim handsfree\"?", "back": "Zapne hlasové čtení kartiček ovládané tlačítky Next/Previous track na sluchátkách, hodinkách nebo ve voze." },
-            { "front": "Jak appku donutíš přečíst otázku znovu?", "back": "Stiskni Prev/Previous track, dokud je kartička otočená na přední straně." }
+            { "front": "Jak apku donutíš přečíst otázku znovu?", "back": "Stiskni Prev/Previous track, dokud je kartička otočená na přední straně." }
           ]
         },
         {
           "name": "Vlastní sady otázek",
           "cards": [
-            { "front": "Odkud appka bere otázky?", "back": "Z naimportovaného JSON souboru — appka sama žádné konkrétní otázky nezná, jen umí s takovým souborem pracovat." },
-            { "front": "Co se stane, když naimportuješ sadu se stejným krátkým názvem, jaký už appka zná?", "back": "Apka se zeptá na potvrzení a po odsouhlasení vynuluje dosavadní statistiky pro tuto sadu a nahradí ji novým obsahem." }
+            { "front": "Odkud apka bere otázky?", "back": "Z naimportovaného JSON souboru — apka sama žádné konkrétní otázky nezná, jen umí s takovým souborem pracovat." },
+            { "front": "Co se stane, když naimportuješ sadu se stejným krátkým názvem, jaký už apka zná?", "back": "Apka se zeptá na potvrzení a po odsouhlasení vynuluje dosavadní statistiky pro tuto sadu a nahradí ji novým obsahem." }
           ]
         }
       ]
@@ -630,7 +630,7 @@ let progress = {};
 let cardStats = {};
 
 // DATA / GROUP_ORDER / CAT_LABELS jsou sestaveny dynamicky z aktivní sady
-// při každém přepnutí — vše ostatní v appce (boxy, míchání, statistiky,
+// při každém přepnutí — vše ostatní v apce (boxy, míchání, statistiky,
 // handsfree) pracuje s "cat" jen jako s obecným klíčem, stejně jako dřív.
 let DATA = {};
 let GROUP_ORDER = {};
@@ -771,7 +771,7 @@ document.getElementById("fileImportInput").addEventListener("change", (e) => {
     const exists = !!library[obj.shortName];
     if(exists){
       const ok = confirm(
-        "Sada \"" + obj.shortName + "\" už v appce existuje.\n\n" +
+        "Sada \"" + obj.shortName + "\" už v apce existuje.\n\n" +
         "Import ji přepíše novým obsahem a VYNULUJE dosavadní statistiky pro tuto sadu. Pokračovat?"
       );
       if(!ok){ e.target.value = ""; return; }
@@ -1268,9 +1268,9 @@ function startDrivingMode(){
   if(!silentAudioEl){
     silentAudioEl = new Audio("keepalive.wav");
     silentAudioEl.loop = true;
-    // Zvuk musí aktivně hrát, aby appka vůbec získala audio focus (bez
+    // Zvuk musí aktivně hrát, aby apka vůbec získala audio focus (bez
     // přehrávaného <audio> elementu Media Session API na Androidu
-    // nefunguje). Ověřeno na reálném zařízení: volume = 0 appku z audio
+    // nefunguje). Ověřeno na reálném zařízení: volume = 0 apku z audio
     // focusu úplně vyřadí, zatímco jakákoliv nenulová hodnota funguje —
     // 0.00001 je prakticky neslyšitelná. Spolehlivost s vypnutou obrazovkou
     // řeší Wake Lock níže, ne hlasitost.
