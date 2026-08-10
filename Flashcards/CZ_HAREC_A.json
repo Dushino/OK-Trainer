@@ -78,7 +78,7 @@
               "front": "Má-li služba pásmo přiděleno na podružné bázi, pak:",
               "back": "vysílání nesmí způsobit škodlivé rušení stanicím přednostních služeb"
             }
-          ]    
+          ]
         },
         {
           "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) - 1. část",
@@ -119,7 +119,7 @@
         },
         {
           "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) - 2. část",
-          "cards": [          
+          "cards": [
             {
               "front": "Na základě průkazu odborné způsobilosti HAREC je možno bez zkoušky získat radioamatérské oprávnění v zemích",
               "back": "které přistoupily k Doporučení CEPT T/R 61-02"
@@ -133,7 +133,7 @@
               "back": "oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT)"
             },
             {
-              "front": "Na základě Doporučení T/R 61-01 držitel oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT:",
+              "front": "Na základě Doporučení T/R 61-01 držitel oprávnění podle předpisů Evropské konference poštovních a telekomunikačních správ (CEPT):",
               "back": "může vysílat ze země, která k tomuto doporučení přistoupila"
             },
             {
@@ -152,31 +152,31 @@
               "front": "Doporučení CEPT T/R 61-01 se nevztahuje na:",
               "back": "klubové stanice"
             }
-          ]      
+          ]
         },
         {
           "name": "Předpisy vycházející z legislativy České republiky - 1. část",
-          "cards": [                    
+          "cards": [
             {
               "front": "Stanici amatérské radiokomunikační služby lze provozovat:",
               "back": "na základě oprávnění, které vydal Český telekomunikační úřad"
-            },            
+            },
             {
               "front": "Staniční deník je požadován:",
               "back": "pouze u klubových stanic"
-            },            
+            },
             {
               "front": "Během změny vysílacího kmitočtu",
               "back": "nesmí být vyzařována žádná energie s výjimkou provozu přes družice"
-            },            
+            },
             {
               "front": "Zkušební provoz vysílače musí být:",
               "back": "prováděn pouze do umělé zátěže s výjimkou nastavení antén a výstupních obvodů vysílače"
-            },            
+            },
             {
               "front": "Při vysílání mimo stanovišť uvedených v oprávnění",
               "back": "doplníme volací značku o „/p“ při provozu z pevného stanoviště"
-            },            
+            },
             {
               "front": "Při vysílání mimo stanovišť uvedených v oprávnění",
               "back": "doplníme volací značku o „/m“ při mobilním provozu"
@@ -184,7 +184,7 @@
             {
               "front": "Použití „/p“ a „/m“ není na přechodném stanovišti povinné:",
               "back": "při radioamatérských závodech"
-            },            
+            },
             {
               "front": "K radioamatérskému provozu na prostředcích lodní a letecké dopravy:",
               "back": "je nutný souhlas majitele, respektive provozovatele tohoto prostředku"
@@ -193,27 +193,27 @@
         },
         {
           "name": "Předpisy vycházející z legislativy České republiky - 2. část",
-          "cards": [                    
+          "cards": [
             {
               "front": "Jednotlivé úseky pásem pro různé druhy provozu určuje:",
               "back": "doporučení Mezinárodní radioamatérské unie (IARU)"
-            },            
+            },
             {
               "front": "Vysílání může obsahovat:",
               "back": "radioamatérské zkratky a Q kódy"
-            },            
+            },
             {
               "front": "Za obsluhu klubové stanice odpovídá:",
               "back": "dozírající operátor"
-            },            
+            },
             {
               "front": "Během mezinárodního závodu může operátor třídy A obsluhovat stanici o maximálním výkonu:",
               "back": "1,5 kW v zastavěném obytném území"
-            },            
+            },
             {
               "front": "Jaká radioamatérská stanice automaticky přenáší signály jiné stanice?",
               "back": "Převáděč."
-            },            
+            },
             {
               "front": "Který druh radioamatérské stanice zajišťuje pouze jednocestnou komunikaci?",
               "back": "Maják."
@@ -221,7 +221,7 @@
             {
               "front": "Kdy se mohou v radioamatérském provozu vysílat kódované zprávy?",
               "back": "Nikdy."
-            },            
+            },
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během závodu na kmitočtu 7 105 kHz?",
               "back": "750 W PEP"
@@ -230,27 +230,27 @@
         },
         {
           "name": "Předpisy vycházející z legislativy České republiky - 3. část",
-          "cards": [                    
+          "cards": [
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít na kmitočtu 24 950 kHz?",
               "back": "750 W PEP"
-            },            
+            },
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během závodu na kmitočtu 50 105 kHz?",
               "back": "25 W PEP"
-            },            
+            },
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během běžného provozu na kmitočtu 1 820 kHz?",
               "back": "750 W PEP"
-            },            
+            },
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít na kmitočtu 1 900 kHz?",
               "back": "10 W PEP"
-            },            
+            },
             {
               "front": "Oprávnění amatérské radiokomunikační služby má platnost:",
               "back": "zpravidla 5 let, pokud není vydáno na dobu kratší"
-            },            
+            },
             {
               "front": "Vysílače pro rádiový orientační běh vysílají:",
               "back": "pouze mezinárodně používané znaky MO, MOE, MOI, MOS, MOH a MO5"
@@ -258,7 +258,7 @@
             {
               "front": "Označení druhů provozu podle Přílohy č. 2 vyhlášky č. 156/2005 Sb., o technických a provozních podmínkách amatérské radiokomunikační služby, určuje:",
               "back": "Radiokomunikační řád Mezinárodní telekomunikační unie (ITU)"
-            },            
+            },
             {
               "front": "Vysílací zařízení s výkonem nad 6 W musí být opatřeno:",
               "back": "nesymetrickým výstupem o impedanci 50 Ohm až 100 Ohm"
@@ -267,35 +267,35 @@
         },
         {
           "name": "Předpisy vycházející z legislativy České republiky - 4. část",
-          "cards": [                              
+          "cards": [
             {
               "front": "Fonický provoz LSB na kmitočtu 10,14 MHz:",
               "back": "nelze uskutečnit"
-            },            
+            },
             {
               "front": "Fonický provoz USB na kmitočtu 14,35 MHz:",
               "back": "nelze uskutečnit"
-            },            
+            },
             {
               "front": "Při současném použití více koncových stupňů pro napájení různých antén na stejném kmitočtu:",
               "back": "nesmí být překročeny povolené výkony v jejich součtu výkonů jednotlivých zařízení"
-            },            
+            },
             {
               "front": "Operátor, který není držitelem průkazu HAREC nebo NOVICE, může klubovou stanici obsluhovat",
               "back": "ve třídě N pod dozorem oprávněného operátora"
-            },            
+            },
             {
               "front": "Obsahem vysílání může být:",
               "back": "vysílání mezinárodních zkratek a kódů a mezinárodně uznávaných protokolů"
-            },            
+            },
             {
               "front": "K získání průkazu odborné způsobilosti HAREC není nutno skládat zkoušku:",
-              "back": "příjmu a vysílání telegrafie"
+              "back": "z příjmu a vysílání telegrafie"
             },
             {
               "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače provozovaného v pásmu 6 m:",
               "back": "musí být potlačen minimálně o 40 dB, smí být však maximálně 25 μW"
-            },            
+            },
             {
               "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 W provozovaného v pásmu 2 m:",
               "back": "musí být potlačen minimálně o 60 dB, smí být však maximálně 1 mW"
@@ -304,27 +304,27 @@
         },
         {
           "name": "Předpisy vycházející z legislativy České republiky - 5. část",
-          "cards": [                    
+          "cards": [
             {
               "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače provozovaného na kmitočtech nižších než 29,7 MHz:",
               "back": "musí být potlačen minimálně o 40 dB, smí být však maximálně 50 mW"
-            },            
+            },
             {
               "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 W provozovaného v pásmu 430 až 440 MHz:",
               "back": "musí být potlačen minimálně o 60 dB, smí být však maximálně 20 mW"
-            },            
+            },
             {
               "front": "Na kmitočtu 1840 kHz nelze uskutečnit:",
               "back": "SSB spojení"
-            },            
+            },
             {
               "front": "Na kmitočtu 10145 kHz lze provozovat:",
               "back": "pouze úzkopásmové datové provozy"
-            },            
+            },
             {
               "front": "Zápis do staničního deníku klubové stanice během spojení provádí:",
               "back": "operátor"
-            },            
+            },
             {
               "front": "Vlastní volací značku je nutno uvádět:",
               "back": "na začátku a konci spojení, je-li kratší než 10 minut"
@@ -332,7 +332,7 @@
             {
               "front": "Vlastní volací značku při delším spojení je nutno uvádět:",
               "back": "na začátku a konci spojení a při delším spojení každých 10 minut"
-            },            
+            },
             {
               "front": "Při ohrožení života, zdraví a majetku lze stanici použít k tísňové komunikaci:",
               "back": "v libovolných pásmech amatérské radiokomunikační služby"
@@ -341,27 +341,27 @@
         },
         {
           "name": "Předpisy vycházející z legislativy České republiky - 6. část",
-          "cards": [                    
+          "cards": [
             {
               "front": "Pro účely státní kontroly musí být na stanici:",
               "back": "výstupní konektor zařízení typu N nebo BNC, případně redukce z výstupu vysílače na jeden z těchto konektorů"
-            },            
+            },
             {
               "front": "Označení druhu provozu podle Přílohy č. 2 vyhlášky o technických a provozních podmínkách amatérské radiokomunikační služby neurčuje:",
               "back": "druh radioamatérského provozu"
-            },            
+            },
             {
               "front": "Mezi neobsluhované stanice nepatří:",
               "back": "pozemní stanice amatérské družicové radioamatérské služby"
-            },            
+            },
             {
               "front": "Maximální výstupní výkon neobsluhované stanice může být:",
               "back": "50 W"
-            },            
+            },
             {
               "front": "Neobsluhované stanice používají volací značku, která sestává:",
               "back": "z prefixu OK0 a sufixu, který obsahuje jedno, dvě nebo tři písmena"
-            },            
+            },
             {
               "front": "Volací značka klubové stanice sestává:",
               "back": "z prefixu OK1 nebo OK2 a sufixu, který má tři písmena, z nichž prvé je K, O nebo R"
@@ -369,7 +369,7 @@
             {
               "front": "Mezi přednostní pásma přidělená amatérské radiokomunikační službě nepatří pásmo:",
               "back": "1850 až 2000 kHz"
-            },            
+            },
             {
               "front": "Na neinterferenční bázi má držitel oprávnění třídy A amatérské radiokomunikační služby v České republice povoleno pásmo:",
               "back": "50 až 52 MHz"
@@ -419,7 +419,7 @@
           "cards": [
             {
               "front": "H:",
-              "back": "Helean / Hotel"
+              "back": "Helena / Hotel"
             },
             {
               "front": "I:",
@@ -489,7 +489,7 @@
             },
             {
               "front": "W:",
-              "back": "dvojité V / Whiskey"
+              "back": "dvojité V / Whisky"
             },
             {
               "front": "X:",
@@ -506,7 +506,7 @@
           ]
         }
       ]
-    },    
+    },
     {
       "name": "Q-kódy",
       "subareas": [
@@ -1770,7 +1770,7 @@
           ]
         }
       ]
-    },    
+    },
     {
       "name": "Pásma",
       "subareas": [
@@ -1988,7 +1988,7 @@
           ]
         }
       ]
-    },    
+    },
     {
       "name": "Provozní dovednosti",
       "subareas": [
@@ -2041,7 +2041,7 @@
           "name": "Provozní dovednosti - 2. část",
           "cards": [
             {
-              "front": "10 DWN“ znamená:",
+              "front": "„10 DWN“ znamená:",
               "back": "přeladit se o 10 kHz dolů"
             },
             {
@@ -2073,11 +2073,11 @@
               "back": "dokonale čitelné, 5 μV na 50 Ohm vstupu RX, zcela čistý tón"
             },
             {
-              "front": "I will not operate with OK stations for one hour“ znamená:",
+              "front": "„I will not operate with OK stations for one hour“ znamená:",
               "back": "stanice nebude pracovat s OK stanicemi 1 hodinu"
             },
             {
-              "front": "Short path znamená:",
+              "front": "„Short path“ znamená:",
               "back": "spojení krátkou cestou šíření"
             }
           ]
@@ -2086,11 +2086,11 @@
           "name": "Provozní dovednosti - 3. část",
           "cards": [
             {
-              "front": "Is this frequency in use?“ znamená:",
+              "front": "„Is this frequency in use?“ znamená:",
               "back": "před voláním všeobecné výzvy se stanice dotazuje, je-li tento kmitočet volný"
             },
             {
-              "front": "Když stanice pracuje z listu, tak to znamená::",
+              "front": "Když stanice pracuje z listu, tak to znamená:",
               "back": "pracuje podle předem sestaveného pořadí"
             },
             {
@@ -2124,6 +2124,642 @@
             {
               "front": "Kdy označujeme rádiový provoz jako „remote“?",
               "back": "operátor pracuje s vysílacím pracovištěm vzdáleně"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Elektrotechnika a radiotechnika",
+      "subareas": [
+        {
+          "name": "Elektrická, elektromagnetická a rádiová teorie - 1. část",
+          "cards": [
+            {
+              "front": "Jednotkou elektrického proudu je:",
+              "back": "ampér"
+            },
+            {
+              "front": "Jednotkou elektrického odporu je:",
+              "back": "ohm"
+            },
+            {
+              "front": "Elektrický výkon měříme v jednotkách:",
+              "back": "W"
+            },
+            {
+              "front": "Kmitočet měříme v jednotkách:",
+              "back": "Hz"
+            },
+            {
+              "front": "M (mega) je předpona vyjadřující násobitel základní jednotky:",
+              "back": "10^6"
+            },
+            {
+              "front": "1833 kHz lze též vyjádřit jako:",
+              "back": "1,833 MHz"
+            },
+            {
+              "front": "Vlnová délka λ, kmitočet f a rychlost šíření světla c spolu souvisí dle vztahu:",
+              "back": "c = f · λ"
+            },
+            {
+              "front": "Výkon P, proud I a odpor R spolu souvisí dle vztahu:",
+              "back": "P = I² · R"
+            }
+          ]
+        },
+        {
+          "name": "Elektrická, elektromagnetická a rádiová teorie - 2. část",
+          "cards": [
+            {
+              "front": "Nabitý akumulátor má kapacitu 4 Ah. Dodávat proud 400 mA vydrží:",
+              "back": "10 hodin"
+            },
+            {
+              "front": "Odporem protéká stejnosměrný proud 2 A a je na něm napětí 10 V. Velikost odporu je:",
+              "back": "5 Ω"
+            },
+            {
+              "front": "Odebírá-li zařízení z 12 V akumulátoru proud 12 A, je jeho příkon:",
+              "back": "144 W"
+            },
+            {
+              "front": "Pokud mi protistanice sdělí, že můj signál má malý zdvih, znamená to, že:",
+              "back": "výkon je dostatečný, ale modulace slabá"
+            },
+            {
+              "front": "Jaký výkon bude dopraven ze 100 W vysílače do antény 25 m dlouhým koaxiálním kabelem s útlumem 12 dB / 100 m?",
+              "back": "50 W"
+            },
+            {
+              "front": "Informace u amplitudově modulovaného signálu je obsažena:",
+              "back": "v libovolném postranním pásmu"
+            },
+            {
+              "front": "Který typ modulace mění amplitudu vysokofrekvenčního signálu v závislosti na přiváděné informaci?",
+              "back": "amplitudová modulace"
+            }
+          ]
+        },
+        {
+          "name": "Elektrická, elektromagnetická a rádiová teorie - 3. část",
+          "cards": [
+            {
+              "front": "Který typ modulace mění kmitočet vysokofrekvenčního signálu v závislosti na přiváděném modulačním napětí?",
+              "back": "kmitočtová modulace"
+            },
+            {
+              "front": "Který fonický druh běžného radioamatérského provozu vyžaduje nejmenší šíři pásma?",
+              "back": "SSB"
+            },
+            {
+              "front": "K čemu slouží převodníky AD?",
+              "back": "k převodu analogových signálů na digitální"
+            },
+            {
+              "front": "Jak je volen vzorkovací kmitočet při digitálním zpracování signálu?",
+              "back": "kmitočet je minimálně dvojnásobný, než je nejvyšší kmitočet analogové složky"
+            },
+            {
+              "front": "Mám-li zařízení s příkonem 24 W, jehož napájecí napětí je 12 V, jaký je minimální požadovaný proud napájecího zdroje?",
+              "back": "2 A"
+            },
+            {
+              "front": "Ohmův zákon určuje vztah mezi:",
+              "back": "napětím, proudem a odporem"
+            },
+            {
+              "front": "Decibel (dB) je jednotka vyjadřující poměr mezi dvěma fyzikálními veličinami na:",
+              "back": "logaritmické škále"
+            }
+          ]
+        },
+        {
+          "name": "Součástky - 1. část",
+          "cards": [
+            {
+              "front": "Indukčnost cívky měříme v jednotkách:",
+              "back": "H"
+            },
+            {
+              "front": "Kapacitu kondenzátoru měříme v jednotkách:",
+              "back": "F"
+            },
+            {
+              "front": "1,5 nF lze též vyjádřit jako:",
+              "back": "1500 pF"
+            },
+            {
+              "front": "Označení hodnoty odporu 1M2 vyjadřuje hodnotu:",
+              "back": "1 200 000 Ω"
+            },
+            {
+              "front": "Polovodičová dioda zapojená v propustném směru má na anodě:",
+              "back": "kladný pól"
+            },
+            {
+              "front": "Zenerova dioda se chová jako stabilizátor napětí, je-li:",
+              "back": "zapojená v závěrném směru"
+            }
+          ]
+        },
+        {
+          "name": "Součástky - 2. část",
+          "cards": [
+            {
+              "front": "Běžná křemíková dioda má prahové napětí cca:",
+              "back": "0,6 V"
+            },
+            {
+              "front": "Jak se chová cívka, připojíme-li k ní střídavé napětí?",
+              "back": "při zvyšování kmitočtu přivedeného napětí se reaktance zvětšuje"
+            },
+            {
+              "front": "Jak se chová kondenzátor, připojíme-li k němu střídavé napětí?",
+              "back": "při zvyšování kmitočtu přivedeného napětí se reaktance zmenšuje"
+            },
+            {
+              "front": "Napětí a proud jsou u ideálních kondenzátorů posunuty a:",
+              "back": "proud předbíhá napětí o 90 stupňů"
+            },
+            {
+              "front": "Napětí a proud jsou u ideálních indukčností posunuty a:",
+              "back": "napětí předbíhá proud o 90 stupňů"
+            }
+          ]
+        },
+        {
+          "name": "Elektrické obvody - 1. část",
+          "cards": [
+            {
+              "front": "Rezonanční kmitočet daného paralelního LC obvodu lze snížit např.:",
+              "back": "paralelním připojením dalšího kondenzátoru ke stávajícímu"
+            },
+            {
+              "front": "Graetzovo zapojení diod je:",
+              "back": "dvoucestný usměrňovač"
+            },
+            {
+              "front": "Výsledný odpor R dvou paralelně zapojených odporů R1 a R2 je roven:",
+              "back": "R = R1 · R2 / (R1 + R2)"
+            },
+            {
+              "front": "Tři paralelně zapojené kondenzátory 10 nF lze nahradit jedním o kapacitě:",
+              "back": "30 nF"
+            },
+            {
+              "front": "Výsledný odpor dvou paralelně zapojených rezistorů 2 kΩ a 3 kΩ bude:",
+              "back": "1,2 kΩ"
+            },
+            {
+              "front": "π filtr, působící jako dolnofrekvenční propust, sestává:",
+              "back": "z kondenzátorů paralelně ke vstupu a výstupu filtru, propojených cívkou mezi vstupem a výstupem"
+            },
+            {
+              "front": "Co se děje při přemodulování SSB signálu?",
+              "back": "je zkreslený a zabírá větší šířku pásma"
+            },
+            {
+              "front": "Jaké součástky jsou použity v jednoduchém filtračním obvodu zdroje?",
+              "back": "kondenzátory a tlumivky"
+            }
+          ]
+        },
+        {
+          "name": "Elektrické obvody - 2. část",
+          "cards": [
+            {
+              "front": "Co způsobí kmitání oscilátoru?",
+              "back": "kladná zpětná vazba"
+            },
+            {
+              "front": "Záznějový oscilátor (BFO) slouží:",
+              "back": "k detekci SSB a CW signálů pomocí poměrového detektoru"
+            },
+            {
+              "front": "Proč se usměrňovací diody u zdrojů překlenují paralelně zapojeným kondenzátorem a odporem?",
+              "back": "k vyhlazení poklesů napětí a ochraně před náhlými špičkami napětí"
+            },
+            {
+              "front": "Ke stabilizaci napětí nízkonapěťových zdrojů slouží:",
+              "back": "Zenerovy diody"
+            },
+            {
+              "front": "Impedance ideálního sériového laděného obvodu na rezonančním kmitočtu je:",
+              "back": "0 Ω"
+            },
+            {
+              "front": "Impedance paralelního laděného obvodu na rezonančním kmitočtu je:",
+              "back": "nekonečná (∞)"
+            },
+            {
+              "front": "Princip PLL syntetizátoru je založen na:",
+              "back": "neustálém porovnávání fáze oscilátoru s fází referenčního oscilátoru řízeného krystalem"
+            }
+          ]
+        },
+        {
+          "name": "Rádiové přijímače - 1. část",
+          "cards": [
+            {
+              "front": "Ovládací prvek transceiveru označený „RIT“ umožňuje:",
+              "back": "jemné rozladění kmitočtu přijímače od kmitočtu vysílače"
+            },
+            {
+              "front": "Principem komunikačních přijímačů typu „Up-convertor“ je:",
+              "back": "že 1. mf kmitočet je vyšší než maximální přijímaný kmitočet"
+            },
+            {
+              "front": "Pro příjem SSB a CW signálů nelze použít:",
+              "back": "superhet bez záznějového oscilátoru"
+            },
+            {
+              "front": "Superhet pracuje s mezifrekvenčním kmitočtem 455 kHz. Na jakém kmitočtu bude pracovat oscilátor přijímače, je-li přijímaný kmitočet 3,750 MHz?",
+              "back": "4,205 MHz"
+            },
+            {
+              "front": "Který stupeň u superhetu z přijímaného signálu a místního oscilátoru vytváří mezifrekvenční signál?",
+              "back": "směšovač"
+            },
+            {
+              "front": "Směšuje-li přijímač přijímaný signál 14,255 MHz s kmitočtem VFO 13,8 MHz, aby získal mezifrekvenční kmitočet 455 kHz, vytváří nežádoucí signál o kmitočtu:",
+              "back": "28,055 MHz"
+            },
+            {
+              "front": "S-metr slouží:",
+              "back": "k určování síly přijímaných signálů"
+            },
+            {
+              "front": "Zrcadlový kmitočet vzniká:",
+              "back": "jako produkt směšování"
+            }
+          ]
+        },
+        {
+          "name": "Rádiové přijímače - 2. část",
+          "cards": [
+            {
+              "front": "Šumové číslo přijímače udává:",
+              "back": "kolikrát se zhorší poměr signál/šum při jeho průchodu ze vstupu na výstup přijímače"
+            },
+            {
+              "front": "Citlivost přijímače udává:",
+              "back": "velikost vstupního napětí, při kterém je dosaženo požadovaného poměru signál/šum (zpravidla 10 dB)"
+            },
+            {
+              "front": "Intermodulační zkreslení vzniká:",
+              "back": "jako produkt směšování více silných signálů a jejich harmonických"
+            },
+            {
+              "front": "Selektivita přijímače je:",
+              "back": "schopnost vzájemně rozlišit různé signály"
+            },
+            {
+              "front": "Umlčovač šumu (squelch) slouží:",
+              "back": "k uzavření výstupu nf zesilovače, pokud přijímač nepřijímá užitečný signál"
+            },
+            {
+              "front": "Mezifrekvenční zesilovač zesiluje:",
+              "back": "signály převedené na pevný mezifrekvenční kmitočet"
+            },
+            {
+              "front": "Pro rádiové přijímače SDR je typické:",
+              "back": "u SDR přijímačů je přijatý signál zpracováván digitálně namísto použití klasických analogových obvodů"
+            }
+          ]
+        },
+        {
+          "name": "Rádiové vysílače - 1. část",
+          "cards": [
+            {
+              "front": "Oscilátor vysílače by měl:",
+              "back": "mít pokud možno maximální stabilitu kmitočtu"
+            },
+            {
+              "front": "Modulace SSB je odvozena od:",
+              "back": "amplitudové modulace"
+            },
+            {
+              "front": "Modulace SSB je odvozena z amplitudové modulace, ve které je:",
+              "back": "potlačen nosný kmitočet a jedno z postranních pásem"
+            },
+            {
+              "front": "Nejčastějšími příčinami obsahu síťového brumu ve vysílaném signálu jsou:",
+              "back": "nedostatečně vyhlazené napájecí napětí, nebo poškozená mikrofonní šňůra"
+            },
+            {
+              "front": "Výkon 100wattového SSB vysílače ve špičce modulační obálky je označován jako:",
+              "back": "100 W PEP"
+            },
+            {
+              "front": "Elektronkové výkonové stupně používají na výstupu především:",
+              "back": "laděné obvody"
+            }
+          ]
+        },
+        {
+          "name": "Rádiové vysílače - 2. část",
+          "cards": [
+            {
+              "front": "Tranzistorové výkonové stupně používají na výstupu především:",
+              "back": "pásmové propusti"
+            },
+            {
+              "front": "Potlačení nežádoucího postranního pásma u SSB vysílače uskutečňujeme obvykle:",
+              "back": "výběrem žádaného postranního pásma pomocí pásmového filtru"
+            },
+            {
+              "front": "Kdy dodá vysílač nejvíce energie do zátěže (antény)?",
+              "back": "je-li výstupní impedance vysílače rovna impedanci zátěže"
+            },
+            {
+              "front": "Co hrozí, pokud budu vysílat bez připojené antény či umělé zátěže?",
+              "back": "zničení koncového stupně vysílače"
+            }
+          ]
+        },
+        {
+          "name": "Antény a napájecí vedení - 1. část",
+          "cards": [
+            {
+              "front": "Změřená hodnota PSV 1:3 znamená, že se do antény z vysílače přenese cca:",
+              "back": "75 % výkonu"
+            },
+            {
+              "front": "Půlvlnný otevřený dipól pro 3,5 MHz má délku jednoho ramene přibližně:",
+              "back": "20 m"
+            },
+            {
+              "front": "Vstupní impedance uzavřeného dipólu ve volném prostoru je přibližně:",
+              "back": "300 Ω"
+            },
+            {
+              "front": "O správném impedančním přizpůsobení vysílače k napáječi hovoříme tehdy, je-li poměr stojatých vln roven:",
+              "back": "1"
+            },
+            {
+              "front": "Impedance koaxiálního kabelu je dána:",
+              "back": "průměrem vnitřního a vnějšího vodiče a typem použitého dielektrika"
+            },
+            {
+              "front": "Zkracovací činitel u vf napájecích vedení vyjadřuje důsledek:",
+              "back": "rozdílné rychlosti šíření elektromagnetických vln na vedení a ve volném prostoru"
+            },
+            {
+              "front": "Jeden z určujících parametrů použitelnosti vlnovodu jako napájecího vedení je:",
+              "back": "mezní kmitočet"
+            },
+            {
+              "front": "Anténa typu GP (ground plane) má v horizontální rovině kruhový vyzařovací diagram a její polarizace je:",
+              "back": "vertikální"
+            }
+          ]
+        },
+        {
+          "name": "Antény a napájecí vedení - 2. část",
+          "cards": [
+            {
+              "front": "Balun je obvod, kterým se realizuje:",
+              "back": "přechod ze symetrického vedení na nesymetrické"
+            },
+            {
+              "front": "Zisk antény typu Yagi lze zvětšit především:",
+              "back": "zvýšením počtu prvků"
+            },
+            {
+              "front": "Mezi tzv. „smyčkové antény“ patří anténa typu:",
+              "back": "quad"
+            },
+            {
+              "front": "Jaká opatření musí být učiněna, aby na anténním napáječi nevznikaly stojaté vlny?",
+              "back": "impedance antény musí být přizpůsobena k charakteristické impedanci napáječe"
+            },
+            {
+              "front": "Co znamená výraz „předozadní poměr“?",
+              "back": "poměr vyzářeného výkonu v hlavním vyzařovacím laloku vzhledem k výkonu vyzářenému v opačném směru"
+            },
+            {
+              "front": "Jaký tvar má vyzařovací diagram ideálního dipólu ve volném prostoru?",
+              "back": "má přibližně tvar číslice 8 rotující kolem podélné osy antény"
+            },
+            {
+              "front": "Který z uvedených typů není zpravidla konstruován jako drátová anténa?",
+              "back": "Yagi"
+            }
+          ]
+        },
+        {
+          "name": "Šíření rádiových vln - 1. část",
+          "cards": [
+            {
+              "front": "Značení vrstev ionosféry směrem od povrchu Země je:",
+              "back": "D, E, F1, F2"
+            },
+            {
+              "front": "Sluneční cyklus podílející se zásadně na šíření elektromagnetických vln má periodu:",
+              "back": "11 let"
+            },
+            {
+              "front": "Pásma obvykle vhodná pro dálková spojení v noci jsou zejména:",
+              "back": "160 m, 80 m, 40 m"
+            },
+            {
+              "front": "Běžná spojení v pásmu 70 cm jsou obvykle uskutečněna díky:",
+              "back": "přímé viditelnosti obou stanic"
+            },
+            {
+              "front": "Jak se chová ionosféra při velkém počtu slunečních skvrn?",
+              "back": "pro dálkovou komunikaci jsou použitelné i kmitočty vyšší než 40 MHz"
+            },
+            {
+              "front": "Co ovlivňuje rádiovou komunikaci s výjimkou šíření přízemní vlnou a přímého paprsku?",
+              "back": "sluneční aktivita"
+            },
+            {
+              "front": "Co se obvykle stane s rádiovou vlnou o kmitočtu nižším než MUF, je-li vyslána do ionosféry?",
+              "back": "její část se vrátí zpět k Zemi"
+            },
+            {
+              "front": "Jaký vliv může mít geomagnetická bouře na šíření rádiových vln?",
+              "back": "zhorší se šíření krátkých vln"
+            },
+            {
+              "front": "Na intenzitu přijímaného signálu nemá vliv:",
+              "back": "napájecí napětí zdroje"
+            }
+          ]
+        },
+        {
+          "name": "Šíření rádiových vln - 2. část",
+          "cards": [
+            {
+              "front": "Maximální použitelný kmitočet pro spoj Praha–Tokio je 17 MHz. Které z uvedených pásem nabízí nejlepší podmínky pro spojení?",
+              "back": "20 metrů"
+            },
+            {
+              "front": "Co způsobuje, že KV rozptýlené (scatter) signály zní často zkresleně?",
+              "back": "rozptýlená energie se do odrazové zóny dostává po různých drahách"
+            },
+            {
+              "front": "Který druh šíření umožňuje příjem signálů ve vzdálenostech větších, než umožňuje přízemní vlna a menších, než umožňuje ionosférické šíření?",
+              "back": "rozptyl"
+            },
+            {
+              "front": "Jaká je průměrná výška ionosférické vrstvy E?",
+              "back": "100 km"
+            },
+            {
+              "front": "Proč je ionosférická vrstva F2 nejdůležitější z hlediska dálkového šíření?",
+              "back": "jelikož je to nejvyšší vrstva"
+            },
+            {
+              "front": "Při šíření ve volném prostoru ve vzdálenostech větších než 10 λ klesá intenzita elektromagnetického pole (mV/m):",
+              "back": "lineárně v závislosti na vzdálenosti"
+            },
+            {
+              "front": "Spojení odrazem od Měsíce (EME) se zpravidla uskutečňují:",
+              "back": "v pásmech 3 cm až 6 m"
+            },
+            {
+              "front": "Dopplerův jev se často objevuje při:",
+              "back": "provozu přes družice"
+            }
+          ]
+        },
+        {
+          "name": "Měření elektrických veličin",
+          "cards": [
+            {
+              "front": "Velikost měřícího rozsahu u ampérmetru lze zvětšit:",
+              "back": "bočníkem (paralelní odpor)"
+            },
+            {
+              "front": "Vstupní odpor voltmetru by měl být pokud možno:",
+              "back": "velký"
+            },
+            {
+              "front": "Umělá zátěž pro nastavení vysílače by měla mít charakter:",
+              "back": "čistě ohmický"
+            },
+            {
+              "front": "Na osciloskopu je znázorněn sinusový signál, jehož perioda je 20 ms. Jaký je kmitočet znázorněného signálu?",
+              "back": "50 Hz"
+            },
+            {
+              "front": "Reflektometrický můstek slouží k:",
+              "back": "určení (nastavení) přizpůsobení antény"
+            },
+            {
+              "front": "Měříme-li odebíraný proud, měřící přístroj připojíme:",
+              "back": "do série mezi zdroj a spotřebič"
+            },
+            {
+              "front": "Spektrální analyzátor prioritně neslouží:",
+              "back": "k měření napětí stejnosměrných napájecích zdrojů"
+            },
+            {
+              "front": "K čemu slouží PSV (SWR) metr?",
+              "back": "k nepřímému měření impedančního přizpůsobení antény"
+            }
+          ]
+        },
+        {
+          "name": "Rušení a odolnost proti rušení",
+          "cards": [
+            {
+              "front": "Produkty nežádoucího vyzařování KV vysílače zpravidla potlačíme:",
+              "back": "zařazením hornofrekvenční zádrže mezi vysílač a anténu"
+            },
+            {
+              "front": "Jaké součástky je vhodné použít pro potlačení detekce vf signálů na vstupu zesilovačů zvuku?",
+              "back": "blokovací kondenzátory"
+            },
+            {
+              "front": "Dojde-li k rušení televizního příjmu vlivem silného KV signálu na vstupu televizního přijímače, zařadíme mezi televizor a anténu:",
+              "back": "dolnofrekvenční zádrž"
+            },
+            {
+              "front": "Jakým způsobem může být minimalizována možnost rušení audiovizuálních přístrojů?",
+              "back": "zajištěním správného uzemnění všech částí zařízení"
+            },
+            {
+              "front": "Jaký je jeden z hlavních způsobů potlačení bludné vf energie na stanici?",
+              "back": "dodržet délku uzemňovacího vodiče co nejkratší"
+            },
+            {
+              "front": "Nežádoucí vyzařování z vysílače může být způsobeno:",
+              "back": "špatným stíněním vysílacího zařízení"
+            },
+            {
+              "front": "Z hlediska možného rušení silným signálem je vhodné umístit vysílací anténu:",
+              "back": "co nejdále od antén televizních a rozhlasových přijímačů"
+            },
+            {
+              "front": "Špatné přizpůsobení antény má vliv na:",
+              "back": "nežádoucí vyzařování z napáječe (souosého kabelu)"
+            },
+            {
+              "front": "Rušení příjmu zejména na krátkovlnných pásmech může být způsobeno:",
+              "back": "pulzním (spínaným) zdrojem v blízkosti přijímače, antény nebo vedení – např. nabíječka mobilního telefonu, či LED svítidlo"
+            }
+          ]
+        },
+        {
+          "name": "Bezpečnost elektrických zařízení - 1. část",
+          "cards": [
+            {
+              "front": "Jestliže zamýšlené použití elektrického zařízení nezvyšuje nebezpečí úrazu elektrickým proudem, jaká napětí živých částí považujeme za bezpečná při dotyku během obsluhy?",
+              "back": "stejnosměrná do 60 V a střídavá do 25 V"
+            },
+            {
+              "front": "Ochranný vodič musí být označen barvou:",
+              "back": "kombinací žluto-zelené"
+            },
+            {
+              "front": "Při úrazu elektrickým proudem:",
+              "back": "vyprostíme postiženého z dosahu elektrického proudu, zavoláme záchrannou službu, provedeme záklon hlavy a dojde-li k selhání základních životních funkcí (tep, dech, vědomí), zahájíme resuscitaci masáží srdce až do příjezdu záchranářů, příp. umělým dýcháním"
+            },
+            {
+              "front": "Před započetím umělého dýchání z plic do plic je třeba u postiženého:",
+              "back": "odstranit překážky z ústní dutiny, zaklonit hlavu, sevřít nos"
+            },
+            {
+              "front": "Je-li v zařízení přerušena tavná pojistka:",
+              "back": "vadnou pojistku vyměníme za novou s předepsanými hodnotami pro příslušný obvod"
+            },
+            {
+              "front": "Za bezpečné z hlediska úrazu elektrickým proudem jsou považovány ustálené proudy tekoucí mezi částmi přístupnými při dotyku:",
+              "back": "stejnosměrné do 10 mA a střídavé do 3,5 mA"
+            }
+          ]
+        },
+        {
+          "name": "Bezpečnost elektrických zařízení - 2. část",
+          "cards": [
+            {
+              "front": "Antény umístěné na střeše budov nebo samostatně stojící musí být vždy:",
+              "back": "řádně uzemněny"
+            },
+            {
+              "front": "Jímací tyč hromosvodu:",
+              "back": "nesmí sloužit jako držák antény"
+            },
+            {
+              "front": "Prodlužovací pohyblivé přívody pro elektrické předměty s ochranným vodičem (elektrické předměty třídy ochrany I) a síťové napětí 230 V musí mít:",
+              "back": "3 vodiče"
+            },
+            {
+              "front": "Uzemňovací vodič antény:",
+              "back": "musí být spojen s hromosvodným systémem"
+            },
+            {
+              "front": "Jak umístíme vnitřní anténu?",
+              "back": "co nejdále od vysílací pozice"
+            },
+            {
+              "front": "Jaké bezpečnostní opatření musíme učinit při instalaci GP antény?",
+              "back": "anténu umístíme tak, aby se jí nikdo nemohl dotknout"
             }
           ]
         }
