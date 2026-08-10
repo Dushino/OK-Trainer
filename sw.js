@@ -1,4 +1,4 @@
-// OK-Trainer — service worker pro offline chod apky.
+// OK Trainer — service worker pro offline chod apky.
 // Strategie: "network-first, cache jako záloha" — pokud je připojení
 // k internetu, apka si vždy natáhne nejčerstvější verzi a zároveň
 // si ji uloží do cache. Pokud připojení není, použije se poslední

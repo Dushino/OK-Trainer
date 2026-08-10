@@ -1,6 +1,6 @@
-# Formát souboru pro OK-Trainer
+# Formát souboru pro OK Trainer
 
-OK-Trainer sám o sobě žádné otázky nezná — všechny sady se do apky nahrávají
+OK Trainer sám o sobě žádné otázky nezná — všechny sady se do apky nahrávají
 importem `.json` souboru přes tlačítko 📥 nahoře. Apka si obsah uloží
 v prohlížeči a zůstane dostupný i offline.
 
@@ -35,7 +35,7 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 | Pole | Povinné | Popis |
 |---|---|---|
 | `shortName` | ano | Krátký název sady. **Zároveň slouží jako jedinečný identifikátor** — apka podle něj pozná, jestli jde o „tu samou" sadu při opětovném importu (a případně nabídne přepsání i s vynulováním statistik). Nepoužívej stejný `shortName` pro dvě různé sady. |
-| `longName` | ano | Delší popisný název, zobrazí se v záhlaví apky pod „OK-TRAINER". |
+| `longName` | ano | Delší popisný název, zobrazí se v záhlaví apky pod „OK TRAINER". |
 | `language` | ano | Jazykový kód pro hlasové čtení (TTS) v handsfree režimu, např. `cs-CZ`, `en-US`, `de-DE`. |
 | `areas` | ano | Pole oblastí. Max. **8 oblastí**. |
 | `areas[].name` | ano | Název oblasti (zobrazí se jako tlačítko v horní navigaci). |

@@ -1,6 +1,6 @@
 {
-  "name": "OK-Trainer",
-  "short_name": "OK-Trainer",
+  "name": "OK Trainer",
+  "short_name": "OK Trainer",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OK-Trainer</title>
+<title>OK Trainer</title>
 <meta name="theme-color" content="#eee8d9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12181a" media="(prefers-color-scheme: dark)">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="OK-Trainer">
+<meta name="apple-mobile-web-app-title" content="OK Trainer">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon.svg">
@@ -447,7 +447,7 @@
 <body>
 <div class="wrap">
   <header>
-    <p class="callsign">OK-TRAINER</p>
+    <p class="callsign">OK TRAINER</p>
     <p class="sub" id="subLabel">…</p>
   </header>
 
@@ -515,7 +515,7 @@
   </div>
 
   <footer style="margin-top:28px;text-align:center;">
-    <a href="https://dushino.github.io/OK-Trainer/" target="_blank" rel="noopener" id="footerLink">OK-Trainer</a>
+    <a href="https://github.com/Dushino/OK-Trainer" target="_blank" rel="noopener" id="footerLink">https://github.com/Dushino/OK-Trainer</a>
   </footer>
 </div>
 
@@ -525,7 +525,7 @@
 // ============================================================
 const TUTORIAL_SET = {
   "shortName": "Tutoriál",
-  "longName": "Ukázková sada — jak OK-Trainer používat",
+  "longName": "Ukázková sada — jak OK Trainer používat",
   "language": "cs-CZ",
   "areas": [
     {
@@ -1218,7 +1218,7 @@ function updateDrivingMetadata(){
   try{
     navigator.mediaSession.metadata = new MediaMetadata({
       title: scopeSpokenLabel(state.cat, state.group),
-      artist: "OK-Trainer — " + (library[activeSetId] ? library[activeSetId].shortName : "")
+      artist: "OK Trainer — " + (library[activeSetId] ? library[activeSetId].shortName : "")
     });
   }catch(e){}
 }
