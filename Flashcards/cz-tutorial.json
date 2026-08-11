@@ -9,15 +9,15 @@
         {
           "name": "Kartičky",
           "cards": [
-            { "front": "Jak otočíš kartičku a uvidíš odpověď?", "back": "Klepnutím na kartičku, nebo klávesou mezerník." },
-            { "front": "Co znamená barva pruhu ve statistikách dole?", "back": "Červená = ještě netestováno nebo špatné výsledky, oranžová = někde uprostřed, zelená = spolehlivě umíš." }
+            { "front": "Jak otočíš kartičku pro zobrazení odpověďi?", "back": "Klepnutím na kartičku, nebo klávesou mezerník." },
+            { "front": "Co znamená barva pruhu ve statistikách?", "back": "Červená = špatné výsledky, oranžová = někde uprostřed, zelená = spolehlivě umíš." }
           ]
         },
         {
           "name": "Skupiny a výběr",
           "cards": [
-            { "front": "Jak apka rozděluje otázky?", "back": "Do oblastí a podoblastí — nahoře si vybereš oblast, pod ní konkrétní podoblast nebo „vše\"." },
-            { "front": "Co udělá tlačítko „reset statistiky vybrané (pod)oblasti\"?", "back": "Vynuluje jen uloženou úspěšnost pro danou (pod)oblast, obsah kartiček zůstane beze změny." }
+            { "front": "Jak jsou rozděleny otázky?", "back": "Do oblastí a podoblastí — nahoře si vybereš oblast, pod ní konkrétní podoblast nebo „vše\"." },
+            { "front": "Co udělá tlačítko „reset statistiky vybrané (pod)oblasti\"?", "back": "Vynuluje uloženou úspěšnost pro danou (pod)oblast, obsah kartiček zůstane beze změny." }
           ]
         }
       ]
@@ -28,15 +28,15 @@
         {
           "name": "Handsfree režim",
           "cards": [
-            { "front": "K čemu slouží tlačítko 🎧 „Spustit režim handsfree\"?", "back": "Zapne hlasové čtení kartiček ovládané tlačítky Next/Previous track na sluchátkách, hodinkách nebo ve voze." },
-            { "front": "Jak apku donutíš přečíst otázku znovu, dokud ještě neznáš odpověď?", "back": "Stiskni Prev/Previous track, dokud je kartička otočená na přední straně." }
+            { "front": "K čemu slouží tlačítko 🎧 „Spustit režim handsfree\"?", "back": "Zapne hlasové čtení kartiček ovládané tlačítky Next/Previous track na sluchátkách nebo hodinkách." },
+            { "front": "Jak přečíst otázku znovu?", "back": "Stiskni Prev/Previous track, dokud je kartička otočená na přední straně." }
           ]
         },
         {
           "name": "Vlastní sady otázek",
           "cards": [
-            { "front": "Odkud apka bere otázky?", "back": "Z naimportovaného JSON souboru — apka sama žádné konkrétní otázky nezná, jen umí s takovým souborem pracovat." },
-            { "front": "Co se stane, když naimportuješ sadu se stejným krátkým názvem, jaký už apka zná?", "back": "Apka se zeptá na potvrzení a po odsouhlasení vynuluje dosavadní statistiky pro tuto sadu a nahradí ji novým obsahem." }
+            { "front": "Odkud se berou otázky?", "back": "Z naimportovaného JSON souboru — je možno vytvořit vlastní sadu." },
+            { "front": "Co se stane, když naimportuješ sadu se stejným krátkým názvem, jaký je již importován?", "back": "Budou vynulovány veškeré statistiky pro tuto sadu." }
           ]
         }
       ]
