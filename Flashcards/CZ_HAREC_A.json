@@ -923,7 +923,7 @@
               "back": "FM"
             },
             {
-              "front": "telegrafie, netlumená vlna":,
+              "front": "telegrafie, netlumená vlna:",
               "back": "CW"
             }
           ]
@@ -1213,7 +1213,7 @@
           "name": "Organizace a instituce",
           "cards": [
             {
-              "front": "stanice":,
+              "front": "stanice:",
               "back": "STN"
             },
             {
