@@ -121,7 +121,7 @@
           "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) - 2. část",
           "cards": [
             {
-              "front": "Na základě průkazu odborné způsobilosti HAREC je možno bez zkoušky získat radioamatérské oprávnění v zemích",
+              "front": "Na základě průkazu odborné způsobilosti HAREC je možno bez zkoušky získat radioamatérské oprávnění v zemích:",
               "back": "které přistoupily k Doporučení CEPT T/R 61-02"
             },
             {
@@ -166,7 +166,7 @@
               "back": "pouze u klubových stanic"
             },
             {
-              "front": "Během změny vysílacího kmitočtu",
+              "front": "Během změny vysílacího kmitočtu:",
               "back": "nesmí být vyzařována žádná energie s výjimkou provozu přes družice"
             },
             {
@@ -174,11 +174,11 @@
               "back": "prováděn pouze do umělé zátěže s výjimkou nastavení antén a výstupních obvodů vysílače"
             },
             {
-              "front": "Při vysílání mimo stanovišť uvedených v oprávnění",
+              "front": "Při vysílání mimo stanovišť uvedených v oprávnění:",
               "back": "doplníme volací značku o „/p“ při provozu z pevného stanoviště"
             },
             {
-              "front": "Při vysílání mimo stanovišť uvedených v oprávnění",
+              "front": "Při vysílání mimo stanovišť uvedených v oprávnění:",
               "back": "doplníme volací značku o „/m“ při mobilním provozu"
             },
             {
@@ -212,15 +212,15 @@
             },
             {
               "front": "Jaká radioamatérská stanice automaticky přenáší signály jiné stanice?",
-              "back": "Převáděč."
+              "back": "převáděč"
             },
             {
               "front": "Který druh radioamatérské stanice zajišťuje pouze jednocestnou komunikaci?",
-              "back": "Maják."
+              "back": "maják"
             },
             {
               "front": "Kdy se mohou v radioamatérském provozu vysílat kódované zprávy?",
-              "back": "Nikdy."
+              "back": "nikdy"
             },
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během závodu na kmitočtu 7 105 kHz?",
@@ -281,7 +281,7 @@
               "back": "nesmí být překročeny povolené výkony v jejich součtu výkonů jednotlivých zařízení"
             },
             {
-              "front": "Operátor, který není držitelem průkazu HAREC nebo NOVICE, může klubovou stanici obsluhovat",
+              "front": "Operátor, který není držitelem průkazu HAREC nebo NOVICE, může klubovou stanici obsluhovat:",
               "back": "ve třídě N pod dozorem oprávněného operátora"
             },
             {
@@ -511,7 +511,7 @@
       "name": "Q-kódy",
       "subareas": [
         {
-          "name": "Rušení a čitelnost signálu",
+          "name": "Rušení a čitelnost signálu:",
           "cards": [
             {
               "front": "Jsem rušen interferencí:",
@@ -628,23 +628,23 @@
           "name": "Pozdravy podle denní doby",
           "cards": [
             {
-              "front": "dobré odpoledne",
+              "front": "dobré odpoledne:",
               "back": "GA"
             },
             {
-              "front": "dobré ráno",
+              "front": "dobré ráno:",
               "back": "GM"
             },
             {
-              "front": "dobrý večer",
+              "front": "dobrý večer:",
               "back": "GE"
             },
             {
-              "front": "dobrý den",
+              "front": "dobrý den:",
               "back": "GD"
             },
             {
-              "front": "dobrou noc",
+              "front": "dobrou noc:",
               "back": "GN"
             }
           ]
@@ -653,48 +653,48 @@
           "name": "Pozdravy - loučení a fráze",
           "cards": [
             {
-              "front": "smích",
+              "front": "smích:",
               "back": "HI"
             },
             {
-              "front": "sbohem",
+              "front": "sbohem:",
               "back": "GB"
             },
             {
-              "front": "znovu",
+              "front": "znovu:",
               "back": "CUAGN"
             },
             {
-              "front": "srdečný pozdrav",
+              "front": "srdečný pozdrav:",
               "back": "73"
             },
             {
-              "front": "polibek",
+              "front": "polibek:",
               "back": "88"
             },
             {
-              "front": "později na shledanou",
+              "front": "později na shledanou:",
               "back": "CUL"
             }
           ]
         },
         {
-          "name": "Zdvořilost - díky a prosba",
+          "name": "Zdvořilost - díky a prosba:",
           "cards": [
             {
-              "front": "děkuji",
+              "front": "děkuji:",
               "back": "TNX / TKS"
             },
             {
-              "front": "štěstí, hodně štěstí",
+              "front": "štěstí, hodně štěstí:",
               "back": "GL"
             },
             {
-              "front": "rád, potěšen",
+              "front": "rád, potěšen:",
               "back": "GLD"
             },
             {
-              "front": "prosím",
+              "front": "prosím:",
               "back": "PSE"
             },
             {
@@ -707,23 +707,23 @@
           "name": "Zdvořilost - pocity a hodnocení",
           "cards": [
             {
-              "front": "pěkný, výborný",
+              "front": "pěkný, výborný:",
               "back": "FB"
             },
             {
-              "front": "velmi pěkný",
+              "front": "velmi pěkný:",
               "back": "UFB"
             },
             {
-              "front": "doufat",
+              "front": "doufat:",
               "back": "HPE"
             },
             {
-              "front": "šťastný",
+              "front": "šťastný:",
               "back": "HPY"
             },
             {
-              "front": "jistě, určitě",
+              "front": "jistě, určitě:",
               "back": "SURE"
             }
           ]
@@ -732,27 +732,27 @@
           "name": "Řízení spojení - začátek a výzva",
           "cards": [
             {
-              "front": "čekejte",
+              "front": "čekejte:",
               "back": "AS"
             },
             {
-              "front": "domluvené spojení",
+              "front": "domluvené spojení:",
               "back": "SKED"
             },
             {
-              "front": "vysílejte",
+              "front": "vysílejte:",
               "back": "K"
             },
             {
-              "front": "všeobecná výzva",
+              "front": "všeobecná výzva:",
               "back": "CQ"
             },
             {
-              "front": "pokračujte",
+              "front": "pokračujte:",
               "back": "GA"
             },
             {
-              "front": "začátek relace",
+              "front": "začátek relace:",
               "back": "KA"
             }
           ]
@@ -761,27 +761,27 @@
           "name": "Řízení spojení - konec a přerušení",
           "cards": [
             {
-              "front": "konec vysílání",
+              "front": "konec vysílání:",
               "back": "SK"
             },
             {
-              "front": "uzavírám stanici",
+              "front": "uzavírám stanici:",
               "back": "CL"
             },
             {
-              "front": "pokus",
+              "front": "pokus:",
               "back": "TEST"
             },
             {
-              "front": "konec relace",
+              "front": "konec relace:",
               "back": "AR"
             },
             {
-              "front": "přerušit",
+              "front": "přerušit:",
               "back": "BK"
             },
             {
-              "front": "přecházím na poslech pro určitou stanici",
+              "front": "přecházím na poslech pro určitou stanici:",
               "back": "KN"
             }
           ]
@@ -790,27 +790,27 @@
           "name": "Report a potvrzení",
           "cards": [
             {
-              "front": "report",
+              "front": "report:",
               "back": "RPRT / RST"
             },
             {
-              "front": "staniční deník",
+              "front": "staniční deník:",
               "back": "LOG"
             },
             {
-              "front": "správně přijato",
+              "front": "správně přijato:",
               "back": "R"
             },
             {
-              "front": "staniční lístek nezašlu",
+              "front": "staniční lístek nezašlu:",
               "back": "QSLN"
             },
             {
-              "front": "potvrdit",
+              "front": "potvrdit:",
               "back": "CFM"
             },
             {
-              "front": "přijal, přijato",
+              "front": "přijal, přijato:",
               "back": "RCVD"
             }
           ]
@@ -819,23 +819,23 @@
           "name": "Podmínky a rušení",
           "cards": [
             {
-              "front": "rušení rozhlasu",
+              "front": "rušení rozhlasu:",
               "back": "BCI"
             },
             {
-              "front": "podmínky pro spojení",
+              "front": "podmínky pro spojení:",
               "back": "CONDS"
             },
             {
-              "front": "rušení televize",
+              "front": "rušení televize:",
               "back": "TVI"
             },
             {
-              "front": "podmínky pro dálkové spojení",
+              "front": "podmínky pro dálkové spojení:",
               "back": "CONDX"
             },
             {
-              "front": "rušení rádiového kmitočtu",
+              "front": "rušení rádiového kmitočtu:",
               "back": "RFI"
             }
           ]
@@ -844,23 +844,23 @@
           "name": "Vybavení - přijímač a vysílač",
           "cards": [
             {
-              "front": "přijímač",
+              "front": "přijímač:",
               "back": "RX"
             },
             {
-              "front": "zařízení",
+              "front": "zařízení:",
               "back": "RIG"
             },
             {
-              "front": "vysílač",
+              "front": "vysílač:",
               "back": "TX"
             },
             {
-              "front": "transceiver",
+              "front": "transceiver:",
               "back": "TRX"
             },
             {
-              "front": "proměnný oscilátor",
+              "front": "proměnný oscilátor:",
               "back": "VFO"
             }
           ]
@@ -869,27 +869,27 @@
           "name": "Vybavení - anténa a výkon",
           "cards": [
             {
-              "front": "anténa",
+              "front": "anténa:",
               "back": "AER / ANT"
             },
             {
-              "front": "činitel stojatých vln",
+              "front": "činitel stojatých vln:",
               "back": "PSV / SWR"
             },
             {
-              "front": "koncový stupeň",
+              "front": "koncový stupeň:",
               "back": "PA"
             },
             {
-              "front": "špičkový výkon",
+              "front": "špičkový výkon:",
               "back": "PEP"
             },
             {
-              "front": "výkon",
+              "front": "výkon:",
               "back": "PWR"
             },
             {
-              "front": "země, uzemnění",
+              "front": "země, uzemnění:",
               "back": "GND"
             }
           ]
@@ -898,15 +898,15 @@
           "name": "Vybavení - automatické řízení",
           "cards": [
             {
-              "front": "automatické řízení úrovně",
+              "front": "automatické řízení úrovně:",
               "back": "ALC"
             },
             {
-              "front": "automatické řízení zisku",
+              "front": "automatické řízení zisku:",
               "back": "AGC"
             },
             {
-              "front": "automatické řízení hlasitosti",
+              "front": "automatické řízení hlasitosti:",
               "back": "AVC"
             }
           ]
@@ -915,15 +915,15 @@
           "name": "Modulace - druhy",
           "cards": [
             {
-              "front": "amplitudová modulace",
+              "front": "amplitudová modulace:",
               "back": "AM"
             },
             {
-              "front": "kmitočtová modulace",
+              "front": "kmitočtová modulace:",
               "back": "FM"
             },
             {
-              "front": "telegrafie, netlumená vlna",
+              "front": "telegrafie, netlumená vlna":,
               "back": "CW"
             }
           ]
@@ -932,19 +932,19 @@
           "name": "Modulace - postranní pásma",
           "cards": [
             {
-              "front": "jedno postranní pásmo",
+              "front": "jedno postranní pásmo:",
               "back": "SSB"
             },
             {
-              "front": "spodní postranní pásmo",
+              "front": "spodní postranní pásmo:",
               "back": "LSB"
             },
             {
-              "front": "fonie",
+              "front": "fonie:",
               "back": "FONE"
             },
             {
-              "front": "horní postranní pásmo",
+              "front": "horní postranní pásmo:",
               "back": "USB"
             }
           ]
@@ -953,27 +953,27 @@
           "name": "Kmitočtová pásma",
           "cards": [
             {
-              "front": "rádiový kmitočet",
+              "front": "rádiový kmitočet:",
               "back": "RF"
             },
             {
-              "front": "super vysoký kmitočet",
+              "front": "super vysoký kmitočet:",
               "back": "SHF"
             },
             {
-              "front": "nízký kmitočet",
+              "front": "nízký kmitočet:",
               "back": "LF"
             },
             {
-              "front": "krátké vlny",
+              "front": "krátké vlny:",
               "back": "SW"
             },
             {
-              "front": "ultravysoký kmitočet",
+              "front": "ultravysoký kmitočet:",
               "back": "UHF"
             },
             {
-              "front": "velmi vysoký kmitočet",
+              "front": "velmi vysoký kmitočet:",
               "back": "VHF"
             }
           ]
@@ -982,15 +982,15 @@
           "name": "Klíčování",
           "cards": [
             {
-              "front": "elektronický klíč",
+              "front": "elektronický klíč:",
               "back": "ELBUG"
             },
             {
-              "front": "poloautomatický klíč",
+              "front": "poloautomatický klíč:",
               "back": "BUG"
             },
             {
-              "front": "klíč",
+              "front": "klíč:",
               "back": "KY"
             }
           ]
@@ -999,19 +999,19 @@
           "name": "Osoby - radioamatéři",
           "cards": [
             {
-              "front": "radioamatér",
+              "front": "radioamatér:",
               "back": "HAM"
             },
             {
-              "front": "špatný operátor",
+              "front": "špatný operátor:",
               "back": "LID"
             },
             {
-              "front": "přítel",
+              "front": "přítel:",
               "back": "OM"
             },
             {
-              "front": "operátor",
+              "front": "operátor:",
               "back": "OP"
             }
           ]
@@ -1020,15 +1020,15 @@
           "name": "Osoby - rodina a oslovení",
           "cards": [
             {
-              "front": "milý, drahý",
+              "front": "milý, drahý:",
               "back": "DR"
             },
             {
-              "front": "manželka",
+              "front": "manželka:",
               "back": "XYL"
             },
             {
-              "front": "slečna, přítelkyně",
+              "front": "slečna, přítelkyně:",
               "back": "YL"
             }
           ]
@@ -1037,23 +1037,23 @@
           "name": "Počasí",
           "cards": [
             {
-              "front": "slunečno",
+              "front": "slunečno:",
               "back": "SUNNY"
             },
             {
-              "front": "zataženo",
+              "front": "zataženo:",
               "back": "OVERCAST"
             },
             {
-              "front": "teplota",
+              "front": "teplota:",
               "back": "TEMP"
             },
             {
-              "front": "počasí",
+              "front": "počasí:",
               "back": "WX"
             },
             {
-              "front": "oblačno",
+              "front": "oblačno:",
               "back": "CLOUDY"
             }
           ]
@@ -1062,23 +1062,23 @@
           "name": "Zájmena a základní slovíčka",
           "cards": [
             {
-              "front": "já",
+              "front": "já:",
               "back": "I"
             },
             {
-              "front": "váš, tvůj",
+              "front": "váš, tvůj:",
               "back": "UR"
             },
             {
-              "front": "můj",
+              "front": "můj:",
               "back": "MY"
             },
             {
-              "front": "ne",
+              "front": "ne:",
               "back": "NO"
             },
             {
-              "front": "velmi",
+              "front": "velmi:",
               "back": "VY"
             }
           ]
@@ -1087,23 +1087,23 @@
           "name": "Spojky a předložky",
           "cards": [
             {
-              "front": "k",
+              "front": "k:",
               "back": "TO"
             },
             {
-              "front": "z, ze",
+              "front": "z, ze:",
               "back": "DE"
             },
             {
-              "front": "za",
+              "front": "za:",
               "back": "FER"
             },
             {
-              "front": "přes, prostřednictvím",
+              "front": "přes, prostřednictvím:",
               "back": "VIA"
             },
             {
-              "front": "a",
+              "front": "a:",
               "back": "ES"
             }
           ]
@@ -1112,15 +1112,15 @@
           "name": "Zbytek - jen, přímo, nic",
           "cards": [
             {
-              "front": "přímo",
+              "front": "přímo:",
               "back": "DIRECT"
             },
             {
-              "front": "jen",
+              "front": "jen:",
               "back": "ONLY"
             },
             {
-              "front": "nic",
+              "front": "nic:",
               "back": "NIL"
             }
           ]
@@ -1129,19 +1129,19 @@
           "name": "Směry a pohyb",
           "cards": [
             {
-              "front": "zde, tady",
+              "front": "zde, tady:",
               "back": "HR"
             },
             {
-              "front": "dolů",
+              "front": "dolů:",
               "back": "DWN"
             },
             {
-              "front": "blízko, u",
+              "front": "blízko, u:",
               "back": "NR / NEAR"
             },
             {
-              "front": "nahoru",
+              "front": "nahoru:",
               "back": "UP"
             }
           ]
@@ -1150,19 +1150,19 @@
           "name": "Akce - volání a odesílání",
           "cards": [
             {
-              "front": "zavolání, značka",
+              "front": "zavolání, značka:",
               "back": "CALL"
             },
             {
-              "front": "pracoval, pracující",
+              "front": "pracoval, pracující:",
               "back": "WKD"
             },
             {
-              "front": "asi, přibližně",
+              "front": "asi, přibližně:",
               "back": "ABT"
             },
             {
-              "front": "poslat, zaslat",
+              "front": "poslat, zaslat:",
               "back": "SEND"
             }
           ]
@@ -1171,19 +1171,19 @@
           "name": "Elektrické jednotky",
           "cards": [
             {
-              "front": "střídavý proud",
+              "front": "střídavý proud:",
               "back": "AC"
             },
             {
-              "front": "decibel",
+              "front": "decibel:",
               "back": "dB"
             },
             {
-              "front": "stejnosměrný proud",
+              "front": "stejnosměrný proud:",
               "back": "DC"
             },
             {
-              "front": "metr",
+              "front": "metr:",
               "back": "MTR"
             }
           ]
@@ -1192,19 +1192,19 @@
           "name": "Technické pojmy",
           "cards": [
             {
-              "front": "mezifrekvence / kdyby",
+              "front": "mezifrekvence / kdyby:",
               "back": "IF"
             },
             {
-              "front": "dlouhý drát, dlouhé vlny",
+              "front": "dlouhý drát, dlouhé vlny:",
               "back": "LW"
             },
             {
-              "front": "elektronky",
+              "front": "elektronky:",
               "back": "TBS"
             },
             {
-              "front": "prvek, element",
+              "front": "prvek, element:",
               "back": "EL"
             }
           ]
@@ -1213,23 +1213,23 @@
           "name": "Organizace a instituce",
           "cards": [
             {
-              "front": "stanice",
+              "front": "stanice":,
               "back": "STN"
             },
             {
-              "front": "Mezinárodní telekomunikační unie",
+              "front": "Mezinárodní telekomunikační unie:",
               "back": "ITU / UIT"
             },
             {
-              "front": "Mezinárodní radioamatérská unie",
+              "front": "Mezinárodní radioamatérská unie:",
               "back": "IARU"
             },
             {
-              "front": "koncesovaný",
+              "front": "koncesovaný:",
               "back": "LIS"
             },
             {
-              "front": "nekoncesovaný",
+              "front": "nekoncesovaný:",
               "back": "UNLIS"
             }
           ]
@@ -1238,23 +1238,23 @@
           "name": "Radioamatérský svět",
           "cards": [
             {
-              "front": "diplom",
+              "front": "diplom:",
               "back": "AWARD"
             },
             {
-              "front": "obálka s adresou a známkou",
+              "front": "obálka s adresou a známkou:",
               "back": "SASE"
             },
             {
-              "front": "radioamatérská družice",
+              "front": "radioamatérská družice:",
               "back": "OSCAR"
             },
             {
-              "front": "krátkovlnný posluchač",
+              "front": "krátkovlnný posluchač:",
               "back": "SWL"
             },
             {
-              "front": "síť",
+              "front": "síť:",
               "back": "NET"
             }
           ]
@@ -1263,19 +1263,19 @@
           "name": "Časové pojmy",
           "cards": [
             {
-              "front": "opakovat",
+              "front": "opakovat:",
               "back": "RPT"
             },
             {
-              "front": "opět, zase",
+              "front": "opět, zase:",
               "back": "AGN"
             },
             {
-              "front": "světový čas koordinovaný",
+              "front": "světový čas koordinovaný:",
               "back": "UTC"
             },
             {
-              "front": "brzy",
+              "front": "brzy:",
               "back": "SN"
             }
           ]
@@ -1284,7 +1284,7 @@
           "name": "Obecné pojmy",
           "cards": [
             {
-              "front": "vše",
+              "front": "vše:",
               "back": "ALL"
             },
             {
@@ -1292,11 +1292,11 @@
               "back": "HW?"
             },
             {
-              "front": "signály",
+              "front": "signály:",
               "back": "SIGS"
             },
             {
-              "front": "informace",
+              "front": "informace:",
               "back": "INFO"
             }
           ]
@@ -1305,19 +1305,19 @@
           "name": "Různé A",
           "cards": [
             {
-              "front": "slyšen, slyšeno",
+              "front": "slyšen, slyšeno:",
               "back": "HRD"
             },
             {
-              "front": "dálkové spojení",
+              "front": "dálkové spojení:",
               "back": "DX"
             },
             {
-              "front": "v pořádku",
+              "front": "v pořádku:",
               "back": "OK"
             },
             {
-              "front": "zapsat, porozumět",
+              "front": "zapsat, porozumět:",
               "back": "CPI / CPY"
             }
           ]
@@ -1326,7 +1326,7 @@
           "name": "Různé B",
           "cards": [
             {
-              "front": "watty",
+              "front": "watty:",
               "back": "WTTS"
             },
             {
@@ -1334,7 +1334,7 @@
               "back": "99"
             },
             {
-              "front": "Vánoce",
+              "front": "Vánoce:",
               "back": "XMAS"
             }
           ]
@@ -1348,27 +1348,27 @@
           "name": "Sousedé ČR",
           "cards": [
             {
-              "front": "Česká republika",
+              "front": "Česká republika:",
               "back": "OL, OK"
             },
             {
-              "front": "Slovensko",
+              "front": "Slovensko:",
               "back": "OM"
             },
             {
-              "front": "Rakousko",
+              "front": "Rakousko:",
               "back": "OE"
             },
             {
-              "front": "Německo",
+              "front": "Německo:",
               "back": "DA–DR"
             },
             {
-              "front": "Polsko",
+              "front": "Polsko:",
               "back": "HF, SN-SR, 3Z"
             },
             {
-              "front": "Maďarsko",
+              "front": "Maďarsko:",
               "back": "HA, HG"
             }
           ]
@@ -1377,23 +1377,23 @@
           "name": "Skandinávie - státy",
           "cards": [
             {
-              "front": "Švédsko",
+              "front": "Švédsko:",
               "back": "SA-SM, 7S, 8S"
             },
             {
-              "front": "Finsko",
+              "front": "Finsko:",
               "back": "OF-OJ"
             },
             {
-              "front": "Dánsko",
+              "front": "Dánsko:",
               "back": "OU-OZ, XP, 5P, 5Q"
             },
             {
-              "front": "Norsko",
+              "front": "Norsko:",
               "back": "LA-LN, 3Y"
             },
             {
-              "front": "Island",
+              "front": "Island:",
               "back": "TF"
             }
           ]
@@ -1402,27 +1402,27 @@
           "name": "Severní Atlantik - závislá území",
           "cards": [
             {
-              "front": "Špicberky",
+              "front": "Špicberky:",
               "back": "JW"
             },
             {
-              "front": "Jan Mayen",
+              "front": "Jan Mayen:",
               "back": "JX"
             },
             {
-              "front": "Alandské ostrovy",
+              "front": "Alandské ostrovy:",
               "back": "OH0"
             },
             {
-              "front": "Market Reef",
+              "front": "Market Reef:",
               "back": "OJ0"
             },
             {
-              "front": "Grónsko",
+              "front": "Grónsko:",
               "back": "OX"
             },
             {
-              "front": "Faerské ostrovy",
+              "front": "Faerské ostrovy:",
               "back": "OY"
             }
           ]
@@ -1431,19 +1431,19 @@
           "name": "Británie",
           "cards": [
             {
-              "front": "Anglie",
+              "front": "Anglie:",
               "back": "G, GX"
             },
             {
-              "front": "Skotsko",
+              "front": "Skotsko:",
               "back": "GM, GS"
             },
             {
-              "front": "Wales",
+              "front": "Wales:",
               "back": "GW, GC, MW"
             },
             {
-              "front": "Severní Irsko",
+              "front": "Severní Irsko:",
               "back": "GI, GN, MI"
             }
           ]
@@ -1452,19 +1452,19 @@
           "name": "Ostrovy v Kanálu a Irsko",
           "cards": [
             {
-              "front": "Ostrov Man",
+              "front": "Ostrov Man:",
               "back": "GD, GT, MD"
             },
             {
-              "front": "Jersey",
+              "front": "Jersey:",
               "back": "GJ, GH, MJ"
             },
             {
-              "front": "Guernsey",
+              "front": "Guernsey:",
               "back": "GU, GP, MU"
             },
             {
-              "front": "Irsko",
+              "front": "Irsko:",
               "back": "EI, EJ"
             }
           ]
@@ -1473,19 +1473,19 @@
           "name": "Španělsko a ostrovy",
           "cards": [
             {
-              "front": "Španělsko",
+              "front": "Španělsko:",
               "back": "EA-EH"
             },
             {
-              "front": "Kanárské ostrovy",
+              "front": "Kanárské ostrovy:",
               "back": "EA8-EH8"
             },
             {
-              "front": "Baleáry",
+              "front": "Baleáry:",
               "back": "EA6-EH6"
             },
             {
-              "front": "Ceuta a Melilla",
+              "front": "Ceuta a Melilla:",
               "back": "EA9-EH9"
             }
           ]
@@ -1494,15 +1494,15 @@
           "name": "Portugalsko a Andorra",
           "cards": [
             {
-              "front": "Portugalsko",
+              "front": "Portugalsko:",
               "back": "CQ-CU"
             },
             {
-              "front": "Azory",
+              "front": "Azory:",
               "back": "CQ2, CR2, CS2, CT2, CU2"
             },
             {
-              "front": "Andorra",
+              "front": "Andorra:",
               "back": "C3"
             }
           ]
@@ -1511,27 +1511,27 @@
           "name": "Balkán - západ",
           "cards": [
             {
-              "front": "Slovinsko",
+              "front": "Slovinsko:",
               "back": "S5"
             },
             {
-              "front": "Chorvatsko",
+              "front": "Chorvatsko:",
               "back": "9A"
             },
             {
-              "front": "Bosna a Hercegovina",
+              "front": "Bosna a Hercegovina:",
               "back": "E7"
             },
             {
-              "front": "Srbsko",
+              "front": "Srbsko:",
               "back": "YT-YU"
             },
             {
-              "front": "Černá Hora",
+              "front": "Černá Hora:",
               "back": "4O"
             },
             {
-              "front": "Makedonie",
+              "front": "Makedonie:",
               "back": "Z3"
             }
           ]
@@ -1540,27 +1540,27 @@
           "name": "Balkán - východ",
           "cards": [
             {
-              "front": "Řecko",
+              "front": "Řecko:",
               "back": "SV-SZ, J4"
             },
             {
-              "front": "Dodekanésy",
+              "front": "Dodekanésy:",
               "back": "SV5-SZ5"
             },
             {
-              "front": "Kréta",
+              "front": "Kréta:",
               "back": "SV9-SZ9"
             },
             {
-              "front": "Albánie",
+              "front": "Albánie:",
               "back": "ZA"
             },
             {
-              "front": "Bulharsko",
+              "front": "Bulharsko:",
               "back": "LZ"
             },
             {
-              "front": "Rumunsko",
+              "front": "Rumunsko:",
               "back": "YO-YR"
             }
           ]
@@ -1569,27 +1569,27 @@
           "name": "Bývalý SSSR - Pobaltí a západ",
           "cards": [
             {
-              "front": "Rusko",
+              "front": "Rusko:",
               "back": "UA-UI"
             },
             {
-              "front": "Ukrajina",
+              "front": "Ukrajina:",
               "back": "EM-EO, UR-UZ"
             },
             {
-              "front": "Bělorusko",
+              "front": "Bělorusko:",
               "back": "EU-EW"
             },
             {
-              "front": "Estonsko",
+              "front": "Estonsko:",
               "back": "ES"
             },
             {
-              "front": "Lotyšsko",
+              "front": "Lotyšsko:",
               "back": "YL"
             },
             {
-              "front": "Litva",
+              "front": "Litva:",
               "back": "LY"
             }
           ]
@@ -1598,15 +1598,15 @@
           "name": "Bývalý SSSR - Kavkaz",
           "cards": [
             {
-              "front": "Moldavsko",
+              "front": "Moldavsko:",
               "back": "ER"
             },
             {
-              "front": "Arménie",
+              "front": "Arménie:",
               "back": "EK"
             },
             {
-              "front": "Gruzie",
+              "front": "Gruzie:",
               "back": "4L"
             }
           ]
@@ -1615,23 +1615,23 @@
           "name": "Benelux a okolí",
           "cards": [
             {
-              "front": "Nizozemsko",
+              "front": "Nizozemsko:",
               "back": "PA-PI"
             },
             {
-              "front": "Švýcarsko",
+              "front": "Švýcarsko:",
               "back": "HB, HE"
             },
             {
-              "front": "Lichtenštejnsko",
+              "front": "Lichtenštejnsko:",
               "back": "HB0"
             },
             {
-              "front": "Belgie",
+              "front": "Belgie:",
               "back": "ON-OT"
             },
             {
-              "front": "Lucembursko",
+              "front": "Lucembursko:",
               "back": "LX"
             }
           ]
@@ -1640,27 +1640,27 @@
           "name": "Francie a Itálie",
           "cards": [
             {
-              "front": "Francie",
+              "front": "Francie:",
               "back": "F-FZ, F1-F0, HW, TH, TK, TM, TO, TV"
             },
             {
-              "front": "Korsika",
+              "front": "Korsika:",
               "back": "TK"
             },
             {
-              "front": "Itálie",
+              "front": "Itálie:",
               "back": "I, IA-IZ"
             },
             {
-              "front": "Sardinie",
+              "front": "Sardinie:",
               "back": "IS0, IM0"
             },
             {
-              "front": "Monako",
+              "front": "Monako:",
               "back": "3A"
             },
             {
-              "front": "San Marino",
+              "front": "San Marino:",
               "back": "T7"
             }
           ]
@@ -1669,19 +1669,19 @@
           "name": "Vatikán, Malta a Turecko, JAR",
           "cards": [
             {
-              "front": "Vatikán",
+              "front": "Vatikán:",
               "back": "HV"
             },
             {
-              "front": "Malta",
+              "front": "Malta:",
               "back": "9H"
             },
             {
-              "front": "Turecko",
+              "front": "Turecko:",
               "back": "TA-TC, YM"
             },
             {
-              "front": "Jihoafrická republika",
+              "front": "Jihoafrická republika:",
               "back": "ZR-ZU"
             }
           ]
@@ -1690,27 +1690,27 @@
           "name": "Amerika",
           "cards": [
             {
-              "front": "Spojené státy americké",
+              "front": "Spojené státy americké:",
               "back": "K, N, W, AA-AK"
             },
             {
-              "front": "Kanada",
+              "front": "Kanada:",
               "back": "CF-CK, CY-CZ, VA-VE, VO, VX, VY, XJ-XO"
             },
             {
-              "front": "Brazílie",
+              "front": "Brazílie:",
               "back": "PP-PY"
             },
             {
-              "front": "Argentina",
+              "front": "Argentina:",
               "back": "LO-LW"
             },
             {
-              "front": "Mexiko",
+              "front": "Mexiko:",
               "back": "XE-XI"
             },
             {
-              "front": "Kuba",
+              "front": "Kuba:",
               "back": "CL, CM, CO, T4"
             }
           ]
@@ -1719,23 +1719,23 @@
           "name": "Východní Asie",
           "cards": [
             {
-              "front": "Japonsko",
+              "front": "Japonsko:",
               "back": "JA-JS, 7J-7N, 8J-8N"
             },
             {
-              "front": "Čína",
+              "front": "Čína:",
               "back": "BA-BZ (vč. B1-B0)"
             },
             {
-              "front": "Tchaj-wan",
+              "front": "Tchaj-wan:",
               "back": "BV"
             },
             {
-              "front": "Jižní Korea",
+              "front": "Jižní Korea:",
               "back": "DS-DT, D7-D9, HL"
             },
             {
-              "front": "Severní Korea",
+              "front": "Severní Korea:",
               "back": "P5-P9"
             }
           ]
@@ -1744,27 +1744,27 @@
           "name": "Jižní/Západní Asie a Pacifik",
           "cards": [
             {
-              "front": "Thajsko",
+              "front": "Thajsko:",
               "back": "HS"
             },
             {
-              "front": "Saúdská Arábie",
+              "front": "Saúdská Arábie:",
               "back": "HZ, 7Z"
             },
             {
-              "front": "Indie",
+              "front": "Indie:",
               "back": "VU"
             },
             {
-              "front": "Izrael",
+              "front": "Izrael:",
               "back": "4X, 4Z"
             },
             {
-              "front": "Austrálie",
+              "front": "Austrálie:",
               "back": "VK"
             },
             {
-              "front": "Nový Zéland",
+              "front": "Nový Zéland:",
               "back": "ZL-ZM"
             }
           ]
