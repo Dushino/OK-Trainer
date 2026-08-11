@@ -1838,7 +1838,7 @@
             },
             {
               "front": "V pásmu 10 MHz je celý úsek pro \"fone\" provoz:",
-              "back": "FONE provoz není povolen"
+              "back": "\"fone\" provoz není povolen"
             }
           ]
         },
@@ -1854,7 +1854,7 @@
               "back": "14070 - 14099 kHz"
             },
             {
-              "front": "V pásmu 14 MHz je celý úsek pro FONE provoz:",
+              "front": "V pásmu 14 MHz je celý úsek pro \"fone\" provoz:",
               "back": "14101 - 14350 kHz"
             }
           ]
@@ -2028,8 +2028,8 @@
               "back": "SOS"
             },
             {
-              "front": "Tísňové volání pro FONE provoz je:",
-              "back": "MAYDAY"
+              "front": "Tísňové volání pro \"fone\" provoz je:",
+              "back": "mayday"
             },
             {
               "front": "Volací značka FK/DL1YD/p znamená:",
@@ -2145,7 +2145,7 @@
             },
             {
               "front": "Elektrický výkon měříme v jednotkách:",
-              "back": "W"
+              "back": "W (Watt)"
             },
             {
               "front": "Kmitočet měříme v jednotkách:",
