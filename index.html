@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OK Trainer</title>
+<title>OK-Trainer</title>
 <meta name="theme-color" content="#eee8d9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12181a" media="(prefers-color-scheme: dark)">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="OK Trainer">
+<meta name="apple-mobile-web-app-title" content="OK-Trainer">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon.svg">
@@ -95,9 +95,15 @@
     gap:6px;
     margin:20px 0 10px;
   }
-  .set-row select{
+  .set-row .selectbar{
     flex:1;
     min-width:0;
+  }
+  .selectbar{
+    position:relative;
+  }
+  .selectbar select{
+    width:100%;
     font-family:var(--mono);
     font-size:13px;
     padding:10px 12px;
@@ -105,6 +111,17 @@
     color:var(--panel-accent);
     border:1px solid var(--border);
     border-radius:8px;
+    appearance:none;
+    -webkit-appearance:none;
+  }
+  .selectbar::after{
+    content:"▾";
+    position:absolute;
+    right:16px;
+    top:12px;
+    color:var(--text-muted);
+    font-size:12px;
+    pointer-events:none;
   }
   .icon-btn{
     flex-shrink:0;
@@ -120,61 +137,14 @@
   .icon-btn:hover{background:var(--panel-2);}
   .icon-btn:disabled{opacity:0.3;cursor:default;}
 
-  nav.bandswitch{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
+  #areaSelectBar{
     margin:0 0 10px;
-    background:var(--panel);
-    padding:6px;
-    border-radius:10px;
-    border:1px solid var(--border);
-  }
-  nav.bandswitch button{
-    flex:1 1 auto;
-    min-width:70px;
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:0.5px;
-    padding:10px 8px;
-    background:transparent;
-    color:var(--text-muted);
-    border:1px solid transparent;
-    border-radius:6px;
-    cursor:pointer;
-  }
-  nav.bandswitch button.active{
-    background:var(--panel-2);
-    color:var(--panel-accent);
-    border-color:var(--panel-accent-dim);
   }
   .subgroupbar{
     margin-bottom:14px;
     display:none;
-    position:relative;
   }
   .subgroupbar.visible{display:block;}
-  .subgroupbar select{
-    width:100%;
-    font-family:var(--mono);
-    font-size:13px;
-    padding:10px 12px;
-    background:var(--panel);
-    color:var(--panel-accent);
-    border:1px solid var(--border);
-    border-radius:8px;
-    appearance:none;
-    -webkit-appearance:none;
-  }
-  .subgroupbar::after{
-    content:"▾";
-    position:absolute;
-    right:16px;
-    top:12px;
-    color:var(--text-muted);
-    font-size:12px;
-    pointer-events:none;
-  }
   .statbar{
     display:flex;
     align-items:center;
@@ -447,20 +417,24 @@
 <body>
 <div class="wrap">
   <header>
-    <p class="callsign">OK TRAINER</p>
+    <p class="callsign">OK-TRAINER</p>
     <p class="sub" id="subLabel">…</p>
   </header>
 
   <div class="set-row">
-    <select id="setSelect"></select>
+    <div class="selectbar">
+      <select id="setSelect"></select>
+    </div>
     <button id="btnImportSet" class="icon-btn" title="Importovat sadu">📥</button>
     <button id="btnDeleteSet" class="icon-btn" title="Smazat sadu">🗑️</button>
     <input type="file" id="fileImportInput" accept="application/json,.json" style="display:none;">
   </div>
 
-  <nav class="bandswitch" id="bandswitch"></nav>
+  <div class="selectbar" id="areaSelectBar">
+    <select id="areaSelect"></select>
+  </div>
 
-  <div class="subgroupbar" id="subgroupbar">
+  <div class="selectbar subgroupbar" id="subgroupbar">
     <select id="subgroupSelect"></select>
   </div>
 
@@ -515,7 +489,7 @@
   </div>
 
   <footer style="margin-top:28px;text-align:center;">
-    <a href="https://github.com/Dushino/OK-Trainer" target="_blank" rel="noopener" id="footerLink">https://github.com/Dushino/OK-Trainer</a>
+    <a href="https://dushino.github.io/OK-Trainer/" target="_blank" rel="noopener" id="footerLink">OK-Trainer</a>
   </footer>
 </div>
 
@@ -525,7 +499,7 @@
 // ============================================================
 const TUTORIAL_SET = {
   "shortName": "Tutoriál",
-  "longName": "Ukázková sada — jak OK Trainer používat",
+  "longName": "Ukázková sada — jak OK-Trainer používat",
   "language": "cs-CZ",
   "areas": [
     {
@@ -1010,9 +984,9 @@ function grade(good){
 }
 
 function renderAreaNav(){
-  const nav = document.getElementById("bandswitch");
-  nav.innerHTML = Object.keys(CAT_LABELS).map(cat =>
-    '<button data-cat="' + cat + '">' + CAT_LABELS[cat] + '</button>'
+  const sel = document.getElementById("areaSelect");
+  sel.innerHTML = Object.keys(CAT_LABELS).map(cat =>
+    '<option value="' + cat + '">' + CAT_LABELS[cat] + '</option>'
   ).join("");
 }
 
@@ -1024,9 +998,7 @@ function setCategory(cat, forcedGroup){
     const validGroups = GROUP_ORDER[cat] || [];
     state.group = validGroups.length ? "__all__" : "__all__";
   }
-  document.querySelectorAll("#bandswitch button").forEach(b => {
-    b.classList.toggle("active", b.dataset.cat === cat);
-  });
+  document.getElementById("areaSelect").value = cat;
   state.sessionGood = 0;
   state.sessionBad = 0;
   renderSubgroupBar();
@@ -1218,7 +1190,7 @@ function updateDrivingMetadata(){
   try{
     navigator.mediaSession.metadata = new MediaMetadata({
       title: scopeSpokenLabel(state.cat, state.group),
-      artist: "OK Trainer — " + (library[activeSetId] ? library[activeSetId].shortName : "")
+      artist: "OK-Trainer — " + (library[activeSetId] ? library[activeSetId].shortName : "")
     });
   }catch(e){}
 }
@@ -1326,9 +1298,8 @@ document.getElementById("btnDriving") && document.getElementById("btnDriving").a
 // ============================================================
 // Ovládání
 // ============================================================
-document.getElementById("bandswitch").addEventListener("click", e => {
-  const btn = e.target.closest("button[data-cat]");
-  if(btn) setCategory(btn.dataset.cat);
+document.getElementById("areaSelect").addEventListener("change", e => {
+  setCategory(e.target.value);
 });
 document.getElementById("subgroupSelect").addEventListener("change", e => {
   setGroup(e.target.value);
