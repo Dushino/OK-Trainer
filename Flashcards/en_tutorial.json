@@ -1,42 +1,42 @@
 {
-  "shortName": "CZ Tutoriál",
-  "longName": "Ukázková sada — jak OK Trainer používat",
-  "language": "cs-CZ",
+  "shortName": "Tutorial",
+  "longName": "Sample set — how to use OK Trainer",
+  "language": "en-US",
   "areas": [
     {
-      "name": "Základy ovládání",
+      "name": "Basics",
       "subareas": [
         {
-          "name": "Kartičky",
+          "name": "Flashcards",
           "cards": [
-            { "front": "Jak otočíš kartičku pro zobrazení odpověďi?", "back": "Klepnutím na kartičku, nebo klávesou mezerník." },
-            { "front": "Co znamená barva pruhu ve statistikách?", "back": "Červená = špatné výsledky, oranžová = někde uprostřed, zelená = spolehlivě umíš." }
+            { "front": "How do you flip a card to see the answer?", "back": "Tap the card, or press the space bar." },
+            { "front": "What does the color of the bar in the statistics mean?", "back": "Red = poor results, orange = somewhere in between, green = you know it reliably." }
           ]
         },
         {
-          "name": "Skupiny a výběr",
+          "name": "Groups and selection",
           "cards": [
-            { "front": "Jak jsou rozděleny otázky?", "back": "Do oblastí a podoblastí — nahoře si vybereš oblast, pod ní konkrétní podoblast nebo „vše\"." },
-            { "front": "Co udělá tlačítko „reset statistiky vybrané (pod)oblasti\"?", "back": "Vynuluje uloženou úspěšnost pro danou (pod)oblast, obsah kartiček zůstane beze změny." }
+            { "front": "How are the questions organized?", "back": "Into areas and subareas — pick an area at the top, then a specific subarea below it, or \"all\"." },
+            { "front": "What does the \"reset stats for selected (sub)area\" button do?", "back": "It resets the saved success rate for that (sub)area; the card content stays unchanged." }
           ]
         }
       ]
     },
     {
-      "name": "Pokročilé funkce",
+      "name": "Advanced features",
       "subareas": [
         {
-          "name": "Handsfree režim",
+          "name": "Handsfree mode",
           "cards": [
-            { "front": "K čemu slouží tlačítko 🎧 „Spustit režim handsfree\"?", "back": "Zapne hlasové čtení kartiček ovládané tlačítky Next/Previous track na sluchátkách nebo hodinkách." },
-            { "front": "Jak přečíst otázku znovu?", "back": "Stiskni Prev/Previous track, dokud je kartička otočená na přední straně." }
+            { "front": "What does the 🎧 \"Start handsfree mode\" button do?", "back": "It turns on voice reading of the cards, controlled with the Next/Previous track buttons on your headset or watch." },
+            { "front": "How do you hear the question again?", "back": "Press Prev/Previous track while the card is still showing its front side." }
           ]
         },
         {
-          "name": "Vlastní sady otázek",
+          "name": "Custom question sets",
           "cards": [
-            { "front": "Odkud se berou otázky?", "back": "Z naimportovaného JSON souboru — je možno vytvořit vlastní sadu." },
-            { "front": "Co se stane, když naimportuješ sadu se stejným krátkým názvem, jaký je již importován?", "back": "Budou vynulovány veškeré statistiky pro tuto sadu." }
+            { "front": "Where do the questions come from?", "back": "From an imported JSON file — you can create your own set." },
+            { "front": "What happens if you import a set with the same short name as one that's already imported?", "back": "All statistics for that set will be reset." }
           ]
         }
       ]
