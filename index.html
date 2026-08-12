@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="OK-Trainer">
+<meta name="apple-mobile-web-app-title" content="OK Trainer">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon.svg">
@@ -423,10 +423,19 @@
 
   <div class="set-row">
     <div class="selectbar">
+      <select id="langSelect"></select>
+    </div>
+    <button id="btnImportLang" class="icon-btn" data-i18n-title="import_lang_title">📥</button>
+    <button id="btnDeleteLang" class="icon-btn" data-i18n-title="delete_lang_title">🗑️</button>
+    <input type="file" id="fileImportLangInput" accept="application/json,.json" style="display:none;">
+  </div>
+
+  <div class="set-row">
+    <div class="selectbar">
       <select id="setSelect"></select>
     </div>
-    <button id="btnImportSet" class="icon-btn" title="Importovat sadu">📥</button>
-    <button id="btnDeleteSet" class="icon-btn" title="Smazat sadu">🗑️</button>
+    <button id="btnImportSet" class="icon-btn" data-i18n-title="import_set_title">📥</button>
+    <button id="btnDeleteSet" class="icon-btn" data-i18n-title="delete_set_title">🗑️</button>
     <input type="file" id="fileImportInput" accept="application/json,.json" style="display:none;">
   </div>
 
@@ -440,14 +449,14 @@
 
   <div class="statbar">
     <div class="counts">
-      <span>umím <b class="ok" id="cntGood">0</b></span>
-      <span>neumím <b class="bad" id="cntBad">0</b></span>
-      <span>zbývá <b id="cntLeft">0</b></span>
+      <span><span data-i18n="know"></span> <b class="ok" id="cntGood">0</b></span>
+      <span><span data-i18n="dont_know"></span> <b class="bad" id="cntBad">0</b></span>
+      <span><span data-i18n="remaining"></span> <b id="cntLeft">0</b></span>
     </div>
   </div>
 
   <div class="header-progress-row">
-    <span class="header-progress-label">Celková statistika vybrané oblasti:</span>
+    <span class="header-progress-label" data-i18n="overall_stats_label"></span>
     <div class="header-progress" id="headerProgress">
       <div class="stats-bar"><div class="stats-bar-fill" id="headerBarFill"></div></div>
       <span class="stats-pct" id="headerPct">0%</span>
@@ -456,40 +465,40 @@
 
   <div class="card" id="card">
     <span class="tag" id="cardTag">—</span>
-    <div class="face" id="cardFace">načítám…</div>
-    <span class="hint" id="cardHint">klikni pro otočení</span>
+    <div class="face" id="cardFace">…</div>
+    <span class="hint" id="cardHint" data-i18n="tap_to_flip"></span>
   </div>
 
   <div class="controls">
-    <button id="btnBad" disabled>✗ Neznal jsem</button>
-    <button id="btnGood" disabled>✓ Znal jsem</button>
+    <button id="btnBad" disabled data-i18n="btn_dont_know"></button>
+    <button id="btnGood" disabled data-i18n="btn_know"></button>
   </div>
 
   <div class="driving-row">
-    <button id="btnDriving" class="driving-btn">🎧  Spustit režim handsfree</button>
-    <p class="driving-hint" id="drivingHint">TTS přečte kartičku, dál se ovládá tlačítky Next/Prev na headsetu. Obrazovka zůstane svítit kvůli udrření audio výstupu - jas si před jízdou stáhni na minimum.</p>
+    <button id="btnDriving" class="driving-btn" data-i18n="driving_start"></button>
+    <p class="driving-hint" id="drivingHint" data-i18n="driving_hint"></p>
   </div>
 
   <div class="toolbar">
-    <label><input type="checkbox" id="onlyHard"> jen obtížné</label>
+    <label><input type="checkbox" id="onlyHard"> <span data-i18n="only_hard"></span></label>
   </div>
 
   <p class="keys">
-    <kbd>mezerník</kbd> otočit &nbsp; <kbd>←</kbd> neznal jsem &nbsp; <kbd>→</kbd> znal jsem
+    <kbd data-i18n="key_space"></kbd> <span data-i18n="key_flip"></span> &nbsp; <kbd>←</kbd> <span data-i18n="key_dont_know"></span> &nbsp; <kbd>→</kbd> <span data-i18n="key_know"></span>
   </p>
 
   <section class="stats">
-    <p class="stats-title">Statistiky úspěšnosti</p>
+    <p class="stats-title" data-i18n="stats_title"></p>
     <div id="statsList"></div>
   </section>
 
   <div class="reset-row">
-    <button id="btnResetScope" class="reset-btn">🔄  Reset statistiky vybrané (pod)oblasti</button>
-    <button id="btnResetAll" class="reset-btn">🗑️  Reset všech statistik sady</button>
+    <button id="btnResetScope" class="reset-btn" data-i18n="reset_scope_btn"></button>
+    <button id="btnResetAll" class="reset-btn" data-i18n="reset_all_btn"></button>
   </div>
 
   <footer style="margin-top:28px;text-align:center;">
-    <a href="https://dushino.github.io/OK-Trainer/" target="_blank" rel="noopener" id="footerLink">OK-Trainer</a>
+    <a href="https://github.com/Dushino/OK-Trainer" target="_blank" rel="noopener" id="footerLink">https://github.com/Dushino/OK-Trainer</a>
   </footer>
 </div>
 
@@ -499,7 +508,7 @@
 // ============================================================
 const TUTORIAL_SET = {
   "shortName": "Tutoriál",
-  "longName": "Ukázková sada — jak OK-Trainer používat",
+  "longName": "Ukázková sada — jak OK Trainer používat",
   "language": "cs-CZ",
   "areas": [
     {
@@ -542,6 +551,173 @@ const TUTORIAL_SET = {
     }
   ]
 };
+// ============================================================
+// Jazyk rozhraní (GUI) — vestavěná angličtina + import dalších
+// balíčků stejným způsobem jako u sad kartiček.
+// ============================================================
+const EN_STRINGS = {
+  import_set_title: "Import set",
+  delete_set_title: "Delete set",
+  import_lang_title: "Import language",
+  delete_lang_title: "Delete language",
+  know: "know",
+  dont_know: "don't know",
+  remaining: "remaining",
+  overall_stats_label: "Overall stats for selected area:",
+  tap_to_flip: "tap to flip",
+  tap_to_flip_back: "tap to flip back",
+  round_done: "Round complete ✓ — tap for a new round",
+  btn_dont_know: "✗ Don't know",
+  btn_know: "✓ Know",
+  driving_start: "🎧  Start handsfree mode",
+  driving_stop: "🎧  Stop handsfree mode",
+  driving_hint: "TTS reads the card aloud, then control it with the Next/Prev buttons on your headset, watch or in the car. The screen stays on to keep the audio session alive — dim it manually before you drive.",
+  only_hard: "hard cards only",
+  key_space: "space",
+  key_flip: "flip",
+  key_dont_know: "don't know",
+  key_know: "know",
+  stats_title: "Success statistics",
+  reset_scope_btn: "🔄 reset stats for selected area",
+  reset_all_btn: "🗑️ reset all stats for this set",
+  all_prefix: "All —",
+  err_invalid_json: "Could not read the file as valid JSON:\n{msg}",
+  err_invalid_structure: "The file has an invalid structure:\n\n{errs}",
+  confirm_reimport: "The set \"{name}\" already exists in the app.\n\nImporting will replace its content and RESET the existing stats for this set. Continue?",
+  confirm_delete_set: "Really delete the set \"{name}\" including all its stats? This cannot be undone.",
+  confirm_reset_scope: "Reset stats and saved progress for \"{scope}\" (set \"{setId}\")?",
+  confirm_reset_all: "Really reset ALL stats and saved progress for the whole set \"{setId}\"? This cannot be undone.",
+  confirm_delete_lang: "Really delete the \"{name}\" language pack? English will be used instead.",
+  err_no_speech_support: "This browser doesn't support speech synthesis or media-key control.",
+  val_not_object: "The file is not a valid JSON object.",
+  val_missing_field: "Missing text field \"{field}\".",
+  val_missing_language: "Missing text field \"language\" (e.g. \"en-US\").",
+  val_no_areas: "Missing non-empty \"areas\" array.",
+  val_too_many_areas: "Too many areas (max {max}, found {n}).",
+  val_area_label: "Area #{n}",
+  val_subarea_label: "{area} → subarea #{n}",
+  val_no_name: "{label} has no valid \"name\" field.",
+  val_no_subareas: "{label} has no non-empty \"subareas\" array.",
+  val_too_many_subareas: "{label} has too many subareas (max {max}, found {n}).",
+  val_no_cards: "{label} has no non-empty \"cards\" array.",
+  val_card_no_front: "{label} → card #{n} has no valid \"front\" field.",
+  val_card_no_back: "{label} → card #{n} has no valid \"back\" field."
+};
+const BUILTIN_LANG_ID = "en";
+
+const LANG_LIB_KEY = "oktrainer_langlib_v1";
+const ACTIVE_LANG_KEY = "oktrainer_activelang_v1";
+
+function loadLangLibrary(){
+  try{
+    const raw = localStorage.getItem(LANG_LIB_KEY);
+    const lib = raw ? JSON.parse(raw) : {};
+    if(!lib[BUILTIN_LANG_ID]) lib[BUILTIN_LANG_ID] = {langCode: "en", langName: "English", strings: EN_STRINGS};
+    return lib;
+  }catch(e){
+    return {[BUILTIN_LANG_ID]: {langCode: "en", langName: "English", strings: EN_STRINGS}};
+  }
+}
+function saveLangLibrary(){
+  try{ localStorage.setItem(LANG_LIB_KEY, JSON.stringify(langLibrary)); }catch(e){}
+}
+
+let langLibrary = loadLangLibrary();
+let activeLangId = localStorage.getItem(ACTIVE_LANG_KEY) || BUILTIN_LANG_ID;
+if(!langLibrary[activeLangId]) activeLangId = BUILTIN_LANG_ID;
+
+// t(key, vars) - přeloží klíč v aktivním jazyce; chybějící klíč spadne
+// zpátky na vestavěnou angličtinu, ať import neúplného balíčku appku nikdy
+// nerozbije.
+function t(key, vars){
+  const pack = langLibrary[activeLangId];
+  let s = (pack && pack.strings && pack.strings[key]) || EN_STRINGS[key] || key;
+  if(vars) Object.keys(vars).forEach(k => { s = s.split("{" + k + "}").join(String(vars[k])); });
+  return s;
+}
+
+function validateLangPack(obj){
+  const errs = [];
+  if(!obj || typeof obj !== "object"){ errs.push(t("val_not_object")); return errs; }
+  if(!obj.langCode || typeof obj.langCode !== "string") errs.push(t("val_missing_field", {field: "langCode"}));
+  if(!obj.langName || typeof obj.langName !== "string") errs.push(t("val_missing_field", {field: "langName"}));
+  if(!obj.strings || typeof obj.strings !== "object") errs.push(t("val_missing_field", {field: "strings"}));
+  return errs;
+}
+
+function renderLangSelect(){
+  const sel = document.getElementById("langSelect");
+  const ids = Object.keys(langLibrary).sort((a,b) => a === BUILTIN_LANG_ID ? -1 : b === BUILTIN_LANG_ID ? 1 : a.localeCompare(b));
+  sel.innerHTML = ids.map(id => '<option value="' + id.replace(/"/g,'&quot;') + '">' + langLibrary[id].langName + '</option>').join("");
+  sel.value = activeLangId;
+  document.getElementById("btnDeleteLang").disabled = (activeLangId === BUILTIN_LANG_ID);
+}
+
+function applyTranslations(){
+  document.documentElement.lang = activeLangId;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.textContent = t(el.getAttribute("data-i18n"));
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach(el => {
+    el.title = t(el.getAttribute("data-i18n-title"));
+  });
+  const drivingBtn = document.getElementById("btnDriving");
+  if(drivingBtn) drivingBtn.textContent = drivingModeActive ? t("driving_stop") : t("driving_start");
+  renderLangSelect();
+  if(Object.keys(CAT_LABELS).length){
+    renderSubgroupBar();
+    renderCard();
+    renderStats();
+  }
+}
+
+function switchToLang(id){
+  if(!langLibrary[id]) return;
+  activeLangId = id;
+  try{ localStorage.setItem(ACTIVE_LANG_KEY, id); }catch(e){}
+  applyTranslations();
+}
+
+document.getElementById("langSelect").addEventListener("change", (e) => {
+  switchToLang(e.target.value);
+});
+document.getElementById("btnImportLang").addEventListener("click", () => {
+  document.getElementById("fileImportLangInput").click();
+});
+document.getElementById("fileImportLangInput").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    let obj;
+    try{
+      obj = JSON.parse(reader.result);
+    }catch(err){
+      alert(t("err_invalid_json", {msg: err.message}));
+      e.target.value = "";
+      return;
+    }
+    const errs = validateLangPack(obj);
+    if(errs.length){
+      alert(t("err_invalid_structure", {errs: errs.join("\n")}));
+      e.target.value = "";
+      return;
+    }
+    langLibrary[obj.langCode] = obj;
+    saveLangLibrary();
+    switchToLang(obj.langCode);
+    e.target.value = "";
+  };
+  reader.readAsText(file, "utf-8");
+});
+document.getElementById("btnDeleteLang").addEventListener("click", () => {
+  if(activeLangId === BUILTIN_LANG_ID) return;
+  if(!confirm(t("confirm_delete_lang", {name: langLibrary[activeLangId].langName}))) return;
+  delete langLibrary[activeLangId];
+  saveLangLibrary();
+  switchToLang(BUILTIN_LANG_ID);
+});
+
 const BUILTIN_ID = TUTORIAL_SET.shortName;
 const MAX_AREAS = 8;
 const MAX_SUBAREAS = 32;
@@ -610,15 +786,13 @@ let DATA = {};
 let GROUP_ORDER = {};
 let CAT_LABELS = {};
 let STATS_CAT_LABELS = {};
-let ALL_LABEL = {};
 
 function applyActiveSet(setObj){
-  DATA = {}; GROUP_ORDER = {}; CAT_LABELS = {}; STATS_CAT_LABELS = {}; ALL_LABEL = {};
+  DATA = {}; GROUP_ORDER = {}; CAT_LABELS = {}; STATS_CAT_LABELS = {};
   setObj.areas.forEach((area, ai) => {
     const key = String(ai);
     CAT_LABELS[key] = area.name.toUpperCase();
     STATS_CAT_LABELS[key] = area.name;
-    ALL_LABEL[key] = "Vše — " + area.name;
     GROUP_ORDER[key] = area.subareas.map(sa => sa.name);
     DATA[key] = [];
     area.subareas.forEach(sa => {
@@ -634,33 +808,33 @@ function applyActiveSet(setObj){
 // ============================================================
 function validateSet(obj){
   const errs = [];
-  if(!obj || typeof obj !== "object"){ errs.push("Soubor není platný JSON objekt."); return errs; }
-  if(!obj.shortName || typeof obj.shortName !== "string") errs.push("Chybí textové pole \"shortName\".");
-  if(!obj.longName || typeof obj.longName !== "string") errs.push("Chybí textové pole \"longName\".");
-  if(!obj.language || typeof obj.language !== "string") errs.push("Chybí textové pole \"language\" (např. \"cs-CZ\").");
+  if(!obj || typeof obj !== "object"){ errs.push(t("val_not_object")); return errs; }
+  if(!obj.shortName || typeof obj.shortName !== "string") errs.push(t("val_missing_field", {field: "shortName"}));
+  if(!obj.longName || typeof obj.longName !== "string") errs.push(t("val_missing_field", {field: "longName"}));
+  if(!obj.language || typeof obj.language !== "string") errs.push(t("val_missing_language"));
   if(!Array.isArray(obj.areas) || obj.areas.length === 0){
-    errs.push("Chybí neprázdné pole \"areas\".");
+    errs.push(t("val_no_areas"));
     return errs;
   }
-  if(obj.areas.length > MAX_AREAS) errs.push("Příliš mnoho oblastí (max. " + MAX_AREAS + ", nalezeno " + obj.areas.length + ").");
+  if(obj.areas.length > MAX_AREAS) errs.push(t("val_too_many_areas", {max: MAX_AREAS, n: obj.areas.length}));
   obj.areas.forEach((area, ai) => {
-    const label = "Oblast #" + (ai+1) + (area && area.name ? " (\"" + area.name + "\")" : "");
-    if(!area || !area.name || typeof area.name !== "string") errs.push(label + " nemá platné pole \"name\".");
+    const label = t("val_area_label", {n: ai+1}) + (area && area.name ? " (\"" + area.name + "\")" : "");
+    if(!area || !area.name || typeof area.name !== "string") errs.push(t("val_no_name", {label}));
     if(!area || !Array.isArray(area.subareas) || area.subareas.length === 0){
-      errs.push(label + " nemá neprázdné pole \"subareas\".");
+      errs.push(t("val_no_subareas", {label}));
       return;
     }
-    if(area.subareas.length > MAX_SUBAREAS) errs.push(label + " má příliš mnoho podoblastí (max. " + MAX_SUBAREAS + ", nalezeno " + area.subareas.length + ").");
+    if(area.subareas.length > MAX_SUBAREAS) errs.push(t("val_too_many_subareas", {label, max: MAX_SUBAREAS, n: area.subareas.length}));
     area.subareas.forEach((sa, si) => {
-      const slabel = label + " → podoblast #" + (si+1) + (sa && sa.name ? " (\"" + sa.name + "\")" : "");
-      if(!sa || !sa.name || typeof sa.name !== "string") errs.push(slabel + " nemá platné pole \"name\".");
+      const slabel = t("val_subarea_label", {area: label, n: si+1}) + (sa && sa.name ? " (\"" + sa.name + "\")" : "");
+      if(!sa || !sa.name || typeof sa.name !== "string") errs.push(t("val_no_name", {label: slabel}));
       if(!sa || !Array.isArray(sa.cards) || sa.cards.length === 0){
-        errs.push(slabel + " nemá neprázdné pole \"cards\".");
+        errs.push(t("val_no_cards", {label: slabel}));
         return;
       }
       sa.cards.forEach((c, ci) => {
-        if(!c || typeof c.front !== "string" || !c.front) errs.push(slabel + " → kartička #" + (ci+1) + " nemá platné pole \"front\".");
-        if(!c || typeof c.back !== "string" || !c.back) errs.push(slabel + " → kartička #" + (ci+1) + " nemá platné pole \"back\".");
+        if(!c || typeof c.front !== "string" || !c.front) errs.push(t("val_card_no_front", {label: slabel, n: ci+1}));
+        if(!c || typeof c.back !== "string" || !c.back) errs.push(t("val_card_no_back", {label: slabel, n: ci+1}));
       });
     });
   });
@@ -732,21 +906,20 @@ document.getElementById("fileImportInput").addEventListener("change", (e) => {
     try{
       obj = JSON.parse(reader.result);
     }catch(err){
-      alert("Soubor se nepodařilo načíst jako platný JSON:\n" + err.message);
+      alert(t("err_invalid_json", {msg: err.message}));
       e.target.value = "";
       return;
     }
     const errs = validateSet(obj);
     if(errs.length){
-      alert("Soubor má neplatnou strukturu:\n\n" + errs.join("\n"));
+      alert(t("err_invalid_structure", {errs: errs.join("\n")}));
       e.target.value = "";
       return;
     }
     const exists = !!library[obj.shortName];
     if(exists){
       const ok = confirm(
-        "Sada \"" + obj.shortName + "\" už v apce existuje.\n\n" +
-        "Import ji přepíše novým obsahem a VYNULUJE dosavadní statistiky pro tuto sadu. Pokračovat?"
+        t("confirm_reimport", {name: obj.shortName})
       );
       if(!ok){ e.target.value = ""; return; }
       wipeSetData(obj.shortName);
@@ -761,7 +934,7 @@ document.getElementById("fileImportInput").addEventListener("change", (e) => {
 
 document.getElementById("btnDeleteSet").addEventListener("click", () => {
   if(activeSetId === BUILTIN_ID) return;
-  const ok = confirm("Opravdu smazat sadu \"" + activeSetId + "\" včetně všech jejích statistik? Tuto akci nelze vrátit zpět.");
+  const ok = confirm(t("confirm_delete_set", {name: activeSetId}));
   if(!ok) return;
   wipeSetData(activeSetId);
   delete library[activeSetId];
@@ -854,7 +1027,7 @@ function renderSubgroupBar(){
   }
   bar.classList.add("visible");
   const groups = GROUP_ORDER[state.cat];
-  const label = ALL_LABEL[state.cat] || "Vše";
+  const label = t("all_prefix") + " " + (STATS_CAT_LABELS[state.cat] || "");
   let html = '<option value="__all__">' + label + '</option>';
   groups.forEach(g => {
     html += '<option value="' + g.replace(/"/g,'&quot;') + '">' + g + '</option>';
@@ -905,7 +1078,7 @@ function renderCard(){
   if(!item){
     card.classList.remove("flipped");
     card.classList.add("done");
-    face.textContent = "Výběr procvičen ✓ — klikni pro nové kolo";
+    face.textContent = t("round_done");
     hint.textContent = "";
     btnGood.disabled = true;
     btnBad.disabled = true;
@@ -916,13 +1089,13 @@ function renderCard(){
   if(state.flipped){
     card.classList.add("flipped");
     face.textContent = item.back;
-    hint.textContent = "klikni pro otočení zpět";
+    hint.textContent = t("tap_to_flip_back");
     btnGood.disabled = false;
     btnBad.disabled = false;
   }else{
     card.classList.remove("flipped");
     face.textContent = item.front;
-    hint.textContent = "klikni pro otočení";
+    hint.textContent = t("tap_to_flip");
     btnGood.disabled = true;
     btnBad.disabled = true;
   }
@@ -1147,16 +1320,51 @@ function speakBack(){
   const item = currentItem();
   if(item) speak(item.back);
 }
+// Hlasové fráze v handsfree režimu se řídí jazykem AKTIVNÍ SADY KARTIČEK
+// (ne jazykem rozhraní) — ať zní jedno souvislé mluvené pásmo, ne mix dvou
+// jazyků. Zatím vestavěno česky a anglicky, cokoliv jiného spadne na
+// angličtinu.
+const SPOKEN_PHRASES = {
+  cs: {
+    mode_active: "Režim handsfree aktivní. Program ovládejte tlačítky pro další nebo předchozí skladbu.",
+    whole_area: "celá oblast ",
+    next_selection: "Další výběr.",
+    selection_restarted: "Výběr restartován.",
+    round_done: "Kolo dokončeno.",
+    know: "Znal jsi.",
+    dont_know: "Neznal jsi.",
+    reading_again: "Čtu znovu."
+  },
+  en: {
+    mode_active: "Handsfree mode active. Control it with the next or previous track buttons.",
+    whole_area: "the whole area ",
+    next_selection: "Next selection.",
+    selection_restarted: "Selection restarted.",
+    round_done: "Round complete.",
+    know: "You knew it.",
+    dont_know: "You didn't know it.",
+    reading_again: "Reading again."
+  }
+};
+function spokenLangPrefix(){
+  const langTag = (library[activeSetId] && library[activeSetId].language) || "en-US";
+  const prefix = langTag.split("-")[0].toLowerCase();
+  return SPOKEN_PHRASES[prefix] ? prefix : "en";
+}
+function sp(key){
+  return SPOKEN_PHRASES[spokenLangPrefix()][key];
+}
+
 function announceCurrentState(){
   if(!drivingModeActive) return;
   const item = currentItem();
-  if(!item){ speak("Kolo dokončeno."); return; }
+  if(!item){ speak(sp("round_done")); return; }
   if(state.flipped) speakBack(); else speakFront();
 }
 
 function scopeSpokenLabel(cat, group){
   const catName = STATS_CAT_LABELS[cat] || cat;
-  return (group && group !== "__all__") ? (catName + ", " + group) : ("celá oblast " + catName);
+  return (group && group !== "__all__") ? (catName + ", " + group) : (sp("whole_area") + catName);
 }
 
 function allSubgroupScopes(){
@@ -1197,13 +1405,13 @@ function updateDrivingMetadata(){
 
 function speakNextCardOrDone(){
   if(currentItem()) speakFront();
-  else speak("Kolo dokončeno.");
+  else speak(sp("round_done"));
 }
 
 function drivingNext(){
   if(!currentItem()){
     advanceScope();
-    speak("Další výběr. " + scopeSpokenLabel(state.cat, state.group) + ".", speakFront);
+    speak(sp("next_selection") + " " + scopeSpokenLabel(state.cat, state.group) + ".", speakFront);
     return;
   }
   if(!state.flipped){
@@ -1211,7 +1419,7 @@ function drivingNext(){
     speakBack();
   }else{
     grade(true);
-    speak("Znal jsi.", speakNextCardOrDone);
+    speak(sp("know"), speakNextCardOrDone);
   }
 }
 
@@ -1220,20 +1428,20 @@ function drivingPrev(){
     state.sessionGood = 0; state.sessionBad = 0;
     buildDeck();
     renderCard();
-    speak("Výběr restartován.", speakFront);
+    speak(sp("selection_restarted"), speakFront);
     return;
   }
   if(!state.flipped){
-    speak("Čtu znovu.", speakFront);
+    speak(sp("reading_again"), speakFront);
   }else{
     grade(false);
-    speak("Neznal jsi.", speakNextCardOrDone);
+    speak(sp("dont_know"), speakNextCardOrDone);
   }
 }
 
 function startDrivingMode(){
   if(!("speechSynthesis" in window) || !("mediaSession" in navigator)){
-    alert("Tento prohlížeč nepodporuje hlasové čtení nebo ovládání přes media tlačítka.");
+    alert(t("err_no_speech_support"));
     return;
   }
 
@@ -1268,10 +1476,10 @@ function startDrivingMode(){
   drivingModeActive = true;
   updateDrivingMetadata();
   const btn = document.getElementById("btnDriving");
-  if(btn){ btn.textContent = "🎧 Ukončit režim handsfree"; btn.classList.add("active"); }
+  if(btn){ btn.textContent = t("driving_stop"); btn.classList.add("active"); }
 
   speak(
-    "Režim handsfree aktivní. Program ovládejte tlačítky pro další nebo předchozí skladbu. " + scopeSpokenLabel(state.cat, state.group) + ".",
+    sp("mode_active") + " " + scopeSpokenLabel(state.cat, state.group) + ".",
     speakFront
   );
 }
@@ -1288,7 +1496,7 @@ function stopDrivingMode(){
   }catch(e){}
   if("speechSynthesis" in window) window.speechSynthesis.cancel();
   const btn = document.getElementById("btnDriving");
-  if(btn){ btn.textContent = "🎧 Spustit režim handsfree"; btn.classList.remove("active"); }
+  if(btn){ btn.textContent = t("driving_start"); btn.classList.remove("active"); }
 }
 
 document.getElementById("btnDriving") && document.getElementById("btnDriving").addEventListener("click", () => {
@@ -1318,7 +1526,7 @@ document.getElementById("btnBad").addEventListener("click", () => {
 });
 document.getElementById("btnResetScope").addEventListener("click", () => {
   const scope = hasGroups(state.cat) && state.group !== "__all__" ? state.group : CAT_LABELS[state.cat];
-  if(!confirm("Resetovat statistiky i uložený postup pro \"" + scope + "\" (sada \"" + activeSetId + "\")?")) return;
+  if(!confirm(t("confirm_reset_scope", {scope, setId: activeSetId}))) return;
   const items = DATA[state.cat] || [];
   items.forEach((it, i) => {
     if(state.group === "__all__" || it[2] === state.group){
@@ -1331,7 +1539,7 @@ document.getElementById("btnResetScope").addEventListener("click", () => {
   buildDeck(); renderCard(); renderStats();
 });
 document.getElementById("btnResetAll").addEventListener("click", () => {
-  if(!confirm("Opravdu vynulovat úplně všechny statistiky a uložený postup v celé sadě \"" + activeSetId + "\"? Tuto akci nelze vrátit zpět.")) return;
+  if(!confirm(t("confirm_reset_all", {setId: activeSetId}))) return;
   progress = {};
   cardStats = {};
   saveProgress();
@@ -1370,6 +1578,7 @@ if("serviceWorker" in navigator){
 // Inicializace
 // ============================================================
 switchToSet(activeSetId);
+applyTranslations();
 </script>
 </body>
 </html>
