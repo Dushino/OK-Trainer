@@ -1,6 +1,8 @@
 # OK Trainer
 
-A flashcard study app: each card shows a question, you answer it in your head (or out loud), flip the card to check whether you were right, and mark whether you knew the answer or not.
+https://dushino.github.io/OK-Trainer/
+
+A flashcard study app: each card shows a question, you answer it in your head (or out loud), flip the card to check whether you were right, and mark whether you knew the answer or not. The app remembers your statistics and shows you the questions you struggle with more often in the next round. This leads to efficient learning.
 
 ## Loading flashcards
 
@@ -17,7 +19,7 @@ See `FORMAT.md` for the exact file structure if you want to create your own set.
 
 ## Topics and subtopics
 
-Questions are grouped into topic areas, which are further split into subareas. This makes it much easier to study a large body of material — you can focus on one subarea at a time instead of facing the whole set at once.
+It's a good idea to group questions into topic areas, which can be further split into subareas. This makes it much easier to study a large body of material — you can focus on one subarea at a time instead of being overwhelmed by the whole set.
 
 ## Interface language
 
@@ -32,7 +34,7 @@ The app doesn't use any external storage or server to save your data. All statis
 
 ## Installing on your phone
 
-The app can be "installed" on your phone as a quick-access icon, either as an app-like shortcut in your app list or as a home screen shortcut. This isn't a real binary installation — it's just a bookmark-style shortcut with an icon that opens the same web page, giving you faster access.
+The app can be "installed" on your phone as a quick-access icon, either as an app-like shortcut in your app list or as a home screen shortcut. This isn't a real binary installation — it's just a bookmark-style shortcut with an icon that opens the same web page, giving you faster access. And it works offline too.
 
 ### Android (Google Chrome)
 
@@ -52,12 +54,13 @@ Alternatively, you can simply bookmark the page in your browser. This works the 
 
 ## Fully offline use
 
-If you'd rather not rely on a live internet connection every time, you can download the page from <https://dushino.github.io/OK-Trainer/> to your phone or computer (this step requires a connection) and then open the downloaded file with your file manager in a browser (no connection needed after that).
+If you'd rather not rely on a live internet connection every time, you can download all the files from <https://github.com/Dushino/OK-Trainer> to your phone or computer (this step requires a connection) and then open the downloaded html file with your file manager in a browser (no connection needed after that).
 
 ## Handsfree mode
 
-The app can also be used hands-free. It uses speech synthesis (TTS) to read each card aloud, and is controlled with your media buttons:
+The app can also be used without directly interacting with your phone, via a Bluetooth handsfree. It uses speech synthesis (TTS) on the phone to read each card aloud, and is controlled with your media buttons:
 
+- While the question is shown:
 - **Next track** flips the card and reads the answer aloud.
 - **Previous track** (while the question side is showing) reads the question again.
 - After the answer has been read:

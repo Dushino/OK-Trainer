@@ -1,27 +1,28 @@
-# Formát souboru pro OK Trainer
+# File Format for OK Trainer
 
-OK Trainer sám o sobě žádné otázky nezná — všechny sady se do apky nahrávají
-importem `.json` souboru přes tlačítko 📥 nahoře. Apka si obsah uloží
-v prohlížeči a zůstane dostupný i offline.
+OK Trainer doesn't come with any questions built in — all decks are loaded
+into the app by importing a `.json` file via the 📥 button at the top. The
+app stores the content in the browser, so it stays available offline too.
 
-Vestavěná sada `tutorial.json` (v apce vidíš jako „Tutoriál") slouží zároveň
-jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a upravit.
+The built-in `tutorial.json` deck (shown in the app as "Tutorial") also
+serves as a live example of this structure — the easiest approach is to
+copy it and adapt it.
 
-## Struktura
+## Structure
 
 ```json
 {
-  "shortName": "Krátký název",
-  "longName": "Delší popisný název zobrazený v záhlaví apky",
-  "language": "cs-CZ",
+  "shortName": "Short name",
+  "longName": "Longer descriptive name shown in the app header",
+  "language": "en-US",
   "areas": [
     {
-      "name": "Název oblasti",
+      "name": "Area name",
       "subareas": [
         {
-          "name": "Název podoblasti",
+          "name": "Subarea name",
           "cards": [
-            { "front": "Text otázky / přední strana kartičky", "back": "Text odpovědi / zadní strana kartičky" }
+            { "front": "Question text / front side of the card", "back": "Answer text / back side of the card" }
           ]
         }
       ]
@@ -30,63 +31,63 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 }
 ```
 
-## Pole
+## Fields
 
-| Pole | Povinné | Popis |
+| Field | Required | Description |
 |---|---|---|
-| `shortName` | ano | Krátký název sady. **Zároveň slouží jako jedinečný identifikátor** — apka podle něj pozná, jestli jde o „tu samou" sadu při opětovném importu (a případně nabídne přepsání i s vynulováním statistik). Nepoužívej stejný `shortName` pro dvě různé sady. |
-| `longName` | ano | Delší popisný název, zobrazí se v záhlaví apky pod „OK TRAINER". |
-| `language` | ano | Jazykový kód pro hlasové čtení (TTS) v handsfree režimu, např. `cs-CZ`, `en-US`, `de-DE`. |
-| `areas` | ano | Pole oblastí. Max. **8 oblastí**. |
-| `areas[].name` | ano | Název oblasti (zobrazí se jako tlačítko v horní navigaci). |
-| `areas[].subareas` | ano | Pole podoblastí dané oblasti. Max. **32 podoblastí** na oblast. |
-| `subareas[].name` | ano | Název podoblasti (zobrazí se v rozbalovacím výběru). |
-| `subareas[].cards` | ano | Pole kartiček dané podoblasti. Alespoň 1 kartička. |
-| `cards[].front` | ano | Text přední strany (otázka). |
-| `cards[].back` | ano | Text zadní strany (odpověď). |
+| `shortName` | yes | Short name of the deck. **It also acts as a unique identifier** — the app uses it to recognize whether a re-imported file is "the same" deck (and, if so, offers to overwrite it, resetting its statistics). Don't use the same `shortName` for two different decks. |
+| `longName` | yes | Longer descriptive name, shown in the app header below "OK TRAINER". |
+| `language` | yes | Language code for text-to-speech (TTS) in hands-free mode, e.g. `cs-CZ`, `en-US`, `de-DE`. |
+| `areas` | yes | Array of areas. Max. **8 areas**. |
+| `areas[].name` | yes | Name of the area (shown as a button in the top navigation). |
+| `areas[].subareas` | yes | Array of subareas for the given area. Max. **32 subareas** per area. |
+| `subareas[].name` | yes | Name of the subarea (shown in the dropdown selector). |
+| `subareas[].cards` | yes | Array of cards for the given subarea. At least 1 card. |
+| `cards[].front` | yes | Text of the front side (question). |
+| `cards[].back` | yes | Text of the back side (answer). |
 
-## Příklad (minimální, 2 oblasti × 2 podoblasti × 2 kartičky)
+## Example (minimal, 2 areas × 2 subareas × 2 cards)
 
 ```json
 {
-  "shortName": "Ukázka",
-  "longName": "Ukázková sada se dvěma oblastmi",
-  "language": "cs-CZ",
+  "shortName": "Sample",
+  "longName": "Sample deck with two areas",
+  "language": "en-US",
   "areas": [
     {
-      "name": "První oblast",
+      "name": "First area",
       "subareas": [
         {
-          "name": "První podoblast",
+          "name": "First subarea",
           "cards": [
-            { "front": "Otázka 1a", "back": "Odpověď 1a" },
-            { "front": "Otázka 1b", "back": "Odpověď 1b" }
+            { "front": "Question 1a", "back": "Answer 1a" },
+            { "front": "Question 1b", "back": "Answer 1b" }
           ]
         },
         {
-          "name": "Druhá podoblast",
+          "name": "Second subarea",
           "cards": [
-            { "front": "Otázka 2a", "back": "Odpověď 2a" },
-            { "front": "Otázka 2b", "back": "Odpověď 2b" }
+            { "front": "Question 2a", "back": "Answer 2a" },
+            { "front": "Question 2b", "back": "Answer 2b" }
           ]
         }
       ]
     },
     {
-      "name": "Druhá oblast",
+      "name": "Second area",
       "subareas": [
         {
-          "name": "První podoblast",
+          "name": "First subarea",
           "cards": [
-            { "front": "Otázka 3a", "back": "Odpověď 3a" },
-            { "front": "Otázka 3b", "back": "Odpověď 3b" }
+            { "front": "Question 3a", "back": "Answer 3a" },
+            { "front": "Question 3b", "back": "Answer 3b" }
           ]
         },
         {
-          "name": "Druhá podoblast",
+          "name": "Second subarea",
           "cards": [
-            { "front": "Otázka 4a", "back": "Odpověď 4a" },
-            { "front": "Otázka 4b", "back": "Odpověď 4b" }
+            { "front": "Question 4a", "back": "Answer 4a" },
+            { "front": "Question 4b", "back": "Answer 4b" }
           ]
         }
       ]
@@ -95,20 +96,21 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 }
 ```
 
-## Co se stane při importu
+## What happens on import
 
-- **Nový `shortName`** → apka sadu rovnou přidá a přepne se na ni.
-- **Existující `shortName`** → apka se zeptá na potvrzení; po odsouhlasení
-  nahradí obsah a **vynuluje všechny dosud uložené statistiky** pro tuto sadu
-  (nový obsah může mít jinak seřazené nebo jinak rozdělené kartičky, takže by
-  staré statistiky stejně neodpovídaly novému obsahu).
-- Vestavěnou sadu „Tutoriál" nejde smazat ani přepsat.
+- **New `shortName`** → the app adds the deck right away and switches to it.
+- **Existing `shortName`** → the app asks for confirmation; once confirmed,
+  it replaces the content and **resets all statistics stored so far** for
+  that deck (the new content may have cards ordered or split differently,
+  so the old statistics wouldn't match the new content anyway).
+- The built-in "Tutorial" deck cannot be deleted or overwritten.
 
-## Časté chyby při ručním psaní
+## Common mistakes when writing by hand
 
-- Chybějící čárka mezi položkami pole.
-- Přebytečná čárka za posledním prvkem (JSON to na rozdíl od JS nedovolí).
-- Neuzavřené uvozovky nebo složené závorky.
+- Missing comma between array items.
+- Trailing comma after the last element (unlike JS, JSON doesn't allow this).
+- Unclosed quotes or curly braces.
 
-Apka při importu chybný soubor odmítne a napíše srozumitelně, co přesně a
-kde je špatně — stačí soubor podle hlášky opravit a zkusit import znovu.
+If the imported file is invalid, the app rejects it and clearly states what
+exactly is wrong and where — just fix the file according to the message and
+try importing again.
