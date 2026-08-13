@@ -37,9 +37,9 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 | `shortName` | ano | Krátký název sady. **Zároveň slouží jako jedinečný identifikátor** — apka podle něj pozná, jestli jde o „tu samou" sadu při opětovném importu (a případně nabídne přepsání i s vynulováním statistik). Nepoužívej stejný `shortName` pro dvě různé sady. |
 | `longName` | ano | Delší popisný název, zobrazí se v záhlaví apky pod „OK TRAINER". |
 | `language` | ano | Jazykový kód pro hlasové čtení (TTS) v handsfree režimu, např. `cs-CZ`, `en-US`, `de-DE`. |
-| `areas` | ano | Pole oblastí. Max. **8 oblastí**. |
+| `areas` | ano | Pole oblastí. Max. **100 oblastí** (jde jen o pojistku kvůli paměti prohlížeče/telefonu, ne o návrhové omezení). |
 | `areas[].name` | ano | Název oblasti (zobrazí se jako tlačítko v horní navigaci). |
-| `areas[].subareas` | ano | Pole podoblastí dané oblasti. Max. **32 podoblastí** na oblast. |
+| `areas[].subareas` | ano | Pole podoblastí dané oblasti. Max. **1000 podoblastí** na oblast (opět jen pojistka kvůli paměti). |
 | `subareas[].name` | ano | Název podoblasti (zobrazí se v rozbalovacím výběru). |
 | `subareas[].cards` | ano | Pole kartiček dané podoblasti. Alespoň 1 kartička. |
 | `cards[].front` | ano | Text přední strany (otázka). |

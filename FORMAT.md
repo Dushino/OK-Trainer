@@ -38,9 +38,9 @@ copy it and adapt it.
 | `shortName` | yes | Short name of the deck. **It also acts as a unique identifier** — the app uses it to recognize whether a re-imported file is "the same" deck (and, if so, offers to overwrite it, resetting its statistics). Don't use the same `shortName` for two different decks. |
 | `longName` | yes | Longer descriptive name, shown in the app header below "OK TRAINER". |
 | `language` | yes | Language code for text-to-speech (TTS) in hands-free mode, e.g. `cs-CZ`, `en-US`, `de-DE`. |
-| `areas` | yes | Array of areas. Max. **8 areas**. |
+| `areas` | yes | Array of areas. Max. **100 areas** (this is just a safety cap to protect the browser's/phone's memory, not a design constraint). |
 | `areas[].name` | yes | Name of the area (shown as a button in the top navigation). |
-| `areas[].subareas` | yes | Array of subareas for the given area. Max. **32 subareas** per area. |
+| `areas[].subareas` | yes | Array of subareas for the given area. Max. **1000 subareas** per area (again just a memory safety cap). |
 | `subareas[].name` | yes | Name of the subarea (shown in the dropdown selector). |
 | `subareas[].cards` | yes | Array of cards for the given subarea. At least 1 card. |
 | `cards[].front` | yes | Text of the front side (question). |
