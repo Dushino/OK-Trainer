@@ -5,6 +5,7 @@
   "areas": [
     {
       "name": "Radiokomunikační předpisy",
+      "maxErrors": 4,
       "subareas": [
         {
           "name": "Předpisy Mezinárodní telekomunikační unie (ITU) - 1. část",
@@ -379,7 +380,8 @@
       ]
     },
     {
-      "name": "Hláskovací abeceda (česká/mezinárodní)",
+      "name": "Radiokomunikační provoz",
+      "maxErrors": 8,
       "subareas": [
         {
           "name": "Hláskovací abeceda (česká/mezinárodní) - A - G",
@@ -504,14 +506,9 @@
               "back": "Zuzana / Zulu"
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Q-kódy",
-      "subareas": [
+        },
         {
-          "name": "Rušení a čitelnost signálu:",
+          "name": "Q-kódy – Rušení a čitelnost signálu:",
           "cards": [
             {
               "front": "Jsem rušen interferencí:",
@@ -536,7 +533,7 @@
           ]
         },
         {
-          "name": "Výkon a rychlost",
+          "name": "Q-kódy – Výkon a rychlost",
           "cards": [
             {
               "front": "Můžete zvýšit výkon?",
@@ -553,7 +550,7 @@
           ]
         },
         {
-          "name": "Řízení provozu – čekání a stav",
+          "name": "Q-kódy – Řízení provozu – čekání a stav",
           "cards": [
             {
               "front": "Počkejte, až vás zavolám:",
@@ -574,7 +571,7 @@
           ]
         },
         {
-          "name": "Řízení provozu – volání a odezva",
+          "name": "Q-kódy – Řízení provozu – volání a odezva",
           "cards": [
             {
               "front": "Volá vás:",
@@ -591,7 +588,7 @@
           ]
         },
         {
-          "name": "Spojení, potvrzení a poloha",
+          "name": "Q-kódy – Spojení, potvrzení a poloha",
           "cards": [
             {
               "front": "Potvrzuji příjem:",
@@ -618,14 +615,9 @@
               "back": "QSZ"
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Zkratky",
-      "subareas": [
+        },
         {
-          "name": "Pozdravy podle denní doby",
+          "name": "Zkratky – Pozdravy podle denní doby",
           "cards": [
             {
               "front": "dobré odpoledne:",
@@ -650,7 +642,7 @@
           ]
         },
         {
-          "name": "Pozdravy - loučení a fráze",
+          "name": "Zkratky – Pozdravy - loučení a fráze",
           "cards": [
             {
               "front": "smích:",
@@ -679,7 +671,7 @@
           ]
         },
         {
-          "name": "Zdvořilost - díky a prosba:",
+          "name": "Zkratky – Zdvořilost - díky a prosba:",
           "cards": [
             {
               "front": "děkuji:",
@@ -704,7 +696,7 @@
           ]
         },
         {
-          "name": "Zdvořilost - pocity a hodnocení",
+          "name": "Zkratky – Zdvořilost - pocity a hodnocení",
           "cards": [
             {
               "front": "pěkný, výborný:",
@@ -729,7 +721,7 @@
           ]
         },
         {
-          "name": "Řízení spojení - začátek a výzva",
+          "name": "Zkratky – Řízení spojení - začátek a výzva",
           "cards": [
             {
               "front": "čekejte:",
@@ -758,7 +750,7 @@
           ]
         },
         {
-          "name": "Řízení spojení - konec a přerušení",
+          "name": "Zkratky – Řízení spojení - konec a přerušení",
           "cards": [
             {
               "front": "konec vysílání:",
@@ -787,7 +779,7 @@
           ]
         },
         {
-          "name": "Report a potvrzení",
+          "name": "Zkratky – Report a potvrzení",
           "cards": [
             {
               "front": "report:",
@@ -816,7 +808,7 @@
           ]
         },
         {
-          "name": "Podmínky a rušení",
+          "name": "Zkratky – Podmínky a rušení",
           "cards": [
             {
               "front": "rušení rozhlasu:",
@@ -841,7 +833,7 @@
           ]
         },
         {
-          "name": "Vybavení - přijímač a vysílač",
+          "name": "Zkratky – Vybavení - přijímač a vysílač",
           "cards": [
             {
               "front": "přijímač:",
@@ -866,7 +858,7 @@
           ]
         },
         {
-          "name": "Vybavení - anténa a výkon",
+          "name": "Zkratky – Vybavení - anténa a výkon",
           "cards": [
             {
               "front": "anténa:",
@@ -895,7 +887,7 @@
           ]
         },
         {
-          "name": "Vybavení - automatické řízení",
+          "name": "Zkratky – Vybavení - automatické řízení",
           "cards": [
             {
               "front": "automatické řízení úrovně:",
@@ -912,7 +904,7 @@
           ]
         },
         {
-          "name": "Modulace - druhy",
+          "name": "Zkratky – Modulace - druhy",
           "cards": [
             {
               "front": "amplitudová modulace:",
@@ -929,7 +921,7 @@
           ]
         },
         {
-          "name": "Modulace - postranní pásma",
+          "name": "Zkratky – Modulace - postranní pásma",
           "cards": [
             {
               "front": "jedno postranní pásmo:",
@@ -950,7 +942,7 @@
           ]
         },
         {
-          "name": "Kmitočtová pásma",
+          "name": "Zkratky – Kmitočtová pásma",
           "cards": [
             {
               "front": "rádiový kmitočet:",
@@ -979,7 +971,7 @@
           ]
         },
         {
-          "name": "Klíčování",
+          "name": "Zkratky – Klíčování",
           "cards": [
             {
               "front": "elektronický klíč:",
@@ -996,7 +988,7 @@
           ]
         },
         {
-          "name": "Osoby - radioamatéři",
+          "name": "Zkratky – Osoby - radioamatéři",
           "cards": [
             {
               "front": "radioamatér:",
@@ -1017,7 +1009,7 @@
           ]
         },
         {
-          "name": "Osoby - rodina a oslovení",
+          "name": "Zkratky – Osoby - rodina a oslovení",
           "cards": [
             {
               "front": "milý, drahý:",
@@ -1034,7 +1026,7 @@
           ]
         },
         {
-          "name": "Počasí",
+          "name": "Zkratky – Počasí",
           "cards": [
             {
               "front": "slunečno:",
@@ -1059,7 +1051,7 @@
           ]
         },
         {
-          "name": "Zájmena a základní slovíčka",
+          "name": "Zkratky – Zájmena a základní slovíčka",
           "cards": [
             {
               "front": "já:",
@@ -1084,7 +1076,7 @@
           ]
         },
         {
-          "name": "Spojky a předložky",
+          "name": "Zkratky – Spojky a předložky",
           "cards": [
             {
               "front": "k:",
@@ -1109,7 +1101,7 @@
           ]
         },
         {
-          "name": "Zbytek - jen, přímo, nic",
+          "name": "Zkratky – Zbytek - jen, přímo, nic",
           "cards": [
             {
               "front": "přímo:",
@@ -1126,7 +1118,7 @@
           ]
         },
         {
-          "name": "Směry a pohyb",
+          "name": "Zkratky – Směry a pohyb",
           "cards": [
             {
               "front": "zde, tady:",
@@ -1147,7 +1139,7 @@
           ]
         },
         {
-          "name": "Akce - volání a odesílání",
+          "name": "Zkratky – Akce - volání a odesílání",
           "cards": [
             {
               "front": "zavolání, značka:",
@@ -1168,7 +1160,7 @@
           ]
         },
         {
-          "name": "Elektrické jednotky",
+          "name": "Zkratky – Elektrické jednotky",
           "cards": [
             {
               "front": "střídavý proud:",
@@ -1189,7 +1181,7 @@
           ]
         },
         {
-          "name": "Technické pojmy",
+          "name": "Zkratky – Technické pojmy",
           "cards": [
             {
               "front": "mezifrekvence / kdyby:",
@@ -1210,7 +1202,7 @@
           ]
         },
         {
-          "name": "Organizace a instituce",
+          "name": "Zkratky – Organizace a instituce",
           "cards": [
             {
               "front": "stanice:",
@@ -1235,7 +1227,7 @@
           ]
         },
         {
-          "name": "Radioamatérský svět",
+          "name": "Zkratky – Radioamatérský svět",
           "cards": [
             {
               "front": "diplom:",
@@ -1260,7 +1252,7 @@
           ]
         },
         {
-          "name": "Časové pojmy",
+          "name": "Zkratky – Časové pojmy",
           "cards": [
             {
               "front": "opakovat:",
@@ -1281,7 +1273,7 @@
           ]
         },
         {
-          "name": "Obecné pojmy",
+          "name": "Zkratky – Obecné pojmy",
           "cards": [
             {
               "front": "vše:",
@@ -1302,7 +1294,7 @@
           ]
         },
         {
-          "name": "Různé A",
+          "name": "Zkratky – Různé A",
           "cards": [
             {
               "front": "slyšen, slyšeno:",
@@ -1323,7 +1315,7 @@
           ]
         },
         {
-          "name": "Různé B",
+          "name": "Zkratky – Různé B",
           "cards": [
             {
               "front": "watty:",
@@ -1338,14 +1330,9 @@
               "back": "XMAS"
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Prefixy",
-      "subareas": [
+        },
         {
-          "name": "Sousedé ČR",
+          "name": "Prefixy – Sousedé ČR",
           "cards": [
             {
               "front": "Česká republika:",
@@ -1374,7 +1361,7 @@
           ]
         },
         {
-          "name": "Skandinávie - státy",
+          "name": "Prefixy – Skandinávie - státy",
           "cards": [
             {
               "front": "Švédsko:",
@@ -1399,7 +1386,7 @@
           ]
         },
         {
-          "name": "Severní Atlantik - závislá území",
+          "name": "Prefixy – Severní Atlantik - závislá území",
           "cards": [
             {
               "front": "Špicberky:",
@@ -1428,7 +1415,7 @@
           ]
         },
         {
-          "name": "Británie",
+          "name": "Prefixy – Británie",
           "cards": [
             {
               "front": "Anglie:",
@@ -1449,7 +1436,7 @@
           ]
         },
         {
-          "name": "Ostrovy v Kanálu a Irsko",
+          "name": "Prefixy – Ostrovy v Kanálu a Irsko",
           "cards": [
             {
               "front": "Ostrov Man:",
@@ -1470,7 +1457,7 @@
           ]
         },
         {
-          "name": "Španělsko a ostrovy",
+          "name": "Prefixy – Španělsko a ostrovy",
           "cards": [
             {
               "front": "Španělsko:",
@@ -1491,7 +1478,7 @@
           ]
         },
         {
-          "name": "Portugalsko a Andorra",
+          "name": "Prefixy – Portugalsko a Andorra",
           "cards": [
             {
               "front": "Portugalsko:",
@@ -1508,7 +1495,7 @@
           ]
         },
         {
-          "name": "Balkán - západ",
+          "name": "Prefixy – Balkán - západ",
           "cards": [
             {
               "front": "Slovinsko:",
@@ -1537,7 +1524,7 @@
           ]
         },
         {
-          "name": "Balkán - východ",
+          "name": "Prefixy – Balkán - východ",
           "cards": [
             {
               "front": "Řecko:",
@@ -1566,7 +1553,7 @@
           ]
         },
         {
-          "name": "Bývalý SSSR - Pobaltí a západ",
+          "name": "Prefixy – Bývalý SSSR - Pobaltí a západ",
           "cards": [
             {
               "front": "Rusko:",
@@ -1595,7 +1582,7 @@
           ]
         },
         {
-          "name": "Bývalý SSSR - Kavkaz",
+          "name": "Prefixy – Bývalý SSSR - Kavkaz",
           "cards": [
             {
               "front": "Moldavsko:",
@@ -1612,7 +1599,7 @@
           ]
         },
         {
-          "name": "Benelux a okolí",
+          "name": "Prefixy – Benelux a okolí",
           "cards": [
             {
               "front": "Nizozemsko:",
@@ -1637,7 +1624,7 @@
           ]
         },
         {
-          "name": "Francie a Itálie",
+          "name": "Prefixy – Francie a Itálie",
           "cards": [
             {
               "front": "Francie:",
@@ -1666,7 +1653,7 @@
           ]
         },
         {
-          "name": "Vatikán, Malta a Turecko, JAR",
+          "name": "Prefixy – Vatikán, Malta a Turecko, JAR",
           "cards": [
             {
               "front": "Vatikán:",
@@ -1687,7 +1674,7 @@
           ]
         },
         {
-          "name": "Amerika",
+          "name": "Prefixy – Amerika",
           "cards": [
             {
               "front": "Spojené státy americké:",
@@ -1716,7 +1703,7 @@
           ]
         },
         {
-          "name": "Východní Asie",
+          "name": "Prefixy – Východní Asie",
           "cards": [
             {
               "front": "Japonsko:",
@@ -1741,7 +1728,7 @@
           ]
         },
         {
-          "name": "Jižní/Západní Asie a Pacifik",
+          "name": "Prefixy – Jižní/Západní Asie a Pacifik",
           "cards": [
             {
               "front": "Thajsko:",
@@ -1768,14 +1755,9 @@
               "back": "ZL-ZM"
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Pásma",
-      "subareas": [
+        },
         {
-          "name": "160 m (1,8 MHz)",
+          "name": "Pásma – 160 m (1,8 MHz)",
           "cards": [
             {
               "front": "V pásmu 1,8 MHz je výhradně pro CW provoz určen úsek:",
@@ -1792,7 +1774,7 @@
           ]
         },
         {
-          "name": "80 m (3,5 MHz)",
+          "name": "Pásma – 80 m (3,5 MHz)",
           "cards": [
             {
               "front": "V pásmu 3,5 MHz je výhradně pro CW DX provoz určen úsek:",
@@ -1813,7 +1795,7 @@
           ]
         },
         {
-          "name": "40 m (7 MHz)",
+          "name": "Pásma – 40 m (7 MHz)",
           "cards": [
             {
               "front": "V pásmu 7 MHz je výhradně pro CW provoz určen úsek:",
@@ -1830,7 +1812,7 @@
           ]
         },
         {
-          "name": "30 m (10 MHz, WARC)",
+          "name": "Pásma – 30 m (10 MHz, WARC)",
           "cards": [
             {
               "front": "V pásmu 10 MHz je pro digitální provozy určen úsek:",
@@ -1843,7 +1825,7 @@
           ]
         },
         {
-          "name": "20 m (14 MHz)",
+          "name": "Pásma – 20 m (14 MHz)",
           "cards": [
             {
               "front": "V pásmu 14 MHz je výhradně pro CW provoz určen úsek:",
@@ -1860,7 +1842,7 @@
           ]
         },
         {
-          "name": "17 m (18 MHz, WARC)",
+          "name": "Pásma – 17 m (18 MHz, WARC)",
           "cards": [
             {
               "front": "V pásmu 18 MHz je výhradně pro CW provoz určen úsek:",
@@ -1873,7 +1855,7 @@
           ]
         },
         {
-          "name": "15 m (21 MHz)",
+          "name": "Pásma – 15 m (21 MHz)",
           "cards": [
             {
               "front": "V pásmu 21 MHz je výhradně pro CW provoz určen úsek:",
@@ -1886,7 +1868,7 @@
           ]
         },
         {
-          "name": "12 m (24 MHz, WARC)",
+          "name": "Pásma – 12 m (24 MHz, WARC)",
           "cards": [
             {
               "front": "V pásmu 24 MHz je výhradně pro CW provoz určen úsek:",
@@ -1899,7 +1881,7 @@
           ]
         },
         {
-          "name": "10 m (28 MHz)",
+          "name": "Pásma – 10 m (28 MHz)",
           "cards": [
             {
               "front": "V pásmu 28 MHz je výhradně pro CW provoz určen úsek:",
@@ -1916,7 +1898,7 @@
           ]
         },
         {
-          "name": "6 m (50 - 52 MHz)",
+          "name": "Pásma – 6 m (50 - 52 MHz)",
           "cards": [
             {
               "front": "Pro pouze CW provoz je v pásmu 50 - 52 MHz určen úsek:",
@@ -1933,7 +1915,7 @@
           ]
         },
         {
-          "name": "2 m (144 - 146 MHz)",
+          "name": "Pásma – 2 m (144 - 146 MHz)",
           "cards": [
             {
               "front": "Pro pouze CW provoz je v pásmu 144-146 MHz určen úsek:",
@@ -1950,7 +1932,7 @@
           ]
         },
         {
-          "name": "70 cm (430 - 440 MHz)",
+          "name": "Pásma – 70 cm (430 - 440 MHz)",
           "cards": [
             {
               "front": "CW provoz se v pásmu 430–440 MHz přednostně uskutečňuje v úseku:",
@@ -1971,7 +1953,7 @@
           ]
         },
         {
-          "name": "Obecná pravidla",
+          "name": "Pásma – Obecná pravidla",
           "cards": [
             {
               "front": "Mezi pásma WARC patří:",
@@ -1986,12 +1968,7 @@
               "back": "Ne. (Je to horní hrana pásma \"fone\" na 20 m.)"
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Provozní dovednosti",
-      "subareas": [
+        },
         {
           "name": "Provozní dovednosti - 1. část",
           "cards": [
@@ -2131,6 +2108,7 @@
     },
     {
       "name": "Elektrotechnika a radiotechnika",
+      "maxErrors": 4,
       "subareas": [
         {
           "name": "Elektrická, elektromagnetická a rádiová teorie - 1. část",
