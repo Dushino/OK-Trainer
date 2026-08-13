@@ -786,14 +786,16 @@ let DATA = {};
 let GROUP_ORDER = {};
 let CAT_LABELS = {};
 let STATS_CAT_LABELS = {};
+let AREA_MAX_ERRORS = {};
 
 function applyActiveSet(setObj){
-  DATA = {}; GROUP_ORDER = {}; CAT_LABELS = {}; STATS_CAT_LABELS = {};
+  DATA = {}; GROUP_ORDER = {}; CAT_LABELS = {}; STATS_CAT_LABELS = {}; AREA_MAX_ERRORS = {};
   setObj.areas.forEach((area, ai) => {
     const key = String(ai);
     CAT_LABELS[key] = area.name.toUpperCase();
     STATS_CAT_LABELS[key] = area.name;
     GROUP_ORDER[key] = area.subareas.map(sa => sa.name);
+    AREA_MAX_ERRORS[key] = Number.isFinite(area.maxErrors) ? area.maxErrors : null;
     DATA[key] = [];
     area.subareas.forEach(sa => {
       sa.cards.forEach(c => {
@@ -1125,7 +1127,8 @@ function currentScopePct(){
 
 function updateHeaderProgress(){
   const pct = currentScopePct();
-  const color = successColor(pct);
+  const wholeArea = !hasGroups(state.cat) || state.group === "__all__";
+  const color = wholeArea ? successColorFor(pct, areaThresholdPct(state.cat)) : neutralBarColor();
   const fill = document.getElementById("headerBarFill");
   const label = document.getElementById("headerPct");
   if(fill){ fill.style.width = pct + "%"; fill.style.background = color; }
@@ -1213,6 +1216,40 @@ function successColor(pct){
   return rgbToHex(c.r, c.g, c.b);
 }
 
+// Práh pro danou oblast (v %), odvozený z maxErrors a aktuálního počtu
+// kartiček v oblasti (ne z pevného počtu — sada může mít víc otázek, než
+// kolik jich komise vybere k ostré zkoušce). Vrací null, pokud oblast
+// žádný maxErrors nemá — pak se použije starý plynulý gradient.
+function areaThresholdPct(cat){
+  const maxErrors = AREA_MAX_ERRORS[cat];
+  if(maxErrors == null) return null;
+  const total = (DATA[cat] || []).length;
+  if(!total) return null;
+  return Math.max(0, (1 - maxErrors/total) * 100);
+}
+
+// Barva s prahem: pod prahem pevná červená, od prahu do 100 % plynulý
+// přechod oranžová->zelená. Bez prahu (thresholdPct === null) se chová
+// jako stará plynulá škála 0-100 %.
+function successColorFor(pct, thresholdPct){
+  if(thresholdPct == null) return successColor(pct);
+  const red = hexToRgb(cssVar('--red-ui','#e2543a'));
+  if(pct < thresholdPct) return rgbToHex(red.r, red.g, red.b);
+  const mid = hexToRgb(cssVar('--panel-accent','#ffb020'));
+  const green = hexToRgb(cssVar('--green-ui','#6fe3a0'));
+  const span = 100 - thresholdPct;
+  const t = span > 0 ? Math.min(1, (pct - thresholdPct) / span) : 1;
+  const c = lerpColor(mid, green, t);
+  return rgbToHex(c.r, c.g, c.b);
+}
+
+// Podoblasti nemají vlastní zkušební minimum (to platí jen za celý
+// předmět) — barvit je podle % by naznačovalo neexistující kritérium,
+// proto mají vždy jednu neutrální barvu; délka baru dál ukazuje %.
+function neutralBarColor(){
+  return cssVar('--text-muted', '#8b9a95');
+}
+
 function itemSuccessPct(cat, idx){
   const s = getCardStats(cat, idx);
   const total = s.correct + s.wrong;
@@ -1238,7 +1275,7 @@ function renderStats(){
   let html = "";
   Object.keys(STATS_CAT_LABELS).forEach(cat => {
     const {catPct, groupStats} = computeCategoryStats(cat);
-    const catColor = successColor(catPct);
+    const catColor = successColorFor(catPct, areaThresholdPct(cat));
     html += '<div class="stats-cat" data-cat="'+cat+'" data-group="__all__">'
       + '<div class="stats-cat-head">'
       + '<span class="stats-cat-name">'+STATS_CAT_LABELS[cat]+'</span>'
@@ -1246,7 +1283,7 @@ function renderStats(){
       + '<span class="stats-pct" style="color:'+catColor+';">'+Math.round(catPct)+'%</span>'
       + '</div></div>';
     groupStats.forEach(({group, pct}) => {
-      const color = successColor(pct);
+      const color = neutralBarColor();
       const safeGroup = group.replace(/"/g, '&quot;');
       html += '<div class="stats-row" data-cat="'+cat+'" data-group="'+safeGroup+'">'
         + '<span class="stats-row-name">'+group+'</span>'

@@ -18,6 +18,7 @@ copy it and adapt it.
   "areas": [
     {
       "name": "Area name",
+      "maxErrors": 4,
       "subareas": [
         {
           "name": "Subarea name",
@@ -40,11 +41,49 @@ copy it and adapt it.
 | `language` | yes | Language code for text-to-speech (TTS) in hands-free mode, e.g. `cs-CZ`, `en-US`, `de-DE`. |
 | `areas` | yes | Array of areas. Max. **100 areas** (this is just a safety cap to protect the browser's/phone's memory, not a design constraint). |
 | `areas[].name` | yes | Name of the area (shown as a button in the top navigation). |
+| `areas[].maxErrors` | no | Enables the pass/fail progress bar color for this area. See [Pass/fail indicator](#passfail-indicator-optional) below. |
 | `areas[].subareas` | yes | Array of subareas for the given area. Max. **1000 subareas** per area (again just a memory safety cap). |
 | `subareas[].name` | yes | Name of the subarea (shown in the dropdown selector). |
 | `subareas[].cards` | yes | Array of cards for the given subarea. At least 1 card. |
 | `cards[].front` | yes | Text of the front side (question). |
 | `cards[].back` | yes | Text of the back side (answer). |
+
+## Pass/fail indicator (optional)
+
+For decks that prepare you for a real exam, `areas[].maxErrors` lets the
+area's progress bar warn you when you're not yet ready, instead of just
+showing a plain 0–100% gradient.
+
+`maxErrors` is the same **absolute number of wrong answers the real exam
+allows** for that subject (e.g. an exam that requires 16 correct out of 20
+questions allows `maxErrors: 4`). The app applies that same absolute error
+budget to *all* the cards currently in the area — not just to the smaller
+number of questions the real exam draws. Since a deck is typically a much
+larger question pool than a single real exam, this makes the training
+threshold considerably stricter than the real exam's pass percentage: even
+if the exam happens to draw mostly the questions you personally find hard,
+you can still be confident you'd pass.
+
+Concretely, the app computes a pass threshold as a percentage:
+
+```text
+thresholdPct = (1 − maxErrors / totalCardsInArea) × 100
+```
+
+`totalCardsInArea` (all cards across all of the area's subareas) is counted
+by the app itself — you don't need to supply it. Below `thresholdPct` the
+area's progress bar is a fixed red, regardless of how close you are. At or
+above it, the bar fades from orange (right at the threshold) to green (at
+100%), same as the default gradient used for areas without `maxErrors`.
+
+Subarea progress bars never use this red/orange/green coloring, even inside
+an area that has `maxErrors` — the real exam's minimum applies to the whole
+subject, not to any individual subarea, so coloring a subarea bar by score
+would suggest a pass/fail criterion that doesn't actually exist for it. Only
+the bar's length (the % itself) reflects a subarea's success rate.
+
+Omit `maxErrors` to keep the old behavior (plain gradient, no threshold) —
+this is the default for decks that aren't simulating a graded exam.
 
 ## Example (minimal, 2 areas × 2 subareas × 2 cards)
 
