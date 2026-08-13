@@ -359,7 +359,7 @@
   .stats-pct{
     font-family:var(--mono);
     font-size:12px;
-    width:38px;
+    width:46px;
     text-align:right;
     flex-shrink:0;
   }
@@ -444,7 +444,7 @@
     </div>
     <div class="header-progress" id="headerProgress">
       <div class="stats-bar"><div class="stats-bar-fill" id="headerBarFill"></div></div>
-      <span class="stats-pct" id="headerPct">0%</span>
+      <span class="stats-pct" id="headerPct">0/0</span>
     </div>
   </div>
 
@@ -1100,23 +1100,26 @@ function cssVar(name, fallback){
   return v || fallback;
 }
 
-function currentScopePct(){
+function currentScopeStats(){
   const items = DATA[state.cat] || [];
   let idxs = items.map((_,i) => i);
   if(hasGroups(state.cat) && state.group !== "__all__"){
     idxs = idxs.filter(i => items[i][2] === state.group);
   }
-  return idxs.length ? idxs.reduce((s,i) => s + itemSuccessPct(state.cat,i), 0) / idxs.length : 0;
+  const total = idxs.length;
+  const pct = total ? idxs.reduce((s,i) => s + itemSuccessPct(state.cat,i), 0) / total : 0;
+  return {pct, total};
 }
 
 function updateHeaderProgress(){
-  const pct = currentScopePct();
+  const {pct, total} = currentScopeStats();
+  const correct = Math.round(pct/100 * total);
   const wholeArea = !hasGroups(state.cat) || state.group === "__all__";
   const color = wholeArea ? successColorFor(pct, areaThresholdPct(state.cat)) : neutralBarColor();
   const fill = document.getElementById("headerBarFill");
   const label = document.getElementById("headerPct");
   if(fill){ fill.style.width = pct + "%"; fill.style.background = color; }
-  if(label){ label.textContent = Math.round(pct) + "%"; label.style.color = color; }
+  if(label){ label.textContent = correct + "/" + total; label.style.color = color; }
 }
 
 function flip(){
@@ -1245,12 +1248,14 @@ function computeCategoryStats(cat){
   const groups = GROUP_ORDER[cat] || [];
   const groupStats = groups.map(g => {
     const idxs = items.map((_,i) => i).filter(i => items[i][2] === g);
-    const pct = idxs.length ? idxs.reduce((s,i) => s + itemSuccessPct(cat,i), 0) / idxs.length : 0;
-    return {group: g, pct};
+    const total = idxs.length;
+    const pct = total ? idxs.reduce((s,i) => s + itemSuccessPct(cat,i), 0) / total : 0;
+    return {group: g, pct, total};
   });
   const allIdxs = items.map((_,i) => i);
-  const catPct = allIdxs.length ? allIdxs.reduce((s,i) => s + itemSuccessPct(cat,i), 0) / allIdxs.length : 0;
-  return {catPct, groupStats};
+  const catTotal = allIdxs.length;
+  const catPct = catTotal ? allIdxs.reduce((s,i) => s + itemSuccessPct(cat,i), 0) / catTotal : 0;
+  return {catPct, catTotal, groupStats};
 }
 
 function renderStats(){
@@ -1258,21 +1263,23 @@ function renderStats(){
   if(!container) return;
   let html = "";
   Object.keys(STATS_CAT_LABELS).forEach(cat => {
-    const {catPct, groupStats} = computeCategoryStats(cat);
+    const {catPct, catTotal, groupStats} = computeCategoryStats(cat);
     const catColor = successColorFor(catPct, areaThresholdPct(cat));
+    const catCorrect = Math.round(catPct/100 * catTotal);
     html += '<div class="stats-cat" data-cat="'+cat+'" data-group="__all__">'
       + '<div class="stats-cat-head">'
       + '<span class="stats-cat-name">'+STATS_CAT_LABELS[cat]+'</span>'
       + '<div class="stats-bar"><div class="stats-bar-fill" style="width:'+catPct+'%;background:'+catColor+';"></div></div>'
-      + '<span class="stats-pct" style="color:'+catColor+';">'+Math.round(catPct)+'%</span>'
+      + '<span class="stats-pct" style="color:'+catColor+';">'+catCorrect+'/'+catTotal+'</span>'
       + '</div></div>';
-    groupStats.forEach(({group, pct}) => {
+    groupStats.forEach(({group, pct, total}) => {
       const color = neutralBarColor();
+      const correct = Math.round(pct/100 * total);
       const safeGroup = group.replace(/"/g, '&quot;');
       html += '<div class="stats-row" data-cat="'+cat+'" data-group="'+safeGroup+'">'
         + '<span class="stats-row-name">'+group+'</span>'
         + '<div class="stats-bar"><div class="stats-bar-fill" style="width:'+pct+'%;background:'+color+';"></div></div>'
-        + '<span class="stats-pct" style="color:'+color+';">'+Math.round(pct)+'%</span>'
+        + '<span class="stats-pct" style="color:'+color+';">'+correct+'/'+total+'</span>'
         + '</div>';
     });
   });
