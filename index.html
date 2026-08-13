@@ -148,8 +148,10 @@
   .statbar{
     display:flex;
     align-items:center;
+    justify-content:space-between;
     gap:14px;
-    margin-bottom:8px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
   }
   .counts{
     font-family:var(--mono);
@@ -161,19 +163,6 @@
   .counts b{color:var(--text);font-weight:600;}
   .counts .ok{color:var(--green-ui);}
   .counts .bad{color:var(--red-ui);}
-  .header-progress-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:16px;
-  }
-  .header-progress-label{
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--text-muted);
-  }
   .header-progress{
     display:flex;
     align-items:center;
@@ -453,10 +442,6 @@
       <span><span data-i18n="dont_know"></span> <b class="bad" id="cntBad">0</b></span>
       <span><span data-i18n="remaining"></span> <b id="cntLeft">0</b></span>
     </div>
-  </div>
-
-  <div class="header-progress-row">
-    <span class="header-progress-label" data-i18n="overall_stats_label"></span>
     <div class="header-progress" id="headerProgress">
       <div class="stats-bar"><div class="stats-bar-fill" id="headerBarFill"></div></div>
       <span class="stats-pct" id="headerPct">0%</span>
@@ -560,10 +545,9 @@ const EN_STRINGS = {
   delete_set_title: "Delete set",
   import_lang_title: "Import language",
   delete_lang_title: "Delete language",
-  know: "know",
-  dont_know: "don't know",
+  know: "correct",
+  dont_know: "wrong",
   remaining: "remaining",
-  overall_stats_label: "Overall stats for selected area:",
   tap_to_flip: "tap to flip",
   tap_to_flip_back: "tap to flip back",
   round_done: "Round complete ✓ — tap for a new round",
