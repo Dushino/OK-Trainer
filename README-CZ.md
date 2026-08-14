@@ -17,6 +17,12 @@ Přesnou strukturu souboru, pokud si chceš vytvořit vlastní sadu, najdeš v `
 3. Otočíš kartičku a zkontroluješ ji podle správné odpovědi na zadní straně.
 4. Označíš kartičku jako **znal jsem** nebo **neznal jsem**. Apka si to pamatuje, aby ti mohla častěji ukazovat kartičky, se kterými máš potíže.
 
+## Rozestupové opakování (Leitnerův systém)
+
+V pozadí appka používá [Leitnerův systém](https://en.wikipedia.org/wiki/Leitner_system) (odkaz vede na anglickou Wikipedii — česká verze o něm zatím článek nemá) — známou metodu rozestupového opakování — aby určila, jak často danou kartičku uvidíš. Každá kartička je v jednom z **5 boxů**. Správná odpověď ji posune o box výš, takže ji uvidíš méně často; špatná odpověď ji **vrátí rovnou do boxu 1**, bez ohledu na to, jak daleko se předtím dostala. Díky tomu se kartičky, se kterými máš potíže, objevují mnohem častěji než ty, které už dobře znáš.
+
+V rámci jednoho kola appka taky hlídá, aby se stejná kartička neobjevila dvakrát po sobě, kdykoliv je to možné, i když se kartičky z nižších boxů celkově zamíchávají mnohem častěji.
+
 ## Témata a podtémata
 
 Otázky je dobré seskupit do tematických oblastí, které je možno dále dělit na podoblasti. Díky tomu se mnohem snáz učí velké množství materiálu — můžeš se soustředit na jednu podoblast, místo zahlcení celou sadou.

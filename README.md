@@ -6,7 +6,7 @@ A flashcard study app: each card shows a question, you answer it in your head (o
 
 ## Loading flashcards
 
-OK-Trainer doesn't come with fixed content built in — it's a generic engine. On first launch it loads a small built-in tutorial set so you can try it out immediately, but for real studying you import your own flashcard file (a `.json` file) using the import button at the top of the app. You can import several different sets and switch between them at any time; each set keeps its own, separate statistics. 
+OK-Trainer doesn't come with fixed content built in — it's a generic engine. On first launch it loads a small built-in tutorial set so you can try it out immediately, but for real studying you import your own flashcard file (a `.json` file) using the import button at the top of the app. You can import several different sets and switch between them at any time; each set keeps its own, separate statistics.
 
 See `FORMAT.md` for the exact file structure if you want to create your own set.
 
@@ -16,6 +16,12 @@ See `FORMAT.md` for the exact file structure if you want to create your own set.
 2. You think of — or say — the answer.
 3. You flip the card and check it against the correct answer on the back.
 4. You mark the card as **known** or **not known**. The app keeps track of this so it can show you the cards you struggle with more often.
+
+## Spaced repetition (the Leitner system)
+
+Behind the scenes, OK Trainer uses the [Leitner system](https://en.wikipedia.org/wiki/Leitner_system) — a well-known spaced-repetition method — to decide how often you see each card. Every card sits in one of **5 boxes**. Answering correctly moves it up a box, so you see it less often; answering **incorrectly sends it straight back to box 1**, no matter how far it had progressed. This keeps the cards you struggle with in front of you far more often than the ones you already know well.
+
+Within a round, the app also makes sure the same card never appears twice in a row whenever that's avoidable, even though cards from lower boxes are mixed in more often overall.
 
 ## Topics and subtopics
 
