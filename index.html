@@ -169,7 +169,7 @@
     gap:8px;
     flex-shrink:0;
   }
-  .header-progress .stats-bar{width:90px;height:8px;}
+  .header-progress .box-bars{width:90px;height:22px;}
   .card{
     background:var(--lcd);
     border:2px solid var(--lcd-border);
@@ -356,27 +356,29 @@
     font-weight:700;
     color:var(--text);
   }
-  .stats-pct{
-    font-family:var(--mono);
-    font-size:12px;
-    width:46px;
-    text-align:right;
-    flex-shrink:0;
-  }
-  .stats-bar{
+  .box-bars{
+    display:flex;
+    align-items:flex-end;
+    gap:2px;
     width:72px;
-    height:6px;
-    border-radius:3px;
-    background:var(--panel);
-    border:1px solid var(--border);
-    overflow:hidden;
+    height:20px;
     flex-shrink:0;
   }
-  .stats-cat .stats-bar{height:8px;width:90px;}
-  .stats-bar-fill{
-    height:100%;
-    border-radius:3px;
+  .stats-cat .box-bars{width:90px;height:24px;}
+  .box-bar{
+    flex:1;
+    min-width:3px;
+    border-radius:1px 1px 0 0;
+    background:var(--border);
   }
+  .pass-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    flex-shrink:0;
+    display:none;
+  }
+  .pass-dot.visible{display:inline-block;}
   .stats-row{
     display:flex;
     align-items:center;
@@ -443,8 +445,8 @@
       <span><span data-i18n="remaining"></span> <b id="cntLeft">0</b></span>
     </div>
     <div class="header-progress" id="headerProgress">
-      <div class="stats-bar"><div class="stats-bar-fill" id="headerBarFill"></div></div>
-      <span class="stats-pct" id="headerPct">0/0</span>
+      <span class="pass-dot" id="headerDot"></span>
+      <div class="box-bars" id="headerBoxBars"></div>
     </div>
   </div>
 
@@ -727,7 +729,6 @@ function saveLibrary(){
 }
 
 function progressKey(id){ return "oktrainer_progress_v1__" + id; }
-function statsKey(id){ return "oktrainer_stats_v1__" + id; }
 function navKey(id){ return "oktrainer_lastnav_v1__" + id; }
 
 function loadProgressFor(id){
@@ -739,19 +740,9 @@ function loadProgressFor(id){
 function saveProgress(){
   try{ localStorage.setItem(progressKey(activeSetId), JSON.stringify(progress)); }catch(e){}
 }
-function loadStatsFor(id){
-  try{
-    const raw = localStorage.getItem(statsKey(id));
-    return raw ? JSON.parse(raw) : {};
-  }catch(e){ return {}; }
-}
-function saveStats(){
-  try{ localStorage.setItem(statsKey(activeSetId), JSON.stringify(cardStats)); }catch(e){}
-}
 function wipeSetData(id){
   try{
     localStorage.removeItem(progressKey(id));
-    localStorage.removeItem(statsKey(id));
     localStorage.removeItem(navKey(id));
   }catch(e){}
 }
@@ -761,7 +752,6 @@ let activeSetId = localStorage.getItem(ACTIVE_KEY) || BUILTIN_ID;
 if(!library[activeSetId]) activeSetId = BUILTIN_ID;
 
 let progress = {};
-let cardStats = {};
 
 // DATA / GROUP_ORDER / CAT_LABELS jsou sestaveny dynamicky z aktivní sady
 // při každém přepnutí — vše ostatní v apce (boxy, míchání, statistiky,
@@ -850,7 +840,6 @@ function switchToSet(id, forcedNav){
   try{ localStorage.setItem(ACTIVE_KEY, id); }catch(e){}
   applyActiveSet(library[id]);
   progress = loadProgressFor(id);
-  cardStats = loadStatsFor(id);
   renderSetSelect();
   renderHeaderTexts();
   renderAreaNav();
@@ -938,22 +927,6 @@ function getBox(cat, idx){
 function setBox(cat, idx, box){
   progress[cardKey(cat, idx)] = Math.max(1, Math.min(5, box));
   saveProgress();
-}
-
-// Trvalá počítadla pro statistiky úspěšnosti — nezávislá na boxu.
-function getCardStats(cat, idx){
-  return cardStats[cardKey(cat, idx)] || {correct: 0, wrong: 0};
-}
-function recordAnswer(cat, idx, good){
-  const k = cardKey(cat, idx);
-  const s = cardStats[k] || {correct: 0, wrong: 0};
-  if(good) s.correct++; else s.wrong++;
-  cardStats[k] = s;
-  saveStats();
-}
-function resetCardStats(cat, idx){
-  delete cardStats[cardKey(cat, idx)];
-  saveStats();
 }
 
 // ============================================================
@@ -1100,26 +1073,17 @@ function cssVar(name, fallback){
   return v || fallback;
 }
 
-function currentScopeStats(){
-  const items = DATA[state.cat] || [];
-  let idxs = items.map((_,i) => i);
-  if(hasGroups(state.cat) && state.group !== "__all__"){
-    idxs = idxs.filter(i => items[i][2] === state.group);
-  }
-  const total = idxs.length;
-  const pct = total ? idxs.reduce((s,i) => s + itemSuccessPct(state.cat,i), 0) / total : 0;
-  return {pct, total};
-}
-
 function updateHeaderProgress(){
-  const {pct, total} = currentScopeStats();
-  const correct = Math.round(pct/100 * total);
   const wholeArea = !hasGroups(state.cat) || state.group === "__all__";
-  const color = wholeArea ? successColorFor(pct, areaThresholdPct(state.cat)) : neutralBarColor();
-  const fill = document.getElementById("headerBarFill");
-  const label = document.getElementById("headerPct");
-  if(fill){ fill.style.width = pct + "%"; fill.style.background = color; }
-  if(label){ label.textContent = correct + "/" + total; label.style.color = color; }
+  const {counts, total} = boxCounts(state.cat, wholeArea ? "__all__" : state.group);
+  const boxBars = document.getElementById("headerBoxBars");
+  if(boxBars) boxBars.innerHTML = boxBarsInnerHtml(counts, total);
+  const dot = document.getElementById("headerDot");
+  if(dot){
+    const info = wholeArea ? passDotInfo(state.cat) : null;
+    dot.classList.toggle("visible", !!info);
+    if(info){ dot.style.background = info.color; dot.title = Math.round(info.pct) + "%"; }
+  }
 }
 
 function flip(){
@@ -1138,7 +1102,6 @@ function grade(good){
   if(!item) return;
   const box = getBox(state.cat, item.idx);
   setBox(state.cat, item.idx, good ? box+1 : 1);
-  recordAnswer(state.cat, item.idx, good);
   if(good) state.sessionGood++; else state.sessionBad++;
   state.pos++;
   state.flipped = false;
@@ -1230,32 +1193,60 @@ function successColorFor(pct, thresholdPct){
   return rgbToHex(c.r, c.g, c.b);
 }
 
-// Podoblasti nemají vlastní zkušební minimum (to platí jen za celý
-// předmět) — barvit je podle % by naznačovalo neexistující kritérium,
-// proto mají vždy jednu neutrální barvu; délka baru dál ukazuje %.
-function neutralBarColor(){
-  return cssVar('--text-muted', '#8b9a95');
-}
-
-function itemSuccessPct(cat, idx){
-  const s = getCardStats(cat, idx);
-  const total = s.correct + s.wrong;
-  return total ? (s.correct / total) * 100 : 0;
-}
-
-function computeCategoryStats(cat){
+// Rozložení kartiček do Leitnerových boxů 1-5 pro danou oblast, volitelně
+// omezené na jednu podoblast. counts[i] = počet kartiček v boxu i+1.
+function boxCounts(cat, group){
   const items = DATA[cat] || [];
-  const groups = GROUP_ORDER[cat] || [];
-  const groupStats = groups.map(g => {
-    const idxs = items.map((_,i) => i).filter(i => items[i][2] === g);
-    const total = idxs.length;
-    const pct = total ? idxs.reduce((s,i) => s + itemSuccessPct(cat,i), 0) / total : 0;
-    return {group: g, pct, total};
+  const counts = [0,0,0,0,0];
+  let total = 0;
+  items.forEach((it, i) => {
+    if(group && group !== "__all__" && it[2] !== group) return;
+    counts[getBox(cat, i) - 1]++;
+    total++;
   });
-  const allIdxs = items.map((_,i) => i);
-  const catTotal = allIdxs.length;
-  const catPct = catTotal ? allIdxs.reduce((s,i) => s + itemSuccessPct(cat,i), 0) / catTotal : 0;
-  return {catPct, catTotal, groupStats};
+  return {counts, total};
+}
+
+// Vážený průměr boxu napříč kartičkami, normalizovaný na 0-100 %
+// (box1=0 %, box5=100 %) — hrubý odhad šance na správnou odpověď u
+// zkoušky, použitý jako vstup do prahové barvy pass/fail tečky.
+function weightedBoxPct(counts, total){
+  if(!total) return 0;
+  let sum = 0;
+  counts.forEach((c, i) => { sum += c * (i/4*100); });
+  return sum/total;
+}
+
+// HTML pěti sloupečků (bez obalového .box-bars) — barva podle POZICE boxu
+// (box1 červená .. box5 zelená), výška podle podílu kartiček v tom boxu.
+// Prázdný box se pořád zobrazí (minimální výška), aby bylo vidět všech 5.
+function boxBarsInnerHtml(counts, total){
+  let html = "";
+  for(let i=0;i<5;i++){
+    const frac = total ? counts[i]/total : 0;
+    const heightPct = Math.max(8, Math.round(frac*100));
+    const color = successColor(i/4*100);
+    html += '<div class="box-bar" style="height:'+heightPct+'%;background:'+color+';" title="Box '+(i+1)+': '+counts[i]+'"></div>';
+  }
+  return html;
+}
+function boxBarsHtml(counts, total){
+  return '<div class="box-bars">' + boxBarsInnerHtml(counts, total) + '</div>';
+}
+
+// Info pro pass/fail tečku dané oblasti, nebo null, když oblast nemá
+// maxErrors (pak se tečka vůbec nezobrazuje — viz FORMAT.md).
+function passDotInfo(cat){
+  const threshold = areaThresholdPct(cat);
+  if(threshold == null) return null;
+  const {counts, total} = boxCounts(cat, "__all__");
+  const pct = weightedBoxPct(counts, total);
+  return {pct, color: successColorFor(pct, threshold)};
+}
+function passDotHtml(cat){
+  const info = passDotInfo(cat);
+  if(!info) return '<span class="pass-dot"></span>';
+  return '<span class="pass-dot visible" style="background:'+info.color+';" title="'+Math.round(info.pct)+'%"></span>';
 }
 
 function renderStats(){
@@ -1263,23 +1254,19 @@ function renderStats(){
   if(!container) return;
   let html = "";
   Object.keys(STATS_CAT_LABELS).forEach(cat => {
-    const {catPct, catTotal, groupStats} = computeCategoryStats(cat);
-    const catColor = successColorFor(catPct, areaThresholdPct(cat));
-    const catCorrect = Math.round(catPct/100 * catTotal);
+    const {counts, total} = boxCounts(cat, "__all__");
     html += '<div class="stats-cat" data-cat="'+cat+'" data-group="__all__">'
       + '<div class="stats-cat-head">'
       + '<span class="stats-cat-name">'+STATS_CAT_LABELS[cat]+'</span>'
-      + '<div class="stats-bar"><div class="stats-bar-fill" style="width:'+catPct+'%;background:'+catColor+';"></div></div>'
-      + '<span class="stats-pct" style="color:'+catColor+';">'+catCorrect+'/'+catTotal+'</span>'
+      + passDotHtml(cat)
+      + boxBarsHtml(counts, total)
       + '</div></div>';
-    groupStats.forEach(({group, pct, total}) => {
-      const color = neutralBarColor();
-      const correct = Math.round(pct/100 * total);
+    (GROUP_ORDER[cat] || []).forEach(group => {
+      const g = boxCounts(cat, group);
       const safeGroup = group.replace(/"/g, '&quot;');
       html += '<div class="stats-row" data-cat="'+cat+'" data-group="'+safeGroup+'">'
         + '<span class="stats-row-name">'+group+'</span>'
-        + '<div class="stats-bar"><div class="stats-bar-fill" style="width:'+pct+'%;background:'+color+';"></div></div>'
-        + '<span class="stats-pct" style="color:'+color+';">'+correct+'/'+total+'</span>'
+        + boxBarsHtml(g.counts, g.total)
         + '</div>';
     });
   });
@@ -1559,7 +1546,6 @@ document.getElementById("btnResetScope").addEventListener("click", () => {
   items.forEach((it, i) => {
     if(state.group === "__all__" || it[2] === state.group){
       delete progress[cardKey(state.cat, i)];
-      resetCardStats(state.cat, i);
     }
   });
   saveProgress();
@@ -1569,9 +1555,7 @@ document.getElementById("btnResetScope").addEventListener("click", () => {
 document.getElementById("btnResetAll").addEventListener("click", () => {
   if(!confirm(t("confirm_reset_all", {setId: activeSetId}))) return;
   progress = {};
-  cardStats = {};
   saveProgress();
-  saveStats();
   state.sessionGood = 0; state.sessionBad = 0;
   buildDeck(); renderCard(); renderStats();
 });

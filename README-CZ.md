@@ -27,6 +27,12 @@ V rámci jednoho kola appka taky hlídá, aby se stejná kartička neobjevila dv
 
 Otázky je dobré seskupit do tematických oblastí, které je možno dále dělit na podoblasti. Díky tomu se mnohem snáz učí velké množství materiálu — můžeš se soustředit na jednu podoblast, místo zahlcení celou sadou.
 
+## Jak číst indikátory postupu
+
+Vedle každé oblasti i podoblasti uvidíš **5 malých sloupečků**, jeden za každý Leitnerův box. Výška sloupečku ukazuje, jaký podíl kartiček dané oblasti/podoblasti je právě v tom boxu — nejlevější (červený) sloupeček je box 1, nejpravější (zelený) je box 5. Vysoký sloupeček vpravo znamená, že většinu kartiček už dobře znáš; vysoký sloupeček vlevo znamená, že na nich ještě potřebuješ zapracovat. Všech 5 sloupečků se zobrazuje vždy, i pro prázdný box, abys na první pohled viděl celé rozložení.
+
+U oblastí, které mají definované zkušební minimum (`maxErrors` v `FORMAT-CZ.md`), navíc uvidíš vedle názvu oblasti barevnou tečku, která napoví, jak jsi na tom se zkouškou: pod minimem je vždy pevně červená, nad ním plynule přechází z oranžové do zelené — stejně jako se barví sloupečky. Barva tečky vychází z jednoho čísla — průměrné pozice boxu napříč všemi kartičkami té oblasti, převedené na škálu 0–100 % (box 1 = 0 %, box 5 = 100 %) — dá se to číst zhruba jako tvoje aktuální šance, že bys na náhodnou otázku z té oblasti odpověděl správně napoprvé. Oblasti bez definovaného zkušebního minima žádnou tečku nemají.
+
 ## Jazyk rozhraní
 
 Rozhraní apky (tlačítka, nápovědy, hlášky) je ve výchozím stavu v angličtině a funguje tak bez nutnosti cokoli stahovat. Pokud preferuješ jiný jazyk, můžeš naimportovat jazykový balíček stejným způsobem jako sadu kartiček — český balíček je k dispozici ve složce `Languages`. Přepnutí jazyka rozhraní nemá vliv na jazyk obsahu kartiček ani na jazyk handsfree hlasu, které jsou svázané s konkrétní použitou sadou kartiček.

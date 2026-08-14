@@ -27,6 +27,12 @@ Within a round, the app also makes sure the same card never appears twice in a r
 
 It's a good idea to group questions into topic areas, which can be further split into subareas. This makes it much easier to study a large body of material — you can focus on one subarea at a time instead of being overwhelmed by the whole set.
 
+## Reading the progress indicators
+
+Next to each area and subarea you'll see **5 small bars**, one per Leitner box. Each bar's height shows what share of that area's or subarea's cards currently sit in that box — the leftmost (red) bar is box 1, the rightmost (green) bar is box 5. A tall bar on the right means most cards there are well learned; a tall bar on the left means most still need work. All 5 bars are always shown, even for an empty box, so you can see the full spread at a glance.
+
+For areas defined with a pass/fail exam minimum (see `maxErrors` in `FORMAT.md`), a colored dot next to the area name gives you a quick read on exam readiness: it's a fixed red below the minimum, and fades from orange to green above it, the same way the bars are colored. The dot's color is driven by a single number — the average box position across all of that area's cards, converted to a 0–100% scale (box 1 = 0%, box 5 = 100%) — read roughly as your current chance of answering a random question from that area correctly on the first try. Areas without a defined exam minimum don't show a dot.
+
 ## Interface language
 
 The app's interface (buttons, hints, messages) defaults to English and works that way without downloading anything. If you'd prefer a different language, you can import a language pack the same way you import a flashcard set — a Czech pack is included in the `Languages` folder. Switching the interface language doesn't affect the language of your flashcard content or of the handsfree voice, which are tied to whichever flashcard set you're using.

@@ -40,7 +40,7 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 | `language` | ano | Jazykový kód pro hlasové čtení (TTS) v handsfree režimu, např. `cs-CZ`, `en-US`, `de-DE`. |
 | `areas` | ano | Pole oblastí. Max. **100 oblastí** (jde jen o pojistku kvůli paměti prohlížeče/telefonu, ne o návrhové omezení). |
 | `areas[].name` | ano | Název oblasti (zobrazí se jako tlačítko v horní navigaci). |
-| `areas[].maxErrors` | ne | Zapíná barevnou indikaci splnění zkušebního minima u progress baru této oblasti. Viz [Indikace úspěšnosti zkoušky](#indikace-úspěšnosti-zkoušky-volitelné) níže. |
+| `areas[].maxErrors` | ne | Zapíná barevnou tečku indikující splnění zkušebního minima u této oblasti. Viz [Indikace úspěšnosti zkoušky](#indikace-úspěšnosti-zkoušky-volitelné) níže. |
 | `areas[].subareas` | ano | Pole podoblastí dané oblasti. Max. **1000 podoblastí** na oblast (opět jen pojistka kvůli paměti). |
 | `subareas[].name` | ano | Název podoblasti (zobrazí se v rozbalovacím výběru). |
 | `subareas[].cards` | ano | Pole kartiček dané podoblasti. Alespoň 1 kartička. |
@@ -49,9 +49,17 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 
 ## Indikace úspěšnosti zkoušky (volitelné)
 
-U sad, které připravují na reálnou zkoušku, umožňuje `areas[].maxErrors`
-progress baru oblasti upozornit, že ještě nejsi připravený, místo aby jen
-ukazoval plynulou škálu 0–100 %.
+Každá oblast i podoblast vždy zobrazuje **obsazení Leitnerových boxů** jako
+5 malých sloupečků — jeden za box, výška = podíl kartiček dané oblasti či
+podoblasti, které jsou právě v tom boxu, barva od červené (box 1) po
+zelenou (box 5). Jak je číst je popsáno v hlavním README.
+
+U sad, které připravují na reálnou zkoušku, navíc `areas[].maxErrors`
+zapíná barevnou **tečku** vedle názvu oblasti, která odhaduje, jestli bys
+teď zkouškou prošel. Platí to jen na úrovni oblasti — minimum reálné
+zkoušky je definované za celý předmět, ne za podoblast, takže podoblasti
+tuhle tečku nikdy nezobrazují, bez ohledu na to, jaký `maxErrors` má
+rodičovská oblast.
 
 `maxErrors` je stejný **absolutní počet chyb, který povoluje reálná
 zkouška** pro daný předmět (např. zkouška vyžadující 16 správných z 20
@@ -59,10 +67,10 @@ otázek povoluje `maxErrors: 4`). Appka tenhle stejný absolutní počet
 povolených chyb uplatní na *všechny* kartičky, které jsou aktuálně v dané
 oblasti — ne jen na menší počet otázek, které si vytáhne reálná zkouška.
 Protože sada bývá mnohem větší zásobník otázek než jedna konkrétní
-zkouška, je tím pádem tréninkový práh podstatně přísnější než procento
-potřebné k reálnému složení zkoušky: i kdyby si zkouška vytáhla zrovna
-většinou otázky, které ti osobně dělají potíže, můžeš si být jistý, že bys
-u zkoušky uspěl.
+zkouška, je tím pádem indikátor podstatně přísnější než procento potřebné
+k reálnému složení zkoušky: i kdyby si zkouška vytáhla zrovna většinou
+otázky, které ti osobně dělají potíže, můžeš si být jistý, že bys u
+zkoušky uspěl.
 
 Konkrétně appka spočítá práh úspěšnosti jako procento:
 
@@ -71,20 +79,16 @@ thresholdPct = (1 − maxErrors / početKaretVOblasti) × 100
 ```
 
 Počet karet v oblasti (napříč všemi jejími podoblastmi) si appka spočítá
-sama — nemusíš ho nikam zapisovat. Pod `thresholdPct` je bar oblasti pevně
-červený, bez ohledu na to, jak blízko prahu jsi. Na prahu a nad ním bar
-plynule přechází z oranžové (přesně na prahu) do zelené (při 100 %) —
-stejně jako výchozí gradient u oblastí bez `maxErrors`.
+sama — nemusíš ho nikam zapisovat. Tenhle práh se porovnává s aktuálním
+skóre oblasti: průměrnou pozicí Leitnerova boxu napříč všemi jejími
+kartičkami, převedenou na škálu 0–100 % (box 1 = 0 %, box 5 = 100 %). Pod
+prahem je tečka pevně červená, bez ohledu na to, jak blízko prahu jsi. Na
+prahu a nad ním tečka plynule přechází z oranžové (přesně na prahu) do
+zelené (při 100 %).
 
-Progress bary podoblastí nikdy touhle červená/oranžová/zelená logikou
-barvené nejsou, ani uvnitř oblasti, která `maxErrors` má — zkušební minimum
-platí za celý předmět, ne za jednotlivou podoblast, takže barvení podoblasti
-podle skóre by naznačovalo neexistující kritérium. U podoblasti tak
-úspěšnost ukazuje jen délka baru (samotné %).
-
-Když `maxErrors` vynecháš, zachová se staré chování (plynulý gradient, žádný
-práh) — to je výchozí stav pro sady, které žádnou hodnocenou zkoušku
-nesimulují.
+Když `maxErrors` vynecháš, tečka se prostě nezobrazí — to je výchozí stav
+pro sady, které žádnou hodnocenou zkoušku nesimulují. Zobrazení 5
+sloupečků obsazení boxů tím není nijak ovlivněné, to appka ukazuje vždy.
 
 ## Příklad (minimální, 2 oblasti × 2 podoblasti × 2 kartičky)
 
