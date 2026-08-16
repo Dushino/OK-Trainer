@@ -1187,13 +1187,13 @@ function areaThresholdPct(cat){
 // jako stará plynulá škála 0-100 %.
 function successColorFor(pct, thresholdPct){
   if(thresholdPct == null) return successColor(pct);
-  if(pct < thresholdPct) return 'hsl(0, 100%, 50%)'; // red
+  if(pct < thresholdPct) return 'hsl(0, 75%, 48%)'; // red, tlumená
   
   // Od prahu do 100%: logaritmický gradient z oranžové na zelenou
   const span = 100 - thresholdPct;
   const normalized = span > 0 ? (pct - thresholdPct) / span : 1;
   const hue = logarithmicHue(normalized);
-  return `hsl(${hue}, 100%, 50%)`;
+  return `hsl(${hue}, 75%, 50%)`;
 }
 
 // Rozložení kartiček do Leitnerových boxů 1-5 pro danou oblast, volitelně
@@ -1223,9 +1223,9 @@ function weightedBoxPct(counts, total){
 // HTML pěti sloupečků (bez obalového .box-bars) — barva podle POZICE boxu
 // (box1 červená .. box5 zelená), výška podle podílu kartiček v tom boxu.
 // Prázdný box se pořád zobrazí (minimální výška), aby bylo vidět všech 5.
-// Konstantní barvy: R, R-O, O, Y, G; prázdný box = neutrální --border barva
+// Konstantní barvy: R, R-O, O, Y, G; tlumené (S=70-80%, L=48-52%)
 function boxBarsInnerHtml(counts, total){
-  const colors = ['hsl(0, 100%, 50%)', 'hsl(15, 100%, 50%)', 'hsl(30, 100%, 50%)', 'hsl(45, 100%, 50%)', 'hsl(90, 100%, 50%)'];
+  const colors = ['hsl(0, 75%, 48%)', 'hsl(15, 80%, 48%)', 'hsl(30, 80%, 48%)', 'hsl(45, 75%, 50%)', 'hsl(90, 70%, 52%)'];
   let html = "";
   for(let i=0;i<5;i++){
     const frac = total ? counts[i]/total : 0;
