@@ -1219,14 +1219,15 @@ function weightedBoxPct(counts, total){
 // HTML pěti sloupečků (bez obalového .box-bars) — barva podle POZICE boxu
 // (box1 červená .. box5 zelená), výška podle podílu kartiček v tom boxu.
 // Prázdný box se pořád zobrazí (minimální výška), aby bylo vidět všech 5.
-// Konstantní barvy: R, R-O, O, Y, G
+// Konstantní barvy: R, R-O, O, Y, G; prázdný box = neutrální --border barva
 function boxBarsInnerHtml(counts, total){
   const colors = ['hsl(0, 100%, 50%)', 'hsl(15, 100%, 50%)', 'hsl(30, 100%, 50%)', 'hsl(45, 100%, 50%)', 'hsl(90, 100%, 50%)'];
   let html = "";
   for(let i=0;i<5;i++){
     const frac = total ? counts[i]/total : 0;
     const heightPct = Math.max(8, Math.round(frac*100));
-    html += '<div class="box-bar" style="height:'+heightPct+'%;background:'+colors[i]+';" title="Box '+(i+1)+': '+counts[i]+'"></div>';
+    const color = counts[i] === 0 ? cssVar('--border', '#2a3436') : colors[i];
+    html += '<div class="box-bar" style="height:'+heightPct+'%;background:'+color+';" title="Box '+(i+1)+': '+counts[i]+'"></div>';
   }
   return html;
 }
