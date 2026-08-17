@@ -1,6 +1,8 @@
 # OK Trainer
 
-https://dushino.github.io/OK-Trainer/
+Česká verze je zde: https://github.com/Dushino/OK-Trainer/blob/main/README-CZ.md
+
+Application: https://dushino.github.io/OK-Trainer/
 
 A flashcard study app: each card shows a question, you answer it in your head (or out loud), flip the card to check whether you were right, and mark whether you knew the answer or not. The app remembers your statistics and shows you the questions you struggle with more often in the next round. This leads to efficient learning.
 
