@@ -1457,9 +1457,10 @@ function updateDrivingMetadata(){
   }catch(e){}
 }
 
-function speakNextCardOrDone(){
-  if(currentItem()) speakFront();
-  else speak(sp("round_done"));
+function speakFeedbackThenNext(feedback){
+  const next = currentItem();
+  const nextText = next ? next.front : sp("round_done");
+  speak(feedback + " " + nextText);
 }
 
 function drivingNext(){
@@ -1473,7 +1474,7 @@ function drivingNext(){
     speakBack();
   }else{
     grade(true);
-    speak(sp("know"), speakNextCardOrDone);
+    speakFeedbackThenNext(sp("know"));
   }
 }
 
@@ -1489,7 +1490,7 @@ function drivingPrev(){
     speak(sp("reading_again"), speakFront);
   }else{
     grade(false);
-    speak(sp("dont_know"), speakNextCardOrDone);
+    speakFeedbackThenNext(sp("dont_know"));
   }
 }
 
