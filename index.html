@@ -14,6 +14,38 @@
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon.svg">
 <style>
+  @font-face{
+    font-family:"Ubuntu Mono Local";
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url("fonts/UbuntuMono-Regular.woff2") format("woff2");
+    unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face{
+    font-family:"Ubuntu Mono Local";
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url("fonts/UbuntuMono-Regular-Latin.woff2") format("woff2");
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F;
+  }
+  @font-face{
+    font-family:"Ubuntu Mono Local";
+    font-style:normal;
+    font-weight:700;
+    font-display:swap;
+    src:url("fonts/UbuntuMono-Bold.woff2") format("woff2");
+    unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face{
+    font-family:"Ubuntu Mono Local";
+    font-style:normal;
+    font-weight:700;
+    font-display:swap;
+    src:url("fonts/UbuntuMono-Bold-Latin.woff2") format("woff2");
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F;
+  }
   :root{
     --chassis:#12181a;
     --panel:#1b2426;
@@ -36,7 +68,7 @@
     --green:#6fe3a0;
     --red:#e2543a;
 
-    --mono: ui-monospace, Menlo, Consolas, "Cascadia Code", "SF Mono", "Courier New", monospace;
+    --mono: "Ubuntu Mono Local", monospace;
     --serif: Georgia, "Times New Roman", serif;
     --sans: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   }
@@ -223,21 +255,6 @@
     font-size:24px;
     color:var(--panel-accent);
     font-weight:600;
-  }
-  .answer-zero{
-    display:inline-block;
-    overflow:hidden;
-    position:relative;
-  }
-  .answer-zero::after{
-    background:currentColor;
-    content:"";
-    height:82%;
-    left:50%;
-    position:absolute;
-    top:9%;
-    transform:translateX(-50%) rotate(25deg);
-    width:1.5px;
   }
   .card.done{
     color:var(--green-ui);
@@ -1040,24 +1057,6 @@ function currentItem(){
   return {idx, front: items[idx][0], back: items[idx][1]};
 }
 
-function renderFaceText(face, text, markZeros){
-  face.textContent = "";
-  if(!markZeros){
-    face.textContent = text;
-    return;
-  }
-  for(const character of text){
-    if(character === "0"){
-      const zero = document.createElement("span");
-      zero.className = "answer-zero";
-      zero.textContent = character;
-      face.appendChild(zero);
-    }else{
-      face.appendChild(document.createTextNode(character));
-    }
-  }
-}
-
 function renderCard(){
   const card = document.getElementById("card");
   const face = document.getElementById("cardFace");
@@ -1082,7 +1081,7 @@ function renderCard(){
   card.classList.remove("done");
   if(state.flipped){
     card.classList.add("flipped");
-    renderFaceText(face, item.back, true);
+    face.textContent = item.back;
     hint.textContent = t("tap_to_flip_back");
     btnGood.disabled = false;
     btnBad.disabled = false;

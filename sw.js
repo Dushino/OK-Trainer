@@ -4,14 +4,17 @@
 // si ji uloží do cache. Pokud připojení není, použije se poslední
 // úspěšně stažená verze z cache.
 
-const CACHE_NAME = "ok-trainer-v3";
+const CACHE_NAME = "ok-trainer-v4";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
   "./icon.svg",
   "./keepalive.wav",
-  "./tutorial.json"
+  "./fonts/UbuntuMono-Regular.woff2",
+  "./fonts/UbuntuMono-Regular-Latin.woff2",
+  "./fonts/UbuntuMono-Bold.woff2",
+  "./fonts/UbuntuMono-Bold-Latin.woff2"
 ];
 
 self.addEventListener("install", (event) => {
