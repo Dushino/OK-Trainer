@@ -224,6 +224,20 @@
     color:var(--panel-accent);
     font-weight:600;
   }
+  .answer-zero{
+    display:inline-block;
+    position:relative;
+  }
+  .answer-zero::after{
+    background:currentColor;
+    content:"";
+    height:82%;
+    left:50%;
+    position:absolute;
+    top:9%;
+    transform:translateX(-50%) rotate(25deg);
+    width:1.5px;
+  }
   .card.done{
     color:var(--green-ui);
   }
@@ -1025,6 +1039,24 @@ function currentItem(){
   return {idx, front: items[idx][0], back: items[idx][1]};
 }
 
+function renderFaceText(face, text, markZeros){
+  face.textContent = "";
+  if(!markZeros){
+    face.textContent = text;
+    return;
+  }
+  for(const character of text){
+    if(character === "0"){
+      const zero = document.createElement("span");
+      zero.className = "answer-zero";
+      zero.textContent = character;
+      face.appendChild(zero);
+    }else{
+      face.appendChild(document.createTextNode(character));
+    }
+  }
+}
+
 function renderCard(){
   const card = document.getElementById("card");
   const face = document.getElementById("cardFace");
@@ -1049,7 +1081,7 @@ function renderCard(){
   card.classList.remove("done");
   if(state.flipped){
     card.classList.add("flipped");
-    face.textContent = item.back;
+    renderFaceText(face, item.back, true);
     hint.textContent = t("tap_to_flip_back");
     btnGood.disabled = false;
     btnBad.disabled = false;
