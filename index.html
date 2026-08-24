@@ -1737,6 +1737,14 @@ function startDrivingMode(){
   navigator.mediaSession.playbackState = "playing";
 
   drivingModeActive = true;
+  // Handsfree vždy začíná otázkou — pokud byla kartička obrácená na
+  // odpověď (např. z předchozího ručního procvičování), otočíme ji zpět,
+  // ať to, co appka řekne (speakFront níže), sedí s tím, co je vidět na
+  // obrazovce, a uživatel spoléhající jen na sluch ví, na co se odpovídá.
+  if(state.flipped){
+    state.flipped = false;
+    renderCard();
+  }
   updateDrivingMetadata();
   const btn = document.getElementById("btnDriving");
   if(btn){ btn.textContent = t("driving_stop"); btn.classList.add("active"); }
