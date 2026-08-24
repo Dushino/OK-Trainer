@@ -1530,6 +1530,13 @@ function findCapsTokens(text, minLen){
 // - jinak            -> ALL-CAPS úseky (délka >= 2) se převedou na
 //   tečkovaný zápis ("HAREC" -> "h.a.r.e.c."), čte se jazykem sady karet
 //   (mechanika B, fallback proti "hloupému" čtení zkratek na Windows TTS).
+// Samostatná utterance složená jen z interpunkce (např. ", " mezi dvěma
+// hláskovanými úseky) TTS enginy typicky nepřeskočí jako pauzu, ale
+// vysloví název znaku ("čárka") — protože tady na rozdíl od čtení v jedné
+// souvislé větě není žádné okolní slovo, ke kterému by čárka jen upravila
+// intonaci. Takové čistě interpunkční mezisegmenty proto vynecháváme úplně
+// a necháme mluvit jen přirozenou pauzu mezi dvěma navazujícími utterance.
+const HAS_WORD_CHAR_RE = /[\p{L}\p{N}]/u;
 function buildSpokenBack(item){
   const cardLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
   const text = item.back;
@@ -1540,12 +1547,18 @@ function buildSpokenBack(item){
     const segments = [];
     let pos = 0;
     tokens.forEach(tok => {
-      if(tok.index > pos) segments.push({text: text.slice(pos, tok.index), lang: cardLang});
+      if(tok.index > pos){
+        const between = text.slice(pos, tok.index);
+        if(HAS_WORD_CHAR_RE.test(between)) segments.push({text: between, lang: cardLang});
+      }
       const spelled = tok.text.split("").map(ch => pack.letters[ch] || ch).join(" ");
       segments.push({text: spelled, lang: pack.lang});
       pos = tok.index + tok.text.length;
     });
-    if(pos < text.length) segments.push({text: text.slice(pos), lang: cardLang});
+    if(pos < text.length){
+      const tail = text.slice(pos);
+      if(HAS_WORD_CHAR_RE.test(tail)) segments.push({text: tail, lang: cardLang});
+    }
     return segments;
   }
   const tokens = findCapsTokens(text, 2);
