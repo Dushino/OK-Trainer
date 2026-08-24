@@ -46,6 +46,33 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 | `subareas[].cards` | ano | Pole kartiček dané podoblasti. Alespoň 1 kartička. |
 | `cards[].front` | ano | Text přední strany (otázka). |
 | `cards[].back` | ano | Text zadní strany (odpověď). |
+| `cards[].spellBack` | ne | Pokud je `true`, úseky psané celými velkými písmeny v `back` (např. prefixy volacích značek typu `GX`, `DA-DR`) se v handsfree režimu přehláskují písmeno po písmenu pomocí aktuálně vybrané hláskovací abecedy v apce — nezávisle na jazyce rozhraní i na `language` téhle sady. Viz [Soubory hláskovací abecedy](#soubory-hláskovací-abecedy-volitelné) níže. Když pole vynecháš nebo je `false`, jde o běžnou odpověď; ALL-CAPS slova v ní (např. zkratka `HAREC`) se přesto čtou písmeno po písmenu, ale jazykem téhle sady, bez potřeby zvláštního souboru. |
+
+## Soubory hláskovací abecedy (volitelné)
+
+Nezávisle na sadách kartiček umí apka importovat **hláskovací abecedy** —
+mapování písmeno/číslice → vyslovované slovo (např. `A` → `Adam`,
+`0` → `nula`), použité v handsfree režimu u každé kartičky s
+`spellBack: true`. Importují se stejně jako sada, přes tlačítko 📥 vedle
+výběru hláskovací abecedy. S apkou je rovnou vestavěná krátká mezinárodní
+(ITU/NATO) anglická tabulka; česká je přiložená ve složce
+`SpellingAlphabets`.
+
+```json
+{
+  "spellId": "jedinečné-id",
+  "spellName": "Název v seznamu výběru",
+  "lang": "cs-CZ",
+  "letters": { "A": "Adam", "0": "nula", "-": "až" }
+}
+```
+
+| Pole | Povinné | Popis |
+|---|---|---|
+| `spellId` | ano | Jedinečný identifikátor, stejná role jako `shortName` u sady. |
+| `spellName` | ano | Název zobrazený ve výběru. |
+| `lang` | ano | Jazykový kód (BCP-47) použitý pro TTS při hláskování touto abecedou, např. `en-US`, `cs-CZ`. |
+| `letters` | ano | Objekt mapující každý znak na slovo, které se za něj vysloví. Znaky chybějící v mapě se přečtou doslova jako jeden znak v jazyce okolního textu. |
 
 ## Indikace úspěšnosti zkoušky (volitelné)
 

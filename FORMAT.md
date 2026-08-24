@@ -47,6 +47,33 @@ copy it and adapt it.
 | `subareas[].cards` | yes | Array of cards for the given subarea. At least 1 card. |
 | `cards[].front` | yes | Text of the front side (question). |
 | `cards[].back` | yes | Text of the back side (answer). |
+| `cards[].spellBack` | no | If `true`, any ALL-CAPS runs in `back` (e.g. call sign prefixes like `GX`, `DA-DR`) are spelled out letter by letter in handsfree mode, using whichever spelling alphabet is currently selected in the app — independently of both the interface language and this deck's `language`. See [Spelling alphabet files](#spelling-alphabet-files-optional) below. Omit or set to `false` for a normal answer; ALL-CAPS words in it (e.g. an abbreviation like `HAREC`) are still read letter by letter, but in this deck's own language, without needing a separate file. |
+
+## Spelling alphabet files (optional)
+
+Independently of flashcard decks, the app can import **spelling alphabet**
+files — a letter/digit → spoken-word mapping (e.g. `A` → `Alpha`,
+`0` → `Zero`) used in handsfree mode for any card with `spellBack: true`.
+Import them the same way as a deck, via the 📥 button next to the spelling
+alphabet selector. A short built-in international (ITU/NATO) English one
+ships with the app; a Czech one is included in the `SpellingAlphabets`
+folder.
+
+```json
+{
+  "spellId": "unique-id",
+  "spellName": "Name shown in the selector",
+  "lang": "en-US",
+  "letters": { "A": "Alpha", "0": "Zero", "-": "to" }
+}
+```
+
+| Field | Required | Description |
+|---|---|---|
+| `spellId` | yes | Unique identifier, same role as a deck's `shortName`. |
+| `spellName` | yes | Name shown in the selector dropdown. |
+| `lang` | yes | Language code (BCP-47) used for TTS when spelling with this alphabet, e.g. `en-US`, `cs-CZ`. |
+| `letters` | yes | Object mapping each character to the word spoken for it. Characters missing from the map are read out literally as a single character in the surrounding text's language. |
 
 ## Pass/fail indicator (optional)
 

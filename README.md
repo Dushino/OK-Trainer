@@ -82,4 +82,6 @@ The app can also be used without directly interacting with your phone, via a Blu
   - **Previous track** confirms you didn't know it.
 - Once you finish a set of cards, the app intelligently moves on: if you were studying a single subarea, it moves to the next subarea; if you were studying a whole area, it moves to the next whole area.
 
+Some phone/desktop TTS engines read a word written in ALL CAPS as if it were one (mispronounced) word instead of spelling it out — noticeable on abbreviations like "HAREC". The app always spells such words out letter by letter to avoid that. For decks that flag specific answers as `spellBack` (see `FORMAT.md`), such as call sign prefixes, the app instead spells them out using a dedicated **spelling alphabet** — a letter/digit → spoken-word table (e.g. "A" → "Alpha") that you can pick independently of both the interface language and the deck's own language, the same way you pick a language pack. A short international (ITU/NATO) English one is built in; a Czech one is included in the `SpellingAlphabets` folder and can be imported the same way as a flashcard set.
+
 > **Always put your own safety and the safety of those around you first. Do not use this while driving!**
