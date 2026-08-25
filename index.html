@@ -105,7 +105,35 @@
     justify-content:center;
   }
   .wrap{width:100%;max-width:640px;}
-  header{margin-bottom:18px;text-align:center;}
+  .hidden{display:none;}
+  header{margin-bottom:18px;text-align:center;position:relative;}
+  .settings-btn{
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:20px;
+  }
+  .settings-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-align:left;
+    margin-bottom:22px;
+  }
+  .settings-title{
+    font-family:var(--sans);
+    font-size:16px;
+    font-weight:600;
+    color:var(--text);
+    margin:0;
+  }
+  .settings-label{
+    font-family:var(--sans);
+    font-size:12px;
+    color:var(--text-muted);
+    letter-spacing:0.5px;
+    margin:0 0 6px;
+  }
   .callsign{
     font-family:var(--serif);
     font-size:26px;
@@ -445,88 +473,101 @@
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <p class="callsign">OK TRAINER</p>
-    <p class="sub" id="subLabel">…</p>
-  </header>
+  <div id="mainScreen">
+    <header>
+      <button id="btnOpenSettings" class="icon-btn settings-btn" data-i18n-title="settings_title">⋮</button>
+      <p class="callsign">OK TRAINER</p>
+      <p class="sub" id="subLabel">…</p>
+    </header>
 
-  <div class="set-row">
-    <div class="selectbar">
-      <select id="langSelect"></select>
+    <div class="selectbar" id="areaSelectBar">
+      <select id="areaSelect"></select>
     </div>
-    <button id="btnImportLang" class="icon-btn" data-i18n-title="import_lang_title">📥</button>
-    <button id="btnDeleteLang" class="icon-btn" data-i18n-title="delete_lang_title">🗑️</button>
-    <input type="file" id="fileImportLangInput" accept="application/json,.json" style="display:none;">
-  </div>
 
-  <div class="set-row">
-    <div class="selectbar">
-      <select id="setSelect"></select>
+    <div class="selectbar subgroupbar" id="subgroupbar">
+      <select id="subgroupSelect"></select>
     </div>
-    <button id="btnImportSet" class="icon-btn" data-i18n-title="import_set_title">📥</button>
-    <button id="btnDeleteSet" class="icon-btn" data-i18n-title="delete_set_title">🗑️</button>
-    <input type="file" id="fileImportInput" accept="application/json,.json" style="display:none;">
-  </div>
 
-  <div class="set-row">
-    <div class="selectbar">
-      <select id="spellSelect"></select>
+    <div class="statbar">
+      <div class="counts">
+        <span><span data-i18n="remaining"></span> <b id="cntLeft">0</b></span>
+      </div>
+      <div class="header-progress" id="headerProgress">
+        <span class="pass-dot" id="headerDot"></span>
+        <div class="box-bars" id="headerBoxBars"></div>
+      </div>
     </div>
-    <button id="btnImportSpell" class="icon-btn" data-i18n-title="import_spell_title">📥</button>
-    <button id="btnDeleteSpell" class="icon-btn" data-i18n-title="delete_spell_title">🗑️</button>
-    <input type="file" id="fileImportSpellInput" accept="application/json,.json" style="display:none;">
-  </div>
 
-  <div class="selectbar" id="areaSelectBar">
-    <select id="areaSelect"></select>
-  </div>
-
-  <div class="selectbar subgroupbar" id="subgroupbar">
-    <select id="subgroupSelect"></select>
-  </div>
-
-  <div class="statbar">
-    <div class="counts">
-      <span><span data-i18n="remaining"></span> <b id="cntLeft">0</b></span>
+    <div class="card" id="card">
+      <span class="tag" id="cardTag">—</span>
+      <div class="face" id="cardFace">…</div>
+      <span class="hint" id="cardHint" data-i18n="tap_to_flip"></span>
     </div>
-    <div class="header-progress" id="headerProgress">
-      <span class="pass-dot" id="headerDot"></span>
-      <div class="box-bars" id="headerBoxBars"></div>
+
+    <div class="controls">
+      <button id="btnBad" disabled data-i18n="btn_dont_know"></button>
+      <button id="btnGood" disabled data-i18n="btn_know"></button>
+    </div>
+
+    <div class="driving-row">
+      <button id="btnDriving" class="driving-btn" data-i18n="driving_start"></button>
+      <p class="driving-hint" id="drivingHint" data-i18n="driving_hint"></p>
+    </div>
+
+    <div class="toolbar">
+      <label><input type="checkbox" id="onlyHard"> <span data-i18n="only_hard"></span></label>
+    </div>
+
+    <p class="keys">
+      <kbd data-i18n="key_space"></kbd> <span data-i18n="key_flip"></span> &nbsp; <kbd>←</kbd> <span data-i18n="key_dont_know"></span> &nbsp; <kbd>→</kbd> <span data-i18n="key_know"></span>
+    </p>
+
+    <section class="stats">
+      <p class="stats-title" data-i18n="stats_title"></p>
+      <div id="statsList"></div>
+    </section>
+
+    <div class="reset-row">
+      <button id="btnResetScope" class="reset-btn" data-i18n="reset_scope_btn"></button>
+      <button id="btnResetAll" class="reset-btn" data-i18n="reset_all_btn"></button>
     </div>
   </div>
 
-  <div class="card" id="card">
-    <span class="tag" id="cardTag">—</span>
-    <div class="face" id="cardFace">…</div>
-    <span class="hint" id="cardHint" data-i18n="tap_to_flip"></span>
-  </div>
+  <div id="settingsScreen" class="hidden">
+    <header class="settings-header">
+      <button id="btnCloseSettings" class="icon-btn" data-i18n-title="back_btn_title">←</button>
+      <p class="settings-title" data-i18n="settings_title"></p>
+    </header>
 
-  <div class="controls">
-    <button id="btnBad" disabled data-i18n="btn_dont_know"></button>
-    <button id="btnGood" disabled data-i18n="btn_know"></button>
-  </div>
+    <p class="settings-label" data-i18n="label_lang"></p>
+    <div class="set-row">
+      <div class="selectbar">
+        <select id="langSelect"></select>
+      </div>
+      <button id="btnImportLang" class="icon-btn" data-i18n-title="import_lang_title">📥</button>
+      <button id="btnDeleteLang" class="icon-btn" data-i18n-title="delete_lang_title">🗑️</button>
+      <input type="file" id="fileImportLangInput" accept="application/json,.json" style="display:none;">
+    </div>
 
-  <div class="driving-row">
-    <button id="btnDriving" class="driving-btn" data-i18n="driving_start"></button>
-    <p class="driving-hint" id="drivingHint" data-i18n="driving_hint"></p>
-  </div>
+    <p class="settings-label" data-i18n="label_set"></p>
+    <div class="set-row">
+      <div class="selectbar">
+        <select id="setSelect"></select>
+      </div>
+      <button id="btnImportSet" class="icon-btn" data-i18n-title="import_set_title">📥</button>
+      <button id="btnDeleteSet" class="icon-btn" data-i18n-title="delete_set_title">🗑️</button>
+      <input type="file" id="fileImportInput" accept="application/json,.json" style="display:none;">
+    </div>
 
-  <div class="toolbar">
-    <label><input type="checkbox" id="onlyHard"> <span data-i18n="only_hard"></span></label>
-  </div>
-
-  <p class="keys">
-    <kbd data-i18n="key_space"></kbd> <span data-i18n="key_flip"></span> &nbsp; <kbd>←</kbd> <span data-i18n="key_dont_know"></span> &nbsp; <kbd>→</kbd> <span data-i18n="key_know"></span>
-  </p>
-
-  <section class="stats">
-    <p class="stats-title" data-i18n="stats_title"></p>
-    <div id="statsList"></div>
-  </section>
-
-  <div class="reset-row">
-    <button id="btnResetScope" class="reset-btn" data-i18n="reset_scope_btn"></button>
-    <button id="btnResetAll" class="reset-btn" data-i18n="reset_all_btn"></button>
+    <p class="settings-label" data-i18n="label_spell"></p>
+    <div class="set-row">
+      <div class="selectbar">
+        <select id="spellSelect"></select>
+      </div>
+      <button id="btnImportSpell" class="icon-btn" data-i18n-title="import_spell_title">📥</button>
+      <button id="btnDeleteSpell" class="icon-btn" data-i18n-title="delete_spell_title">🗑️</button>
+      <input type="file" id="fileImportSpellInput" accept="application/json,.json" style="display:none;">
+    </div>
   </div>
 
   <footer style="margin-top:28px;text-align:center;">
@@ -603,6 +644,11 @@ const EN_STRINGS = {
   spoken_know: "You knew it.",
   spoken_dont_know: "You didn't know it.",
   spoken_reading_again: "Reading again.",
+  settings_title: "Settings",
+  back_btn_title: "Back",
+  label_lang: "Interface language",
+  label_set: "Card set",
+  label_spell: "Spelling alphabet",
   remaining: "remaining",
   tap_to_flip: "tap to flip",
   tap_to_flip_back: "tap to flip back",
@@ -1866,6 +1912,20 @@ if("serviceWorker" in navigator){
     navigator.serviceWorker.register("./sw.js").catch(() => {});
   });
 }
+
+// ============================================================
+// Obrazovka nastavení (jazyk rozhraní / sada karet / hláskovací
+// abeceda) — přepínání viditelnosti přes .hidden, žádná skutečná
+// navigace, appka je pořád jedna stránka.
+// ============================================================
+document.getElementById("btnOpenSettings").addEventListener("click", () => {
+  document.getElementById("mainScreen").classList.add("hidden");
+  document.getElementById("settingsScreen").classList.remove("hidden");
+});
+document.getElementById("btnCloseSettings").addEventListener("click", () => {
+  document.getElementById("settingsScreen").classList.add("hidden");
+  document.getElementById("mainScreen").classList.remove("hidden");
+});
 
 // ============================================================
 // Inicializace
