@@ -770,7 +770,7 @@ const EN_SPELL = {
     "Z": "Zulu",
     "0": "Zero", "1": "One", "2": "Two", "3": "Three", "4": "Four",
     "5": "Five", "6": "Six", "7": "Seven", "8": "Eight", "9": "Nine",
-    "-": "to", "–": "to"
+    "-": "to", "–": "to", "?": "Question mark"
   }
 };
 const BUILTIN_SPELL_ID = EN_SPELL.spellId;
@@ -1512,12 +1512,17 @@ function speakSequence(segments, onDoneAll){
 // fallback (mechanika B) — ať se zbytečně nerozsekávají ojedinělá písmena.
 const CAPS_CHARS = "A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ";
 const CAPS_TOKEN_RE = new RegExp("[" + CAPS_CHARS + "0-9\\-–]+", "g");
+// Mechanika A (explicitní spellBack) navíc pojme "?" do úseku k hláskování,
+// ať se otazník za zkratkou (např. "QRV?") přehláskuje jako "Question mark"/
+// "Otazník" místo aby úplně zmizel — viz "?" v letters u hláskovací abecedy.
+const CAPS_TOKEN_WITH_QMARK_RE = new RegExp("[" + CAPS_CHARS + "0-9\\-–?]+", "g");
 const HAS_CAPS_LETTER_RE = new RegExp("[" + CAPS_CHARS + "]");
-function findCapsTokens(text, minLen, requireLetter){
+function findCapsTokens(text, minLen, requireLetter, tokenRe){
+  const re = tokenRe || CAPS_TOKEN_RE;
   const out = [];
   let m;
-  CAPS_TOKEN_RE.lastIndex = 0;
-  while((m = CAPS_TOKEN_RE.exec(text))){
+  re.lastIndex = 0;
+  while((m = re.exec(text))){
     if(m[0].length >= minLen && (!requireLetter || HAS_CAPS_LETTER_RE.test(m[0]))){
       out.push({text: m[0], index: m.index});
     }
@@ -1546,7 +1551,7 @@ function buildSpokenBack(item){
     // requireLetter: false — u explicitně vyžádaného hláskování (spellBack)
     // se mají hláskovat i čistě číselné kódy jako "73"/"88"/"99" (číslice po
     // číslici), ne je nechat přečíst jako desítkové číslo.
-    const tokens = findCapsTokens(text, 1, false);
+    const tokens = findCapsTokens(text, 1, false, CAPS_TOKEN_WITH_QMARK_RE);
     if(tokens.length === 0) return [{text, lang: cardLang}];
     const segments = [];
     let pos = 0;
