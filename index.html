@@ -1439,6 +1439,7 @@ document.getElementById("statsList").addEventListener("click", e => {
   const row = e.target.closest("[data-cat]");
   if(!row) return;
   setCategory(row.dataset.cat, row.dataset.group);
+  announceCurrentState();
   document.querySelector(".wrap").scrollIntoView({behavior:"smooth", block:"start"});
 });
 
