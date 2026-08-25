@@ -1785,9 +1785,11 @@ document.getElementById("btnDriving") && document.getElementById("btnDriving").a
 // ============================================================
 document.getElementById("areaSelect").addEventListener("change", e => {
   setCategory(e.target.value);
+  announceCurrentState();
 });
 document.getElementById("subgroupSelect").addEventListener("change", e => {
   setGroup(e.target.value);
+  announceCurrentState();
 });
 document.getElementById("card").addEventListener("click", () => {
   flip();
@@ -1813,6 +1815,7 @@ document.getElementById("btnResetScope").addEventListener("click", () => {
   saveProgress();
   state.sessionGood = 0; state.sessionBad = 0;
   buildDeck(); renderCard(); renderStats();
+  announceCurrentState();
 });
 document.getElementById("btnResetAll").addEventListener("click", () => {
   if(!confirm(t("confirm_reset_all", {setId: activeSetId}))) return;
@@ -1820,10 +1823,12 @@ document.getElementById("btnResetAll").addEventListener("click", () => {
   saveProgress();
   state.sessionGood = 0; state.sessionBad = 0;
   buildDeck(); renderCard(); renderStats();
+  announceCurrentState();
 });
 document.getElementById("onlyHard").addEventListener("change", () => {
   state.sessionGood = 0; state.sessionBad = 0;
   buildDeck(); renderCard();
+  announceCurrentState();
 });
 document.addEventListener("keydown", e => {
   if(e.code === "Space"){ e.preventDefault(); flip(); announceCurrentState(); }
