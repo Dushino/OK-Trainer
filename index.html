@@ -595,6 +595,14 @@ const EN_STRINGS = {
   import_spell_title: "Import spelling alphabet",
   delete_spell_title: "Delete spelling alphabet",
   confirm_delete_spell: "Really delete the \"{name}\" spelling alphabet? The built-in one will be used instead.",
+  spoken_mode_active: "Handsfree mode active.",
+  spoken_whole_area: "The whole area ",
+  spoken_next_selection: "Next selection.",
+  spoken_selection_restarted: "Selection restarted.",
+  spoken_round_done: "Round complete.",
+  spoken_know: "You knew it.",
+  spoken_dont_know: "You didn't know it.",
+  spoken_reading_again: "Reading again.",
   remaining: "remaining",
   tap_to_flip: "tap to flip",
   tap_to_flip_back: "tap to flip back",
@@ -1594,48 +1602,44 @@ function speakBack(){
   const item = currentItem();
   if(item) speakSequence(buildSpokenBack(item));
 }
-// Hlasové fráze v handsfree režimu se řídí jazykem AKTIVNÍ SADY KARTIČEK
-// (ne jazykem rozhraní) — ať zní jedno souvislé mluvené pásmo, ne mix dvou
-// jazyků. Zatím vestavěno česky a anglicky, cokoliv jiného spadne na
-// angličtinu.
-const SPOKEN_PHRASES = {
-  cs: {
-    mode_active: "Režim handsfree aktivní.",
-    whole_area: "Celá oblast ",
-    next_selection: "Další výběr.",
-    selection_restarted: "Výběr restartován.",
-    round_done: "Kolo dokončeno.",
-    know: "Znal jsi.",
-    dont_know: "Neznal jsi.",
-    reading_again: "Čtu znovu."
-  },
-  en: {
-    mode_active: "Handsfree mode active.",
-    whole_area: "The whole area ",
-    next_selection: "Next selection.",
-    selection_restarted: "Selection restarted.",
-    round_done: "Round complete.",
-    know: "You knew it.",
-    dont_know: "You didn't know it.",
-    reading_again: "Reading again."
-  }
-};
-function spokenLangPrefix(){
-  const langTag = (library[activeSetId] && library[activeSetId].language) || "en-US";
-  const prefix = langTag.split("-")[0].toLowerCase();
-  return SPOKEN_PHRASES[prefix] ? prefix : "en";
-}
+// Hlasové instrukční fráze v handsfree režimu (ne obsah kartiček) se teď
+// řídí AKTIVNÍM JAZYKEM ROZHRANÍ (langLibrary/activeLangId) přesně stejně
+// jako texty v GUI — přes t() s prefixem "spoken_", vestavěná angličtina +
+// import dalšího balíčku (viz Languages/*.json) platí pro obojí najednou.
+// Obsah kartiček samotných (front/back) se dál čte jazykem AKTIVNÍ SADY
+// KARTIČEK — to je jiná, nezávislá osa, viz speak()/buildSpokenBack().
+// Kde se instrukční fráze a obsah kartičky/sady spojují do jedné hlášky
+// (scopeSpokenSegments, speakFeedbackThenNext), musí jít o samostatné
+// segmenty pro speakSequence, ať každá část mluví správným hlasem/jazykem
+// (stejný princip jako u hláskování zkratek jinou abecedou).
 function sp(key){
-  return SPOKEN_PHRASES[spokenLangPrefix()][key];
+  return t("spoken_" + key);
+}
+function activeSpokenLang(){
+  const pack = langLibrary[activeLangId];
+  return (pack && pack.langCode) || "en";
 }
 
 function announceCurrentState(){
   if(!drivingModeActive) return;
   const item = currentItem();
-  if(!item){ speak(sp("round_done")); return; }
+  if(!item){ speakLang(sp("round_done"), activeSpokenLang()); return; }
   if(state.flipped) speakBack(); else speakFront();
 }
 
+// Vrátí segmenty pro speakSequence: název oblasti/podoblasti je OBSAH
+// aktivní sady karet (jazyk sady), "Celá oblast "/"The whole area " je
+// instrukční fráze (jazyk rozhraní) — nesmí jít do jedné utterance.
+function scopeSpokenSegments(cat, group){
+  const catName = STATS_CAT_LABELS[cat] || cat;
+  const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
+  if(group && group !== "__all__"){
+    return [{text: catName + ", " + group, lang: deckLang}];
+  }
+  return [{text: sp("whole_area"), lang: activeSpokenLang()}, {text: catName, lang: deckLang}];
+}
+// Prostý text pro nemluvené zobrazení (Media Session metadata) — tam
+// smíchání jazyků v jednom řetězci nevadí, nic se tím nečte nahlas.
 function scopeSpokenLabel(cat, group){
   const catName = STATS_CAT_LABELS[cat] || cat;
   return (group && group !== "__all__") ? (catName + ", " + group) : (sp("whole_area") + catName);
@@ -1677,16 +1681,21 @@ function updateDrivingMetadata(){
   }catch(e){}
 }
 
-function speakFeedbackThenNext(feedback){
+function speakFeedbackThenNext(feedbackText){
   const next = currentItem();
-  const nextText = next ? next.front : sp("round_done");
-  speak(feedback + " " + nextText);
+  const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
+  const secondSeg = next
+    ? {text: next.front, lang: deckLang}
+    : {text: sp("round_done"), lang: activeSpokenLang()};
+  speakSequence([{text: feedbackText, lang: activeSpokenLang()}, secondSeg]);
 }
 
 function drivingNext(){
   if(!currentItem()){
     advanceScope();
-    speak(sp("next_selection") + " " + scopeSpokenLabel(state.cat, state.group) + ".", speakFront);
+    const segs = [{text: sp("next_selection"), lang: activeSpokenLang()}, ...scopeSpokenSegments(state.cat, state.group)];
+    segs[segs.length - 1].text += ".";
+    speakSequence(segs, speakFront);
     return;
   }
   if(!state.flipped){
@@ -1703,11 +1712,11 @@ function drivingPrev(){
     state.sessionGood = 0; state.sessionBad = 0;
     buildDeck();
     renderCard();
-    speak(sp("selection_restarted"), speakFront);
+    speakLang(sp("selection_restarted"), activeSpokenLang(), speakFront);
     return;
   }
   if(!state.flipped){
-    speak(sp("reading_again"), speakFront);
+    speakLang(sp("reading_again"), activeSpokenLang(), speakFront);
   }else{
     grade(false);
     speakFeedbackThenNext(sp("dont_know"));
@@ -1761,10 +1770,9 @@ function startDrivingMode(){
   const btn = document.getElementById("btnDriving");
   if(btn){ btn.textContent = t("driving_stop"); btn.classList.add("active"); }
 
-  speak(
-    sp("mode_active") + " " + scopeSpokenLabel(state.cat, state.group) + ".",
-    speakFront
-  );
+  const modeSegs = [{text: sp("mode_active"), lang: activeSpokenLang()}, ...scopeSpokenSegments(state.cat, state.group)];
+  modeSegs[modeSegs.length - 1].text += ".";
+  speakSequence(modeSegs, speakFront);
 }
 
 function stopDrivingMode(){
