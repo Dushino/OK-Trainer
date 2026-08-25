@@ -384,126 +384,126 @@
       "maxErrors": 8,
       "subareas": [
         {
-          "name": "Hláskovací abeceda (česká/mezinárodní) - A - G",
+          "name": "Hláskovací abeceda (česká, mezinárodní) - A - G",
           "cards": [
             {
               "front": "A:",
-              "back": "Adam / Alpha"
+              "back": "Adam, Alpha"
             },
             {
               "front": "B:",
-              "back": "Božena / Bravo"
+              "back": "Božena, Bravo"
             },
             {
               "front": "C:",
-              "back": "Cyril / Charlie"
+              "back": "Cyril, Charlie"
             },
             {
               "front": "D:",
-              "back": "David / Delta"
+              "back": "David, Delta"
             },
             {
               "front": "E:",
-              "back": "Emil / Echo"
+              "back": "Emil, Echo"
             },
             {
               "front": "F:",
-              "back": "František / Foxtrot"
+              "back": "František, Foxtrot"
             },
             {
               "front": "G:",
-              "back": "Gustav / Golf"
+              "back": "Gustav, Golf"
             }
           ]
         },
         {
-          "name": "Hláskovací abeceda (česká/mezinárodní) - H - N",
+          "name": "Hláskovací abeceda (česká, mezinárodní) - H - N",
           "cards": [
             {
               "front": "H:",
-              "back": "Helena / Hotel"
+              "back": "Helena, Hotel"
             },
             {
               "front": "I:",
-              "back": "Ivan / India"
+              "back": "Ivan, India"
             },
             {
               "front": "J:",
-              "back": "Josef / Juliett"
+              "back": "Josef, Juliett"
             },
             {
               "front": "K:",
-              "back": "Karel / Kilo"
+              "back": "Karel, Kilo"
             },
             {
               "front": "L:",
-              "back": "Ludvík / Lima"
+              "back": "Ludvík, Lima"
             },
             {
               "front": "M:",
-              "back": "Marie / Mike"
+              "back": "Marie, Mike"
             },
             {
               "front": "N:",
-              "back": "Norbert / November"
+              "back": "Norbert, November"
             }
           ]
         },
         {
-          "name": "Hláskovací abeceda (česká/mezinárodní) - O - T",
+          "name": "Hláskovací abeceda (česká, mezinárodní) - O - T",
           "cards": [
             {
               "front": "O:",
-              "back": "Otakar / Oscar"
+              "back": "Otakar, Oscar"
             },
             {
               "front": "P:",
-              "back": "Petr / Papa"
+              "back": "Petr, Papa"
             },
             {
               "front": "Q:",
-              "back": "Quido / Quebec"
+              "back": "Quido, Quebec"
             },
             {
               "front": "R:",
-              "back": "Rudolf / Romeo"
+              "back": "Rudolf, Romeo"
             },
             {
               "front": "S:",
-              "back": "Svatopluk / Sierra"
+              "back": "Svatopluk, Sierra"
             },
             {
               "front": "T:",
-              "back": "Tomáš / Tango"
+              "back": "Tomáš, Tango"
             }
           ]
         },
         {
-          "name": "Hláskovací abeceda (česká/mezinárodní) - U - Z",
+          "name": "Hláskovací abeceda (česká, mezinárodní) - U - Z",
           "cards": [
             {
               "front": "U:",
-              "back": "Urban / Uniform"
+              "back": "Urban, Uniform"
             },
             {
               "front": "V:",
-              "back": "Václav / Victor"
+              "back": "Václav, Victor"
             },
             {
               "front": "W:",
-              "back": "dvojité V / Whisky"
+              "back": "dvojité V, Whisky"
             },
             {
               "front": "X:",
-              "back": "Xaver / X-ray"
+              "back": "Xaver, X-ray"
             },
             {
               "front": "Y:",
-              "back": "Ypsilon / Yankee"
+              "back": "Ypsilon, Yankee"
             },
             {
               "front": "Z:",
-              "back": "Zuzana / Zulu"
+              "back": "Zuzana, Zulu"
             }
           ]
         },
@@ -707,7 +707,7 @@
           "cards": [
             {
               "front": "děkuji:",
-              "back": "TNX / TKS",
+              "back": "TNX, TKS",
               "spellBack": true
             },
             {
@@ -727,7 +727,7 @@
             },
             {
               "front": "lituji, bohužel",
-              "back": "SRI / SRY",
+              "back": "SRI, SRY",
               "spellBack": true
             }
           ]
@@ -834,7 +834,7 @@
           "cards": [
             {
               "front": "report:",
-              "back": "RPRT / RST",
+              "back": "RPRT, RST",
               "spellBack": true
             },
             {
@@ -903,7 +903,7 @@
             },
             {
               "front": "zařízení:",
-              "back": "RIG"
+              "back": "rig"
             },
             {
               "front": "vysílač:",
@@ -927,12 +927,12 @@
           "cards": [
             {
               "front": "anténa:",
-              "back": "AER / ANT",
+              "back": "AER, ANT",
               "spellBack": true
             },
             {
               "front": "činitel stojatých vln:",
-              "back": "PSV / SWR",
+              "back": "PSV, SWR",
               "spellBack": true
             },
             {
@@ -942,7 +942,8 @@
             },
             {
               "front": "špičkový výkon:",
-              "back": "PEP"
+              "back": "PEP",
+              "spellBack": true
             },
             {
               "front": "výkon:",
@@ -1011,7 +1012,7 @@
             },
             {
               "front": "fonie:",
-              "back": "FONE"
+              "back": "fone"
             },
             {
               "front": "horní postranní pásmo:",
@@ -1025,33 +1026,27 @@
           "cards": [
             {
               "front": "rádiový kmitočet:",
-              "back": "RF",
-              "spellBack": true
+              "back": "RF"
             },
             {
               "front": "super vysoký kmitočet:",
-              "back": "SHF",
-              "spellBack": true
+              "back": "SHF"
             },
             {
               "front": "nízký kmitočet:",
-              "back": "LF",
-              "spellBack": true
+              "back": "LF"
             },
             {
               "front": "krátké vlny:",
-              "back": "SW",
-              "spellBack": true
+              "back": "SW"
             },
             {
               "front": "ultravysoký kmitočet:",
-              "back": "UHF",
-              "spellBack": true
+              "back": "UHF"
             },
             {
               "front": "velmi vysoký kmitočet:",
-              "back": "VHF",
-              "spellBack": true
+              "back": "VHF"
             }
           ]
         },
@@ -1060,11 +1055,11 @@
           "cards": [
             {
               "front": "elektronický klíč:",
-              "back": "ELBUG"
+              "back": "elbug"
             },
             {
               "front": "poloautomatický klíč:",
-              "back": "BUG"
+              "back": "bug"
             },
             {
               "front": "klíč:",
@@ -1078,11 +1073,11 @@
           "cards": [
             {
               "front": "radioamatér:",
-              "back": "HAM"
+              "back": "ham"
             },
             {
               "front": "špatný operátor:",
-              "back": "LID"
+              "back": "lid"
             },
             {
               "front": "přítel:",
@@ -1120,15 +1115,15 @@
           "cards": [
             {
               "front": "slunečno:",
-              "back": "SUNNY"
+              "back": "sunny"
             },
             {
               "front": "zataženo:",
-              "back": "OVERCAST"
+              "back": "overcast"
             },
             {
               "front": "teplota:",
-              "back": "TEMP"
+              "back": "temp"
             },
             {
               "front": "počasí:",
@@ -1137,7 +1132,7 @@
             },
             {
               "front": "oblačno:",
-              "back": "CLOUDY"
+              "back": "cloudy"
             }
           ]
         },
@@ -1146,7 +1141,8 @@
           "cards": [
             {
               "front": "já:",
-              "back": "I"
+              "back": "I",
+              "spellBack": true
             },
             {
               "front": "váš, tvůj:",
@@ -1155,11 +1151,13 @@
             },
             {
               "front": "můj:",
-              "back": "MY"
+              "back": "MY",
+              "spellBack": true
             },
             {
               "front": "ne:",
-              "back": "NO"
+              "back": "NO",
+              "spellBack": true
             },
             {
               "front": "velmi:",
@@ -1173,7 +1171,8 @@
           "cards": [
             {
               "front": "k:",
-              "back": "TO"
+              "back": "TO",
+              "spellBack": true
             },
             {
               "front": "z, ze:",
@@ -1182,16 +1181,16 @@
             },
             {
               "front": "za:",
-              "back": "FER"
+              "back": "FER",
+              "spellBack": true
             },
             {
               "front": "přes, prostřednictvím:",
-              "back": "VIA"
+              "back": "via"              
             },
             {
               "front": "a:",
-              "back": "ES",
-              "spellBack": true
+              "back": "es"
             }
           ]
         },
@@ -1200,15 +1199,15 @@
           "cards": [
             {
               "front": "přímo:",
-              "back": "DIRECT"
+              "back": "direct"
             },
             {
               "front": "jen:",
-              "back": "ONLY"
+              "back": "only"
             },
             {
               "front": "nic:",
-              "back": "NIL"
+              "back": "nil"
             }
           ]
         },
@@ -1227,11 +1226,13 @@
             },
             {
               "front": "blízko, u:",
-              "back": "NR / NEAR"
+              "back": "NR, near",              
+              "spellBack": true
             },
             {
               "front": "nahoru:",
-              "back": "UP"
+              "back": "UP",
+              "spellBack": true
             }
           ]
         },
@@ -1240,7 +1241,8 @@
           "cards": [
             {
               "front": "zavolání, značka:",
-              "back": "CALL"
+              "back": "CALL",              
+              "spellBack": true
             },
             {
               "front": "pracoval, pracující:",
@@ -1254,7 +1256,7 @@
             },
             {
               "front": "poslat, zaslat:",
-              "back": "SEND"
+              "back": "send"
             }
           ]
         },
@@ -1286,7 +1288,7 @@
           "name": "Zkratky – Technické pojmy",
           "cards": [
             {
-              "front": "mezifrekvence / kdyby:",
+              "front": "mezifrekvence, kdyby:",
               "back": "IF"
             },
             {
@@ -1316,7 +1318,7 @@
             },
             {
               "front": "Mezinárodní telekomunikační unie:",
-              "back": "ITU / UIT",
+              "back": "ITU, UIT",
               "spellBack": true
             },
             {
@@ -1429,7 +1431,7 @@
             },
             {
               "front": "zapsat, porozumět:",
-              "back": "CPI / CPY",
+              "back": "CPI, CPY",
               "spellBack": true
             }
           ]
@@ -1929,7 +1931,7 @@
           ]
         },
         {
-          "name": "Prefixy – Jižní/Západní Asie a Pacifik",
+          "name": "Prefixy – Jižní, Západní Asie a Pacifik",
           "cards": [
             {
               "front": "Thajsko:",
@@ -2374,7 +2376,7 @@
               "back": "výkon je dostatečný, ale modulace slabá"
             },
             {
-              "front": "Jaký výkon bude dopraven ze 100 W vysílače do antény 25 m dlouhým koaxiálním kabelem s útlumem 12 dB / 100 m?",
+              "front": "Jaký výkon bude dopraven ze 100 W vysílače do antény 25 m dlouhým koaxiálním kabelem s útlumem 12 dB na 100 m?",
               "back": "50 W"
             },
             {
@@ -2799,7 +2801,7 @@
               "back": "jelikož je to nejvyšší vrstva"
             },
             {
-              "front": "Při šíření ve volném prostoru ve vzdálenostech větších než 10 λ klesá intenzita elektromagnetického pole (mV/m):",
+              "front": "Při šíření ve volném prostoru ve vzdálenostech větších než 10 λ klesá intenzita elektromagnetického pole (mV na metr):",
               "back": "lineárně v závislosti na vzdálenosti"
             },
             {
