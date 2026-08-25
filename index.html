@@ -1567,7 +1567,10 @@ function buildSpokenBack(item){
   let pos = 0;
   tokens.forEach(tok => {
     result += text.slice(pos, tok.index);
-    result += tok.text.toLowerCase().split("").join(".") + ".";
+    // Tečka bez mezery mezi dvěma souhláskami (typicky u Q-kódů, např.
+    // "QRV" -> "r","v") nedonutí spolehlivě všechny TTS enginy k pauze —
+    // "r.v." se občas přečte slitě jako "erv". Mezera za tečkou to řeší.
+    result += tok.text.toLowerCase().split("").join(". ") + ".";
     pos = tok.index + tok.text.length;
   });
   result += text.slice(pos);
