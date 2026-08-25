@@ -512,23 +512,28 @@
           "cards": [
             {
               "front": "Jsem rušen interferencí:",
-              "back": "QRM"
+              "back": "QRM",
+              "spellBack": true
             },
             {
               "front": "Síla vašich signálů kolísá:",
-              "back": "QSB"
+              "back": "QSB",
+              "spellBack": true
             },
             {
               "front": "Jste rušen atmosférickým rušením?",
-              "back": "QRN?"
+              "back": "QRN?",
+              "spellBack": true
             },
             {
               "front": "Nemohu vás přijímat, vaše signály jsou velmi slabé:",
-              "back": "QRJ"
+              "back": "QRJ",
+              "spellBack": true
             },
             {
               "front": "Jaká je čitelnost mých značek?",
-              "back": "QRK?"
+              "back": "QRK?",
+              "spellBack": true
             }
           ]
         },
@@ -537,15 +542,18 @@
           "cards": [
             {
               "front": "Můžete zvýšit výkon?",
-              "back": "QRO?"
+              "back": "QRO?",
+              "spellBack": true
             },
             {
               "front": "Vysílejte pomaleji:",
-              "back": "QRS"
+              "back": "QRS",
+              "spellBack": true
             },
             {
               "front": "Snižte výkon:",
-              "back": "QRP"
+              "back": "QRP",
+              "spellBack": true
             }
           ]
         },
@@ -554,19 +562,23 @@
           "cards": [
             {
               "front": "Počkejte, až vás zavolám:",
-              "back": "QRX"
+              "back": "QRX",
+              "spellBack": true
             },
             {
               "front": "Přestaňte vysílat:",
-              "back": "QRT"
+              "back": "QRT",
+              "spellBack": true
             },
             {
               "front": "Nemám pro vás nic nového:",
-              "back": "QRU"
+              "back": "QRU",
+              "spellBack": true
             },
             {
               "front": "Jste zaměstnán? Je kmitočet obsazen nebo volný?",
-              "back": "QRL?"
+              "back": "QRL?",
+              "spellBack": true
             }
           ]
         },
@@ -575,15 +587,18 @@
           "cards": [
             {
               "front": "Volá vás:",
-              "back": "QRZ"
+              "back": "QRZ",
+              "spellBack": true
             },
             {
               "front": "Jste připraven?",
-              "back": "QRV?"
+              "back": "QRV?",
+              "spellBack": true
             },
             {
               "front": "Můžete mě poslouchat mezi svými značkami?",
-              "back": "QSK?"
+              "back": "QSK?",
+              "spellBack": true
             }
           ]
         },
@@ -592,27 +607,33 @@
           "cards": [
             {
               "front": "Potvrzuji příjem:",
-              "back": "QSL"
+              "back": "QSL",
+              "spellBack": true
             },
             {
               "front": "Moje poloha je:",
-              "back": "QTH"
+              "back": "QTH",
+              "spellBack": true
             },
             {
               "front": "Mohu pracovat s … přímo (prostřednictvím)?",
-              "back": "QSO?"
+              "back": "QSO?",
+              "spellBack": true
             },
             {
               "front": "Mám přejít k vysílání na jiný kmitočet?",
-              "back": "QSY?"
+              "back": "QSY?",
+              "spellBack": true
             },
             {
               "front": "Vysílejte řadu V:",
-              "back": "QSV"
+              "back": "QSV",
+              "spellBack": true
             },
             {
               "front": "Slovo dvakrát:",
-              "back": "QSZ"
+              "back": "QSZ",
+              "spellBack": true
             }
           ]
         },
@@ -621,23 +642,28 @@
           "cards": [
             {
               "front": "dobré odpoledne:",
-              "back": "GA"
+              "back": "GA",
+              "spellBack": true
             },
             {
               "front": "dobré ráno:",
-              "back": "GM"
+              "back": "GM",
+              "spellBack": true
             },
             {
               "front": "dobrý večer:",
-              "back": "GE"
+              "back": "GE",
+              "spellBack": true
             },
             {
               "front": "dobrý den:",
-              "back": "GD"
+              "back": "GD",
+              "spellBack": true
             },
             {
               "front": "dobrou noc:",
-              "back": "GN"
+              "back": "GN",
+              "spellBack": true
             }
           ]
         },
@@ -646,27 +672,33 @@
           "cards": [
             {
               "front": "smích:",
-              "back": "HI"
+              "back": "HI",
+              "spellBack": true
             },
             {
               "front": "sbohem:",
-              "back": "GB"
+              "back": "GB",
+              "spellBack": true
             },
             {
               "front": "znovu:",
-              "back": "CUAGN"
+              "back": "CUAGN",
+              "spellBack": true
             },
             {
               "front": "srdečný pozdrav:",
-              "back": "73"
+              "back": "73",
+              "spellBack": true
             },
             {
               "front": "polibek:",
-              "back": "88"
+              "back": "88",
+              "spellBack": true
             },
             {
               "front": "později na shledanou:",
-              "back": "CUL"
+              "back": "CUL",
+              "spellBack": true
             }
           ]
         },
@@ -675,23 +707,28 @@
           "cards": [
             {
               "front": "děkuji:",
-              "back": "TNX / TKS"
+              "back": "TNX / TKS",
+              "spellBack": true
             },
             {
               "front": "štěstí, hodně štěstí:",
-              "back": "GL"
+              "back": "GL",
+              "spellBack": true
             },
             {
               "front": "rád, potěšen:",
-              "back": "GLD"
+              "back": "GLD",
+              "spellBack": true
             },
             {
               "front": "prosím:",
-              "back": "PSE"
+              "back": "PSE",
+              "spellBack": true
             },
             {
               "front": "lituji, bohužel",
-              "back": "SRI / SRY"
+              "back": "SRI / SRY",
+              "spellBack": true
             }
           ]
         },
@@ -700,19 +737,23 @@
           "cards": [
             {
               "front": "pěkný, výborný:",
-              "back": "FB"
+              "back": "FB",
+              "spellBack": true
             },
             {
               "front": "velmi pěkný:",
-              "back": "UFB"
+              "back": "UFB",
+              "spellBack": true
             },
             {
               "front": "doufat:",
-              "back": "HPE"
+              "back": "HPE",
+              "spellBack": true
             },
             {
               "front": "šťastný:",
-              "back": "HPY"
+              "back": "HPY",
+              "spellBack": true
             },
             {
               "front": "jistě, určitě:",
@@ -725,7 +766,8 @@
           "cards": [
             {
               "front": "čekejte:",
-              "back": "AS"
+              "back": "AS",
+              "spellBack": true
             },
             {
               "front": "domluvené spojení:",
@@ -733,19 +775,23 @@
             },
             {
               "front": "vysílejte:",
-              "back": "K"
+              "back": "K",
+              "spellBack": true
             },
             {
               "front": "všeobecná výzva:",
-              "back": "CQ"
+              "back": "CQ",
+              "spellBack": true
             },
             {
               "front": "pokračujte:",
-              "back": "GA"
+              "back": "GA",
+              "spellBack": true
             },
             {
               "front": "začátek relace:",
-              "back": "KA"
+              "back": "KA",
+              "spellBack": true
             }
           ]
         },
@@ -754,11 +800,13 @@
           "cards": [
             {
               "front": "konec vysílání:",
-              "back": "SK"
+              "back": "SK",
+              "spellBack": true
             },
             {
               "front": "uzavírám stanici:",
-              "back": "CL"
+              "back": "CL",
+              "spellBack": true
             },
             {
               "front": "pokus:",
@@ -766,15 +814,18 @@
             },
             {
               "front": "konec relace:",
-              "back": "AR"
+              "back": "AR",
+              "spellBack": true
             },
             {
               "front": "přerušit:",
-              "back": "BK"
+              "back": "BK",
+              "spellBack": true
             },
             {
               "front": "přecházím na poslech pro určitou stanici:",
-              "back": "KN"
+              "back": "KN",
+              "spellBack": true
             }
           ]
         },
@@ -783,7 +834,8 @@
           "cards": [
             {
               "front": "report:",
-              "back": "RPRT / RST"
+              "back": "RPRT / RST",
+              "spellBack": true
             },
             {
               "front": "staniční deník:",
@@ -791,19 +843,23 @@
             },
             {
               "front": "správně přijato:",
-              "back": "R"
+              "back": "R",
+              "spellBack": true
             },
             {
               "front": "staniční lístek nezašlu:",
-              "back": "QSLN"
+              "back": "QSLN",
+              "spellBack": true
             },
             {
               "front": "potvrdit:",
-              "back": "CFM"
+              "back": "CFM",
+              "spellBack": true
             },
             {
               "front": "přijal, přijato:",
-              "back": "RCVD"
+              "back": "RCVD",
+              "spellBack": true
             }
           ]
         },
@@ -812,23 +868,28 @@
           "cards": [
             {
               "front": "rušení rozhlasu:",
-              "back": "BCI"
+              "back": "BCI",
+              "spellBack": true
             },
             {
               "front": "podmínky pro spojení:",
-              "back": "CONDS"
+              "back": "CONDS",
+              "spellBack": true
             },
             {
               "front": "rušení televize:",
-              "back": "TVI"
+              "back": "TVI",
+              "spellBack": true
             },
             {
               "front": "podmínky pro dálkové spojení:",
-              "back": "CONDX"
+              "back": "CONDX",
+              "spellBack": true
             },
             {
               "front": "rušení rádiového kmitočtu:",
-              "back": "RFI"
+              "back": "RFI",
+              "spellBack": true
             }
           ]
         },
@@ -837,7 +898,8 @@
           "cards": [
             {
               "front": "přijímač:",
-              "back": "RX"
+              "back": "RX",
+              "spellBack": true
             },
             {
               "front": "zařízení:",
@@ -845,15 +907,18 @@
             },
             {
               "front": "vysílač:",
-              "back": "TX"
+              "back": "TX",
+              "spellBack": true
             },
             {
               "front": "transceiver:",
-              "back": "TRX"
+              "back": "TRX",
+              "spellBack": true
             },
             {
               "front": "proměnný oscilátor:",
-              "back": "VFO"
+              "back": "VFO",
+              "spellBack": true
             }
           ]
         },
@@ -862,15 +927,18 @@
           "cards": [
             {
               "front": "anténa:",
-              "back": "AER / ANT"
+              "back": "AER / ANT",
+              "spellBack": true
             },
             {
               "front": "činitel stojatých vln:",
-              "back": "PSV / SWR"
+              "back": "PSV / SWR",
+              "spellBack": true
             },
             {
               "front": "koncový stupeň:",
-              "back": "PA"
+              "back": "PA",
+              "spellBack": true
             },
             {
               "front": "špičkový výkon:",
@@ -878,11 +946,13 @@
             },
             {
               "front": "výkon:",
-              "back": "PWR"
+              "back": "PWR",
+              "spellBack": true
             },
             {
               "front": "země, uzemnění:",
-              "back": "GND"
+              "back": "GND",
+              "spellBack": true
             }
           ]
         },
@@ -891,15 +961,18 @@
           "cards": [
             {
               "front": "automatické řízení úrovně:",
-              "back": "ALC"
+              "back": "ALC",
+              "spellBack": true
             },
             {
               "front": "automatické řízení zisku:",
-              "back": "AGC"
+              "back": "AGC",
+              "spellBack": true
             },
             {
               "front": "automatické řízení hlasitosti:",
-              "back": "AVC"
+              "back": "AVC",
+              "spellBack": true
             }
           ]
         },
@@ -908,15 +981,18 @@
           "cards": [
             {
               "front": "amplitudová modulace:",
-              "back": "AM"
+              "back": "AM",
+              "spellBack": true
             },
             {
               "front": "kmitočtová modulace:",
-              "back": "FM"
+              "back": "FM",
+              "spellBack": true
             },
             {
               "front": "telegrafie, netlumená vlna:",
-              "back": "CW"
+              "back": "CW",
+              "spellBack": true
             }
           ]
         },
@@ -925,11 +1001,13 @@
           "cards": [
             {
               "front": "jedno postranní pásmo:",
-              "back": "SSB"
+              "back": "SSB",
+              "spellBack": true
             },
             {
               "front": "spodní postranní pásmo:",
-              "back": "LSB"
+              "back": "LSB",
+              "spellBack": true
             },
             {
               "front": "fonie:",
@@ -937,7 +1015,8 @@
             },
             {
               "front": "horní postranní pásmo:",
-              "back": "USB"
+              "back": "USB",
+              "spellBack": true
             }
           ]
         },
@@ -946,27 +1025,33 @@
           "cards": [
             {
               "front": "rádiový kmitočet:",
-              "back": "RF"
+              "back": "RF",
+              "spellBack": true
             },
             {
               "front": "super vysoký kmitočet:",
-              "back": "SHF"
+              "back": "SHF",
+              "spellBack": true
             },
             {
               "front": "nízký kmitočet:",
-              "back": "LF"
+              "back": "LF",
+              "spellBack": true
             },
             {
               "front": "krátké vlny:",
-              "back": "SW"
+              "back": "SW",
+              "spellBack": true
             },
             {
               "front": "ultravysoký kmitočet:",
-              "back": "UHF"
+              "back": "UHF",
+              "spellBack": true
             },
             {
               "front": "velmi vysoký kmitočet:",
-              "back": "VHF"
+              "back": "VHF",
+              "spellBack": true
             }
           ]
         },
@@ -983,7 +1068,8 @@
             },
             {
               "front": "klíč:",
-              "back": "KY"
+              "back": "KY",
+              "spellBack": true
             }
           ]
         },
@@ -1000,7 +1086,8 @@
             },
             {
               "front": "přítel:",
-              "back": "OM"
+              "back": "OM",
+              "spellBack": true
             },
             {
               "front": "operátor:",
@@ -1013,15 +1100,18 @@
           "cards": [
             {
               "front": "milý, drahý:",
-              "back": "DR"
+              "back": "DR",
+              "spellBack": true
             },
             {
               "front": "manželka:",
-              "back": "XYL"
+              "back": "XYL",
+              "spellBack": true
             },
             {
               "front": "slečna, přítelkyně:",
-              "back": "YL"
+              "back": "YL",
+              "spellBack": true
             }
           ]
         },
@@ -1042,7 +1132,8 @@
             },
             {
               "front": "počasí:",
-              "back": "WX"
+              "back": "WX",
+              "spellBack": true
             },
             {
               "front": "oblačno:",
@@ -1059,7 +1150,8 @@
             },
             {
               "front": "váš, tvůj:",
-              "back": "UR"
+              "back": "UR",
+              "spellBack": true
             },
             {
               "front": "můj:",
@@ -1071,7 +1163,8 @@
             },
             {
               "front": "velmi:",
-              "back": "VY"
+              "back": "VY",
+              "spellBack": true
             }
           ]
         },
@@ -1084,7 +1177,8 @@
             },
             {
               "front": "z, ze:",
-              "back": "DE"
+              "back": "DE",
+              "spellBack": true
             },
             {
               "front": "za:",
@@ -1096,7 +1190,8 @@
             },
             {
               "front": "a:",
-              "back": "ES"
+              "back": "ES",
+              "spellBack": true
             }
           ]
         },
@@ -1122,11 +1217,13 @@
           "cards": [
             {
               "front": "zde, tady:",
-              "back": "HR"
+              "back": "HR",
+              "spellBack": true
             },
             {
               "front": "dolů:",
-              "back": "DWN"
+              "back": "DWN",
+              "spellBack": true
             },
             {
               "front": "blízko, u:",
@@ -1147,11 +1244,13 @@
             },
             {
               "front": "pracoval, pracující:",
-              "back": "WKD"
+              "back": "WKD",
+              "spellBack": true
             },
             {
               "front": "asi, přibližně:",
-              "back": "ABT"
+              "back": "ABT",
+              "spellBack": true
             },
             {
               "front": "poslat, zaslat:",
@@ -1164,7 +1263,8 @@
           "cards": [
             {
               "front": "střídavý proud:",
-              "back": "AC"
+              "back": "AC",
+              "spellBack": true
             },
             {
               "front": "decibel:",
@@ -1172,11 +1272,13 @@
             },
             {
               "front": "stejnosměrný proud:",
-              "back": "DC"
+              "back": "DC",
+              "spellBack": true
             },
             {
               "front": "metr:",
-              "back": "MTR"
+              "back": "MTR",
+              "spellBack": true
             }
           ]
         },
@@ -1189,15 +1291,18 @@
             },
             {
               "front": "dlouhý drát, dlouhé vlny:",
-              "back": "LW"
+              "back": "LW",
+              "spellBack": true
             },
             {
               "front": "elektronky:",
-              "back": "TBS"
+              "back": "TBS",
+              "spellBack": true
             },
             {
               "front": "prvek, element:",
-              "back": "EL"
+              "back": "EL",
+              "spellBack": true
             }
           ]
         },
@@ -1206,23 +1311,28 @@
           "cards": [
             {
               "front": "stanice:",
-              "back": "STN"
+              "back": "STN",
+              "spellBack": true
             },
             {
               "front": "Mezinárodní telekomunikační unie:",
-              "back": "ITU / UIT"
+              "back": "ITU / UIT",
+              "spellBack": true
             },
             {
               "front": "Mezinárodní radioamatérská unie:",
-              "back": "IARU"
+              "back": "IARU",
+              "spellBack": true
             },
             {
               "front": "koncesovaný:",
-              "back": "LIS"
+              "back": "LIS",
+              "spellBack": true
             },
             {
               "front": "nekoncesovaný:",
-              "back": "UNLIS"
+              "back": "UNLIS",
+              "spellBack": true
             }
           ]
         },
@@ -1235,7 +1345,8 @@
             },
             {
               "front": "obálka s adresou a známkou:",
-              "back": "SASE"
+              "back": "SASE",
+              "spellBack": true
             },
             {
               "front": "radioamatérská družice:",
@@ -1243,7 +1354,8 @@
             },
             {
               "front": "krátkovlnný posluchač:",
-              "back": "SWL"
+              "back": "SWL",
+              "spellBack": true
             },
             {
               "front": "síť:",
@@ -1256,19 +1368,23 @@
           "cards": [
             {
               "front": "opakovat:",
-              "back": "RPT"
+              "back": "RPT",
+              "spellBack": true
             },
             {
               "front": "opět, zase:",
-              "back": "AGN"
+              "back": "AGN",
+              "spellBack": true
             },
             {
               "front": "světový čas koordinovaný:",
-              "back": "UTC"
+              "back": "UTC",
+              "spellBack": true
             },
             {
               "front": "brzy:",
-              "back": "SN"
+              "back": "SN",
+              "spellBack": true
             }
           ]
         },
@@ -1281,7 +1397,8 @@
             },
             {
               "front": "jak?",
-              "back": "HW?"
+              "back": "HW?",
+              "spellBack": true
             },
             {
               "front": "signály:",
@@ -1298,11 +1415,13 @@
           "cards": [
             {
               "front": "slyšen, slyšeno:",
-              "back": "HRD"
+              "back": "HRD",
+              "spellBack": true
             },
             {
               "front": "dálkové spojení:",
-              "back": "DX"
+              "back": "DX",
+              "spellBack": true
             },
             {
               "front": "v pořádku:",
@@ -1310,7 +1429,8 @@
             },
             {
               "front": "zapsat, porozumět:",
-              "back": "CPI / CPY"
+              "back": "CPI / CPY",
+              "spellBack": true
             }
           ]
         },
@@ -1319,11 +1439,13 @@
           "cards": [
             {
               "front": "watty:",
-              "back": "WTTS"
+              "back": "WTTS",
+              "spellBack": true
             },
             {
               "front": "zmiz!",
-              "back": "99"
+              "back": "99",
+              "spellBack": true
             },
             {
               "front": "Vánoce:",

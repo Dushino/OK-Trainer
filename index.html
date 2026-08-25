@@ -1512,12 +1512,12 @@ function speakSequence(segments, onDoneAll){
 const CAPS_CHARS = "A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ";
 const CAPS_TOKEN_RE = new RegExp("[" + CAPS_CHARS + "0-9\\-–]+", "g");
 const HAS_CAPS_LETTER_RE = new RegExp("[" + CAPS_CHARS + "]");
-function findCapsTokens(text, minLen){
+function findCapsTokens(text, minLen, requireLetter){
   const out = [];
   let m;
   CAPS_TOKEN_RE.lastIndex = 0;
   while((m = CAPS_TOKEN_RE.exec(text))){
-    if(m[0].length >= minLen && HAS_CAPS_LETTER_RE.test(m[0])){
+    if(m[0].length >= minLen && (!requireLetter || HAS_CAPS_LETTER_RE.test(m[0]))){
       out.push({text: m[0], index: m.index});
     }
   }
@@ -1542,7 +1542,10 @@ function buildSpokenBack(item){
   const text = item.back;
   if(item.spellBack){
     const pack = spellLibrary[activeSpellId] || EN_SPELL;
-    const tokens = findCapsTokens(text, 1);
+    // requireLetter: false — u explicitně vyžádaného hláskování (spellBack)
+    // se mají hláskovat i čistě číselné kódy jako "73"/"88"/"99" (číslice po
+    // číslici), ne je nechat přečíst jako desítkové číslo.
+    const tokens = findCapsTokens(text, 1, false);
     if(tokens.length === 0) return [{text, lang: cardLang}];
     const segments = [];
     let pos = 0;
@@ -1561,7 +1564,7 @@ function buildSpokenBack(item){
     }
     return segments;
   }
-  const tokens = findCapsTokens(text, 2);
+  const tokens = findCapsTokens(text, 2, true);
   if(tokens.length === 0) return [{text, lang: cardLang}];
   let result = "";
   let pos = 0;
