@@ -1429,7 +1429,7 @@ function boxCounts(cat, group){
   const counts = [0,0,0,0,0];
   let total = 0;
   items.forEach((it, i) => {
-    if(group && group !== "__all__" && it[2] !== group) return;
+    if(group && group !== "__all__" && it.group !== group) return;
     counts[getBox(cat, i) - 1]++;
     total++;
   });
@@ -1847,7 +1847,7 @@ document.getElementById("btnResetScope").addEventListener("click", () => {
   if(!confirm(t("confirm_reset_scope", {scope, setId: activeSetId}))) return;
   const items = DATA[state.cat] || [];
   items.forEach((it, i) => {
-    if(state.group === "__all__" || it[2] === state.group){
+    if(state.group === "__all__" || it.group === state.group){
       delete progress[cardKey(state.cat, i)];
     }
   });
