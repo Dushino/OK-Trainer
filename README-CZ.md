@@ -118,3 +118,4 @@ Některé TTS enginy (typicky ve Windows) přečtou slovo psané celými velkým
 
 - Aplikace nezohledňuje zapomínání. To je jednak idividuální a také je to nad síly jednoduché HTML stránky - musela by to být plnohodnotná aplikace. Takže i když máš všechno zelené pár týdnů před zkouškou, neznamená to, že do zkoušky něco nezapomeneš. Řešení je pravidelné opakování.
 - Počet kartiček v jednom kole učení je dynamický. Když téma umíš, jen proběhne každou kartičku jednou a pokud znáš všechny, příště bude každá zase jen jednou. Pokud neznáš, počet v dalším kole se zvýší tím, že bude problematickou kartičku nabízet vícekrát.
+- **Jestliže se aplikace chová podivně, smaž a pak importuj čerstvě stažené soubory, případně odinstaluj a pak nainstaluj celou aplikaci znovu. Je to tím, že občas něco vylepším a pak nemusí být kompatibilní aplikace s json soubory.**

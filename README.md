@@ -115,4 +115,10 @@ The app can also be used without directly interacting with your phone, via a Blu
 
 Some phone/desktop TTS engines read a word written in ALL CAPS as if it were one (mispronounced) word instead of spelling it out — noticeable on abbreviations like "HAREC". The app always spells such words out letter by letter to avoid that. For decks that flag specific answers as `spellBack` (see `FORMAT.md`), such as call sign prefixes, the app instead spells them out using a dedicated **spelling alphabet** — a letter/digit → spoken-word table (e.g. "A" → "Alpha") that you can pick independently of both the interface language and the deck's own language, the same way you pick a language pack. A short international (ITU/NATO) English one is built in; a Czech one is included in the `SpellingAlphabets` folder and can be imported the same way as a flashcard set.
 
+## Things to know
+
+- The app doesn't account for forgetting. That's both individual and beyond the scope of a simple HTML page — it would need to be a full-fledged application. So even if everything is green a few weeks before the exam, that doesn't mean you won't forget something by test day. The solution is regular review.
+- The number of cards in a study round is dynamic. When you know a topic well, each card appears just once; if you know all of them, each appears once again next time. If you don't know them, the next round will have more cards because the problematic ones appear more frequently.
+- **If the app behaves strangely, delete and then re-import freshly downloaded files, or alternatively uninstall and reinstall the entire app. This is because I sometimes make improvements, and the app might not be compatible with your saved JSON files.**
+
 > **Always put your own safety and the safety of those around you first. Do not use this while driving!**
