@@ -50,7 +50,9 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 
 ## Soubory hláskovací abecedy (volitelné)
 
-Nezávisle na sadách kartiček umí apka importovat **hláskovací abecedy** —
+Hláskovací abeceda je **samostatný JSON soubor**, nikoli další pole v souboru
+sady kartiček. Nezávisle na sadách kartiček umí apka importovat
+**hláskovací abecedy** —
 mapování písmeno/číslice → vyslovované slovo (např. `A` → `Adam`,
 `0` → `nula`), použité v handsfree režimu u každé kartičky s
 `spellBack: true`. Importují se stejně jako sada, přes tlačítko 📥 vedle
@@ -73,6 +75,31 @@ výběru hláskovací abecedy. S apkou je rovnou vestavěná krátká mezinárod
 | `spellName` | ano | Název zobrazený ve výběru. |
 | `lang` | ano | Jazykový kód (BCP-47) použitý pro TTS při hláskování touto abecedou, např. `en-US`, `cs-CZ`. |
 | `letters` | ano | Objekt mapující každý znak na slovo, které se za něj vysloví. Znaky chybějící v mapě se přečtou doslova jako jeden znak v jazyce okolního textu. |
+
+### Jak označit odpověď pro hláskování
+
+Pole `spellBack` se zapisuje **ke konkrétní kartičce**, do stejného objektu jako
+`front` a `back`, například:
+
+```json
+{
+  "front": "Jak se hláskuje volací prefix?",
+  "back": "DA-DR",
+  "spellBack": true
+}
+```
+
+V handsfree režimu se pak v textu `back` přehláskují souvislé úseky velkých
+písmen (včetně českých), číslic, pomlček a případného otazníku, například
+`OK2ABC`, `DA-DR`, `73` nebo `QRV?`, znak po znaku podle aktuálně vybrané
+abecedy. Ostatní text v `back` se čte jazykem sady. Pole se týká pouze `back`; `front` se tímto příznakem
+nepřehláskuje.
+
+Když `spellBack` vynecháš nebo nastavíš na `false`, hláskovací abeceda se
+nepoužije. Úseky alespoň dvou velkých písmen se přesto kvůli TTS přečtou po
+jednotlivých písmenech v jazyce sady, například `HAREC`; nejde však o slova z
+importované hláskovací abecedy. Pro výslovnost typu `Adam`, `Alpha` nebo
+`Božena` musí být `spellBack: true`.
 
 ## Indikace úspěšnosti zkoušky (volitelné)
 

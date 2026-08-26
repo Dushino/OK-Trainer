@@ -12,6 +12,37 @@ OK-Trainer doesn't come with fixed content built in — it's a generic engine. O
 
 See `FORMAT.md` for the exact file structure if you want to create your own set.
 
+### Spelling alphabet and settings
+
+A spelling alphabet is a separate `.json` file that maps letters and digits to
+words used for speech output, for example `A` → `Alpha` or `0` → `Zero`. An
+English ITU/NATO alphabet is built in; the Czech file is in the
+`SpellingAlphabets` folder. You can import your own alphabet in the same way as
+a flashcard set.
+
+Open the settings page by clicking the `⋮` button in the top right. On the
+**Settings** page:
+
+1. Under **Spelling alphabet**, open the selector and choose the alphabet you
+  want to use.
+2. To add your own alphabet, click the import button (`📥`) next to the selector
+  and choose its `.json` file.
+3. The newly imported alphabet is selected immediately. Click `←` to return to
+  the main page.
+
+The selected alphabet is used in handsfree mode for answers whose card has
+`"spellBack": true`. This field belongs directly on the card and applies only
+to the text in its `back`. In that text, consecutive runs of uppercase letters,
+digits, hyphens, and a possible question mark are spelled out character by
+character (for example `OK2ABC`, `DA-DR`, `73`, or `QRV?`) using the currently
+selected alphabet. Ordinary text outside those runs is read in the deck's language.
+
+Without `spellBack`, ordinary answers are read normally; longer runs of
+uppercase letters are automatically changed to letter-by-letter speech, but a
+spelling alphabet is not used. To make an answer use words such as "Alpha" or
+"Adam", set `spellBack` to `true`. The exact alphabet file format and examples
+are in `FORMAT.md`.
+
 ## How studying works
 
 1. The app shows the front of a card (the question).

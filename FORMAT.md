@@ -51,7 +51,8 @@ copy it and adapt it.
 
 ## Spelling alphabet files (optional)
 
-Independently of flashcard decks, the app can import **spelling alphabet**
+A spelling alphabet is a **separate JSON file**, not another field inside a
+flashcard deck file. Independently of flashcard decks, the app can import **spelling alphabet**
 files — a letter/digit → spoken-word mapping (e.g. `A` → `Alpha`,
 `0` → `Zero`) used in handsfree mode for any card with `spellBack: true`.
 Import them the same way as a deck, via the 📥 button next to the spelling
@@ -74,6 +75,32 @@ folder.
 | `spellName` | yes | Name shown in the selector dropdown. |
 | `lang` | yes | Language code (BCP-47) used for TTS when spelling with this alphabet, e.g. `en-US`, `cs-CZ`. |
 | `letters` | yes | Object mapping each character to the word spoken for it. Characters missing from the map are read out literally as a single character in the surrounding text's language. |
+
+### Marking an answer for spelling
+
+Put `spellBack` **on the individual card**, alongside `front` and `back`, for
+example:
+
+```json
+{
+  "front": "How is the call sign prefix spelled?",
+  "back": "DA-DR",
+  "spellBack": true
+}
+```
+
+In handsfree mode, consecutive runs of uppercase letters (including Czech
+diacritics), digits, hyphens, and a possible question mark in `back` are then
+spelled character by character using the currently selected alphabet, for
+example `OK2ABC`, `DA-DR`, `73`, or `QRV?`. All other text in `back` is read in
+the deck's language. The field applies only to `back`; it does not spell
+`front`.
+
+If `spellBack` is omitted or set to `false`, the spelling alphabet is not used.
+Runs of at least two uppercase letters are still changed to letter-by-letter
+speech for TTS, such as `HAREC`, but this does not use words from an imported
+spelling alphabet. To get pronunciations such as `Adam`, `Alpha`, or `Božena`,
+set `spellBack: true`.
 
 ## Pass/fail indicator (optional)
 

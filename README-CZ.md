@@ -10,6 +10,36 @@ OK-Trainer sám o sobě žádný pevný obsah nemá — je to obecný engine. P�
 
 Přesnou strukturu souboru, pokud si chceš vytvořit vlastní sadu, najdeš v `FORMAT-CZ.md`.
 
+### Hláskovací abeceda a nastavení
+
+Hláskovací abeceda je samostatný soubor `.json`, který mapuje písmena a číslice
+na slova určená pro hlasové čtení, například `A` → `Adam` nebo `0` → `nula`.
+Vestavěná je anglická abeceda ITU/NATO; český soubor najdeš ve složce
+`SpellingAlphabets`. Vlastní abecedu lze importovat stejným způsobem jako sadu
+kartiček.
+
+Stránku s nastavením zobrazíš klepnutím na tlačítko `⋮` vpravo nahoře. V části
+**Nastavení** pak:
+
+1. U položky **Hláskovací abeceda** otevři výběr a zvol požadovanou abecedu.
+2. Pro přidání vlastní abecedy klepni vedle výběru na tlačítko pro import
+  (`📥`) a vyber její `.json` soubor.
+3. Nově importovaná abeceda se rovnou vybere. Tlačítkem `←` se vrať na hlavní
+  stránku.
+
+Abeceda se použije v handsfree režimu u odpovědí, jejichž kartička má
+`"spellBack": true`. Toto pole patří přímo ke kartičce a vztahuje se pouze na
+text v jejím `back`. V takovém textu se přehláskují souvislé úseky velkých
+písmen, číslic, pomlček a případného otazníku (například `OK2ABC`, `DA-DR`,
+`73` nebo `QRV?`) znak po znaku podle právě vybrané abecedy. Běžný text mimo
+tyto úseky se čte jazykem sady.
+
+Bez `spellBack` se běžné odpovědi čtou normálně; delší úseky velkých písmen se
+automaticky převedou na čtení po jednotlivých písmenech, ale nepoužije se
+hláskovací abeceda. Pro každou odpověď, která má používat slova jako „Adam“ nebo
+„Alpha“, proto nastav `spellBack` na `true`. Přesný formát souboru abecedy i
+příklady jsou v `FORMAT-CZ.md`.
+
 ## Jak učení probíhá
 
 1. Apka zobrazí přední stranu kartičky (otázku).
