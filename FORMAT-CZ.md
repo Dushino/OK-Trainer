@@ -47,6 +47,8 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 | `cards[].front` | ano | Text přední strany (otázka). |
 | `cards[].back` | ano | Text zadní strany (odpověď). |
 | `cards[].spellBack` | ne | Pokud je `true`, úseky psané celými velkými písmeny v `back` (např. prefixy volacích značek typu `GX`, `DA-DR`) se v handsfree režimu přehláskují písmeno po písmenu pomocí aktuálně vybrané hláskovací abecedy v apce — nezávisle na jazyce rozhraní i na `language` téhle sady. Viz [Soubory hláskovací abecedy](#soubory-hláskovací-abecedy-volitelné) níže. Když pole vynecháš nebo je `false`, jde o běžnou odpověď; ALL-CAPS slova v ní (např. zkratka `HAREC`) se přesto čtou písmeno po písmenu, ale jazykem téhle sady, bez potřeby zvláštního souboru. |
+| `cards[].speakFront` | ne | Alternativní text určený výhradně pro hlasový výstup přední strany kartičky v handsfree režimu. Pokud je uveden, TTS ho použije místo `front`. Všechny stávající úpravy (automatické hláskování velkých písmen, ověřování syntaxe) se aplikují normálně. Užitečné pro formáty jako „S-metr", které by se nesprávně vyslovily. Příklad: `front: "S-metr", speakFront: "S metr"`. |
+| `cards[].speakBack` | ne | Alternativní text určený výhradně pro hlasový výstup zadní strany kartičky v handsfree režimu. Pokud je uveden, TTS ho použije místo `back`. Všechny stávající úpravy (mechanika spellBack, automatické hláskování, tečkovaný zápis) se aplikují normálně. Užitečné pro odpovědi, které potřebují jinou výslovnost než zobrazený text. Příklad: `back: "NF", speakBack: "NF zesilovač"` — v tichém režimu se zobrazí „NF", v handsfree se vysloví „en ef zesilovač". |
 
 ## Soubory hláskovací abecedy (volitelné)
 
@@ -100,6 +102,33 @@ nepoužije. Úseky alespoň dvou velkých písmen se přesto kvůli TTS přečto
 jednotlivých písmenech v jazyce sady, například `HAREC`; nejde však o slova z
 importované hláskovací abecedy. Pro výslovnost typu `Adam`, `Alpha` nebo
 `Božena` musí být `spellBack: true`.
+
+### Alternativní text pro výslovnost (speakFront a speakBack)
+
+Pokud odpověď — nebo i otázka — obsahuje znaky či formáty, které se nebudou
+vyslovovat správně (např. pomlčky, zkratky, složitější texty), můžeš uvést
+alternativní text pro hlasitý režim pomocí `speakFront` a `speakBack`:
+
+```json
+{
+  "front": "S-metr",
+  "speakFront": "S metr"
+}
+```
+
+```json
+{
+  "front": "Zesilovač – druh?",
+  "back": "NF zesilovač",
+  "speakBack": "en ef zesilovač"
+}
+```
+
+Pole `speakFront` se používá místo `front` v handsfree režimu, `speakBack`
+místo `back`. Všechny stávající úpravy (mechanika `spellBack`, automatické
+hláskování velkých písmen, tečkovaný zápis) se aplikují normálně na text v
+těchto polích. V tichém režimu (bez handsfree) se vždy zobrazuje a hlasitě se
+čte původní `front` a `back`.
 
 ## Indikace úspěšnosti zkoušky (volitelné)
 

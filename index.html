@@ -620,7 +620,9 @@ const TUTORIAL_SET = {
           "name": "Custom question sets",
           "cards": [
             { "front": "Where do the questions come from?", "back": "From an imported JSON file — you can create your own set." },
-            { "front": "What happens if you import a set with the same short name as one that's already imported?", "back": "All statistics for that set will be reset." }
+            { "front": "What happens if you import a set with the same short name as one that's already imported?", "back": "All statistics for that set will be reset." },
+            { "front": "S-metr", "speakFront": "S metr", "back": "A device that measures signal strength." },
+            { "front": "NF amplifier", "back": "NF", "speakBack": "en ef amplifier" }
           ]
         }
       ]
@@ -1588,6 +1590,7 @@ function findCapsTokens(text, minLen, requireLetter, tokenRe){
 }
 
 // Rozseká item.back na jazykové segmenty pro speakSequence:
+// - speakBack existuje   -> použij alternativní text ze speakBack
 // - spellBack: true  -> ALL-CAPS úseky se přehláskují přes aktuálně
 //   vybranou hláskovací abecedu, vlastním jazykem (mechanika A).
 // - jinak            -> ALL-CAPS úseky (délka >= 2) se převedou na
@@ -1602,7 +1605,7 @@ function findCapsTokens(text, minLen, requireLetter, tokenRe){
 const HAS_WORD_CHAR_RE = /[\p{L}\p{N}]/u;
 function buildSpokenBack(item){
   const cardLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
-  const text = item.back;
+  const text = (item.speakBack !== undefined && item.speakBack !== null && item.speakBack !== "") ? item.speakBack : item.back;
   if(item.spellBack){
     const pack = spellLibrary[activeSpellId] || EN_SPELL;
     // requireLetter: false — u explicitně vyžádaného hláskování (spellBack)
@@ -1645,7 +1648,10 @@ function buildSpokenBack(item){
 
 function speakFront(){
   const item = currentItem();
-  if(item) speak(item.front);
+  if(item){
+    const textToSpeak = (item.speakFront !== undefined && item.speakFront !== null && item.speakFront !== "") ? item.speakFront : item.front;
+    speak(textToSpeak);
+  }
 }
 function speakBack(){
   const item = currentItem();
@@ -1734,7 +1740,7 @@ function speakFeedbackThenNext(feedbackText){
   const next = currentItem();
   const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
   const secondSeg = next
-    ? {text: next.front, lang: deckLang}
+    ? {text: (next.speakFront !== undefined && next.speakFront !== null && next.speakFront !== "") ? next.speakFront : next.front, lang: deckLang}
     : {text: sp("round_done"), lang: activeSpokenLang()};
   speakSequence([{text: feedbackText, lang: activeSpokenLang()}, secondSeg]);
 }

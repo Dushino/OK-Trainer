@@ -48,6 +48,8 @@ copy it and adapt it.
 | `cards[].front` | yes | Text of the front side (question). |
 | `cards[].back` | yes | Text of the back side (answer). |
 | `cards[].spellBack` | no | If `true`, any ALL-CAPS runs in `back` (e.g. call sign prefixes like `GX`, `DA-DR`) are spelled out letter by letter in handsfree mode, using whichever spelling alphabet is currently selected in the app — independently of both the interface language and this deck's `language`. See [Spelling alphabet files](#spelling-alphabet-files-optional) below. Omit or set to `false` for a normal answer; ALL-CAPS words in it (e.g. an abbreviation like `HAREC`) are still read letter by letter, but in this deck's own language, without needing a separate file. |
+| `cards[].speakFront` | no | Alternative text used exclusively for the text-to-speech output of the front side in handsfree mode. If provided, TTS will use it instead of `front`. All existing transformations (automatic ALL-CAPS spelling, syntax validation) are applied normally. Useful for formats like "S-metr" that would be mispronounced. Example: `front: "S-metr", speakFront: "S metr"`. |
+| `cards[].speakBack` | no | Alternative text used exclusively for the text-to-speech output of the back side in handsfree mode. If provided, TTS will use it instead of `back`. All existing transformations (spellBack mechanics, automatic ALL-CAPS spelling, dot notation) are applied normally. Useful for answers that need different pronunciation than their displayed text. Example: `back: "NF", speakBack: "NF amplifier"` — silent mode shows "NF", handsfree pronounces "en ef amplifier". |
 
 ## Spelling alphabet files (optional)
 
@@ -101,6 +103,33 @@ Runs of at least two uppercase letters are still changed to letter-by-letter
 speech for TTS, such as `HAREC`, but this does not use words from an imported
 spelling alphabet. To get pronunciations such as `Adam`, `Alpha`, or `Božena`,
 set `spellBack: true`.
+
+### Alternative text for pronunciation (speakFront and speakBack)
+
+If an answer — or question — contains characters or formats that won't be
+pronounced correctly (e.g. hyphens, abbreviations, complex text), you can
+provide alternative text for handsfree mode using `speakFront` and `speakBack`:
+
+```json
+{
+  "front": "S-metr",
+  "speakFront": "S metr"
+}
+```
+
+```json
+{
+  "front": "Amplifier – type?",
+  "back": "NF amplifier",
+  "speakBack": "en ef amplifier"
+}
+```
+
+`speakFront` is used instead of `front` in handsfree mode, and `speakBack`
+instead of `back`. All existing transformations (spellBack mechanics, automatic
+ALL-CAPS spelling, dot notation) are applied normally to text in these fields.
+In silent mode (without handsfree) the original `front` and `back` are always
+shown and spoken.
 
 ## Pass/fail indicator (optional)
 

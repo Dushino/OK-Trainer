@@ -771,7 +771,7 @@
             },
             {
               "front": "domluvené spojení:",
-              "back": "SKED"
+              "back": "sked"
             },
             {
               "front": "vysílejte:",
@@ -810,7 +810,7 @@
             },
             {
               "front": "pokus:",
-              "back": "TEST"
+              "back": "test"
             },
             {
               "front": "konec relace:",
@@ -1408,7 +1408,7 @@
             },
             {
               "front": "informace:",
-              "back": "INFO"
+              "back": "info"
             }
           ]
         },
@@ -2575,6 +2575,7 @@
             },
             {
               "front": "S-metr slouží:",
+              "speakFront": "S metr slouží",
               "back": "k určování síly přijímaných signálů"
             },
             {
