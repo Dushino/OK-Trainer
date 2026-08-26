@@ -554,31 +554,26 @@
             {
               "front": "Jsem rušen interferencí:",
               "back": "QRM",
-              "spellBack": true,
               "backTts": "{QRM}"
             },
             {
               "front": "Síla vašich signálů kolísá:",
               "back": "QSB",
-              "spellBack": true,
               "backTts": "{QSB}"
             },
             {
               "front": "Jste rušen atmosférickým rušením?",
               "back": "QRN?",
-              "spellBack": true,
               "backTts": "{QRN?}"
             },
             {
               "front": "Nemohu vás přijímat, vaše signály jsou velmi slabé:",
               "back": "QRJ",
-              "spellBack": true,
               "backTts": "{QRJ}"
             },
             {
               "front": "Jaká je čitelnost mých značek?",
               "back": "QRK?",
-              "spellBack": true,
               "backTts": "{QRK?}"
             }
           ]
@@ -589,19 +584,16 @@
             {
               "front": "Můžete zvýšit výkon?",
               "back": "QRO?",
-              "spellBack": true,
               "backTts": "{QRO?}"
             },
             {
               "front": "Vysílejte pomaleji:",
               "back": "QRS",
-              "spellBack": true,
               "backTts": "{QRS}"
             },
             {
               "front": "Snižte výkon:",
               "back": "QRP",
-              "spellBack": true,
               "backTts": "{QRP}"
             }
           ]
@@ -612,25 +604,21 @@
             {
               "front": "Počkejte, až vás zavolám:",
               "back": "QRX",
-              "spellBack": true,
               "backTts": "{QRX}"
             },
             {
               "front": "Přestaňte vysílat:",
               "back": "QRT",
-              "spellBack": true,
               "backTts": "{QRT}"
             },
             {
               "front": "Nemám pro vás nic nového:",
               "back": "QRU",
-              "spellBack": true,
               "backTts": "{QRU}"
             },
             {
               "front": "Jste zaměstnán? Je kmitočet obsazen nebo volný?",
               "back": "QRL?",
-              "spellBack": true,
               "backTts": "{QRL?}"
             }
           ]
@@ -641,19 +629,16 @@
             {
               "front": "Volá vás:",
               "back": "QRZ",
-              "spellBack": true,
               "backTts": "{QRZ}"
             },
             {
               "front": "Jste připraven?",
               "back": "QRV?",
-              "spellBack": true,
               "backTts": "{QRV?}"
             },
             {
               "front": "Můžete mě poslouchat mezi svými značkami?",
               "back": "QSK?",
-              "spellBack": true,
               "backTts": "{QSK?}"
             }
           ]
@@ -664,38 +649,32 @@
             {
               "front": "Potvrzuji příjem:",
               "back": "QSL",
-              "spellBack": true,
               "backTts": "{QSL}"
             },
             {
               "front": "Moje poloha je:",
               "back": "QTH",
-              "spellBack": true,
               "backTts": "{QTH}"
             },
             {
               "front": "Mohu pracovat s … přímo (prostřednictvím)?",
               "back": "QSO?",
-              "spellBack": true,
               "backTts": "{QSO?}",
               "frontTts": "Mohu pracovat s' ? Přímo nebo prostřednictvím ?"
             },
             {
               "front": "Mám přejít k vysílání na jiný kmitočet?",
               "back": "QSY?",
-              "spellBack": true,
               "backTts": "{QSY?}"
             },
             {
               "front": "Vysílejte řadu V:",
               "back": "QSV",
-              "spellBack": true,
               "backTts": "{QSV}"
             },
             {
               "front": "Slovo dvakrát:",
               "back": "QSZ",
-              "spellBack": true,
               "backTts": "{QSZ}"
             }
           ]
@@ -706,31 +685,26 @@
             {
               "front": "dobré odpoledne:",
               "back": "GA",
-              "spellBack": true,
               "backTts": "{GA}"
             },
             {
               "front": "dobré ráno:",
               "back": "GM",
-              "spellBack": true,
               "backTts": "{GM}"
             },
             {
               "front": "dobrý večer:",
               "back": "GE",
-              "spellBack": true,
               "backTts": "{GE}"
             },
             {
               "front": "dobrý den:",
               "back": "GD",
-              "spellBack": true,
               "backTts": "{GD}"
             },
             {
               "front": "dobrou noc:",
               "back": "GN",
-              "spellBack": true,
               "backTts": "{GN}"
             }
           ]
@@ -741,37 +715,31 @@
             {
               "front": "smích:",
               "back": "HI",
-              "spellBack": true,
               "backTts": "{HI}"
             },
             {
               "front": "sbohem:",
               "back": "GB",
-              "spellBack": true,
               "backTts": "{GB}"
             },
             {
               "front": "znovu:",
               "back": "CUAGN",
-              "spellBack": true,
               "backTts": "{CUAGN} "
             },
             {
               "front": "srdečný pozdrav:",
               "back": "73",
-              "spellBack": true,
               "backTts": "{73}"
             },
             {
               "front": "polibek:",
               "back": "88",
-              "spellBack": true,
               "backTts": "{88}"
             },
             {
               "front": "později na shledanou:",
               "back": "CUL",
-              "spellBack": true,
               "backTts": "{CUL}"
             }
           ]
@@ -782,31 +750,26 @@
             {
               "front": "děkuji:",
               "back": "TNX, TKS",
-              "spellBack": true,
               "backTts": "{TNX} {TKS}"
             },
             {
               "front": "štěstí, hodně štěstí:",
               "back": "GL",
-              "spellBack": true,
               "backTts": "{GL}"
             },
             {
               "front": "rád, potěšen:",
               "back": "GLD",
-              "spellBack": true,
               "backTts": "{GLD}"
             },
             {
               "front": "prosím:",
               "back": "PSE",
-              "spellBack": true,
               "backTts": "{PSE}"
             },
             {
               "front": "lituji, bohužel",
               "back": "SRI, SRY",
-              "spellBack": true,
               "backTts": "{SRI} {SRY}"
             }
           ]
@@ -817,25 +780,21 @@
             {
               "front": "pěkný, výborný:",
               "back": "FB",
-              "spellBack": true,
               "backTts": "{FB}"
             },
             {
               "front": "velmi pěkný:",
               "back": "UFB",
-              "spellBack": true,
               "backTts": "{UFB}"
             },
             {
               "front": "doufat:",
               "back": "HPE",
-              "spellBack": true,
               "backTts": "{HPE}"
             },
             {
               "front": "šťastný:",
               "back": "HPY",
-              "spellBack": true,
               "backTts": "{HPY}"
             },
             {
@@ -851,7 +810,6 @@
             {
               "front": "čekejte:",
               "back": "AS",
-              "spellBack": true,
               "backTts": "{AS}"
             },
             {
@@ -862,25 +820,21 @@
             {
               "front": "vysílejte:",
               "back": "K",
-              "spellBack": true,
               "backTts": "{K}"
             },
             {
               "front": "všeobecná výzva:",
               "back": "CQ",
-              "spellBack": true,
               "backTts": "{CQ}"
             },
             {
               "front": "pokračujte:",
               "back": "GA",
-              "spellBack": true,
               "backTts": "{GA}"
             },
             {
               "front": "začátek relace:",
               "back": "KA",
-              "spellBack": true,
               "backTts": "{KA}"
             }
           ]
@@ -891,13 +845,11 @@
             {
               "front": "konec vysílání:",
               "back": "SK",
-              "spellBack": true,
               "backTts": "{SK}"
             },
             {
               "front": "uzavírám stanici:",
               "back": "CL",
-              "spellBack": true,
               "backTts": "{CL}"
             },
             {
@@ -908,19 +860,16 @@
             {
               "front": "konec relace:",
               "back": "AR",
-              "spellBack": true,
               "backTts": "{AR}"
             },
             {
               "front": "přerušit:",
               "back": "BK",
-              "spellBack": true,
               "backTts": "{BK}"
             },
             {
               "front": "přecházím na poslech pro určitou stanici:",
               "back": "KN",
-              "spellBack": true,
               "backTts": "{KN}"
             }
           ]
@@ -931,7 +880,6 @@
             {
               "front": "report:",
               "back": "RPRT, RST",
-              "spellBack": true,
               "backTts": "{RPRT} {RST}"
             },
             {
@@ -942,25 +890,21 @@
             {
               "front": "správně přijato:",
               "back": "R",
-              "spellBack": true,
               "backTts": "{R}"
             },
             {
               "front": "staniční lístek nezašlu:",
               "back": "QSLN",
-              "spellBack": true,
               "backTts": "{QSLN}"
             },
             {
               "front": "potvrdit:",
               "back": "CFM",
-              "spellBack": true,
               "backTts": "{CFM}"
             },
             {
               "front": "přijal, přijato:",
               "back": "RCVD",
-              "spellBack": true,
               "backTts": "{RCVD}"
             }
           ]
@@ -971,31 +915,26 @@
             {
               "front": "rušení rozhlasu:",
               "back": "BCI",
-              "spellBack": true,
               "backTts": "{BCI}"
             },
             {
               "front": "podmínky pro spojení:",
               "back": "CONDS",
-              "spellBack": true,
               "backTts": "{CONDS}"
             },
             {
               "front": "rušení televize:",
               "back": "TVI",
-              "spellBack": true,
               "backTts": "{TVI}"
             },
             {
               "front": "podmínky pro dálkové spojení:",
               "back": "CONDX",
-              "spellBack": true,
               "backTts": "{CONDX}"
             },
             {
               "front": "rušení rádiového kmitočtu:",
               "back": "RFI",
-              "spellBack": true,
               "backTts": "{RFI}"
             }
           ]
@@ -1006,7 +945,6 @@
             {
               "front": "přijímač:",
               "back": "RX",
-              "spellBack": true,
               "backTts": "{RX}"
             },
             {
@@ -1017,19 +955,16 @@
             {
               "front": "vysílač:",
               "back": "TX",
-              "spellBack": true,
               "backTts": "{TX}"
             },
             {
               "front": "transceiver:",
               "back": "TRX",
-              "spellBack": true,
               "backTts": "{TRX}"
             },
             {
               "front": "proměnný oscilátor:",
               "back": "VFO",
-              "spellBack": true,
               "backTts": "{VFO}"
             }
           ]
@@ -1040,37 +975,31 @@
             {
               "front": "anténa:",
               "back": "AER, ANT",
-              "spellBack": true,
               "backTts": "{AER} {ANT}"
             },
             {
               "front": "činitel stojatých vln:",
               "back": "PSV, SWR",
-              "spellBack": true,
               "backTts": "{PSV} {SWR}"
             },
             {
               "front": "koncový stupeň:",
               "back": "PA",
-              "spellBack": true,
               "backTts": "{PA}"
             },
             {
               "front": "špičkový výkon:",
               "back": "PEP",
-              "spellBack": true,
               "backTts": "{PEP}"
             },
             {
               "front": "výkon:",
               "back": "PWR",
-              "spellBack": true,
               "backTts": "{PWR}"
             },
             {
               "front": "země, uzemnění:",
               "back": "GND",
-              "spellBack": true,
               "backTts": "{GND}"
             }
           ]
@@ -1081,19 +1010,16 @@
             {
               "front": "automatické řízení úrovně:",
               "back": "ALC",
-              "spellBack": true,
               "backTts": "{ALC}"
             },
             {
               "front": "automatické řízení zisku:",
               "back": "AGC",
-              "spellBack": true,
               "backTts": "{AGC}"
             },
             {
               "front": "automatické řízení hlasitosti:",
               "back": "AVC",
-              "spellBack": true,
               "backTts": "{AVC}"
             }
           ]
@@ -1104,19 +1030,16 @@
             {
               "front": "amplitudová modulace:",
               "back": "AM",
-              "spellBack": true,
               "backTts": "{AM}"
             },
             {
               "front": "kmitočtová modulace:",
               "back": "FM",
-              "spellBack": true,
               "backTts": "{FM}"
             },
             {
               "front": "telegrafie, netlumená vlna:",
               "back": "CW",
-              "spellBack": true,
               "backTts": "{CW}"
             }
           ]
@@ -1127,13 +1050,11 @@
             {
               "front": "jedno postranní pásmo:",
               "back": "SSB",
-              "spellBack": true,
               "backTts": "{SSB}"
             },
             {
               "front": "spodní postranní pásmo:",
               "back": "LSB",
-              "spellBack": true,
               "backTts": "{LSB}"
             },
             {
@@ -1144,7 +1065,6 @@
             {
               "front": "horní postranní pásmo:",
               "back": "USB",
-              "spellBack": true,
               "backTts": "{USB}"
             }
           ]
@@ -1200,7 +1120,6 @@
             {
               "front": "klíč:",
               "back": "KY",
-              "spellBack": true,
               "backTts": "{KY}"
             }
           ]
@@ -1221,7 +1140,6 @@
             {
               "front": "přítel:",
               "back": "OM",
-              "spellBack": true,
               "backTts": "{OM}"
             },
             {
@@ -1237,19 +1155,16 @@
             {
               "front": "milý, drahý:",
               "back": "DR",
-              "spellBack": true,
               "backTts": "{DR}"
             },
             {
               "front": "manželka:",
               "back": "XYL",
-              "spellBack": true,
               "backTts": "{XYL}"
             },
             {
               "front": "slečna, přítelkyně:",
               "back": "YL",
-              "spellBack": true,
               "backTts": "{YL}"
             }
           ]
@@ -1275,7 +1190,6 @@
             {
               "front": "počasí:",
               "back": "WX",
-              "spellBack": true,
               "backTts": "{WX}"
             },
             {
@@ -1291,31 +1205,26 @@
             {
               "front": "já:",
               "back": "I",
-              "spellBack": true,
               "backTts": "{I}"
             },
             {
               "front": "váš, tvůj:",
               "back": "UR",
-              "spellBack": true,
               "backTts": "{UR}"
             },
             {
               "front": "můj:",
               "back": "MY",
-              "spellBack": true,
               "backTts": "{MY}"
             },
             {
               "front": "ne:",
               "back": "NO",
-              "spellBack": true,
               "backTts": "{NO}"
             },
             {
               "front": "velmi:",
               "back": "VY",
-              "spellBack": true,
               "backTts": "{VY}"
             }
           ]
@@ -1326,21 +1235,17 @@
             {
               "front": "k:",
               "back": "TO",
-              "spellBack": true,
-              "backTts": "{TO}",
-              "frontTts": ""
+              "backTts": "{TO}"
             },
             {
               "front": "z, ze:",
               "back": "DE",
-              "spellBack": true,
               "frontTts": "zz', ze",
               "backTts": "{DE}"
             },
             {
               "front": "za:",
               "back": "FER",
-              "spellBack": true,
               "backTts": "{FER}"
             },
             {
@@ -1381,25 +1286,21 @@
             {
               "front": "zde, tady:",
               "back": "HR",
-              "spellBack": true,
               "backTts": "{HR}"
             },
             {
               "front": "dolů:",
               "back": "DWN",
-              "spellBack": true,
               "backTts": "{DWN}"
             },
             {
               "front": "blízko, u:",
               "back": "NR, NEAR",
-              "spellBack": true,
               "backTts": "{NR} {NEAR}"
             },
             {
               "front": "nahoru:",
               "back": "UP",
-              "spellBack": true,
               "backTts": "{UP}"
             }
           ]
@@ -1410,19 +1311,16 @@
             {
               "front": "zavolání, značka:",
               "back": "CALL",
-              "spellBack": true,
               "backTts": "{CALL}"
             },
             {
               "front": "pracoval, pracující:",
               "back": "WKD",
-              "spellBack": true,
               "backTts": "{WKD}"
             },
             {
               "front": "asi, přibližně:",
               "back": "ABT",
-              "spellBack": true,
               "backTts": "{ABT}"
             },
             {
@@ -1438,7 +1336,6 @@
             {
               "front": "střídavý proud:",
               "back": "AC",
-              "spellBack": true,
               "backTts": "{AC}"
             },
             {
@@ -1449,13 +1346,11 @@
             {
               "front": "stejnosměrný proud:",
               "back": "DC",
-              "spellBack": true,
               "backTts": "{DC}"
             },
             {
               "front": "metr:",
               "back": "MTR",
-              "spellBack": true,
               "backTts": "{MTR}"
             }
           ]
@@ -1471,19 +1366,16 @@
             {
               "front": "dlouhý drát, dlouhé vlny:",
               "back": "LW",
-              "spellBack": true,
               "backTts": "{LW}"
             },
             {
               "front": "elektronky:",
               "back": "TBS",
-              "spellBack": true,
               "backTts": "{TBS}"
             },
             {
               "front": "prvek, element:",
               "back": "EL",
-              "spellBack": true,
               "backTts": "{EL}"
             }
           ]
@@ -1494,31 +1386,26 @@
             {
               "front": "stanice:",
               "back": "STN",
-              "spellBack": true,
               "backTts": "{STN}"
             },
             {
               "front": "Mezinárodní telekomunikační unie:",
               "back": "ITU, UIT",
-              "spellBack": true,
               "backTts": "{ITU} {UIT}"
             },
             {
               "front": "Mezinárodní radioamatérská unie:",
               "back": "IARU",
-              "spellBack": true,
               "backTts": "{IARU}"
             },
             {
               "front": "koncesovaný:",
               "back": "LIS",
-              "spellBack": true,
               "backTts": "{LIS}"
             },
             {
               "front": "nekoncesovaný:",
               "back": "UNLIS",
-              "spellBack": true,
               "backTts": "{UNLIS}"
             }
           ]
@@ -1534,7 +1421,6 @@
             {
               "front": "obálka s adresou a známkou:",
               "back": "SASE",
-              "spellBack": true,
               "backTts": "{SASE}"
             },
             {
@@ -1545,7 +1431,6 @@
             {
               "front": "krátkovlnný posluchač:",
               "back": "SWL",
-              "spellBack": true,
               "backTts": "{SWL}"
             },
             {
@@ -1561,25 +1446,21 @@
             {
               "front": "opakovat:",
               "back": "RPT",
-              "spellBack": true,
               "backTts": "{RPT}"
             },
             {
               "front": "opět, zase:",
               "back": "AGN",
-              "spellBack": true,
               "backTts": "{AGN}"
             },
             {
               "front": "světový čas koordinovaný:",
               "back": "UTC",
-              "spellBack": true,
               "backTts": "{UTC}"
             },
             {
               "front": "brzy:",
               "back": "SN",
-              "spellBack": true,
               "backTts": "{SN}"
             }
           ]
@@ -1595,7 +1476,6 @@
             {
               "front": "jak?",
               "back": "HW?",
-              "spellBack": true,
               "backTts": "{HW?}"
             },
             {
@@ -1616,13 +1496,11 @@
             {
               "front": "slyšen, slyšeno:",
               "back": "HRD",
-              "spellBack": true,
               "backTts": "{HRD}"
             },
             {
               "front": "dálkové spojení:",
               "back": "DX",
-              "spellBack": true,
               "backTts": "{DX}"
             },
             {
@@ -1633,7 +1511,6 @@
             {
               "front": "zapsat, porozumět:",
               "back": "CPI, CPY",
-              "spellBack": true,
               "backTts": "{CPI} {CPY}"
             }
           ]
@@ -1644,13 +1521,11 @@
             {
               "front": "watty:",
               "back": "WTTS",
-              "spellBack": true,
               "backTts": "{WTTS}"
             },
             {
               "front": "zmiz!",
               "back": "99",
-              "spellBack": true,
               "backTts": "{99}"
             },
             {
@@ -1666,37 +1541,31 @@
             {
               "front": "Česká republika:",
               "back": "OL, OK",
-              "spellBack": true,
               "backTts": "{OK ;  OL}"
             },
             {
               "front": "Slovensko:",
               "back": "OM",
-              "spellBack": true,
               "backTts": "{OM}"
             },
             {
               "front": "Rakousko:",
               "back": "OE",
-              "spellBack": true,
               "backTts": "{OE}"
             },
             {
               "front": "Německo:",
               "back": "DA–DR",
-              "spellBack": true,
               "backTts": "{DA,-DR}"
             },
             {
               "front": "Polsko:",
               "back": "HF, SN-SR, 3Z",
-              "spellBack": true,
               "backTts": "{HF, SN,-SR, 3Z}"
             },
             {
               "front": "Maďarsko:",
               "back": "HA, HG",
-              "spellBack": true,
               "backTts": "{HA, HG}"
             }
           ]
@@ -1707,31 +1576,26 @@
             {
               "front": "Švédsko:",
               "back": "SA-SM, 7S, 8S",
-              "spellBack": true,
               "backTts": "{SA,-SM, 7S, 8S}"
             },
             {
               "front": "Finsko:",
               "back": "OF-OJ",
-              "spellBack": true,
               "backTts": "{OF,-OJ}"
             },
             {
               "front": "Dánsko:",
               "back": "OU-OZ, XP, 5P, 5Q",
-              "spellBack": true,
               "backTts": "{OU,-OZ, XP, 5P, 5Q}"
             },
             {
               "front": "Norsko:",
               "back": "LA-LN, 3Y",
-              "spellBack": true,
               "backTts": "{LA,-LN, 3Y}"
             },
             {
               "front": "Island:",
               "back": "TF",
-              "spellBack": true,
               "backTts": "{TF}"
             }
           ]
@@ -1742,37 +1606,31 @@
             {
               "front": "Špicberky:",
               "back": "JW",
-              "spellBack": true,
               "backTts": "{JW}"
             },
             {
               "front": "Jan Mayen:",
               "back": "JX",
-              "spellBack": true,
               "backTts": "{JX}"
             },
             {
               "front": "Alandské ostrovy:",
               "back": "OH0",
-              "spellBack": true,
               "backTts": "{OH0}"
             },
             {
               "front": "Market Reef:",
               "back": "OJ0",
-              "spellBack": true,
               "backTts": "{OJ0}"
             },
             {
               "front": "Grónsko:",
               "back": "OX",
-              "spellBack": true,
               "backTts": "{OX}"
             },
             {
               "front": "Faerské ostrovy:",
               "back": "OY",
-              "spellBack": true,
               "backTts": "{OY}"
             }
           ]
@@ -1783,25 +1641,21 @@
             {
               "front": "Anglie:",
               "back": "G, GX",
-              "spellBack": true,
               "backTts": "{G, GX}"
             },
             {
               "front": "Skotsko:",
               "back": "GM, GS",
-              "spellBack": true,
               "backTts": "{GM, GS}"
             },
             {
               "front": "Wales:",
               "back": "GW, GC, MW",
-              "spellBack": true,
               "backTts": "{GW, GC, MW}"
             },
             {
               "front": "Severní Irsko:",
               "back": "GI, GN, MI",
-              "spellBack": true,
               "backTts": "{GI, GN, MI}"
             }
           ]
@@ -1812,25 +1666,21 @@
             {
               "front": "Ostrov Man:",
               "back": "GD, GT, MD",
-              "spellBack": true,
               "backTts": "{GD, GT, MD}"
             },
             {
               "front": "Jersey:",
               "back": "GJ, GH, MJ",
-              "spellBack": true,
               "backTts": "{GJ, GH, MJ}"
             },
             {
               "front": "Guernsey:",
               "back": "GU, GP, MU",
-              "spellBack": true,
               "backTts": "{GU, GP, MU}"
             },
             {
               "front": "Irsko:",
               "back": "EI, EJ",
-              "spellBack": true,
               "backTts": "{EI, EJ}"
             }
           ]
@@ -1841,25 +1691,21 @@
             {
               "front": "Španělsko:",
               "back": "EA-EH",
-              "spellBack": true,
               "backTts": "{EA,-EH}"
             },
             {
               "front": "Kanárské ostrovy:",
               "back": "EA8-EH8",
-              "spellBack": true,
               "backTts": "{EA8,- EH8}"
             },
             {
               "front": "Baleáry:",
               "back": "EA6-EH6",
-              "spellBack": true,
               "backTts": "{EA6,-EH6}"
             },
             {
               "front": "Ceuta a Melilla:",
               "back": "EA9-EH9",
-              "spellBack": true,
               "backTts": "{EA9,-EH9}"
             }
           ]
@@ -1870,19 +1716,16 @@
             {
               "front": "Portugalsko:",
               "back": "CQ-CU",
-              "spellBack": true,
               "backTts": "{CQ,-CU}"
             },
             {
               "front": "Azory:",
               "back": "CQ2, CR2, CS2, CT2, CU2",
-              "spellBack": true,
               "backTts": "{CQ2, CR2, CS2, CT2, CU2}"
             },
             {
               "front": "Andorra:",
               "back": "C3",
-              "spellBack": true,
               "backTts": "{C3}"
             }
           ]
@@ -1893,37 +1736,31 @@
             {
               "front": "Slovinsko:",
               "back": "S5",
-              "spellBack": true,
               "backTts": "{S5}"
             },
             {
               "front": "Chorvatsko:",
               "back": "9A",
-              "spellBack": true,
               "backTts": "{9A}"
             },
             {
               "front": "Bosna a Hercegovina:",
               "back": "E7",
-              "spellBack": true,
               "backTts": "{E7}"
             },
             {
               "front": "Srbsko:",
               "back": "YT-YU",
-              "spellBack": true,
               "backTts": "{YT,-YU}"
             },
             {
               "front": "Černá Hora:",
               "back": "4O",
-              "spellBack": true,
               "backTts": "{4O}"
             },
             {
               "front": "Makedonie:",
               "back": "Z3",
-              "spellBack": true,
               "backTts": "{Z3}"
             }
           ]
@@ -1934,37 +1771,31 @@
             {
               "front": "Řecko:",
               "back": "SV-SZ, J4",
-              "spellBack": true,
               "backTts": "{SV,-SZ, J4}"
             },
             {
               "front": "Dodekanésy:",
               "back": "SV5-SZ5",
-              "spellBack": true,
               "backTts": "{SV5,-SZ5}"
             },
             {
               "front": "Kréta:",
               "back": "SV9-SZ9",
-              "spellBack": true,
               "backTts": "{SV9,-SZ9}"
             },
             {
               "front": "Albánie:",
               "back": "ZA",
-              "spellBack": true,
               "backTts": "{ZA}"
             },
             {
               "front": "Bulharsko:",
               "back": "LZ",
-              "spellBack": true,
               "backTts": "{LZ}"
             },
             {
               "front": "Rumunsko:",
               "back": "YO-YR",
-              "spellBack": true,
               "backTts": "{YO,-YR}"
             }
           ]
@@ -1975,37 +1806,31 @@
             {
               "front": "Rusko:",
               "back": "UA-UI",
-              "spellBack": true,
               "backTts": "{UA,-UI}"
             },
             {
               "front": "Ukrajina:",
               "back": "EM-EO, UR-UZ",
-              "spellBack": true,
               "backTts": "{EM,-EO, UR,-UZ}"
             },
             {
               "front": "Bělorusko:",
               "back": "EU-EW",
-              "spellBack": true,
               "backTts": "{EU-EW}"
             },
             {
               "front": "Estonsko:",
               "back": "ES",
-              "spellBack": true,
               "backTts": "{ES}"
             },
             {
               "front": "Lotyšsko:",
               "back": "YL",
-              "spellBack": true,
               "backTts": "{YL}"
             },
             {
               "front": "Litva:",
               "back": "LY",
-              "spellBack": true,
               "backTts": "{LY}"
             }
           ]
@@ -2016,19 +1841,16 @@
             {
               "front": "Moldavsko:",
               "back": "ER",
-              "spellBack": true,
               "backTts": "{ER}"
             },
             {
               "front": "Arménie:",
               "back": "EK",
-              "spellBack": true,
               "backTts": "{EK}"
             },
             {
               "front": "Gruzie:",
               "back": "4L",
-              "spellBack": true,
               "backTts": "{4L}"
             }
           ]
@@ -2039,31 +1861,26 @@
             {
               "front": "Nizozemsko:",
               "back": "PA-PI",
-              "spellBack": true,
               "backTts": "{PA,-PI}"
             },
             {
               "front": "Švýcarsko:",
               "back": "HB, HE",
-              "spellBack": true,
               "backTts": "{HB, HE}"
             },
             {
               "front": "Lichtenštejnsko:",
               "back": "HB0",
-              "spellBack": true,
               "backTts": "{HB0}"
             },
             {
               "front": "Belgie:",
               "back": "ON-OT",
-              "spellBack": true,
               "backTts": "{ON-OT}"
             },
             {
               "front": "Lucembursko:",
               "back": "LX",
-              "spellBack": true,
               "backTts": "{LX}"
             }
           ]
@@ -2074,37 +1891,31 @@
             {
               "front": "Francie:",
               "back": "F-FZ, F1-F0, HW, TH, TK, TM, TO, TV",
-              "spellBack": true,
               "backTts": "{F-FZ, F1-F0, HW, TH, TK, TM, TO, TV}"
             },
             {
               "front": "Korsika:",
               "back": "TK",
-              "spellBack": true,
               "backTts": "{TK}"
             },
             {
               "front": "Itálie:",
               "back": "I, IA-IZ",
-              "spellBack": true,
               "backTts": "{I, IA,-IZ}"
             },
             {
               "front": "Sardinie:",
               "back": "IS0, IM0",
-              "spellBack": true,
               "backTts": "{IS0, IM0}"
             },
             {
               "front": "Monako:",
               "back": "3A",
-              "spellBack": true,
               "backTts": "{3A}"
             },
             {
               "front": "San Marino:",
               "back": "T7",
-              "spellBack": true,
               "backTts": "{T7}"
             }
           ]
@@ -2115,25 +1926,21 @@
             {
               "front": "Vatikán:",
               "back": "HV",
-              "spellBack": true,
               "backTts": "{HV}"
             },
             {
               "front": "Malta:",
               "back": "9H",
-              "spellBack": true,
               "backTts": "{9H}"
             },
             {
               "front": "Turecko:",
               "back": "TA-TC, YM",
-              "spellBack": true,
               "backTts": "{TA,-TC, YM}"
             },
             {
               "front": "Jihoafrická republika:",
               "back": "ZR-ZU",
-              "spellBack": true,
               "backTts": "{ZR,-ZU}"
             }
           ]
@@ -2144,37 +1951,31 @@
             {
               "front": "Spojené státy americké:",
               "back": "K, N, W, AA-AK",
-              "spellBack": true,
               "backTts": "{K, N, W, AA,-AK}"
             },
             {
               "front": "Kanada:",
               "back": "CF-CK, CY-CZ, VA-VE, VO, VX, VY, XJ-XO",
-              "spellBack": true,
               "backTts": "{CF,-CK, CY,-CZ, VA,-VE, VO, VX, VY, XJ,-XO}"
             },
             {
               "front": "Brazílie:",
               "back": "PP-PY",
-              "spellBack": true,
               "backTts": "{PP,-PY}"
             },
             {
               "front": "Argentina:",
               "back": "LO-LW",
-              "spellBack": true,
               "backTts": "{LO,-LW}"
             },
             {
               "front": "Mexiko:",
               "back": "XE-XI",
-              "spellBack": true,
               "backTts": "{XE,-XI}"
             },
             {
               "front": "Kuba:",
               "back": "CL, CM, CO, T4",
-              "spellBack": true,
               "backTts": "{CL, CM, CO, T4}"
             }
           ]
@@ -2185,31 +1986,26 @@
             {
               "front": "Japonsko:",
               "back": "JA-JS, 7J-7N, 8J-8N",
-              "spellBack": true,
               "backTts": "{JA,-JS, 7J,-7N, 8J,-8N}"
             },
             {
               "front": "Čína:",
               "back": "BA-BZ (vč. B1-B0)",
-              "spellBack": true,
               "backTts": "{BA,-BZ, B1,-B0}"
             },
             {
               "front": "Tchaj-wan:",
               "back": "BV",
-              "spellBack": true,
               "backTts": "{BV}"
             },
             {
               "front": "Jižní Korea:",
               "back": "DS-DT, D7-D9, HL",
-              "spellBack": true,
               "backTts": "{DS,-DT, D7,-D9, HL}"
             },
             {
               "front": "Severní Korea:",
               "back": "P5-P9",
-              "spellBack": true,
               "backTts": "{P5,-P9}"
             }
           ]
@@ -2220,37 +2016,31 @@
             {
               "front": "Thajsko:",
               "back": "HS",
-              "spellBack": true,
               "backTts": "{HS}"
             },
             {
               "front": "Saúdská Arábie:",
               "back": "HZ, 7Z",
-              "spellBack": true,
               "backTts": "{HZ, 7Z}"
             },
             {
               "front": "Indie:",
               "back": "VU",
-              "spellBack": true,
               "backTts": "{VU}"
             },
             {
               "front": "Izrael:",
               "back": "4X, 4Z",
-              "spellBack": true,
               "backTts": "{4X, 4Z}"
             },
             {
               "front": "Austrálie:",
               "back": "VK",
-              "spellBack": true,
               "backTts": "{VK}"
             },
             {
               "front": "Nový Zéland:",
               "back": "ZL-ZM",
-              "spellBack": true,
               "backTts": "{ZL,-ZM}"
             }
           ]
