@@ -51,7 +51,7 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 | `cards[].frontTts` | ne | Alternativní text určený výhradně pro hlasový výstup přední strany kartičky v handsfree režimu. Pokud je uveden, TTS ho použije místo `front`. Užitečné pro formáty jako „S-metr", které by se nesprávně vyslovily. Příklad: `front: "S-metr", frontTts: "S metr"`. Může obsahovat značky `{X}` pro hláskování. |
 | `cards[].backTts` | ne | Alternativní text určený výhradně pro hlasový výstup zadní strany kartičky v handsfree režimu. Pokud je uveden, TTS ho použije místo `back`. Užitečné pro odpovědi, které potřebují jinou výslovnost než zobrazený text. Příklad: `back: "NF", backTts: "NF zesilovač"` — v tichém režimu se zobrazí „NF", v handsfree se vysloví „en ef zesilovač". Může obsahovat značky `{X}` pro hláskování. |
 
-V tichém režimu (bez handsfree) se vždy zobrazuje a hlasitě čte původní `front` a `back`; `frontTts`/`backTts` a značky `{X}` v nich ovlivňují jen handsfree režim. Úsek psaný celými velkými písmeny o délce alespoň 2 znaky (např. zkratka `HAREC`), který není obalený značkou `{X}`, se i tak automaticky přečte písmeno po písmenu jazykem sady — jako pojistka proti TTS enginům, které by ho jinak vyslovily jako jedno (špatně vyslovené) slovo.
+V tichém režimu (bez handsfree) se vždy zobrazuje a hlasitě čte původní `front` a `back`; `frontTts`/`backTts` a značky `{X}` v nich ovlivňují jen handsfree režim. Text mimo značky `{X}` jde do TTS beze změny — apka se nesnaží sama uhodnout, které ALL-CAPS zkratky potřebují přehláskovat. Většina TTS enginů si s krátkými neznámými zkratkami (např. `FM`) poradí sama; do `{}` obal text jen tam, kde potřebuješ spolehlivé, konzistentní hláskování (např. prefixy volacích značek) nebo konkrétní slova z importované abecedy.
 
 ## Soubory hláskovací abecedy (volitelné)
 
@@ -104,10 +104,11 @@ pokud ho abeceda mapuje). Text mimo `{}` se čte normálně jazykem okolního
 textu. Značka, jejíž obsah neobsahuje žádné písmeno ani číslici (čistá
 interpunkce), se místo hláskování přečte doslova.
 
-Bez značky `{X}` se úseky alespoň dvou velkých písmen (např. `HAREC`) přesto
-automaticky přečtou po jednotlivých písmenech jako pojistka, ale jazykem
-sady, bez použití importované hláskovací abecedy. Pro výslovnost z
-importované abecedy (`Adam`, `Alpha`, `Božena`, …) obal text do `{}`.
+Bez značky `{X}` jde text do TTS beze změny — apka nehádá, které ALL-CAPS
+úseky potřebují hláskovat. Většina TTS enginů si s krátkými neznámými
+zkratkami poradí sama; do `{}` obal text jen tam, kde potřebuješ spolehlivé
+hláskování nebo konkrétní slova z importované abecedy (`Adam`, `Alpha`,
+`Božena`, …).
 
 ### Alternativní text pro výslovnost (frontTts a backTts)
 
@@ -131,10 +132,9 @@ alternativní text pro handsfree režim pomocí `frontTts` a `backTts`:
 ```
 
 Pole `frontTts` se používá místo `front` v handsfree režimu, `backTts` místo
-`back`. Značky `{X}` i automatická pojistka pro ALL-CAPS úseky se na text v
-těchto polích aplikují normálně. V tichém režimu (bez handsfree) se vždy
-zobrazuje a hlasitě čte původní `front` a `back` — `frontTts` a `backTts`
-ovlivňují jen handsfree režim.
+`back`. Značky `{X}` fungují v těchto polích normálně. V tichém režimu (bez
+handsfree) se vždy zobrazuje a hlasitě čte původní `front` a `back` —
+`frontTts` a `backTts` ovlivňují jen handsfree režim.
 
 ## Indikace úspěšnosti zkoušky (volitelné)
 

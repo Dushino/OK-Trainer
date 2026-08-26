@@ -110,7 +110,7 @@ Apku lze používat i bez přímé interakce s telefonem pomocí bluetooth hands
   - **Předchozí skladba** potvrdí, že jsi ji neznal.
 - Jakmile dokončíš sadu kartiček, apka chytře pokračuje dál: pokud jsi se učil jednu podoblast, přejde na další podoblast; pokud jsi se učil celou oblast, přejde na další celou oblast.
 
-Některé TTS enginy (typicky ve Windows) přečtou slovo psané celými velkými písmeny jako jedno (špatně vyslovené) slovo místo hláskování — nápadné je to třeba u zkratky "HAREC". Apka taková slova vždy přehláskuje písmeno po písmenu, aby k tomu nedocházelo. U textu obaleného značkou `{X}` (viz `FORMAT-CZ.md`), typicky u prefixů volacích značek, apka místo toho hláskuje přes vyhrazenou **hláskovací abecedu** — tabulku písmeno/číslice → vyslovované slovo (např. "A" → "Adam"), kterou si vybíráš nezávisle na jazyce rozhraní i na jazyce sady, stejně jako jazykový balíček. S apkou je vestavěná krátká mezinárodní (ITU/NATO) anglická tabulka; česká je přiložená ve složce `SpellingAlphabets` a importuje se stejně jako sada kartiček.
+Text se běžně předává do TTS enginu telefonu beze změny — většina enginů si s krátkými neznámými ALL-CAPS zkratkami poradí sama. U textu obaleného značkou `{X}` (viz `FORMAT-CZ.md`), typicky u prefixů volacích značek, apka místo toho spolehlivě hláskuje přes vyhrazenou **hláskovací abecedu** — tabulku písmeno/číslice → vyslovované slovo (např. "A" → "Adam"), kterou si vybíráš nezávisle na jazyce rozhraní i na jazyce sady, stejně jako jazykový balíček. S apkou je vestavěná krátká mezinárodní (ITU/NATO) anglická tabulka; česká je přiložená ve složce `SpellingAlphabets` a importuje se stejně jako sada kartiček.
 
 ## Co je dobré vědět
 

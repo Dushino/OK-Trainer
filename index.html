@@ -1571,47 +1571,18 @@ function speakSequence(segments, onDoneAll){
   next(0);
 }
 
-// Fallback pro text BEZ explicitní {X} značky: úseky psané celými velkými
-// písmeny (vč. české diakritiky) + číslicemi/pomlčkou o délce >= 2 (např.
-// "HAREC", "FM", "ITU") se přečtou písmeno po písmenu, jazykem kartičky/sady
-// — ochrana proti "hloupému" čtení zkratek na TTS enginech, co samy
-// nepřehláskují neznámá ALL-CAPS slova. Používá se jen na úseky textu MIMO
-// {X} značky (viz buildSpeechSegments) — ty se hláskují vybranou abecedou,
-// ne touto pojistkou.
-const CAPS_CHARS = "A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ";
-const CAPS_RUN_RE = new RegExp("[" + CAPS_CHARS + "0-9\\-–]{2,}", "g");
-const HAS_CAPS_LETTER_RE = new RegExp("[" + CAPS_CHARS + "]");
-// Rozseká text na dílčí tokeny: běžný text zůstává vcelku (merge: true, smí
-// se spojit se sousedním textem téhož jazyka do jedné utterance), zatímco
-// každé písmeno nalezeného ALL-CAPS úseku (délka >= 2, např. "FM", "HAREC")
-// se stane VLASTNÍM tokenem (merge: false). Každé takové písmeno tak skončí
-// jako samostatná SpeechSynthesisUtterance – spolehlivější než jedna
-// utterance s tečkami jako oddělovači, které leckterý TTS engine (hlavně
-// mobilní) mezi jednotlivými písmeny nerespektuje a čte je slitě jako jedno
-// slovo (přesně tohle hlásili u "FM" na Androidu).
-function explodeCapsRuns(text){
-  const out = [];
-  let pos = 0;
-  let m;
-  CAPS_RUN_RE.lastIndex = 0;
-  while((m = CAPS_RUN_RE.exec(text))){
-    if(!HAS_CAPS_LETTER_RE.test(m[0])) continue;
-    if(m.index > pos) out.push({text: text.slice(pos, m.index), merge: true});
-    Array.from(m[0]).forEach(ch => out.push({text: ch, merge: false}));
-    pos = m.index + m[0].length;
-  }
-  if(pos < text.length) out.push({text: text.slice(pos), merge: true});
-  return out;
-}
-
 // Rozseká libovolný text (front/back/frontTts/backTts, i název oblasti či
 // podoblasti) na jazykové segmenty pro speakSequence podle značek {X}:
 // obsah uvnitř složených závorek se přehláskuje písmeno po písmenu aktuálně
 // vybranou hláskovací abecedou (nezávisle na jazyce sady i rozhraní);
 // značka bez jediného písmene/číslice uvnitř (čistá interpunkce, např.
-// "{-}" jako pomlčka) se místo hláskování přečte doslova daným znakem.
-// Zbytek textu mimo značky prochází explodeCapsRuns jako pojistka pro
-// zkratky bez explicitní značky.
+// "{-}" jako pomlčka) se místo hláskování přečte doslova daným znakem. Text
+// MIMO {X} značky se předává TTS beze změny — ať zkratku typu "FM" nebo
+// "HAREC" přečte samotný TTS engine, jak umí; víc utterance na jedno slovo
+// (např. jedna na písmeno) je citelně pomalejší a na mobilu to nic nezlepší
+// (engine si s krátkými ALL-CAPS zkratkami běžně poradí sám), takže žádná
+// automatická pojistka pro neoznačený text není — kdo chce spolehlivé
+// hláskování, použije {X}.
 const MARKER_RE = /\{([^{}]*)\}/g;
 function buildSpeechSegments(text, lang){
   if(!text) return [];
@@ -1632,24 +1603,11 @@ function buildSpeechSegments(text, lang){
     pos = m.index + m[0].length;
   }
   if(pos < text.length) raw.push({text: text.slice(pos), lang});
-  // Segmenty ve vlastním jazyce sady (tj. mimo {X} značku) navíc projdou
-  // explodeCapsRuns, ať se neoznačené ALL-CAPS zkratky přesto přehláskují
-  // písmeno po písmenu. Samostatná utterance složená jen z interpunkce
-  // (např. ", " mezi dvěma hláskovanými úseky) TTS enginy typicky
-  // nepřeskočí jako pauzu, ale vysloví název znaku ("čárka") — proto se
-  // sousední mergovatelné segmenty ve stejném jazyce spojí do jedné
-  // utterance; jednotlivá vytržená písmena (merge: false) zůstávají vždy
-  // svou vlastní utterance.
-  const exploded = [];
-  raw.forEach(seg => {
-    if(seg.lang !== lang){ exploded.push({text: seg.text, lang: seg.lang, merge: true}); return; }
-    explodeCapsRuns(seg.text).forEach(tok => exploded.push({text: tok.text, lang: seg.lang, merge: tok.merge}));
-  });
   const merged = [];
-  exploded.forEach(seg => {
+  raw.forEach(seg => {
     const last = merged[merged.length - 1];
-    if(seg.merge && last && last.merge && last.lang.toLowerCase() === seg.lang.toLowerCase()) last.text += seg.text;
-    else merged.push({text: seg.text, lang: seg.lang, merge: seg.merge});
+    if(last && last.lang.toLowerCase() === seg.lang.toLowerCase()) last.text += seg.text;
+    else merged.push({text: seg.text, lang: seg.lang});
   });
   return merged.filter(seg => seg.text);
 }

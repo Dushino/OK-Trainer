@@ -52,7 +52,7 @@ copy it and adapt it.
 | `cards[].frontTts` | no | Alternative text used exclusively for the text-to-speech output of the front side in handsfree mode. If provided, TTS uses it instead of `front`. Useful for formats like "S-metr" that would be mispronounced. Example: `front: "S-metr", frontTts: "S metr"`. Can contain `{X}` spelling markers. |
 | `cards[].backTts` | no | Alternative text used exclusively for the text-to-speech output of the back side in handsfree mode. If provided, TTS uses it instead of `back`. Useful for answers that need different pronunciation than their displayed text. Example: `back: "NF", backTts: "NF amplifier"` — silent mode shows "NF", handsfree pronounces "en ef amplifier". Can contain `{X}` spelling markers. |
 
-In silent mode (without handsfree), the original `front` and `back` are always shown and spoken; `frontTts`/`backTts` and the `{X}` markers inside them only affect handsfree mode. Any ALL-CAPS run of 2 or more characters (e.g. an abbreviation like `HAREC`) that isn't wrapped in a `{X}` marker is still automatically read out letter by letter in the deck's own language, as a safety net against TTS engines that would otherwise mispronounce it as one word.
+In silent mode (without handsfree), the original `front` and `back` are always shown and spoken; `frontTts`/`backTts` and the `{X}` markers inside them only affect handsfree mode. Text outside `{X}` markers is passed to the TTS engine unchanged — an ALL-CAPS abbreviation that isn't wrapped in `{}` is read however the device's own TTS engine handles it (most engines already spell out short unknown abbreviations on their own). Wrap it in `{}` if you need reliable, consistent spelling.
 
 ## Spelling alphabet files (optional)
 
@@ -104,11 +104,12 @@ mark", if the alphabet maps it). Text outside `{}` is read normally in the
 surrounding language. A marker whose content has no letter or digit (pure
 punctuation) is read literally instead of being spelled.
 
-Without a `{X}` marker, ALL-CAPS runs of at least two characters (e.g.
-`HAREC`) are still automatically read out letter by letter as a fallback, but
-in the deck's own language, without using an imported spelling alphabet. To
-get pronunciations from an imported alphabet (`Adam`, `Alpha`, `Božena`, …),
-wrap the text in `{}`.
+Without a `{X}` marker, text is passed to TTS unchanged — the app doesn't try
+to guess which ALL-CAPS runs need spelling out. Most TTS engines already
+spell out short unknown abbreviations reasonably well on their own; wrap
+text in `{}` only where you need reliable, consistent spelling (e.g. call
+sign prefixes) or specific words from an imported alphabet (`Adam`, `Alpha`,
+`Božena`, …).
 
 ### Alternative text for pronunciation (frontTts and backTts)
 
@@ -132,10 +133,9 @@ alternative text for handsfree mode using `frontTts` and `backTts`:
 ```
 
 `frontTts` is used instead of `front` in handsfree mode, and `backTts`
-instead of `back`. `{X}` markers and the automatic ALL-CAPS fallback are
-applied normally to text in these fields. In silent mode (without handsfree)
-the original `front` and `back` are always shown and spoken as-is — `frontTts`
-and `backTts` only affect handsfree mode.
+instead of `back`. `{X}` markers work normally in these fields. In silent
+mode (without handsfree) the original `front` and `back` are always shown
+and spoken as-is — `frontTts` and `backTts` only affect handsfree mode.
 
 ## Pass/fail indicator (optional)
 
