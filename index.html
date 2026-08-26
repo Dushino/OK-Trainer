@@ -621,8 +621,9 @@ const TUTORIAL_SET = {
           "cards": [
             { "front": "Where do the questions come from?", "back": "From an imported JSON file — you can create your own set." },
             { "front": "What happens if you import a set with the same short name as one that's already imported?", "back": "All statistics for that set will be reset." },
-            { "front": "S-metr", "speakFront": "S metr", "back": "A device that measures signal strength." },
-            { "front": "NF amplifier", "back": "NF", "speakBack": "en ef amplifier" }
+            { "front": "S-metr", "frontTts": "S metr", "back": "A device that measures signal strength." },
+            { "front": "NF amplifier", "back": "NF", "backTts": "en ef amplifier" },
+            { "front": "How do you make handsfree mode spell out a callsign like OK1ABC letter by letter?", "back": "Wrap it in curly braces in backTts, e.g. \"backTts\": \"{OK1ABC}\" — it's then spelled using the selected spelling alphabet." }
           ]
         }
       ]
@@ -812,9 +813,9 @@ document.getElementById("btnDeleteLang").addEventListener("click", () => {
 // ============================================================
 // Hláskovací abecedy pro handsfree TTS — vestavěná mezinárodní
 // (ITU/NATO) angličtina + import dalších balíčků stejným způsobem
-// jako u jazyka rozhraní. Použití je řízeno příznakem spellBack u
-// jednotlivých kartiček (viz speakBack/buildSpokenBack níže), tento
-// výběr jen určuje KTEROU tabulku mechanika A použije.
+// jako u jazyka rozhraní. Použití je řízeno značkami {X} přímo v textu
+// kartičky (front/back/frontTts/backTts, viz buildSpeechSegments níže),
+// tento výběr jen určuje KTEROU tabulku hláskování použije.
 // ============================================================
 const EN_SPELL = {
   "spellId": "itu-en",
@@ -977,19 +978,27 @@ let GROUP_ORDER = {};
 let CAT_LABELS = {};
 let STATS_CAT_LABELS = {};
 let AREA_MAX_ERRORS = {};
+// Text, kterým se název oblasti/podoblasti čte v handsfree režimu — z
+// volitelného areas[].nameTts / subareas[].nameTts, jinak samotný "name".
+let AREA_NAME_SPOKEN = {};
+let SUBAREA_NAME_SPOKEN = {};
 
 function applyActiveSet(setObj){
   DATA = {}; GROUP_ORDER = {}; CAT_LABELS = {}; STATS_CAT_LABELS = {}; AREA_MAX_ERRORS = {};
+  AREA_NAME_SPOKEN = {}; SUBAREA_NAME_SPOKEN = {};
   setObj.areas.forEach((area, ai) => {
     const key = String(ai);
     CAT_LABELS[key] = area.name.toUpperCase();
     STATS_CAT_LABELS[key] = area.name;
+    AREA_NAME_SPOKEN[key] = (area.nameTts || "").trim() || area.name;
     GROUP_ORDER[key] = area.subareas.map(sa => sa.name);
     AREA_MAX_ERRORS[key] = Number.isFinite(area.maxErrors) ? area.maxErrors : null;
+    SUBAREA_NAME_SPOKEN[key] = {};
     DATA[key] = [];
     area.subareas.forEach(sa => {
+      SUBAREA_NAME_SPOKEN[key][sa.name] = (sa.nameTts || "").trim() || sa.name;
       sa.cards.forEach(c => {
-        DATA[key].push([c.front, c.back, sa.name, c.spellBack === true]);
+        DATA[key].push({front: c.front, back: c.back, group: sa.name, frontTts: c.frontTts, backTts: c.backTts});
       });
     });
   });
@@ -1216,7 +1225,7 @@ function buildDeck(){
   const onlyHard = document.getElementById("onlyHard").checked;
   let indices = items.map((_, i) => i);
   if(hasGroups(state.cat) && state.group !== "__all__"){
-    indices = indices.filter(i => items[i][2] === state.group);
+    indices = indices.filter(i => items[i].group === state.group);
   }
   if(onlyHard){
     const filteredByHard = indices.filter(i => getBox(state.cat, i) <= 2);
@@ -1236,7 +1245,8 @@ function currentItem(){
   const items = DATA[state.cat] || [];
   if(state.pos >= state.deck.length) return null;
   const idx = state.deck[state.pos];
-  return {idx, front: items[idx][0], back: items[idx][1], spellBack: items[idx][3]};
+  const it = items[idx];
+  return {idx, front: it.front, back: it.back, frontTts: it.frontTts, backTts: it.backTts};
 }
 
 function renderCard(){
@@ -1548,14 +1558,10 @@ function speakLang(text, lang, onDone){
     if(onDone) onDone();
   }
 }
-function speak(text, onDone){
-  const lang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
-  speakLang(text, lang, onDone);
-}
 // Přehraje pole {text, lang} segmentů jako řetězec navazujících utterance —
 // jedna SpeechSynthesisUtterance neumí mixovat jazyky/hlasy uvnitř sebe,
-// takže hláskování jiným jazykem (viz buildSpokenBack) musí jít segment po
-// segmentu.
+// takže hláskování jiným jazykem (viz buildSpeechSegments) musí jít segment
+// po segmentu.
 function speakSequence(segments, onDoneAll){
   const list = (segments || []).filter(seg => seg && seg.text);
   function next(i){
@@ -1565,104 +1571,98 @@ function speakSequence(segments, onDoneAll){
   next(0);
 }
 
-// Detekce úseků psaných celými velkými písmeny (vč. české diakritiky) +
-// číslicemi/pomlčkou, např. "OKA", "MO5", "DA-DR". minLen=1 pro explicitně
-// vyžádané hláskování (mechanika A, viz spellBack), minLen=2 pro automatický
-// fallback (mechanika B) — ať se zbytečně nerozsekávají ojedinělá písmena.
+// Fallback pro text BEZ explicitní {X} značky: úseky psané celými velkými
+// písmeny (vč. české diakritiky) + číslicemi/pomlčkou o délce >= 2 (např.
+// "HAREC", "MO5") se převedou na tečkovaný zápis ("HAREC" -> "h.a.r.e.c."),
+// čte se jazykem kartičky/sady — ochrana proti "hloupému" čtení zkratek na
+// TTS enginech (typicky Windows), co samy nepřehláskují neznámá ALL-CAPS
+// slova. Používá se jen na úseky textu MIMO {X} značky (viz
+// buildSpeechSegments) — ty se hláskují vybranou abecedou, ne touto tečkovou
+// pojistkou.
 const CAPS_CHARS = "A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ";
-const CAPS_TOKEN_RE = new RegExp("[" + CAPS_CHARS + "0-9\\-–]+", "g");
-// Mechanika A (explicitní spellBack) navíc pojme "?" do úseku k hláskování,
-// ať se otazník za zkratkou (např. "QRV?") přehláskuje jako "Question mark"/
-// "Otazník" místo aby úplně zmizel — viz "?" v letters u hláskovací abecedy.
-const CAPS_TOKEN_WITH_QMARK_RE = new RegExp("[" + CAPS_CHARS + "0-9\\-–?]+", "g");
+const CAPS_RUN_RE = new RegExp("[" + CAPS_CHARS + "0-9\\-–]{2,}", "g");
 const HAS_CAPS_LETTER_RE = new RegExp("[" + CAPS_CHARS + "]");
-function findCapsTokens(text, minLen, requireLetter, tokenRe){
-  const re = tokenRe || CAPS_TOKEN_RE;
-  const out = [];
-  let m;
-  re.lastIndex = 0;
-  while((m = re.exec(text))){
-    if(m[0].length >= minLen && (!requireLetter || HAS_CAPS_LETTER_RE.test(m[0]))){
-      out.push({text: m[0], index: m.index});
-    }
-  }
-  return out;
-}
-
-// Rozseká item.back na jazykové segmenty pro speakSequence:
-// - speakBack existuje   -> použij alternativní text ze speakBack
-// - spellBack: true  -> ALL-CAPS úseky se přehláskují přes aktuálně
-//   vybranou hláskovací abecedu, vlastním jazykem (mechanika A).
-// - jinak            -> ALL-CAPS úseky (délka >= 2) se převedou na
-//   tečkovaný zápis ("HAREC" -> "h.a.r.e.c."), čte se jazykem sady karet
-//   (mechanika B, fallback proti "hloupému" čtení zkratek na Windows TTS).
-// Samostatná utterance složená jen z interpunkce (např. ", " mezi dvěma
-// hláskovanými úseky) TTS enginy typicky nepřeskočí jako pauzu, ale
-// vysloví název znaku ("čárka") — protože tady na rozdíl od čtení v jedné
-// souvislé větě není žádné okolní slovo, ke kterému by čárka jen upravila
-// intonaci. Takové čistě interpunkční mezisegmenty proto vynecháváme úplně
-// a necháme mluvit jen přirozenou pauzu mezi dvěma navazujícími utterance.
-const HAS_WORD_CHAR_RE = /[\p{L}\p{N}]/u;
-function buildSpokenBack(item){
-  const cardLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
-  const text = (item.speakBack !== undefined && item.speakBack !== null && item.speakBack !== "") ? item.speakBack : item.back;
-  if(item.spellBack){
-    const pack = spellLibrary[activeSpellId] || EN_SPELL;
-    // requireLetter: false — u explicitně vyžádaného hláskování (spellBack)
-    // se mají hláskovat i čistě číselné kódy jako "73"/"88"/"99" (číslice po
-    // číslici), ne je nechat přečíst jako desítkové číslo.
-    const tokens = findCapsTokens(text, 1, false, CAPS_TOKEN_WITH_QMARK_RE);
-    if(tokens.length === 0) return [{text, lang: cardLang}];
-    const segments = [];
-    let pos = 0;
-    tokens.forEach(tok => {
-      if(tok.index > pos){
-        const between = text.slice(pos, tok.index);
-        if(HAS_WORD_CHAR_RE.test(between)) segments.push({text: between, lang: cardLang});
-      }
-      const spelled = tok.text.split("").map(ch => pack.letters[ch] || ch).join(" ");
-      segments.push({text: spelled, lang: pack.lang});
-      pos = tok.index + tok.text.length;
-    });
-    if(pos < text.length){
-      const tail = text.slice(pos);
-      if(HAS_WORD_CHAR_RE.test(tail)) segments.push({text: tail, lang: cardLang});
-    }
-    return segments;
-  }
-  const tokens = findCapsTokens(text, 2, true);
-  if(tokens.length === 0) return [{text, lang: cardLang}];
+function dotSpellCapsRuns(text){
   let result = "";
   let pos = 0;
-  tokens.forEach(tok => {
-    result += text.slice(pos, tok.index);
+  let m;
+  CAPS_RUN_RE.lastIndex = 0;
+  while((m = CAPS_RUN_RE.exec(text))){
+    if(!HAS_CAPS_LETTER_RE.test(m[0])) continue;
+    result += text.slice(pos, m.index);
     // Tečka bez mezery mezi dvěma souhláskami (typicky u Q-kódů, např.
     // "QRV" -> "r","v") nedonutí spolehlivě všechny TTS enginy k pauze —
     // "r.v." se občas přečte slitě jako "erv". Mezera za tečkou to řeší.
-    result += tok.text.toLowerCase().split("").join(". ") + ".";
-    pos = tok.index + tok.text.length;
-  });
+    result += m[0].toLowerCase().split("").join(". ") + ".";
+    pos = m.index + m[0].length;
+  }
   result += text.slice(pos);
-  return [{text: result, lang: cardLang}];
+  return result;
 }
+
+// Rozseká libovolný text (front/back/frontTts/backTts, i název oblasti či
+// podoblasti) na jazykové segmenty pro speakSequence podle značek {X}:
+// obsah uvnitř složených závorek se přehláskuje písmeno po písmenu aktuálně
+// vybranou hláskovací abecedou (nezávisle na jazyce sady i rozhraní);
+// značka bez jediného písmene/číslice uvnitř (čistá interpunkce, např.
+// "{-}" jako pomlčka) se místo hláskování přečte doslova daným znakem.
+// Zbytek textu mimo značky prochází dotSpellCapsRuns jako pojistka pro
+// zkratky bez explicitní značky.
+const MARKER_RE = /\{([^{}]*)\}/g;
+function buildSpeechSegments(text, lang){
+  if(!text) return [];
+  const alphabet = spellLibrary[activeSpellId] || EN_SPELL;
+  const raw = [];
+  let pos = 0;
+  let m;
+  MARKER_RE.lastIndex = 0;
+  while((m = MARKER_RE.exec(text))){
+    if(m.index > pos) raw.push({text: text.slice(pos, m.index), lang});
+    const marked = m[1];
+    if(/[\p{L}\p{N}]/u.test(marked)){
+      const spelled = Array.from(marked).map(ch => alphabet.letters[ch] || alphabet.letters[ch.toUpperCase()] || ch).join(" ");
+      raw.push({text: spelled, lang: alphabet.lang});
+    }else{
+      raw.push({text: m[0], lang});
+    }
+    pos = m.index + m[0].length;
+  }
+  if(pos < text.length) raw.push({text: text.slice(pos), lang});
+  // Samostatná utterance složená jen z interpunkce (např. ", " mezi dvěma
+  // hláskovanými úseky) TTS enginy typicky nepřeskočí jako pauzu, ale
+  // vysloví název znaku ("čárka") — proto se sousední segmenty ve stejném
+  // jazyce spojí do jedné utterance místo posílání zvlášť.
+  const merged = [];
+  raw.forEach(seg => {
+    const spoken = seg.lang === lang ? dotSpellCapsRuns(seg.text) : seg.text;
+    const last = merged[merged.length - 1];
+    if(last && last.lang.toLowerCase() === seg.lang.toLowerCase()) last.text += spoken;
+    else merged.push({text: spoken, lang: seg.lang});
+  });
+  return merged.filter(seg => seg.text);
+}
+
+function frontSpeechText(item){ return (item.frontTts || "").trim() || item.front; }
+function backSpeechText(item){ return (item.backTts || "").trim() || item.back; }
 
 function speakFront(){
   const item = currentItem();
-  if(item){
-    const textToSpeak = (item.speakFront !== undefined && item.speakFront !== null && item.speakFront !== "") ? item.speakFront : item.front;
-    speak(textToSpeak);
-  }
+  if(!item) return;
+  const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
+  speakSequence(buildSpeechSegments(frontSpeechText(item), deckLang));
 }
 function speakBack(){
   const item = currentItem();
-  if(item) speakSequence(buildSpokenBack(item));
+  if(!item) return;
+  const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
+  speakSequence(buildSpeechSegments(backSpeechText(item), deckLang));
 }
 // Hlasové instrukční fráze v handsfree režimu (ne obsah kartiček) se teď
 // řídí AKTIVNÍM JAZYKEM ROZHRANÍ (langLibrary/activeLangId) přesně stejně
 // jako texty v GUI — přes t() s prefixem "spoken_", vestavěná angličtina +
 // import dalšího balíčku (viz Languages/*.json) platí pro obojí najednou.
 // Obsah kartiček samotných (front/back) se dál čte jazykem AKTIVNÍ SADY
-// KARTIČEK — to je jiná, nezávislá osa, viz speak()/buildSpokenBack().
+// KARTIČEK — to je jiná, nezávislá osa, viz speakFront()/speakBack()/buildSpeechSegments().
 // Kde se instrukční fráze a obsah kartičky/sady spojují do jedné hlášky
 // (scopeSpokenSegments, speakFeedbackThenNext), musí jít o samostatné
 // segmenty pro speakSequence, ať každá část mluví správným hlasem/jazykem
@@ -1683,15 +1683,17 @@ function announceCurrentState(){
 }
 
 // Vrátí segmenty pro speakSequence: název oblasti/podoblasti je OBSAH
-// aktivní sady karet (jazyk sady), "Celá oblast "/"The whole area " je
-// instrukční fráze (jazyk rozhraní) — nesmí jít do jedné utterance.
+// aktivní sady karet (jazyk sady, přes volitelné nameTts a značky {X}),
+// "Celá oblast "/"The whole area " je instrukční fráze (jazyk rozhraní) —
+// nesmí jít do jedné utterance.
 function scopeSpokenSegments(cat, group){
-  const catName = STATS_CAT_LABELS[cat] || cat;
   const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
+  const areaSpoken = AREA_NAME_SPOKEN[cat] || STATS_CAT_LABELS[cat] || cat;
   if(group && group !== "__all__"){
-    return [{text: catName + ", " + group, lang: deckLang}];
+    const groupSpoken = (SUBAREA_NAME_SPOKEN[cat] && SUBAREA_NAME_SPOKEN[cat][group]) || group;
+    return buildSpeechSegments(areaSpoken + ", " + groupSpoken, deckLang);
   }
-  return [{text: sp("whole_area"), lang: activeSpokenLang()}, {text: catName, lang: deckLang}];
+  return [{text: sp("whole_area"), lang: activeSpokenLang()}, ...buildSpeechSegments(areaSpoken, deckLang)];
 }
 // Prostý text pro nemluvené zobrazení (Media Session metadata) — tam
 // smíchání jazyků v jednom řetězci nevadí, nic se tím nečte nahlas.
@@ -1739,10 +1741,8 @@ function updateDrivingMetadata(){
 function speakFeedbackThenNext(feedbackText){
   const next = currentItem();
   const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
-  const secondSeg = next
-    ? {text: (next.speakFront !== undefined && next.speakFront !== null && next.speakFront !== "") ? next.speakFront : next.front, lang: deckLang}
-    : {text: sp("round_done"), lang: activeSpokenLang()};
-  speakSequence([{text: feedbackText, lang: activeSpokenLang()}, secondSeg]);
+  const nextSegs = next ? buildSpeechSegments(frontSpeechText(next), deckLang) : [{text: sp("round_done"), lang: activeSpokenLang()}];
+  speakSequence([{text: feedbackText, lang: activeSpokenLang()}, ...nextSegs]);
 }
 
 function drivingNext(){

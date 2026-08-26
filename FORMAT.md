@@ -41,26 +41,29 @@ copy it and adapt it.
 | `language` | yes | Language code for text-to-speech (TTS) in hands-free mode, e.g. `cs-CZ`, `en-US`, `de-DE`. |
 | `areas` | yes | Array of areas. Max. **100 areas** (this is just a safety cap to protect the browser's/phone's memory, not a design constraint). |
 | `areas[].name` | yes | Name of the area (shown as a button in the top navigation). |
+| `areas[].nameTts` | no | Alternative text used exclusively for the text-to-speech announcement of the area's name in handsfree mode (e.g. when switching areas). If omitted, `name` is used. Can contain `{X}` spelling markers, see [Spelling alphabet files](#spelling-alphabet-files-optional) below. |
 | `areas[].maxErrors` | no | Enables the pass/fail dot for this area. See [Pass/fail indicator](#passfail-indicator-optional) below. |
 | `areas[].subareas` | yes | Array of subareas for the given area. Max. **1000 subareas** per area (again just a memory safety cap). |
 | `subareas[].name` | yes | Name of the subarea (shown in the dropdown selector). |
+| `subareas[].nameTts` | no | Same as `areas[].nameTts`, but for the subarea's spoken name. If omitted, `name` is used. |
 | `subareas[].cards` | yes | Array of cards for the given subarea. At least 1 card. |
 | `cards[].front` | yes | Text of the front side (question). |
 | `cards[].back` | yes | Text of the back side (answer). |
-| `cards[].spellBack` | no | If `true`, any ALL-CAPS runs in `back` (e.g. call sign prefixes like `GX`, `DA-DR`) are spelled out letter by letter in handsfree mode, using whichever spelling alphabet is currently selected in the app — independently of both the interface language and this deck's `language`. See [Spelling alphabet files](#spelling-alphabet-files-optional) below. Omit or set to `false` for a normal answer; ALL-CAPS words in it (e.g. an abbreviation like `HAREC`) are still read letter by letter, but in this deck's own language, without needing a separate file. |
-| `cards[].speakFront` | no | Alternative text used exclusively for the text-to-speech output of the front side in handsfree mode. If provided, TTS will use it instead of `front`. All existing transformations (automatic ALL-CAPS spelling, syntax validation) are applied normally. Useful for formats like "S-metr" that would be mispronounced. Example: `front: "S-metr", speakFront: "S metr"`. |
-| `cards[].speakBack` | no | Alternative text used exclusively for the text-to-speech output of the back side in handsfree mode. If provided, TTS will use it instead of `back`. All existing transformations (spellBack mechanics, automatic ALL-CAPS spelling, dot notation) are applied normally. Useful for answers that need different pronunciation than their displayed text. Example: `back: "NF", speakBack: "NF amplifier"` — silent mode shows "NF", handsfree pronounces "en ef amplifier". |
+| `cards[].frontTts` | no | Alternative text used exclusively for the text-to-speech output of the front side in handsfree mode. If provided, TTS uses it instead of `front`. Useful for formats like "S-metr" that would be mispronounced. Example: `front: "S-metr", frontTts: "S metr"`. Can contain `{X}` spelling markers. |
+| `cards[].backTts` | no | Alternative text used exclusively for the text-to-speech output of the back side in handsfree mode. If provided, TTS uses it instead of `back`. Useful for answers that need different pronunciation than their displayed text. Example: `back: "NF", backTts: "NF amplifier"` — silent mode shows "NF", handsfree pronounces "en ef amplifier". Can contain `{X}` spelling markers. |
+
+In silent mode (without handsfree), the original `front` and `back` are always shown and spoken; `frontTts`/`backTts` and the `{X}` markers inside them only affect handsfree mode. Any ALL-CAPS run of 2 or more characters (e.g. an abbreviation like `HAREC`) that isn't wrapped in a `{X}` marker is still automatically read out letter by letter in the deck's own language, as a safety net against TTS engines that would otherwise mispronounce it as one word.
 
 ## Spelling alphabet files (optional)
 
 A spelling alphabet is a **separate JSON file**, not another field inside a
-flashcard deck file. Independently of flashcard decks, the app can import **spelling alphabet**
-files — a letter/digit → spoken-word mapping (e.g. `A` → `Alpha`,
-`0` → `Zero`) used in handsfree mode for any card with `spellBack: true`.
-Import them the same way as a deck, via the 📥 button next to the spelling
-alphabet selector. A short built-in international (ITU/NATO) English one
-ships with the app; a Czech one is included in the `SpellingAlphabets`
-folder.
+flashcard deck file. Independently of flashcard decks, the app can import
+**spelling alphabet** files — a letter/digit → spoken-word mapping (e.g.
+`A` → `Alpha`, `0` → `Zero`) used in handsfree mode for any text marked with
+a `{X}` spelling marker (see below). Import them the same way as a deck, via
+the 📥 button next to the spelling alphabet selector. A short built-in
+international (ITU/NATO) English one ships with the app; a Czech one is
+included in the `SpellingAlphabets` folder.
 
 ```json
 {
@@ -76,44 +79,47 @@ folder.
 | `spellId` | yes | Unique identifier, same role as a deck's `shortName`. |
 | `spellName` | yes | Name shown in the selector dropdown. |
 | `lang` | yes | Language code (BCP-47) used for TTS when spelling with this alphabet, e.g. `en-US`, `cs-CZ`. |
-| `letters` | yes | Object mapping each character to the word spoken for it. Characters missing from the map are read out literally as a single character in the surrounding text's language. |
+| `letters` | yes | Object mapping each character to the word spoken for it. Characters missing from the map are read out literally as a single character. |
 
-### Marking an answer for spelling
+### Marking text for spelling ({X} markers)
 
-Put `spellBack` **on the individual card**, alongside `front` and `back`, for
-example:
+Wrap any span of text in curly braces to have it spelled out letter by
+letter, using whichever spelling alphabet is currently selected in the app —
+independently of both the interface language and the deck's own `language`.
+Markers work in `front`, `back`, `frontTts`, `backTts`, and in
+`areas[].nameTts`/`subareas[].nameTts`. For example:
 
 ```json
 {
   "front": "How is the call sign prefix spelled?",
   "back": "DA-DR",
-  "spellBack": true
+  "backTts": "{DA-DR}"
 }
 ```
 
-In handsfree mode, consecutive runs of uppercase letters (including Czech
-diacritics), digits, hyphens, and a possible question mark in `back` are then
-spelled character by character using the currently selected alphabet, for
-example `OK2ABC`, `DA-DR`, `73`, or `QRV?`. All other text in `back` is read in
-the deck's language. The field applies only to `back`; it does not spell
-`front`.
+In handsfree mode this reads the marked span character by character using the
+currently selected alphabet, for example `{OK2ABC}`, `{DA-DR}`, `{73}`, or
+`{QRV?}` (a trailing `?` inside the marker is spelled too, e.g. as "Question
+mark", if the alphabet maps it). Text outside `{}` is read normally in the
+surrounding language. A marker whose content has no letter or digit (pure
+punctuation) is read literally instead of being spelled.
 
-If `spellBack` is omitted or set to `false`, the spelling alphabet is not used.
-Runs of at least two uppercase letters are still changed to letter-by-letter
-speech for TTS, such as `HAREC`, but this does not use words from an imported
-spelling alphabet. To get pronunciations such as `Adam`, `Alpha`, or `Božena`,
-set `spellBack: true`.
+Without a `{X}` marker, ALL-CAPS runs of at least two characters (e.g.
+`HAREC`) are still automatically read out letter by letter as a fallback, but
+in the deck's own language, without using an imported spelling alphabet. To
+get pronunciations from an imported alphabet (`Adam`, `Alpha`, `Božena`, …),
+wrap the text in `{}`.
 
-### Alternative text for pronunciation (speakFront and speakBack)
+### Alternative text for pronunciation (frontTts and backTts)
 
-If an answer — or question — contains characters or formats that won't be
-pronounced correctly (e.g. hyphens, abbreviations, complex text), you can
-provide alternative text for handsfree mode using `speakFront` and `speakBack`:
+If a question or answer contains characters or formats that won't be
+pronounced correctly (e.g. hyphens, abbreviations, complex text), provide
+alternative text for handsfree mode using `frontTts` and `backTts`:
 
 ```json
 {
   "front": "S-metr",
-  "speakFront": "S metr"
+  "frontTts": "S metr"
 }
 ```
 
@@ -121,15 +127,15 @@ provide alternative text for handsfree mode using `speakFront` and `speakBack`:
 {
   "front": "Amplifier – type?",
   "back": "NF amplifier",
-  "speakBack": "en ef amplifier"
+  "backTts": "en ef amplifier"
 }
 ```
 
-`speakFront` is used instead of `front` in handsfree mode, and `speakBack`
-instead of `back`. All existing transformations (spellBack mechanics, automatic
-ALL-CAPS spelling, dot notation) are applied normally to text in these fields.
-In silent mode (without handsfree) the original `front` and `back` are always
-shown and spoken.
+`frontTts` is used instead of `front` in handsfree mode, and `backTts`
+instead of `back`. `{X}` markers and the automatic ALL-CAPS fallback are
+applied normally to text in these fields. In silent mode (without handsfree)
+the original `front` and `back` are always shown and spoken as-is — `frontTts`
+and `backTts` only affect handsfree mode.
 
 ## Pass/fail indicator (optional)
 

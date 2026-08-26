@@ -40,15 +40,18 @@ jako živá ukázka téhle struktury — nejjednodušší je zkopírovat ji a up
 | `language` | ano | Jazykový kód pro hlasové čtení (TTS) v handsfree režimu, např. `cs-CZ`, `en-US`, `de-DE`. |
 | `areas` | ano | Pole oblastí. Max. **100 oblastí** (jde jen o pojistku kvůli paměti prohlížeče/telefonu, ne o návrhové omezení). |
 | `areas[].name` | ano | Název oblasti (zobrazí se jako tlačítko v horní navigaci). |
+| `areas[].nameTts` | ne | Alternativní text určený výhradně pro hlasové oznámení názvu oblasti v handsfree režimu (např. při přepnutí oblasti). Když pole vynecháš, použije se `name`. Může obsahovat značky `{X}` pro hláskování, viz [Soubory hláskovací abecedy](#soubory-hláskovací-abecedy-volitelné) níže. |
 | `areas[].maxErrors` | ne | Zapíná barevnou tečku indikující splnění zkušebního minima u této oblasti. Viz [Indikace úspěšnosti zkoušky](#indikace-úspěšnosti-zkoušky-volitelné) níže. |
 | `areas[].subareas` | ano | Pole podoblastí dané oblasti. Max. **1000 podoblastí** na oblast (opět jen pojistka kvůli paměti). |
 | `subareas[].name` | ano | Název podoblasti (zobrazí se v rozbalovacím výběru). |
+| `subareas[].nameTts` | ne | Stejné jako `areas[].nameTts`, ale pro vyslovovaný název podoblasti. Když pole vynecháš, použije se `name`. |
 | `subareas[].cards` | ano | Pole kartiček dané podoblasti. Alespoň 1 kartička. |
 | `cards[].front` | ano | Text přední strany (otázka). |
 | `cards[].back` | ano | Text zadní strany (odpověď). |
-| `cards[].spellBack` | ne | Pokud je `true`, úseky psané celými velkými písmeny v `back` (např. prefixy volacích značek typu `GX`, `DA-DR`) se v handsfree režimu přehláskují písmeno po písmenu pomocí aktuálně vybrané hláskovací abecedy v apce — nezávisle na jazyce rozhraní i na `language` téhle sady. Viz [Soubory hláskovací abecedy](#soubory-hláskovací-abecedy-volitelné) níže. Když pole vynecháš nebo je `false`, jde o běžnou odpověď; ALL-CAPS slova v ní (např. zkratka `HAREC`) se přesto čtou písmeno po písmenu, ale jazykem téhle sady, bez potřeby zvláštního souboru. |
-| `cards[].speakFront` | ne | Alternativní text určený výhradně pro hlasový výstup přední strany kartičky v handsfree režimu. Pokud je uveden, TTS ho použije místo `front`. Všechny stávající úpravy (automatické hláskování velkých písmen, ověřování syntaxe) se aplikují normálně. Užitečné pro formáty jako „S-metr", které by se nesprávně vyslovily. Příklad: `front: "S-metr", speakFront: "S metr"`. |
-| `cards[].speakBack` | ne | Alternativní text určený výhradně pro hlasový výstup zadní strany kartičky v handsfree režimu. Pokud je uveden, TTS ho použije místo `back`. Všechny stávající úpravy (mechanika spellBack, automatické hláskování, tečkovaný zápis) se aplikují normálně. Užitečné pro odpovědi, které potřebují jinou výslovnost než zobrazený text. Příklad: `back: "NF", speakBack: "NF zesilovač"` — v tichém režimu se zobrazí „NF", v handsfree se vysloví „en ef zesilovač". |
+| `cards[].frontTts` | ne | Alternativní text určený výhradně pro hlasový výstup přední strany kartičky v handsfree režimu. Pokud je uveden, TTS ho použije místo `front`. Užitečné pro formáty jako „S-metr", které by se nesprávně vyslovily. Příklad: `front: "S-metr", frontTts: "S metr"`. Může obsahovat značky `{X}` pro hláskování. |
+| `cards[].backTts` | ne | Alternativní text určený výhradně pro hlasový výstup zadní strany kartičky v handsfree režimu. Pokud je uveden, TTS ho použije místo `back`. Užitečné pro odpovědi, které potřebují jinou výslovnost než zobrazený text. Příklad: `back: "NF", backTts: "NF zesilovač"` — v tichém režimu se zobrazí „NF", v handsfree se vysloví „en ef zesilovač". Může obsahovat značky `{X}` pro hláskování. |
+
+V tichém režimu (bez handsfree) se vždy zobrazuje a hlasitě čte původní `front` a `back`; `frontTts`/`backTts` a značky `{X}` v nich ovlivňují jen handsfree režim. Úsek psaný celými velkými písmeny o délce alespoň 2 znaky (např. zkratka `HAREC`), který není obalený značkou `{X}`, se i tak automaticky přečte písmeno po písmenu jazykem sady — jako pojistka proti TTS enginům, které by ho jinak vyslovily jako jedno (špatně vyslovené) slovo.
 
 ## Soubory hláskovací abecedy (volitelné)
 
@@ -56,8 +59,8 @@ Hláskovací abeceda je **samostatný JSON soubor**, nikoli další pole v soubo
 sady kartiček. Nezávisle na sadách kartiček umí apka importovat
 **hláskovací abecedy** —
 mapování písmeno/číslice → vyslovované slovo (např. `A` → `Adam`,
-`0` → `nula`), použité v handsfree režimu u každé kartičky s
-`spellBack: true`. Importují se stejně jako sada, přes tlačítko 📥 vedle
+`0` → `nula`), použité v handsfree režimu u textu označeného značkou `{X}`
+(viz níže). Importují se stejně jako sada, přes tlačítko 📥 vedle
 výběru hláskovací abecedy. S apkou je rovnou vestavěná krátká mezinárodní
 (ITU/NATO) anglická tabulka; česká je přiložená ve složce
 `SpellingAlphabets`.
@@ -76,43 +79,46 @@ výběru hláskovací abecedy. S apkou je rovnou vestavěná krátká mezinárod
 | `spellId` | ano | Jedinečný identifikátor, stejná role jako `shortName` u sady. |
 | `spellName` | ano | Název zobrazený ve výběru. |
 | `lang` | ano | Jazykový kód (BCP-47) použitý pro TTS při hláskování touto abecedou, např. `en-US`, `cs-CZ`. |
-| `letters` | ano | Objekt mapující každý znak na slovo, které se za něj vysloví. Znaky chybějící v mapě se přečtou doslova jako jeden znak v jazyce okolního textu. |
+| `letters` | ano | Objekt mapující každý znak na slovo, které se za něj vysloví. Znaky chybějící v mapě se přečtou doslova jako jeden znak. |
 
-### Jak označit odpověď pro hláskování
+### Označení textu pro hláskování (značky {X})
 
-Pole `spellBack` se zapisuje **ke konkrétní kartičce**, do stejného objektu jako
-`front` a `back`, například:
+Libovolný úsek textu obal do složených závorek, aby se v handsfree režimu
+přehláskoval písmeno po písmenu pomocí aktuálně vybrané hláskovací abecedy v
+apce — nezávisle na jazyce rozhraní i na `language` téhle sady. Značky
+fungují v `front`, `back`, `frontTts`, `backTts` i v `areas[].nameTts`/
+`subareas[].nameTts`. Například:
 
 ```json
 {
   "front": "Jak se hláskuje volací prefix?",
   "back": "DA-DR",
-  "spellBack": true
+  "backTts": "{DA-DR}"
 }
 ```
 
-V handsfree režimu se pak v textu `back` přehláskují souvislé úseky velkých
-písmen (včetně českých), číslic, pomlček a případného otazníku, například
-`OK2ABC`, `DA-DR`, `73` nebo `QRV?`, znak po znaku podle aktuálně vybrané
-abecedy. Ostatní text v `back` se čte jazykem sady. Pole se týká pouze `back`; `front` se tímto příznakem
-nepřehláskuje.
+V handsfree režimu se pak označený úsek přehláskuje znak po znaku podle
+aktuálně vybrané abecedy, například `{OK2ABC}`, `{DA-DR}`, `{73}` nebo
+`{QRV?}` (otazník na konci značky se přehláskuje taky, např. jako „Otazník",
+pokud ho abeceda mapuje). Text mimo `{}` se čte normálně jazykem okolního
+textu. Značka, jejíž obsah neobsahuje žádné písmeno ani číslici (čistá
+interpunkce), se místo hláskování přečte doslova.
 
-Když `spellBack` vynecháš nebo nastavíš na `false`, hláskovací abeceda se
-nepoužije. Úseky alespoň dvou velkých písmen se přesto kvůli TTS přečtou po
-jednotlivých písmenech v jazyce sady, například `HAREC`; nejde však o slova z
-importované hláskovací abecedy. Pro výslovnost typu `Adam`, `Alpha` nebo
-`Božena` musí být `spellBack: true`.
+Bez značky `{X}` se úseky alespoň dvou velkých písmen (např. `HAREC`) přesto
+automaticky přečtou po jednotlivých písmenech jako pojistka, ale jazykem
+sady, bez použití importované hláskovací abecedy. Pro výslovnost z
+importované abecedy (`Adam`, `Alpha`, `Božena`, …) obal text do `{}`.
 
-### Alternativní text pro výslovnost (speakFront a speakBack)
+### Alternativní text pro výslovnost (frontTts a backTts)
 
-Pokud odpověď — nebo i otázka — obsahuje znaky či formáty, které se nebudou
-vyslovovat správně (např. pomlčky, zkratky, složitější texty), můžeš uvést
-alternativní text pro hlasitý režim pomocí `speakFront` a `speakBack`:
+Pokud otázka nebo odpověď obsahuje znaky či formáty, které se nebudou
+vyslovovat správně (např. pomlčky, zkratky, složitější texty), uveď
+alternativní text pro handsfree režim pomocí `frontTts` a `backTts`:
 
 ```json
 {
   "front": "S-metr",
-  "speakFront": "S metr"
+  "frontTts": "S metr"
 }
 ```
 
@@ -120,15 +126,15 @@ alternativní text pro hlasitý režim pomocí `speakFront` a `speakBack`:
 {
   "front": "Zesilovač – druh?",
   "back": "NF zesilovač",
-  "speakBack": "en ef zesilovač"
+  "backTts": "en ef zesilovač"
 }
 ```
 
-Pole `speakFront` se používá místo `front` v handsfree režimu, `speakBack`
-místo `back`. Všechny stávající úpravy (mechanika `spellBack`, automatické
-hláskování velkých písmen, tečkovaný zápis) se aplikují normálně na text v
-těchto polích. V tichém režimu (bez handsfree) se vždy zobrazuje a hlasitě se
-čte původní `front` a `back`.
+Pole `frontTts` se používá místo `front` v handsfree režimu, `backTts` místo
+`back`. Značky `{X}` i automatická pojistka pro ALL-CAPS úseky se na text v
+těchto polích aplikují normálně. V tichém režimu (bez handsfree) se vždy
+zobrazuje a hlasitě čte původní `front` a `back` — `frontTts` a `backTts`
+ovlivňují jen handsfree režim.
 
 ## Indikace úspěšnosti zkoušky (volitelné)
 

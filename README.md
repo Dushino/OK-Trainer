@@ -30,18 +30,18 @@ Open the settings page by clicking the `⋮` button in the top right. On the
 3. The newly imported alphabet is selected immediately. Click `←` to return to
   the main page.
 
-The selected alphabet is used in handsfree mode for answers whose card has
-`"spellBack": true`. This field belongs directly on the card and applies only
-to the text in its `back`. In that text, consecutive runs of uppercase letters,
-digits, hyphens, and a possible question mark are spelled out character by
-character (for example `OK2ABC`, `DA-DR`, `73`, or `QRV?`) using the currently
-selected alphabet. Ordinary text outside those runs is read in the deck's language.
+The selected alphabet is used in handsfree mode for any text wrapped in a
+`{X}` marker, for example `back: "{DA-DR}"`. This works in a card's `front`,
+`back`, `frontTts`, `backTts`, and in an area's or subarea's `nameTts`. The
+marked span is spelled out character by character (for example `{OK2ABC}`,
+`{DA-DR}`, `{73}`, or `{QRV?}`) using the currently selected alphabet.
+Ordinary text outside `{}` is read in the deck's language.
 
-Without `spellBack`, ordinary answers are read normally; longer runs of
+Without a `{X}` marker, ordinary text is read normally; longer runs of
 uppercase letters are automatically changed to letter-by-letter speech, but a
-spelling alphabet is not used. To make an answer use words such as "Alpha" or
-"Adam", set `spellBack` to `true`. The exact alphabet file format and examples
-are in `FORMAT.md`.
+spelling alphabet is not used. To make text use words such as "Alpha" or
+"Adam", wrap it in `{}`. The exact alphabet file format and examples are in
+`FORMAT.md`.
 
 ## How studying works
 
@@ -113,12 +113,13 @@ The app can also be used without directly interacting with your phone, via a Blu
   - **Previous track** confirms you didn't know it.
 - Once you finish a set of cards, the app intelligently moves on: if you were studying a single subarea, it moves to the next subarea; if you were studying a whole area, it moves to the next whole area.
 
-Some phone/desktop TTS engines read a word written in ALL CAPS as if it were one (mispronounced) word instead of spelling it out — noticeable on abbreviations like "HAREC". The app always spells such words out letter by letter to avoid that. For decks that flag specific answers as `spellBack` (see `FORMAT.md`), such as call sign prefixes, the app instead spells them out using a dedicated **spelling alphabet** — a letter/digit → spoken-word table (e.g. "A" → "Alpha") that you can pick independently of both the interface language and the deck's own language, the same way you pick a language pack. A short international (ITU/NATO) English one is built in; a Czech one is included in the `SpellingAlphabets` folder and can be imported the same way as a flashcard set.
+Some phone/desktop TTS engines read a word written in ALL CAPS as if it were one (mispronounced) word instead of spelling it out — noticeable on abbreviations like "HAREC". The app always spells such words out letter by letter to avoid that. For text wrapped in a `{X}` marker (see `FORMAT.md`), such as call sign prefixes, the app instead spells it out using a dedicated **spelling alphabet** — a letter/digit → spoken-word table (e.g. "A" → "Alpha") that you can pick independently of both the interface language and the deck's own language, the same way you pick a language pack. A short international (ITU/NATO) English one is built in; a Czech one is included in the `SpellingAlphabets` folder and can be imported the same way as a flashcard set.
 
 ## Things to know
 
 - The app doesn't account for forgetting. That's both individual and beyond the scope of a simple HTML page — it would need to be a full-fledged application. So even if everything is green a few weeks before the exam, that doesn't mean you won't forget something by test day. The solution is regular review.
 - The number of cards in a study round is dynamic. When you know a topic well, each card appears just once; if you know all of them, each appears once again next time. If you don't know them, the next round will have more cards because the problematic ones appear more frequently.
 - **If the app behaves strangely, delete and then re-import freshly downloaded files, or alternatively uninstall and reinstall the entire app. This is because I sometimes make improvements, and the app might not be compatible with your saved JSON files.**
+- Now we have flashcards file editor at https://dushino.github.io/OK-Trainer-Editor/
 
 > **Always put your own safety and the safety of those around you first. Do not use this while driving!**

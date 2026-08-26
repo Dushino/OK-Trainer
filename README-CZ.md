@@ -27,18 +27,18 @@ Stránku s nastavením zobrazíš klepnutím na tlačítko `⋮` vpravo nahoře.
 3. Nově importovaná abeceda se rovnou vybere. Tlačítkem `←` se vrať na hlavní
   stránku.
 
-Abeceda se použije v handsfree režimu u odpovědí, jejichž kartička má
-`"spellBack": true`. Toto pole patří přímo ke kartičce a vztahuje se pouze na
-text v jejím `back`. V takovém textu se přehláskují souvislé úseky velkých
-písmen, číslic, pomlček a případného otazníku (například `OK2ABC`, `DA-DR`,
-`73` nebo `QRV?`) znak po znaku podle právě vybrané abecedy. Běžný text mimo
-tyto úseky se čte jazykem sady.
+Abeceda se použije v handsfree režimu u jakéhokoli textu obaleného značkou
+`{X}`, například `back: "{DA-DR}"`. Funguje to v `front`, `back`, `frontTts`,
+`backTts` kartičky i v `nameTts` oblasti nebo podoblasti. Označený úsek se
+přehláskuje znak po znaku (například `{OK2ABC}`, `{DA-DR}`, `{73}` nebo
+`{QRV?}`) podle právě vybrané abecedy. Běžný text mimo `{}` se čte jazykem
+sady.
 
-Bez `spellBack` se běžné odpovědi čtou normálně; delší úseky velkých písmen se
+Bez značky `{X}` se běžný text čte normálně; delší úseky velkých písmen se
 automaticky převedou na čtení po jednotlivých písmenech, ale nepoužije se
-hláskovací abeceda. Pro každou odpověď, která má používat slova jako „Adam“ nebo
-„Alpha“, proto nastav `spellBack` na `true`. Přesný formát souboru abecedy i
-příklady jsou v `FORMAT-CZ.md`.
+hláskovací abeceda. Pro text, který má používat slova jako „Adam“ nebo
+„Alpha“, ho proto obal do `{}`. Přesný formát souboru abecedy i příklady jsou
+v `FORMAT-CZ.md`.
 
 ## Jak učení probíhá
 
@@ -110,7 +110,7 @@ Apku lze používat i bez přímé interakce s telefonem pomocí bluetooth hands
   - **Předchozí skladba** potvrdí, že jsi ji neznal.
 - Jakmile dokončíš sadu kartiček, apka chytře pokračuje dál: pokud jsi se učil jednu podoblast, přejde na další podoblast; pokud jsi se učil celou oblast, přejde na další celou oblast.
 
-Některé TTS enginy (typicky ve Windows) přečtou slovo psané celými velkými písmeny jako jedno (špatně vyslovené) slovo místo hláskování — nápadné je to třeba u zkratky "HAREC". Apka taková slova vždy přehláskuje písmeno po písmenu, aby k tomu nedocházelo. U sad, které konkrétní odpovědi označí příznakem `spellBack` (viz `FORMAT-CZ.md`), typicky prefixy volacích značek, apka místo toho hláskuje přes vyhrazenou **hláskovací abecedu** — tabulku písmeno/číslice → vyslovované slovo (např. "A" → "Adam"), kterou si vybíráš nezávisle na jazyce rozhraní i na jazyce sady, stejně jako jazykový balíček. S apkou je vestavěná krátká mezinárodní (ITU/NATO) anglická tabulka; česká je přiložená ve složce `SpellingAlphabets` a importuje se stejně jako sada kartiček.
+Některé TTS enginy (typicky ve Windows) přečtou slovo psané celými velkými písmeny jako jedno (špatně vyslovené) slovo místo hláskování — nápadné je to třeba u zkratky "HAREC". Apka taková slova vždy přehláskuje písmeno po písmenu, aby k tomu nedocházelo. U textu obaleného značkou `{X}` (viz `FORMAT-CZ.md`), typicky u prefixů volacích značek, apka místo toho hláskuje přes vyhrazenou **hláskovací abecedu** — tabulku písmeno/číslice → vyslovované slovo (např. "A" → "Adam"), kterou si vybíráš nezávisle na jazyce rozhraní i na jazyce sady, stejně jako jazykový balíček. S apkou je vestavěná krátká mezinárodní (ITU/NATO) anglická tabulka; česká je přiložená ve složce `SpellingAlphabets` a importuje se stejně jako sada kartiček.
 
 ## Co je dobré vědět
 
@@ -119,3 +119,5 @@ Některé TTS enginy (typicky ve Windows) přečtou slovo psané celými velkým
 - Aplikace nezohledňuje zapomínání. To je jednak idividuální a také je to nad síly jednoduché HTML stránky - musela by to být plnohodnotná aplikace. Takže i když máš všechno zelené pár týdnů před zkouškou, neznamená to, že do zkoušky něco nezapomeneš. Řešení je pravidelné opakování.
 - Počet kartiček v jednom kole učení je dynamický. Když téma umíš, jen proběhne každou kartičku jednou a pokud znáš všechny, příště bude každá zase jen jednou. Pokud neznáš, počet v dalším kole se zvýší tím, že bude problematickou kartičku nabízet vícekrát.
 - **Jestliže se aplikace chová podivně, smaž a pak importuj čerstvě stažené soubory, případně odinstaluj a pak nainstaluj celou aplikaci znovu. Je to tím, že občas něco vylepším a pak nemusí být kompatibilní aplikace s json soubory.**
+- Nyní je k dispoziti editor kartiček na https://dushino.github.io/OK-Trainer-Editor/
+
