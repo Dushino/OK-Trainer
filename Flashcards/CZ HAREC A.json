@@ -8,7 +8,7 @@
       "maxErrors": 4,
       "subareas": [
         {
-          "name": "Předpisy Mezinárodní telekomunikační unie (ITU) - 1. část",
+          "name": "Předpisy Mezinárodní telekomunikační unie (ITU) – 1. část",
           "cards": [
             {
               "front": "Amatérskou radiokomunikační službou se rozumí:",
@@ -45,7 +45,7 @@
           ]
         },
         {
-          "name": "Předpisy Mezinárodní telekomunikační unie (ITU) - 2. část",
+          "name": "Předpisy Mezinárodní telekomunikační unie (ITU) – 2. část",
           "cards": [
             {
               "front": "Požadavky na zkoušky amatérských stanic určuje:",
@@ -83,7 +83,7 @@
           ]
         },
         {
-          "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) - 1. část",
+          "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) – 1. část",
           "cards": [
             {
               "front": "Doporučení CEPT T/R 61-02 stanoví:",
@@ -126,7 +126,7 @@
           ]
         },
         {
-          "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) - 2. část",
+          "name": "Předpisy Evropské konference poštovních a telekomunikačních správ (CEPT) – 2. část",
           "cards": [
             {
               "front": "Na základě průkazu odborné způsobilosti HAREC je možno bez zkoušky získat radioamatérské oprávnění v zemích:",
@@ -173,7 +173,7 @@
           ]
         },
         {
-          "name": "Předpisy vycházející z legislativy České republiky - 1. část",
+          "name": "Předpisy vycházející z legislativy České republiky – 1. část",
           "cards": [
             {
               "front": "Stanici amatérské radiokomunikační služby lze provozovat:",
@@ -213,7 +213,7 @@
           ]
         },
         {
-          "name": "Předpisy vycházející z legislativy České republiky - 2. část",
+          "name": "Předpisy vycházející z legislativy České republiky – 2. část",
           "cards": [
             {
               "front": "Jednotlivé úseky pásem pro různé druhy provozu určuje:",
@@ -246,32 +246,32 @@
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během závodu na kmitočtu 7 105 kHz?",
               "back": "750 W PEP",
-              "backTts": "750 Wattů PEP"
+              "backTts": "750 wattů PEP"
             }
           ]
         },
         {
-          "name": "Předpisy vycházející z legislativy České republiky - 3. část",
+          "name": "Předpisy vycházející z legislativy České republiky – 3. část",
           "cards": [
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít na kmitočtu 24 950 kHz?",
               "back": "750 W PEP",
-              "backTts": "750 Wattů PEP"
+              "backTts": "750 wattů PEP"
             },
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během závodu na kmitočtu 50 105 kHz?",
               "back": "25 W PEP",
-              "backTts": "25 Wattů PEP"
+              "backTts": "25 wattů PEP"
             },
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít během běžného provozu na kmitočtu 1 820 kHz?",
               "back": "750 W PEP",
-              "backTts": "50 Wattů PEP"
+              "backTts": "50 wattů PEP"
             },
             {
               "front": "Jaký je maximální vysílaný výkon, který může operátor třídy A použít na kmitočtu 1 900 kHz?",
               "back": "10 W PEP",
-              "backTts": "10 Wattů PEP"
+              "backTts": "10 wattů PEP"
             },
             {
               "front": "Oprávnění amatérské radiokomunikační služby má platnost:",
@@ -289,13 +289,13 @@
             },
             {
               "front": "Vysílací zařízení s výkonem nad 6 W musí být opatřeno:",
-              "back": "nesymetrickým výstupem o impedanci 50 až 100 Ohmů",
-              "frontTts": "Vysílací zařízení s výkonem nad 6 Wattů musí být opatřeno:"
+              "back": "nesymetrickým výstupem o impedanci 50 až 100 ohmů",
+              "frontTts": "Vysílací zařízení s výkonem nad 6 wattů musí být opatřeno:"
             }
           ]
         },
         {
-          "name": "Předpisy vycházející z legislativy České republiky - 4. část",
+          "name": "Předpisy vycházející z legislativy České republiky – 4. část",
           "cards": [
             {
               "front": "Fonický provoz LSB na kmitočtu 10,14 MHz:",
@@ -330,12 +330,12 @@
             {
               "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 W provozovaného v pásmu 2 m:",
               "back": "musí být potlačen minimálně o 60 dB, smí být však maximálně 1 mW",
-              "frontTts": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 Wattů provozovaného v pásmu 2 m:"
+              "frontTts": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 wattů provozovaného v pásmu 2 m:"
             }
           ]
         },
         {
-          "name": "Předpisy vycházející z legislativy České republiky - 5. část",
+          "name": "Předpisy vycházející z legislativy České republiky – 5. část",
           "cards": [
             {
               "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače provozovaného na kmitočtech nižších než 29,7 MHz:",
@@ -344,7 +344,7 @@
             {
               "front": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 W provozovaného v pásmu 430 až 440 MHz:",
               "back": "musí být potlačen minimálně o 60 dB, smí být však maximálně 20 mW",
-              "frontTts": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 Wattů provozovaného v pásmu 430 až 440 MHz:"
+              "frontTts": "Výkon jednotlivých složek nežádoucího vyzařování vysílače s výkonem nad 25 wattů provozovaného v pásmu 430 až 440 MHz:"
             },
             {
               "front": "Na kmitočtu 1840 kHz nelze uskutečnit:",
@@ -374,7 +374,7 @@
           ]
         },
         {
-          "name": "Předpisy vycházející z legislativy České republiky - 6. část",
+          "name": "Předpisy vycházející z legislativy České republiky – 6. část",
           "cards": [
             {
               "front": "Pro účely státní kontroly musí být na stanici:",
@@ -391,7 +391,7 @@
             {
               "front": "Maximální výstupní výkon neobsluhované stanice může být:",
               "back": "50 W",
-              "backTts": "50 Wattů"
+              "backTts": "50 wattů"
             },
             {
               "front": "Neobsluhované stanice používají volací značku, která sestává:",
@@ -420,7 +420,7 @@
       "maxErrors": 8,
       "subareas": [
         {
-          "name": "Hláskovací abeceda (česká, mezinárodní) - A - G",
+          "name": "Hláskovací abeceda (česká, mezinárodní) – A–G",
           "cards": [
             {
               "front": "A:",
@@ -453,7 +453,7 @@
           ]
         },
         {
-          "name": "Hláskovací abeceda (česká, mezinárodní) - H - N",
+          "name": "Hláskovací abeceda (česká, mezinárodní) – H–N",
           "cards": [
             {
               "front": "H:",
@@ -489,7 +489,7 @@
           ]
         },
         {
-          "name": "Hláskovací abeceda (česká, mezinárodní) - O - T",
+          "name": "Hláskovací abeceda (česká, mezinárodní) – O–T",
           "cards": [
             {
               "front": "O:",
@@ -519,7 +519,7 @@
           ]
         },
         {
-          "name": "Hláskovací abeceda (česká, mezinárodní) - U - Z",
+          "name": "Hláskovací abeceda (česká, mezinárodní) – U–Z",
           "cards": [
             {
               "front": "U:",
@@ -710,7 +710,7 @@
           ]
         },
         {
-          "name": "Zkratky – Pozdravy - loučení a fráze",
+          "name": "Zkratky – Pozdravy – loučení a fráze",
           "cards": [
             {
               "front": "smích:",
@@ -745,7 +745,7 @@
           ]
         },
         {
-          "name": "Zkratky – Zdvořilost - díky a prosba:",
+          "name": "Zkratky – Zdvořilost – díky a prosba:",
           "cards": [
             {
               "front": "děkuji:",
@@ -775,7 +775,7 @@
           ]
         },
         {
-          "name": "Zkratky – Zdvořilost - pocity a hodnocení",
+          "name": "Zkratky – Zdvořilost – pocity a hodnocení",
           "cards": [
             {
               "front": "pěkný, výborný:",
@@ -805,7 +805,7 @@
           ]
         },
         {
-          "name": "Zkratky – Řízení spojení - začátek a výzva",
+          "name": "Zkratky – Řízení spojení – začátek a výzva",
           "cards": [
             {
               "front": "čekejte:",
@@ -840,7 +840,7 @@
           ]
         },
         {
-          "name": "Zkratky – Řízení spojení - konec a přerušení",
+          "name": "Zkratky – Řízení spojení – konec a přerušení",
           "cards": [
             {
               "front": "konec vysílání:",
@@ -940,7 +940,7 @@
           ]
         },
         {
-          "name": "Zkratky – Vybavení - přijímač a vysílač",
+          "name": "Zkratky – Vybavení – přijímač a vysílač",
           "cards": [
             {
               "front": "přijímač:",
@@ -970,7 +970,7 @@
           ]
         },
         {
-          "name": "Zkratky – Vybavení - anténa a výkon",
+          "name": "Zkratky – Vybavení – anténa a výkon",
           "cards": [
             {
               "front": "anténa:",
@@ -1005,7 +1005,7 @@
           ]
         },
         {
-          "name": "Zkratky – Vybavení - automatické řízení",
+          "name": "Zkratky – Vybavení – automatické řízení",
           "cards": [
             {
               "front": "automatické řízení úrovně:",
@@ -1025,7 +1025,7 @@
           ]
         },
         {
-          "name": "Zkratky – Modulace - druhy",
+          "name": "Zkratky – Modulace – druhy",
           "cards": [
             {
               "front": "amplitudová modulace:",
@@ -1045,7 +1045,7 @@
           ]
         },
         {
-          "name": "Zkratky – Modulace - postranní pásma",
+          "name": "Zkratky – Modulace – postranní pásma",
           "cards": [
             {
               "front": "jedno postranní pásmo:",
@@ -1125,7 +1125,7 @@
           ]
         },
         {
-          "name": "Zkratky – Osoby - radioamatéři",
+          "name": "Zkratky – Osoby – radioamatéři",
           "cards": [
             {
               "front": "radioamatér:",
@@ -1150,7 +1150,7 @@
           ]
         },
         {
-          "name": "Zkratky – Osoby - rodina a oslovení",
+          "name": "Zkratky – Osoby – rodina a oslovení",
           "cards": [
             {
               "front": "milý, drahý:",
@@ -1261,7 +1261,7 @@
           ]
         },
         {
-          "name": "Zkratky – Zbytek - jen, přímo, nic",
+          "name": "Zkratky – Zbytek – jen, přímo, nic",
           "cards": [
             {
               "front": "přímo:",
@@ -1306,7 +1306,7 @@
           ]
         },
         {
-          "name": "Zkratky – Akce - volání a odesílání",
+          "name": "Zkratky – Akce – volání a odesílání",
           "cards": [
             {
               "front": "zavolání, značka:",
@@ -1555,7 +1555,7 @@
             },
             {
               "front": "Německo:",
-              "back": "DA–DR",
+              "back": "DA-DR",
               "backTts": "{DA,-DR}"
             },
             {
@@ -1571,7 +1571,7 @@
           ]
         },
         {
-          "name": "Prefixy – Skandinávie - státy",
+          "name": "Prefixy – Skandinávie – státy",
           "cards": [
             {
               "front": "Švédsko:",
@@ -1601,7 +1601,7 @@
           ]
         },
         {
-          "name": "Prefixy – Severní Atlantik - závislá území",
+          "name": "Prefixy – Severní Atlantik – závislá území",
           "cards": [
             {
               "front": "Špicberky:",
@@ -1731,7 +1731,7 @@
           ]
         },
         {
-          "name": "Prefixy – Balkán - západ",
+          "name": "Prefixy – Balkán – západ",
           "cards": [
             {
               "front": "Slovinsko:",
@@ -1766,7 +1766,7 @@
           ]
         },
         {
-          "name": "Prefixy – Balkán - východ",
+          "name": "Prefixy – Balkán – východ",
           "cards": [
             {
               "front": "Řecko:",
@@ -1801,7 +1801,7 @@
           ]
         },
         {
-          "name": "Prefixy – Bývalý SSSR - Pobaltí a západ",
+          "name": "Prefixy – Bývalý SSSR – Pobaltí a západ",
           "cards": [
             {
               "front": "Rusko:",
@@ -1836,7 +1836,7 @@
           ]
         },
         {
-          "name": "Prefixy – Bývalý SSSR - Kavkaz",
+          "name": "Prefixy – Bývalý SSSR – Kavkaz",
           "cards": [
             {
               "front": "Moldavsko:",
@@ -2050,17 +2050,16 @@
           "cards": [
             {
               "front": "V pásmu 1,8 MHz je výhradně pro CW provoz určen úsek:",
-              "back": "1810 - 1838 kHz",
-              "backTts": "",
+              "back": "1810–1838 kHz",
               "frontTts": "V pásmu 1,8 MHz je výhradně pro {CW} provoz určen úsek:"
             },
             {
               "front": "V pásmu 1,8 MHz je pro digitální provozy určen úsek:",
-              "back": "1838 - 1843 kHz"
+              "back": "1838–1843 kHz"
             },
             {
               "front": "V pásmu 1,8 MHz je celý úsek pro \"FONE\" provoz:",
-              "back": "1840 - 2000 kHz",
+              "back": "1840–2000 kHz",
               "frontTts": "V pásmu 1,8 MHz je celý úsek pro fone provoz:"
             }
           ]
@@ -2070,22 +2069,21 @@
           "cards": [
             {
               "front": "V pásmu 3,5 MHz je výhradně pro CW DX provoz určen úsek:",
-              "back": "3500 - 3510 kHz",
+              "back": "3500–3510 kHz",
               "frontTts": "V pásmu 3,5 MHz je výhradně pro {CW DX} provoz určen úsek:"
             },
             {
               "front": "V pásmu 3,5 MHz je výhradně pro CW provoz určen úsek:",
-              "back": "3500 - 3580 kHz",
+              "back": "3500–3580 kHz",
               "frontTts": "V pásmu 3,5 MHz je výhradně pro {CW} provoz určen úsek:"
             },
             {
               "front": "V pásmu 3,5 MHz je pro digitální provozy určen úsek:",
-              "back": "3580 - 3620 kHz"
+              "back": "3580–3620 kHz"
             },
             {
               "front": "V pásmu 3,5 MHz je celý úsek pro \"FONE\" provoz:",
-              "back": "3600 - 3800 kHz",
-              "backTts": "1810 -1838 kHz",
+              "back": "3600–3800 kHz",
               "frontTts": "V pásmu 3,5 MHz je celý úsek pro fone provoz:"
             }
           ]
@@ -2095,16 +2093,16 @@
           "cards": [
             {
               "front": "V pásmu 7 MHz je výhradně pro CW provoz určen úsek:",
-              "back": "7000 - 7040 kHz",
+              "back": "7000–7040 kHz",
               "frontTts": "V pásmu 7 MHz je výhradně pro {CW} provoz určen úsek:"
             },
             {
               "front": "V pásmu 7 MHz je pro digitální provozy určen úsek:",
-              "back": "7040 - 7060 kHz"
+              "back": "7040–7060 kHz"
             },
             {
               "front": "V pásmu 7 MHz je celý úsek pro \"FONE\" provoz:",
-              "back": "7050 - 7200 kHz",
+              "back": "7050–7200 kHz",
               "frontTts": "V pásmu 7 MHz je celý úsek pro fone provoz:"
             }
           ]
@@ -2114,7 +2112,7 @@
           "cards": [
             {
               "front": "V pásmu 10 MHz je pro digitální provozy určen úsek:",
-              "back": "10140 - 10150 kHz"
+              "back": "10140–10150 kHz"
             },
             {
               "front": "V pásmu 10 MHz je celý úsek pro \"FONE\" provoz:",
@@ -2128,16 +2126,16 @@
           "cards": [
             {
               "front": "V pásmu 14 MHz je výhradně pro CW provoz určen úsek:",
-              "back": "14000 - 14070 kHz",
+              "back": "14000–14070 kHz",
               "frontTts": "V pásmu 14 MHz je výhradně pro {CW} provoz určen úsek:"
             },
             {
               "front": "V pásmu 14 MHz je pro digitální provozy určen úsek:",
-              "back": "14070 - 14099 kHz"
+              "back": "14070–14099 kHz"
             },
             {
               "front": "V pásmu 14 MHz je celý úsek pro \"FONE\" provoz:",
-              "back": "14101 - 14350 kHz",
+              "back": "14101–14350 kHz",
               "frontTts": "V pásmu 14 MHz je celý úsek pro  fone provoz:"
             }
           ]
@@ -2147,12 +2145,12 @@
           "cards": [
             {
               "front": "V pásmu 18 MHz je výhradně pro CW provoz určen úsek:",
-              "back": "18068 - 18095 kHz",
+              "back": "18068–18095 kHz",
               "frontTts": "V pásmu 18 MHz je výhradně pro {CW} provoz určen úsek:"
             },
             {
               "front": "V pásmu 18 MHz je celý úsek pro \"FONE\" provoz:",
-              "back": "18111 - 18168 kHz",
+              "back": "18111–18168 kHz",
               "frontTts": "V pásmu 18 MHz je celý úsek pro fone provoz:"
             }
           ]
@@ -2162,12 +2160,12 @@
           "cards": [
             {
               "front": "V pásmu 21 MHz je výhradně pro CW provoz určen úsek:",
-              "back": "21000 - 21070 kHz",
+              "back": "21000–21070 kHz",
               "frontTts": "V pásmu 21 MHz je výhradně pro {CW} provoz určen úsek:"
             },
             {
               "front": "V pásmu 21 MHz je celý úsek pro \"FONE\" provoz:",
-              "back": "21151 - 21450 kHz",
+              "back": "21151–21450 kHz",
               "frontTts": "V pásmu 21 MHz je celý úsek pro fone provoz:"
             }
           ]
@@ -2177,12 +2175,12 @@
           "cards": [
             {
               "front": "V pásmu 24 MHz je výhradně pro CW provoz určen úsek:",
-              "back": "24890 - 24915 kHz",
+              "back": "24890–24915 kHz",
               "frontTts": "V pásmu 24 MHz je výhradně pro {CW} provoz určen úsek:"
             },
             {
               "front": "V pásmu 24 MHz je celý úsek pro \"FONE\" provoz:",
-              "back": "24931 - 24990 kHz",
+              "back": "24931–24990 kHz",
               "frontTts": "V pásmu 24 MHz je celý úsek pro fone provoz:"
             }
           ]
@@ -2192,79 +2190,79 @@
           "cards": [
             {
               "front": "V pásmu 28 MHz je výhradně pro CW provoz určen úsek:",
-              "back": "28000 - 28070 kHz",
+              "back": "28000–28070 kHz",
               "frontTts": "V pásmu 28 MHz je výhradně pro {CW} provoz určen úsek:"
             },
             {
               "front": "V pásmu 28 MHz je pro \"FONE\" provoz určen úsek:",
-              "back": "28225 - 29300 kHz",
+              "back": "28225–29300 kHz",
               "frontTts": "V pásmu 28 MHz je pro fone provoz určen úsek:"
             },
             {
               "front": "Výhradně pro družicový down-link je v pásmu 28 MHz určen úsek:",
-              "back": "29300 - 29510 kHz",
+              "back": "29300–29510 kHz",
               "frontTts": "Výhradně pro družicový downlink je v pásmu 28 MHz určen úsek:"
             }
           ]
         },
         {
-          "name": "Pásma – 6 m (50 - 52 MHz)",
+          "name": "Pásma – 6 m (50–52 MHz)",
           "cards": [
             {
-              "front": "Pro pouze CW provoz je v pásmu 50 - 52 MHz určen úsek:",
-              "back": "50 - 50,1 MHz",
-              "frontTts": "Pro pouze {CW} provoz je v pásmu 50 - 52 MHz určen úsek:"
+              "front": "Pro pouze CW provoz je v pásmu 50–52 MHz určen úsek:",
+              "back": "50–50,1 MHz",
+              "frontTts": "Pro pouze {CW} provoz je v pásmu 50–52 MHz určen úsek:"
             },
             {
-              "front": "V pásmu 50-52 MHz jsou povoleny všechny úzkopásmové provozy v úseku:",
-              "back": "50,1 - 52 MHz",
+              "front": "V pásmu 50–52 MHz jsou povoleny všechny úzkopásmové provozy v úseku:",
+              "back": "50,1–52 MHz",
               "backTts": ""
             },
             {
-              "front": "V pásmu 50-52 MHz je přímý FM \"FONE\" provoz povolen v úseku:",
-              "back": "51,410 - 51,590 MHz",
-              "frontTts": "V pásmu 50-52 MHz je přímý FM fone provoz povolen v úseku:"
+              "front": "V pásmu 50–52 MHz je přímý FM \"FONE\" provoz povolen v úseku:",
+              "back": "51,410–51,590 MHz",
+              "frontTts": "V pásmu 50–52 MHz je přímý FM fone provoz povolen v úseku:"
             }
           ]
         },
         {
-          "name": "Pásma – 2 m (144 - 146 MHz)",
+          "name": "Pásma – 2 m (144–146 MHz)",
           "cards": [
             {
-              "front": "Pro pouze CW provoz je v pásmu 144-146 MHz určen úsek:",
-              "back": "144,000 - 144,110 MHz",
-              "frontTts": "Pro pouze {CW} provoz je v pásmu 144-146 MHz určen úsek:"
+              "front": "Pro pouze CW provoz je v pásmu 144–146 MHz určen úsek:",
+              "back": "144,000–144,110 MHz",
+              "frontTts": "Pro pouze {CW} provoz je v pásmu 144–146 MHz určen úsek:"
             },
             {
-              "front": "Výhradně pro majáky je v pásmu 144-146 MHz určen úsek:",
-              "back": "144,400 - 144,490 MHz"
+              "front": "Výhradně pro majáky je v pásmu 144–146 MHz určen úsek:",
+              "back": "144,400–144,490 MHz"
             },
             {
-              "front": "Výhradně pro provoz přes družice je v pásmu 144-146 MHz určen úsek:",
-              "back": "145,806 - 146,0 MHz"
+              "front": "Výhradně pro provoz přes družice je v pásmu 144–146 MHz určen úsek:",
+              "back": "145,806–146,0 MHz"
             }
           ]
         },
         {
-          "name": "Pásma – 70 cm (430 - 440 MHz)",
+          "name": "Pásma – 70 cm (430–440 MHz)",
           "cards": [
             {
               "front": "CW provoz se v pásmu 430–440 MHz přednostně uskutečňuje v úseku:",
-              "back": "432,025 - 432,1 MHz",
+              "back": "432,025–432,1 MHz",
               "frontTts": "{CW} provoz se v pásmu 430–440 MHz přednostně uskutečňuje v úseku:"
             },
             {
               "front": "Pro CW i SSB provoz je v pásmu 430–440 MHz určen úsek:",
-              "back": "432,1 - 432,400 MHz",
+              "back": "432,1–432,400 MHz",
               "frontTts": "Pro {CW} i {SSB} provoz je v pásmu 430–440 MHz určen úsek:"
             },
             {
               "front": "Výhradně pro majáky je v pásmu 430–440 MHz určen úsek:",
-              "back": "432,400 - 432,490 MHz"
+              "back": "432,400–432,490 MHz"
             },
             {
               "front": "V pásmu 430–440 MHz jsou všechny druhy provozu povoleny v úseku:",
-              "back": "432,5 - 432,975 MHz"
+              "back": "432,5–432,975 MHz"
             }
           ]
         },
@@ -2291,7 +2289,7 @@
           ]
         },
         {
-          "name": "Provozní dovednosti - 1. část",
+          "name": "Provozní dovednosti – 1. část",
           "cards": [
             {
               "front": "Pod jakým azimutem se za normálních podmínek šíření směruje z Prahy nejkratším směrem na USA?",
@@ -2340,7 +2338,7 @@
           ]
         },
         {
-          "name": "Provozní dovednosti - 2. část",
+          "name": "Provozní dovednosti – 2. část",
           "cards": [
             {
               "front": "„10 DWN“ znamená:",
@@ -2374,13 +2372,13 @@
             },
             {
               "front": "Když stanice pracující na KV dostane report „588“ znamená to:",
-              "back": "dokonale čitelné, 25 μV na 50 Ohm vstupu RX, čistý tón s nádechem střídavé složky",
+              "back": "dokonale čitelné, 25 μV na 50 ohm vstupu RX, čistý tón s nádechem střídavé složky",
               "frontTts": "Když stanice pracující na KV dostane report {588} znamená to:",
-              "backTts": "dokonale čitelné, 25 μV na 50 Ohmů vstupu RX, čistý tón s nádechem střídavé složky"
+              "backTts": "dokonale čitelné, 25 μV na 50 ohmů vstupu RX, čistý tón s nádechem střídavé složky"
             },
             {
               "front": "Když stanice pracující na VKV dostane report „599“ znamená to:",
-              "back": "dokonale čitelné, 5 μV na 50 Ohmů vstupu RX, zcela čistý tón",
+              "back": "dokonale čitelné, 5 μV na 50 ohmů vstupu RX, zcela čistý tón",
               "frontTts": "Když stanice pracující na VKV dostane report {599} znamená to:"
             },
             {
@@ -2395,7 +2393,7 @@
           ]
         },
         {
-          "name": "Provozní dovednosti - 3. část",
+          "name": "Provozní dovednosti – 3. část",
           "cards": [
             {
               "front": "„Is this frequency in use?“ znamená:",
@@ -2449,7 +2447,7 @@
       "maxErrors": 4,
       "subareas": [
         {
-          "name": "Elektrická, elektromagnetická a rádiová teorie - 1. část",
+          "name": "Elektrická, elektromagnetická a rádiová teorie – 1. část",
           "cards": [
             {
               "front": "Jednotkou elektrického proudu je:",
@@ -2462,12 +2460,12 @@
             {
               "front": "Elektrický výkon měříme v jednotkách:",
               "back": "W",
-              "backTts": " Watt"
+              "backTts": "watt"
             },
             {
               "front": "Kmitočet měříme v jednotkách:",
               "back": "Hz",
-              "backTts": "Hertz"
+              "backTts": "hertz"
             },
             {
               "front": "M (mega) je předpona vyjadřující násobitel základní jednotky:",
@@ -2490,7 +2488,7 @@
           ]
         },
         {
-          "name": "Elektrická, elektromagnetická a rádiová teorie - 2. část",
+          "name": "Elektrická, elektromagnetická a rádiová teorie – 2. část",
           "cards": [
             {
               "front": "Nabitý akumulátor má kapacitu 4 Ah. Dodávat proud 400 mA vydrží:",
@@ -2500,12 +2498,12 @@
             {
               "front": "Odporem protéká stejnosměrný proud 2 A a je na něm napětí 10 V. Velikost odporu je:",
               "back": "5 Ω",
-              "frontTts": "Odporem protéká stejnosměrný proud 2 Ampéry a je na něm napětí 10 Voltů. Velikost odporu je:"
+              "frontTts": "Odporem protéká stejnosměrný proud 2 ampéry a je na něm napětí 10 voltů. Velikost odporu je:"
             },
             {
               "front": "Odebírá-li zařízení z 12 V akumulátoru proud 12 A, je jeho příkon:",
               "back": "144 W",
-              "frontTts": "Odebírá-li zařízení z 12 voltového akumulátoru proud 12 Ampér, je jeho příkon:",
+              "frontTts": "Odebírá-li zařízení z 12 voltového akumulátoru proud 12 ampér, je jeho příkon:",
               "backTts": "144 wattů"
             },
             {
@@ -2515,8 +2513,8 @@
             {
               "front": "Jaký výkon bude dopraven ze 100 W vysílače do antény 25 m dlouhým koaxiálním kabelem s útlumem 12 dB na 100 m?",
               "back": "50 W",
-              "frontTts": "Jaký výkon bude dopraven ze 100 Wattového vysílače do antény 25 metrů dlouhým koaxiálním kabelem s útlumem 12 dB na 100 metrů?",
-              "backTts": "50 Wattů"
+              "frontTts": "Jaký výkon bude dopraven ze 100 wattového vysílače do antény 25 metrů dlouhým koaxiálním kabelem s útlumem 12 dB na 100 metrů?",
+              "backTts": "50 wattů"
             },
             {
               "front": "Informace u amplitudově modulovaného signálu je obsažena:",
@@ -2529,7 +2527,7 @@
           ]
         },
         {
-          "name": "Elektrická, elektromagnetická a rádiová teorie - 3. část",
+          "name": "Elektrická, elektromagnetická a rádiová teorie – 3. část",
           "cards": [
             {
               "front": "Který typ modulace mění kmitočet vysokofrekvenčního signálu v závislosti na přiváděném modulačním napětí?",
@@ -2550,11 +2548,11 @@
             {
               "front": "Mám-li zařízení s příkonem 24 W, jehož napájecí napětí je 12 V, jaký je minimální požadovaný proud napájecího zdroje?",
               "back": "2 A",
-              "frontTts": "Mám-li zařízení s příkonem 24 Wattů, jehož napájecí napětí je 12 Voltů, jaký je minimální požadovaný proud napájecího zdroje?",
-              "backTts": "2 Ampéry"
+              "frontTts": "Mám-li zařízení s příkonem 24 wattů, jehož napájecí napětí je 12 voltů, jaký je minimální požadovaný proud napájecího zdroje?",
+              "backTts": "2 ampéry"
             },
             {
-              "front": "Ohmův zákon určuje vztah mezi:",
+              "front": "ohmův zákon určuje vztah mezi:",
               "back": "napětím, proudem a odporem"
             },
             {
@@ -2565,7 +2563,7 @@
           ]
         },
         {
-          "name": "Součástky - 1. část",
+          "name": "Součástky – 1. část",
           "cards": [
             {
               "front": "Indukčnost cívky měříme v jednotkách:",
@@ -2598,12 +2596,12 @@
           ]
         },
         {
-          "name": "Součástky - 2. část",
+          "name": "Součástky – 2. část",
           "cards": [
             {
               "front": "Běžná křemíková dioda má prahové napětí cca:",
               "back": "0,6 V",
-              "backTts": "0,6 Voltu"
+              "backTts": "0,6 voltu"
             },
             {
               "front": "Jak se chová cívka, připojíme-li k ní střídavé napětí?",
@@ -2624,7 +2622,7 @@
           ]
         },
         {
-          "name": "Elektrické obvody - 1. část",
+          "name": "Elektrické obvody – 1. část",
           "cards": [
             {
               "front": "Rezonanční kmitočet daného paralelního LC obvodu lze snížit např.:",
@@ -2664,7 +2662,7 @@
           ]
         },
         {
-          "name": "Elektrické obvody - 2. část",
+          "name": "Elektrické obvody – 2. část",
           "cards": [
             {
               "front": "Co způsobí kmitání oscilátoru?",
@@ -2698,7 +2696,7 @@
           ]
         },
         {
-          "name": "Rádiové přijímače - 1. část",
+          "name": "Rádiové přijímače – 1. část",
           "cards": [
             {
               "front": "Ovládací prvek transceiveru označený „RIT“ umožňuje:",
@@ -2740,7 +2738,7 @@
           ]
         },
         {
-          "name": "Rádiové přijímače - 2. část",
+          "name": "Rádiové přijímače – 2. část",
           "cards": [
             {
               "front": "Šumové číslo přijímače udává:",
@@ -2775,7 +2773,7 @@
           ]
         },
         {
-          "name": "Rádiové vysílače - 1. část",
+          "name": "Rádiové vysílače – 1. část",
           "cards": [
             {
               "front": "Oscilátor vysílače by měl:",
@@ -2794,9 +2792,9 @@
               "back": "nedostatečně vyhlazené napájecí napětí, nebo poškozená mikrofonní šňůra"
             },
             {
-              "front": "Výkon 100wattového SSB vysílače ve špičce modulační obálky je označován jako:",
+              "front": "Výkon 100 wattového SSB vysílače ve špičce modulační obálky je označován jako:",
               "back": "100 W PEP",
-              "backTts": "100 Wattů PEP"
+              "backTts": "100 wattů PEP"
             },
             {
               "front": "Elektronkové výkonové stupně používají na výstupu především:",
@@ -2805,7 +2803,7 @@
           ]
         },
         {
-          "name": "Rádiové vysílače - 2. část",
+          "name": "Rádiové vysílače – 2. část",
           "cards": [
             {
               "front": "Tranzistorové výkonové stupně používají na výstupu především:",
@@ -2826,7 +2824,7 @@
           ]
         },
         {
-          "name": "Antény a napájecí vedení - 1. část",
+          "name": "Antény a napájecí vedení – 1. část",
           "cards": [
             {
               "front": "Změřená hodnota PSV 1:3 znamená, že se do antény z vysílače přenese cca:",
@@ -2865,7 +2863,7 @@
           ]
         },
         {
-          "name": "Antény a napájecí vedení - 2. část",
+          "name": "Antény a napájecí vedení – 2. část",
           "cards": [
             {
               "front": "Balun je obvod, kterým se realizuje:",
@@ -2900,7 +2898,7 @@
           ]
         },
         {
-          "name": "Šíření rádiových vln - 1. část",
+          "name": "Šíření rádiových vln – 1. část",
           "cards": [
             {
               "front": "Značení vrstev ionosféry směrem od povrchu Země je:",
@@ -2941,10 +2939,10 @@
           ]
         },
         {
-          "name": "Šíření rádiových vln - 2. část",
+          "name": "Šíření rádiových vln – 2. část",
           "cards": [
             {
-              "front": "Maximální použitelný kmitočet pro spoj Praha–Tokio je 17 MHz. Které z uvedených pásem nabízí nejlepší podmínky pro spojení?",
+              "front": "Maximální použitelný kmitočet pro spoj Praha-Tokio je 17 MHz. Které z uvedených pásem nabízí nejlepší podmínky pro spojení?",
               "back": "20 m",
               "backTts": "20 metrů"
             },
@@ -2967,7 +2965,7 @@
             {
               "front": "Při šíření ve volném prostoru ve vzdálenostech větších než 10 λ klesá intenzita elektromagnetického pole (mV na metr):",
               "back": "lineárně v závislosti na vzdálenosti",
-              "frontTts": "Při šíření ve volném prostoru ve vzdálenostech větších než 10 λ klesá intenzita elektromagnetického pole (miliVoltů na metr):"
+              "frontTts": "Při šíření ve volném prostoru ve vzdálenostech větších než 10 λ klesá intenzita elektromagnetického pole (milivoltů na metr):"
             },
             {
               "front": "Spojení odrazem od Měsíce (EME) se zpravidla uskutečňují:",
@@ -3054,17 +3052,17 @@
             },
             {
               "front": "Rušení příjmu zejména na krátkovlnných pásmech může být způsobeno:",
-              "back": "pulzním (spínaným) zdrojem v blízkosti přijímače, antény nebo vedení – např. nabíječka mobilního telefonu, či LED svítidlo"
+              "back": "pulzním (spínaným) zdrojem v blízkosti přijímače, antény nebo vedení - např. nabíječka mobilního telefonu, či LED svítidlo"
             }
           ]
         },
         {
-          "name": "Bezpečnost elektrických zařízení - 1. část",
+          "name": "Bezpečnost elektrických zařízení – 1. část",
           "cards": [
             {
               "front": "Jestliže zamýšlené použití elektrického zařízení nezvyšuje nebezpečí úrazu elektrickým proudem, jaká napětí živých částí považujeme za bezpečná při dotyku během obsluhy?",
               "back": "stejnosměrná do 60 V a střídavá do 25 V",
-              "backTts": "stejnosměrná do 60 Voltů a střídavá do 25 Voltů"
+              "backTts": "stejnosměrná do 60 voltů a střídavá do 25 voltů"
             },
             {
               "front": "Ochranný vodič musí být označen barvou:",
@@ -3089,7 +3087,7 @@
           ]
         },
         {
-          "name": "Bezpečnost elektrických zařízení - 2. část",
+          "name": "Bezpečnost elektrických zařízení – 2. část",
           "cards": [
             {
               "front": "Antény umístěné na střeše budov nebo samostatně stojící musí být vždy:",
@@ -3102,7 +3100,7 @@
             {
               "front": "Prodlužovací pohyblivé přívody pro elektrické předměty s ochranným vodičem (elektrické předměty třídy ochrany I) a síťové napětí 230 V musí mít:",
               "back": "3 vodiče",
-              "frontTts": "Prodlužovací pohyblivé přívody pro elektrické předměty s ochranným vodičem (elektrické předměty třídy ochrany jedna) a síťové napětí 230 Voltů musí mít:"
+              "frontTts": "Prodlužovací pohyblivé přívody pro elektrické předměty s ochranným vodičem (elektrické předměty třídy ochrany jedna) a síťové napětí 230 voltů musí mít:"
             },
             {
               "front": "Uzemňovací vodič antény:",
