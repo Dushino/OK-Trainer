@@ -4,6 +4,8 @@ Aplikace: https://dushino.github.io/OK-Trainer/
 
 Aplikace pro učení pomocí kartiček: každá kartička zobrazí otázku, ty na ni odpovíš v duchu (nebo nahlas), otočíš kartičku a zkontroluješ, jestli jsi odpověděl správně, a označíš, zda jsi odpověď znal, nebo ne. Aplikace si pamatuje statistiky a otázky, které ti moc nejdou a při dalším kole je nabízí více. Tím dochází k efektivnímu učení.
 
+- Nyní je k dispoziti editor kartiček na https://dushino.github.io/OK-Trainer-Editor/ s dokumentací https://github.com/Dushino/OK-Trainer-Editor/blob/main/CZ_README.md 
+
 ## Nahrávání kartiček
 
 OK-Trainer sám o sobě žádný pevný obsah nemá — je to obecný engine. Při prvním spuštění se načte malá vestavěná ukázková sada (tutoriál), abys ho mohl hned vyzkoušet, ale pro skutečné učení importuješ vlastní soubor s kartičkami (soubor `.json`) pomocí importovacího tlačítka nahoře v apce. Můžeš naimportovat několik různých sad a kdykoli mezi nimi přepínat; každá sada si udržuje vlastní, oddělené statistiky.
@@ -119,5 +121,14 @@ Text se běžně předává do TTS enginu telefonu beze změny — většina eng
 - Aplikace nezohledňuje zapomínání. To je jednak idividuální a také je to nad síly jednoduché HTML stránky - musela by to být plnohodnotná aplikace. Takže i když máš všechno zelené pár týdnů před zkouškou, neznamená to, že do zkoušky něco nezapomeneš. Řešení je pravidelné opakování.
 - Počet kartiček v jednom kole učení je dynamický. Když téma umíš, jen proběhne každou kartičku jednou a pokud znáš všechny, příště bude každá zase jen jednou. Pokud neznáš, počet v dalším kole se zvýší tím, že bude problematickou kartičku nabízet vícekrát.
 - **Jestliže se aplikace chová podivně, smaž a pak importuj čerstvě stažené soubory, případně odinstaluj a pak nainstaluj celou aplikaci znovu. Je to tím, že občas něco vylepším a pak nemusí být kompatibilní aplikace s json soubory.**
-- Nyní je k dispoziti editor kartiček na https://dushino.github.io/OK-Trainer-Editor/
 
+## Poznámky k běhu aplikace na různých platformách
+
+- Doposud jsem nenašel nikoho, kdo by funkčnost aplikace otestoval na nějakém zařízení Apple. Uvítám zpětnou vazbu!
+- Hlasová syntéza je nejlepší na Androidu. Windows má problémy s výslovností hlavně zkratek napsanýmch velkými písmeny.
+- Hlasová syntéza na Ubuntu je velmi špatná, doporučuji ji vůbec nepoužívat.
+
+## Poznámky ke kartičkám HAREC A
+
+- V otázkách či odpovědích jsem udělal pouze minimální úpravy např. místo odpovědi "W" jsem doplnil "W (Watt)". 
+- Pokud se zkratka nachází v sekci zkratek, je hláskována vybranou hláskovací abecedou - např. SSB je hláskováno jako Svatopluk Svatopluk Božena. Pokud je zkratka mimo sekci zkratek, je přečtena jako série velkých písmen - např. Es Es Bé. Udělal jsem to takto schválně, protože to umožní "nacucnutí" hláskovací abecedy do mozku a zároveň nekomplikuje běžnou mluvu. Jestli s tím máte problém, dejte, prosím, vědět.
