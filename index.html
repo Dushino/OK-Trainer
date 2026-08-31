@@ -1638,6 +1638,13 @@ document.addEventListener("visibilitychange", () => {
   if(drivingModeActive && document.visibilityState === "visible" && !wakeLockSentinel){
     requestWakeLock();
   }
+  // Chrome on Android keeps running speechSynthesis for a background tab
+  // only briefly (then throttles/kills it), so a card can get cut off
+  // mid-sentence or resume oddly once foregrounded again. Cancel it
+  // outright on backgrounding instead of leaving it in that limbo state.
+  if(document.visibilityState === "hidden" && "speechSynthesis" in window){
+    window.speechSynthesis.cancel();
+  }
 });
 
 function speakLang(text, lang, onDone){
