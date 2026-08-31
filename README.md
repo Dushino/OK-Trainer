@@ -6,6 +6,9 @@ Application: https://dushino.github.io/OK-Trainer/
 
 A flashcard study app: each card shows a question, you answer it in your head (or out loud), flip the card to check whether you were right, and mark whether you knew the answer or not. The app remembers your statistics and shows you the questions you struggle with more often in the next round. This leads to efficient learning.
 
+- Now we have flashcards file editor at https://dushino.github.io/OK-Trainer-Editor/ with documentation at https://github.com/Dushino/OK-Trainer-Editor/blob/main/README.md
+
+
 ## Loading flashcards
 
 OK-Trainer doesn't come with fixed content built in — it's a generic engine. On first launch it loads a small built-in tutorial set so you can try it out immediately, but for real studying you import your own flashcard file (a `.json` file) using the import button at the top of the app. You can import several different sets and switch between them at any time; each set keeps its own, separate statistics.
@@ -120,6 +123,12 @@ Text is normally passed to the device's TTS engine unchanged — most engines al
 - The app doesn't account for forgetting. That's both individual and beyond the scope of a simple HTML page — it would need to be a full-fledged application. So even if everything is green a few weeks before the exam, that doesn't mean you won't forget something by test day. The solution is regular review.
 - The number of cards in a study round is dynamic. When you know a topic well, each card appears just once; if you know all of them, each appears once again next time. If you don't know them, the next round will have more cards because the problematic ones appear more frequently.
 - **If the app behaves strangely, delete and then re-import freshly downloaded files, or alternatively uninstall and reinstall the entire app. This is because I sometimes make improvements, and the app might not be compatible with your saved JSON files.**
-- Now we have flashcards file editor at https://dushino.github.io/OK-Trainer-Editor/
 
 > **Always put your own safety and the safety of those around you first. Do not use this while driving!**
+
+## Notes on running the app on different platforms
+
+- I haven't yet found anyone who has tested the app on an Apple device. Feedback is very welcome!
+- Speech synthesis works best on Android.
+- Windows has pronunciation issues, especially with abbreviations written in capital letters.
+- Speech synthesis on Ubuntu is very poor — I'd recommend not using it at all.
