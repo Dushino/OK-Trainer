@@ -74,7 +74,15 @@ Rozhraní apky (tlačítka, nápovědy, hlášky) je ve výchozím stavu v angli
 Apka nepoužívá žádné externí úložiště ani server k ukládání tvých dat. Veškeré statistiky a postup se ukládají lokálně, v úložišti prohlížeče na zařízení, které používáš. To znamená:
 
 - Nic se nikam neodesílá.
-- Pokud apliakci použiješ z jiného prohlížeče nebo z jiného zařízení, tvé statistiky tam nebudou — postup se mezi prohlížeči ani zařízeními nesynchronizuje.
+- Pokud apliakci použiješ z jiného prohlížeče nebo z jiného zařízení, tvé statistiky tam nebudou — postup se mezi prohlížeči ani zařízeními automaticky nesynchronizuje. Můžeš ho ale ručně přenést pomocí tlačítek export/import níže.
+
+### Zálohování a přenos statistik
+
+Na stránce **Nastavení**, v části **Statistiky aktuální sady**, můžeš exportovat statistiky (Leitnerovy košíky) aktuálně vybrané sady do souboru `.json` (`📤`) a později je zase naimportovat (`📥`) — třeba pro zálohu nebo přenos postupu do jiného prohlížeče či zařízení.
+
+- Název exportovaného souboru obsahuje krátký název sady a datum exportu.
+- Import funguje jen pro odpovídající sadu: apka kontroluje krátký název sady i počet kartiček, a pokud nesedí s aktuálně vybranou sadou, soubor odmítne.
+- Import po potvrzení dosavadní statistiky dané sady **přepíše** — se stávajícími se nijak neslučuje.
 
 ## Instalace na telefon
 

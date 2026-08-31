@@ -571,6 +571,13 @@
       <button id="btnDeleteSpell" class="icon-btn" data-i18n-title="delete_spell_title">🗑️</button>
       <input type="file" id="fileImportSpellInput" accept="application/json,.json" style="display:none;">
     </div>
+
+    <p class="settings-label" data-i18n="label_stats"></p>
+    <div class="set-row">
+      <button id="btnExportStats" class="icon-btn" data-i18n-title="export_stats_title">📤</button>
+      <button id="btnImportStats" class="icon-btn" data-i18n-title="import_stats_title">📥</button>
+      <input type="file" id="fileImportStatsInput" accept="application/json,.json" style="display:none;">
+    </div>
   </div>
 
   <footer style="margin-top:28px;text-align:center;">
@@ -655,6 +662,7 @@ const EN_STRINGS = {
   label_lang: "Interface language",
   label_set: "Card set",
   label_spell: "Spelling alphabet",
+  label_stats: "Statistics for the current set",
   remaining: "remaining",
   tap_to_flip: "tap to flip",
   tap_to_flip_back: "tap to flip back",
@@ -693,7 +701,12 @@ const EN_STRINGS = {
   val_too_many_subareas: "{label} has too many subareas (max {max}, found {n}).",
   val_no_cards: "{label} has no non-empty \"cards\" array.",
   val_card_no_front: "{label} → card #{n} has no valid \"front\" field.",
-  val_card_no_back: "{label} → card #{n} has no valid \"back\" field."
+  val_card_no_back: "{label} → card #{n} has no valid \"back\" field.",
+  export_stats_title: "Export statistics",
+  import_stats_title: "Import statistics",
+  err_stats_set_mismatch: "This statistics file belongs to the set \"{found}\", but the currently selected set is \"{expected}\". Switch to the matching set first.",
+  err_stats_structure_mismatch: "This statistics file doesn't match the structure of the current set (different number of areas or cards). It may be for an older or different version of this set.",
+  confirm_stats_overwrite: "Import will overwrite the existing statistics for the set \"{name}\". Continue?"
 };
 const BUILTIN_LANG_ID = "en";
 
@@ -1140,6 +1153,93 @@ document.getElementById("btnDeleteSet").addEventListener("click", () => {
   delete library[activeSetId];
   saveLibrary();
   switchToSet(BUILTIN_ID);
+});
+
+// ============================================================
+// Export / import statistik pro aktivní sadu
+// ============================================================
+// Statistiky jsou vázané na pozici karty (cat:idx), ne na stabilní ID,
+// proto při importu kontrolujeme jak shortName sady, tak počet karet
+// v každé oblasti — jinak by se boxy mohly přiřadit k jiným kartám.
+function statsCardCounts(){
+  return Object.keys(DATA).sort((a,b) => Number(a) - Number(b)).map(k => DATA[k].length);
+}
+function validateStatsExport(obj){
+  const errs = [];
+  if(!obj || typeof obj !== "object"){ errs.push(t("val_not_object")); return errs; }
+  if(!obj.shortName || typeof obj.shortName !== "string") errs.push(t("val_missing_field", {field: "shortName"}));
+  if(!obj.progress || typeof obj.progress !== "object" || Array.isArray(obj.progress)) errs.push(t("val_missing_field", {field: "progress"}));
+  if(!Array.isArray(obj.cardCounts)) errs.push(t("val_missing_field", {field: "cardCounts"}));
+  return errs;
+}
+function sanitizeFilenamePart(s){
+  return String(s).trim().replace(/\s+/g, "-").replace(/[\\/:*?"<>|]/g, "");
+}
+
+document.getElementById("btnExportStats").addEventListener("click", () => {
+  const payload = {
+    formatVersion: 1,
+    shortName: activeSetId,
+    exportedAt: new Date().toISOString(),
+    cardCounts: statsCardCounts(),
+    progress
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const dateStr = new Date().toISOString().slice(0, 10);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "oktrainer-stats_" + sanitizeFilenamePart(activeSetId) + "_" + dateStr + ".json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("btnImportStats").addEventListener("click", () => {
+  document.getElementById("fileImportStatsInput").click();
+});
+
+document.getElementById("fileImportStatsInput").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    let obj;
+    try{
+      obj = JSON.parse(reader.result);
+    }catch(err){
+      alert(t("err_invalid_json", {msg: err.message}));
+      e.target.value = "";
+      return;
+    }
+    const errs = validateStatsExport(obj);
+    if(errs.length){
+      alert(t("err_invalid_structure", {errs: errs.join("\n")}));
+      e.target.value = "";
+      return;
+    }
+    if(obj.shortName !== activeSetId){
+      alert(t("err_stats_set_mismatch", {expected: activeSetId, found: obj.shortName}));
+      e.target.value = "";
+      return;
+    }
+    const expected = statsCardCounts();
+    const countsMatch = obj.cardCounts.length === expected.length
+      && obj.cardCounts.every((n, i) => n === expected[i]);
+    if(!countsMatch){
+      alert(t("err_stats_structure_mismatch"));
+      e.target.value = "";
+      return;
+    }
+    const ok = confirm(t("confirm_stats_overwrite", {name: activeSetId}));
+    if(!ok){ e.target.value = ""; return; }
+    progress = obj.progress;
+    saveProgress();
+    renderStats();
+    e.target.value = "";
+  };
+  reader.readAsText(file, "utf-8");
 });
 
 // ============================================================

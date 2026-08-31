@@ -238,6 +238,44 @@ sloupečků obsazení boxů tím není nijak ovlivněné, to appka ukazuje vždy
   staré statistiky stejně neodpovídaly novému obsahu).
 - Vestavěnou sadu „Tutoriál" nejde smazat ani přepsat.
 
+## Formát souboru pro export/import statistik
+
+Stránka **Nastavení** dále umožňuje export/import statistik (Leitnerových
+košíků) aktuálně vybrané sady, nezávisle na obsahu samotné sady. Exportovaný
+soubor `.json` vypadá takto:
+
+```json
+{
+  "formatVersion": 1,
+  "shortName": "ok2abc",
+  "exportedAt": "2026-08-31T10:15:00.000Z",
+  "cardCounts": [12, 8],
+  "progress": {
+    "0:0": 3,
+    "0:1": 1,
+    "1:0": 5
+  }
+}
+```
+
+- `shortName` — krátký název sady, ke které statistiky patří.
+- `cardCounts` — počet kartiček v jednotlivých oblastech (v pořadí), slouží k
+  ověření, že soubor pořád odpovídá struktuře aktuální sady.
+- `progress` — mapa `"<indexOblasti>:<indexKartičkyVOblasti>"` → aktuální
+  Leitnerův košík kartičky (1–5), tedy přesný obsah interního úložiště
+  postupu apky pro danou sadu.
+
+Název staženého souboru se sestavuje jako
+`oktrainer-stats_<shortName>_<RRRR-MM-DD>.json`, přičemž případné mezery ve
+`shortName` se nahradí za `-`, aby název souboru nikdy neobsahoval mezery.
+
+Při importu apka soubor přijme, jen pokud `shortName` i `cardCounts` přesně
+odpovídají aktuálně vybrané sadě — jinak ho odmítne, protože kartičky jsou
+identifikované pozicí (ne stabilním ID) a nesedící statistiky by se tiše
+přiřadily ke špatným kartičkám. I odpovídající soubor ještě vyžaduje
+potvrzení, protože import dosavadní statistiky sady **přepíše**, nijak je
+neslučuje.
+
 ## Časté chyby při ručním psaní
 
 - Chybějící čárka mezi položkami pole.

@@ -22,6 +22,7 @@
     "label_lang": "Jazyk aplikace",
     "label_set": "Sada karet",
     "label_spell": "Hláskovací abeceda",
+    "label_stats": "Statistiky aktuální sady",
     "remaining": "zbývá",
     "tap_to_flip": "klikni pro otočení",
     "tap_to_flip_back": "klikni pro otočení zpět",
@@ -60,6 +61,11 @@
     "val_too_many_subareas": "{label} má příliš mnoho podoblastí (max. {max}, nalezeno {n}).",
     "val_no_cards": "{label} nemá neprázdné pole \"cards\".",
     "val_card_no_front": "{label} → kartička #{n} nemá platné pole \"front\".",
-    "val_card_no_back": "{label} → kartička #{n} nemá platné pole \"back\"."
+    "val_card_no_back": "{label} → kartička #{n} nemá platné pole \"back\".",
+    "export_stats_title": "Exportovat statistiky",
+    "import_stats_title": "Importovat statistiky",
+    "err_stats_set_mismatch": "Tento soubor se statistikami patří k sadě \"{found}\", ale aktuálně vybraná sada je \"{expected}\". Nejdřív přepni na odpovídající sadu.",
+    "err_stats_structure_mismatch": "Tento soubor se statistikami neodpovídá struktuře aktuální sady (jiný počet oblastí nebo kartiček). Může jít o starší nebo jinou verzi této sady.",
+    "confirm_stats_overwrite": "Import přepíše dosavadní statistiky pro sadu \"{name}\". Pokračovat?"
   }
 }

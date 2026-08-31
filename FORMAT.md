@@ -237,6 +237,44 @@ unaffected either way; it's always shown.
   so the old statistics wouldn't match the new content anyway).
 - The built-in "Tutorial" deck cannot be deleted or overwritten.
 
+## Statistics export/import file format
+
+The **Settings** page also lets you export/import the statistics (Leitner
+boxes) of the currently selected deck, independently of the deck's own
+content. The exported `.json` file looks like this:
+
+```json
+{
+  "formatVersion": 1,
+  "shortName": "ok2abc",
+  "exportedAt": "2026-08-31T10:15:00.000Z",
+  "cardCounts": [12, 8],
+  "progress": {
+    "0:0": 3,
+    "0:1": 1,
+    "1:0": 5
+  }
+}
+```
+
+- `shortName` — the deck's short name the statistics belong to.
+- `cardCounts` — the number of cards in each area, in order, used to verify
+  the file still matches the current deck's structure.
+- `progress` — a map from `"<areaIndex>:<cardIndexInArea>"` to the card's
+  current Leitner box (1–5), i.e. the exact contents of the app's internal
+  progress storage for that deck.
+
+The download's file name is built as
+`oktrainer-stats_<shortName>_<YYYY-MM-DD>.json`, with any whitespace in
+`shortName` replaced by `-` so the file name stays space-free.
+
+On import, the app only accepts the file if both `shortName` and
+`cardCounts` match the currently selected deck exactly; otherwise it's
+rejected, since cards are identified by position (not a stable ID) and
+mismatched statistics would silently attach to the wrong cards. A matching
+file still requires confirmation, since import **overwrites** the deck's
+existing statistics rather than merging with them.
+
 ## Common mistakes when writing by hand
 
 - Missing comma between array items.

@@ -78,7 +78,15 @@ The app's interface (buttons, hints, messages) defaults to English and works tha
 The app doesn't use any external storage or server to save your data. All statistics and progress are kept locally, in your browser's storage on the device you're using. This means:
 
 - Nothing is uploaded anywhere.
-- If you use the app from a different browser or a different device, your statistics won't be there — progress isn't synced between browsers or devices.
+- If you use the app from a different browser or a different device, your statistics won't be there — progress isn't automatically synced between browsers or devices. You can move it manually with the export/import buttons below.
+
+### Backing up or transferring statistics
+
+On the **Settings** page, under **Statistics for the current set**, you can export the statistics (Leitner boxes) for the currently selected set to a `.json` file (`📤`), and import them back later (`📥`) — for example to back them up or to carry your progress over to another browser or device.
+
+- The exported file name includes the set's short name and the export date.
+- Import only works for the matching set: the app checks the set's short name and card counts, and refuses the file if they don't match the currently selected set.
+- Import **overwrites** the existing statistics for that set after you confirm; there's no merging with what's already there.
 
 ## Installing on your phone
 
