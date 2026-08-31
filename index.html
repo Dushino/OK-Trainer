@@ -1640,10 +1640,12 @@ document.addEventListener("visibilitychange", () => {
   }
   // Chrome on Android keeps running speechSynthesis for a background tab
   // only briefly (then throttles/kills it), so a card can get cut off
-  // mid-sentence or resume oddly once foregrounded again. Cancel it
-  // outright on backgrounding instead of leaving it in that limbo state.
-  if(document.visibilityState === "hidden" && "speechSynthesis" in window){
-    window.speechSynthesis.cancel();
+  // mid-sentence or resume oddly once foregrounded again. Backgrounding
+  // also has no way to resume handsfree later (the driver isn't looking
+  // at the screen to restart it), so just end the session outright,
+  // including the silent keep-alive audio and wake lock.
+  if(document.visibilityState === "hidden" && drivingModeActive){
+    stopDrivingMode();
   }
 });
 
