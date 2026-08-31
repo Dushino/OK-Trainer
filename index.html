@@ -587,7 +587,7 @@
 
 <script>
 // ============================================================
-// Vestavěná výuková sada — zároveň funguje jako ukázka formátu.
+// Built-in tutorial set — also serves as a format example.
 // ============================================================
 const TUTORIAL_SET = {
   "shortName": "Tutorial",
@@ -638,8 +638,8 @@ const TUTORIAL_SET = {
   ]
 };
 // ============================================================
-// Jazyk rozhraní (GUI) — vestavěná angličtina + import dalších
-// balíčků stejným způsobem jako u sad kartiček.
+// Interface language (GUI) — built-in English + import of further
+// packs the same way as with flashcard sets.
 // ============================================================
 const EN_STRINGS = {
   import_set_title: "Import set",
@@ -731,9 +731,9 @@ let langLibrary = loadLangLibrary();
 let activeLangId = localStorage.getItem(ACTIVE_LANG_KEY) || BUILTIN_LANG_ID;
 if(!langLibrary[activeLangId]) activeLangId = BUILTIN_LANG_ID;
 
-// t(key, vars) - přeloží klíč v aktivním jazyce; chybějící klíč spadne
-// zpátky na vestavěnou angličtinu, ať import neúplného balíčku appku nikdy
-// nerozbije.
+// t(key, vars) - translates a key in the active language; a missing key
+// falls back to the built-in English, so importing an incomplete pack can
+// never break the app.
 function t(key, vars){
   const pack = langLibrary[activeLangId];
   let s = (pack && pack.strings && pack.strings[key]) || EN_STRINGS[key] || key;
@@ -824,11 +824,11 @@ document.getElementById("btnDeleteLang").addEventListener("click", () => {
 });
 
 // ============================================================
-// Hláskovací abecedy pro handsfree TTS — vestavěná mezinárodní
-// (ITU/NATO) angličtina + import dalších balíčků stejným způsobem
-// jako u jazyka rozhraní. Použití je řízeno značkami {X} přímo v textu
-// kartičky (front/back/frontTts/backTts, viz buildSpeechSegments níže),
-// tento výběr jen určuje KTEROU tabulku hláskování použije.
+// Spelling alphabets for handsfree TTS — built-in international
+// (ITU/NATO) English + import of further packs the same way as with
+// the interface language. Usage is driven by {X} markers directly in
+// the card text (front/back/frontTts/backTts, see buildSpeechSegments
+// below); this selection only determines WHICH spelling table is used.
 // ============================================================
 const EN_SPELL = {
   "spellId": "itu-en",
@@ -939,7 +939,7 @@ const MAX_AREAS = 100;
 const MAX_SUBAREAS = 1000;
 
 // ============================================================
-// Úložiště: knihovna sad + postup/statistiky vázané na aktivní sadu
+// Storage: library of sets + progress/statistics tied to the active set
 // ============================================================
 const LIB_KEY = "oktrainer_library_v1";
 const ACTIVE_KEY = "oktrainer_active_v1";
@@ -983,16 +983,16 @@ if(!library[activeSetId]) activeSetId = BUILTIN_ID;
 
 let progress = {};
 
-// DATA / GROUP_ORDER / CAT_LABELS jsou sestaveny dynamicky z aktivní sady
-// při každém přepnutí — vše ostatní v apce (boxy, míchání, statistiky,
-// handsfree) pracuje s "cat" jen jako s obecným klíčem, stejně jako dřív.
+// DATA / GROUP_ORDER / CAT_LABELS are built dynamically from the active
+// set on every switch — everything else in the app (boxes, shuffling,
+// statistics, handsfree) still just treats "cat" as a generic key.
 let DATA = {};
 let GROUP_ORDER = {};
 let CAT_LABELS = {};
 let STATS_CAT_LABELS = {};
 let AREA_MAX_ERRORS = {};
-// Text, kterým se název oblasti/podoblasti čte v handsfree režimu — z
-// volitelného areas[].nameTts / subareas[].nameTts, jinak samotný "name".
+// Text used to speak an area/subarea name in handsfree mode — from the
+// optional areas[].nameTts / subareas[].nameTts, otherwise the "name" itself.
 let AREA_NAME_SPOKEN = {};
 let SUBAREA_NAME_SPOKEN = {};
 
@@ -1018,7 +1018,7 @@ function applyActiveSet(setObj){
 }
 
 // ============================================================
-// Validace importovaného souboru
+// Validation of the imported file
 // ============================================================
 function validateSet(obj){
   const errs = [];
@@ -1056,7 +1056,7 @@ function validateSet(obj){
 }
 
 // ============================================================
-// Přepínání / import / mazání sad
+// Switching / importing / deleting sets
 // ============================================================
 function renderSetSelect(){
   const sel = document.getElementById("setSelect");
@@ -1156,11 +1156,11 @@ document.getElementById("btnDeleteSet").addEventListener("click", () => {
 });
 
 // ============================================================
-// Export / import statistik pro aktivní sadu
+// Export / import of statistics for the active set
 // ============================================================
-// Statistiky jsou vázané na pozici karty (cat:idx), ne na stabilní ID,
-// proto při importu kontrolujeme jak shortName sady, tak počet karet
-// v každé oblasti — jinak by se boxy mohly přiřadit k jiným kartám.
+// Statistics are keyed by card position (cat:idx), not a stable ID, so
+// on import we check both the set's shortName and the card count in
+// each area — otherwise the boxes could end up attached to the wrong cards.
 function statsCardCounts(){
   return Object.keys(DATA).sort((a,b) => Number(a) - Number(b)).map(k => DATA[k].length);
 }
@@ -1243,7 +1243,7 @@ document.getElementById("fileImportStatsInput").addEventListener("change", (e) =
 });
 
 // ============================================================
-// Leitnerovy "boxy" (řízení opakování) — vázané na aktivní sadu
+// Leitner "boxes" (repetition control) — tied to the active set
 // ============================================================
 function cardKey(cat, idx){ return cat + ":" + idx; }
 function getBox(cat, idx){
@@ -1255,7 +1255,7 @@ function setBox(cat, idx, box){
 }
 
 // ============================================================
-// Stav aktuálního kola
+// Current round state
 // ============================================================
 let state = {
   cat: "0",
@@ -1275,9 +1275,9 @@ function shuffle(arr){
   return arr;
 }
 
-// Sestaví pořadí kartiček tak, aby se stejná kartička nikdy neobjevila
-// dvakrát za sebou, ale zachovalo se procentuální zastoupení podle
-// Leitnerova boxu (greedy podle zbývajícího počtu).
+// Builds the card order so the same card never appears twice in a row,
+// while keeping the proportional representation by Leitner box (greedy
+// based on the remaining count).
 function buildNoAdjacentSequence(countsObj){
   let items = Object.keys(countsObj).map(k => ({idx: Number(k), count: countsObj[k]}));
   const total = items.reduce((a,b) => a + b.count, 0);
@@ -1467,13 +1467,13 @@ function setGroup(group){
 }
 
 // ============================================================
-// Statistiky úspěšnosti
+// Success statistics
 // ============================================================
-// Logaritmická křivka pro barevný přechod od oranžové (30°) ke zelené (90°)
-// Vstup: procenta 0-1, kde 0 = oranžová (30°), 1 = zelená (90°)
+// Logarithmic curve for the color transition from orange (30°) to green (90°)
+// Input: percentage 0-1, where 0 = orange (30°), 1 = green (90°)
 function logarithmicHue(normalizedPct) {
   const logVal = Math.log10(Math.max(0, Math.min(1, normalizedPct)) * 9 + 1);
-  return 30 + logVal * 60; // logVal jde od 0 do 1, hue od 30° do 90°
+  return 30 + logVal * 60; // logVal runs from 0 to 1, hue from 30° to 90°
 }
 function hexToRgb(hex){
   hex = hex.replace('#','').trim();
@@ -1496,10 +1496,10 @@ function successColor(pct){
   return rgbToHex(c.r, c.g, c.b);
 }
 
-// Práh pro danou oblast (v %), odvozený z maxErrors a aktuálního počtu
-// kartiček v oblasti (ne z pevného počtu — sada může mít víc otázek, než
-// kolik jich komise vybere k ostré zkoušce). Vrací null, pokud oblast
-// žádný maxErrors nemá — pak se použije starý plynulý gradient.
+// Threshold for a given area (in %), derived from maxErrors and the
+// current card count in the area (not a fixed count — a set may have
+// more questions than the exam board picks for the actual exam). Returns
+// null if the area has no maxErrors — then the old smooth gradient is used.
 function areaThresholdPct(cat){
   const maxErrors = AREA_MAX_ERRORS[cat];
   if(maxErrors == null) return null;
@@ -1508,22 +1508,22 @@ function areaThresholdPct(cat){
   return Math.max(0, (1 - maxErrors/total) * 100);
 }
 
-// Barva s prahem: pod prahem pevná červená, od prahu do 100% logaritmický
-// přechod (oranžová→zelená). Bez prahu (thresholdPct === null) se chová
-// jako stará plynulá škála 0-100 %.
+// Color with a threshold: fixed red below the threshold, logarithmic
+// transition (orange→green) from the threshold to 100%. Without a
+// threshold (thresholdPct === null) it behaves like the smooth 0-100% scale.
 function successColorFor(pct, thresholdPct){
   if(thresholdPct == null) return successColor(pct);
-  if(pct < thresholdPct) return 'hsl(0, 75%, 48%)'; // red, tlumená
-  
-  // Od prahu do 100%: logaritmický gradient z oranžové na zelenou
+  if(pct < thresholdPct) return 'hsl(0, 75%, 48%)'; // red, muted
+
+  // From the threshold to 100%: logarithmic gradient from orange to green
   const span = 100 - thresholdPct;
   const normalized = span > 0 ? (pct - thresholdPct) / span : 1;
   const hue = logarithmicHue(normalized);
   return `hsl(${hue}, 75%, 50%)`;
 }
 
-// Rozložení kartiček do Leitnerových boxů 1-5 pro danou oblast, volitelně
-// omezené na jednu podoblast. counts[i] = počet kartiček v boxu i+1.
+// Distribution of cards into Leitner boxes 1-5 for a given area, optionally
+// limited to one subarea. counts[i] = number of cards in box i+1.
 function boxCounts(cat, group){
   const items = DATA[cat] || [];
   const counts = [0,0,0,0,0];
@@ -1536,9 +1536,9 @@ function boxCounts(cat, group){
   return {counts, total};
 }
 
-// Vážený průměr boxu napříč kartičkami, normalizovaný na 0-100 %
-// (box1=0 %, box5=100 %) — hrubý odhad šance na správnou odpověď u
-// zkoušky, použitý jako vstup do prahové barvy pass/fail tečky.
+// Weighted average box across cards, normalized to 0-100%
+// (box1=0%, box5=100%) — a rough estimate of the exam success chance,
+// used as input to the pass/fail dot's threshold color.
 function weightedBoxPct(counts, total){
   if(!total) return 0;
   let sum = 0;
@@ -1546,10 +1546,10 @@ function weightedBoxPct(counts, total){
   return sum/total;
 }
 
-// HTML pěti sloupečků (bez obalového .box-bars) — barva podle POZICE boxu
-// (box1 červená .. box5 zelená), výška podle podílu kartiček v tom boxu.
-// Prázdný box se pořád zobrazí (minimální výška), aby bylo vidět všech 5.
-// Konstantní barvy: R, R-O, O, Y, G; tlumené (S=70-80%, L=48-52%)
+// HTML for the five bars (without the wrapping .box-bars) — color by box
+// POSITION (box1 red .. box5 green), height by that box's share of cards.
+// An empty box is still shown (minimum height), so all 5 are always visible.
+// Constant colors: R, R-O, O, Y, G; muted (S=70-80%, L=48-52%)
 function boxBarsInnerHtml(counts, total){
   const colors = ['hsl(0, 75%, 48%)', 'hsl(15, 80%, 48%)', 'hsl(30, 80%, 48%)', 'hsl(45, 75%, 50%)', 'hsl(90, 70%, 52%)'];
   let html = "";
@@ -1565,8 +1565,8 @@ function boxBarsHtml(counts, total){
   return '<div class="box-bars">' + boxBarsInnerHtml(counts, total) + '</div>';
 }
 
-// Info pro pass/fail tečku dané oblasti, nebo null, když oblast nemá
-// maxErrors (pak se tečka vůbec nezobrazuje — viz FORMAT.md).
+// Info for a given area's pass/fail dot, or null when the area has no
+// maxErrors (then the dot isn't shown at all — see FORMAT.md).
 function passDotInfo(cat){
   const threshold = areaThresholdPct(cat);
   if(threshold == null) return null;
@@ -1613,7 +1613,7 @@ document.getElementById("statsList").addEventListener("click", e => {
 });
 
 // ============================================================
-// Režim handsfree (TTS + Media Session ovládání přes Next/Prev Track)
+// Handsfree mode (TTS + Media Session control via Next/Prev Track)
 // ============================================================
 let drivingModeActive = false;
 let silentAudioEl = null;
@@ -1658,10 +1658,10 @@ function speakLang(text, lang, onDone){
     if(onDone) onDone();
   }
 }
-// Přehraje pole {text, lang} segmentů jako řetězec navazujících utterance —
-// jedna SpeechSynthesisUtterance neumí mixovat jazyky/hlasy uvnitř sebe,
-// takže hláskování jiným jazykem (viz buildSpeechSegments) musí jít segment
-// po segmentu.
+// Plays an array of {text, lang} segments as a chain of consecutive
+// utterances — a single SpeechSynthesisUtterance can't mix languages/voices
+// within itself, so spelling in a different language (see
+// buildSpeechSegments) has to go segment by segment.
 function speakSequence(segments, onDoneAll){
   const list = (segments || []).filter(seg => seg && seg.text);
   function next(i){
@@ -1671,18 +1671,20 @@ function speakSequence(segments, onDoneAll){
   next(0);
 }
 
-// Rozseká libovolný text (front/back/frontTts/backTts, i název oblasti či
-// podoblasti) na jazykové segmenty pro speakSequence podle značek {X}:
-// obsah uvnitř složených závorek se přehláskuje písmeno po písmenu aktuálně
-// vybranou hláskovací abecedou (nezávisle na jazyce sady i rozhraní);
-// značka bez jediného písmene/číslice uvnitř (čistá interpunkce, např.
-// "{-}" jako pomlčka) se místo hláskování přečte doslova daným znakem. Text
-// MIMO {X} značky se předává TTS beze změny — ať zkratku typu "FM" nebo
-// "HAREC" přečte samotný TTS engine, jak umí; víc utterance na jedno slovo
-// (např. jedna na písmeno) je citelně pomalejší a na mobilu to nic nezlepší
-// (engine si s krátkými ALL-CAPS zkratkami běžně poradí sám), takže žádná
-// automatická pojistka pro neoznačený text není — kdo chce spolehlivé
-// hláskování, použije {X}.
+// Splits arbitrary text (front/back/frontTts/backTts, also an area or
+// subarea name) into language segments for speakSequence according to {X}
+// markers: content inside curly braces is spelled out letter by letter
+// using the currently selected spelling alphabet (independent of both the
+// set's language and the interface language); a marker with no single
+// letter/digit inside (pure punctuation, e.g. "{-}" for a dash) is read
+// literally as that character instead of being spelled out. Text OUTSIDE
+// {X} markers is passed to TTS unchanged — an abbreviation like "FM" or
+// "HAREC" is read by the TTS engine itself, however it manages; more
+// utterances per word (e.g. one per letter) is noticeably slower and
+// doesn't improve anything on mobile (the engine usually handles short
+// ALL-CAPS abbreviations fine on its own), so there's no automatic
+// safety net for unmarked text — anyone who wants reliable spelling
+// uses {X}.
 const MARKER_RE = /\{([^{}]*)\}/g;
 function buildSpeechSegments(text, lang){
   if(!text) return [];
@@ -1727,16 +1729,18 @@ function speakBack(){
   const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
   speakSequence(buildSpeechSegments(backSpeechText(item), deckLang));
 }
-// Hlasové instrukční fráze v handsfree režimu (ne obsah kartiček) se teď
-// řídí AKTIVNÍM JAZYKEM ROZHRANÍ (langLibrary/activeLangId) přesně stejně
-// jako texty v GUI — přes t() s prefixem "spoken_", vestavěná angličtina +
-// import dalšího balíčku (viz Languages/*.json) platí pro obojí najednou.
-// Obsah kartiček samotných (front/back) se dál čte jazykem AKTIVNÍ SADY
-// KARTIČEK — to je jiná, nezávislá osa, viz speakFront()/speakBack()/buildSpeechSegments().
-// Kde se instrukční fráze a obsah kartičky/sady spojují do jedné hlášky
-// (scopeSpokenSegments, speakFeedbackThenNext), musí jít o samostatné
-// segmenty pro speakSequence, ať každá část mluví správným hlasem/jazykem
-// (stejný princip jako u hláskování zkratek jinou abecedou).
+// Spoken instructional phrases in handsfree mode (not the card content)
+// are now driven by the ACTIVE INTERFACE LANGUAGE (langLibrary/activeLangId)
+// exactly like the GUI texts — via t() with the "spoken_" prefix; the
+// built-in English + import of another pack (see Languages/*.json) covers
+// both at once. The card content itself (front/back) is still read in the
+// ACTIVE FLASHCARD SET's language — that's a separate, independent axis,
+// see speakFront()/speakBack()/buildSpeechSegments(). Where an
+// instructional phrase and card/set content get combined into one
+// announcement (scopeSpokenSegments, speakFeedbackThenNext), they must be
+// separate segments for speakSequence, so each part speaks in the correct
+// voice/language (the same principle as spelling abbreviations in a
+// different alphabet).
 function sp(key){
   return t("spoken_" + key);
 }
@@ -1752,10 +1756,11 @@ function announceCurrentState(){
   if(state.flipped) speakBack(); else speakFront();
 }
 
-// Vrátí segmenty pro speakSequence: název oblasti/podoblasti je OBSAH
-// aktivní sady karet (jazyk sady, přes volitelné nameTts a značky {X}),
-// "Celá oblast "/"The whole area " je instrukční fráze (jazyk rozhraní) —
-// nesmí jít do jedné utterance.
+// Returns segments for speakSequence: the area/subarea name is CONTENT
+// of the active flashcard set (the set's language, via the optional
+// nameTts and {X} markers), while sp("whole_area") ("The whole area ")
+// is an instructional phrase (interface language) — they must not go
+// into a single utterance.
 function scopeSpokenSegments(cat, group){
   const deckLang = (library[activeSetId] && library[activeSetId].language) || "cs-CZ";
   const areaSpoken = AREA_NAME_SPOKEN[cat] || STATS_CAT_LABELS[cat] || cat;
@@ -1765,8 +1770,8 @@ function scopeSpokenSegments(cat, group){
   }
   return [{text: sp("whole_area"), lang: activeSpokenLang()}, ...buildSpeechSegments(areaSpoken, deckLang)];
 }
-// Prostý text pro nemluvené zobrazení (Media Session metadata) — tam
-// smíchání jazyků v jednom řetězci nevadí, nic se tím nečte nahlas.
+// Plain text for non-spoken display (Media Session metadata) — mixing
+// languages in one string doesn't matter there, since nothing reads it aloud.
 function scopeSpokenLabel(cat, group){
   const catName = STATS_CAT_LABELS[cat] || cat;
   return (group && group !== "__all__") ? (catName + ", " + group) : (sp("whole_area") + catName);
@@ -1857,12 +1862,12 @@ function startDrivingMode(){
   if(!silentAudioEl){
     silentAudioEl = new Audio("keepalive.wav");
     silentAudioEl.loop = true;
-    // Zvuk musí aktivně hrát, aby apka vůbec získala audio focus (bez
-    // přehrávaného <audio> elementu Media Session API na Androidu
-    // nefunguje). Ověřeno na reálném zařízení: volume = 0 apku z audio
-    // focusu úplně vyřadí, zatímco jakákoliv nenulová hodnota funguje —
-    // 0.00001 je prakticky neslyšitelná. Spolehlivost s vypnutou obrazovkou
-    // řeší Wake Lock níže, ne hlasitost.
+    // The sound has to actively play for the app to get audio focus at all
+    // (without a playing <audio> element the Media Session API doesn't
+    // work on Android). Verified on a real device: volume = 0 knocks the
+    // app out of audio focus entirely, while any nonzero value works —
+    // 0.00001 is practically inaudible. Reliability with the screen off is
+    // handled by the Wake Lock below, not the volume.
     silentAudioEl.volume = 0.00001;
   }
   silentAudioEl.play().catch(() => {});
@@ -1883,10 +1888,10 @@ function startDrivingMode(){
   navigator.mediaSession.playbackState = "playing";
 
   drivingModeActive = true;
-  // Handsfree vždy začíná otázkou — pokud byla kartička obrácená na
-  // odpověď (např. z předchozího ručního procvičování), otočíme ji zpět,
-  // ať to, co appka řekne (speakFront níže), sedí s tím, co je vidět na
-  // obrazovce, a uživatel spoléhající jen na sluch ví, na co se odpovídá.
+  // Handsfree always starts with the question — if the card was flipped
+  // to the answer (e.g. from previous manual practice), flip it back so
+  // what the app says (speakFront below) matches what's shown on screen,
+  // and a user relying purely on hearing knows what they're answering.
   if(state.flipped){
     state.flipped = false;
     renderCard();
@@ -1920,7 +1925,7 @@ document.getElementById("btnDriving") && document.getElementById("btnDriving").a
 });
 
 // ============================================================
-// Ovládání
+// Controls
 // ============================================================
 document.getElementById("areaSelect").addEventListener("change", e => {
   setCategory(e.target.value);
@@ -1993,9 +1998,9 @@ if("serviceWorker" in navigator){
 }
 
 // ============================================================
-// Obrazovka nastavení (jazyk rozhraní / sada karet / hláskovací
-// abeceda) — přepínání viditelnosti přes .hidden, žádná skutečná
-// navigace, appka je pořád jedna stránka.
+// Settings screen (interface language / card set / spelling
+// alphabet) — visibility toggled via .hidden, no real navigation,
+// the app is still a single page.
 // ============================================================
 document.getElementById("btnOpenSettings").addEventListener("click", () => {
   document.getElementById("mainScreen").classList.add("hidden");
@@ -2007,7 +2012,7 @@ document.getElementById("btnCloseSettings").addEventListener("click", () => {
 });
 
 // ============================================================
-// Inicializace
+// Initialization
 // ============================================================
 switchToSet(activeSetId);
 applyTranslations();
