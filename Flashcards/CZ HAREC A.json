@@ -2451,20 +2451,22 @@
           "cards": [
             {
               "front": "Jednotkou elektrického proudu je:",
-              "back": "ampér"
+              "back": "A (ampér)",
+              "backTts": "ampér"
             },
             {
               "front": "Jednotkou elektrického odporu je:",
-              "back": "ohm"
+              "back": "Ω (ohm)",
+              "backTts": "ohm"
             },
             {
               "front": "Elektrický výkon měříme v jednotkách:",
-              "back": "W",
+              "back": "W (watt)",
               "backTts": "watt"
             },
             {
               "front": "Kmitočet měříme v jednotkách:",
-              "back": "Hz",
+              "back": "Hz (hertz)",
               "backTts": "hertz"
             },
             {
@@ -2567,12 +2569,12 @@
           "cards": [
             {
               "front": "Indukčnost cívky měříme v jednotkách:",
-              "back": "H (Henry)",
+              "back": "H (henry)",
               "backTts": "Henry"
             },
             {
               "front": "Kapacitu kondenzátoru měříme v jednotkách:",
-              "back": "F (Farad)",
+              "back": "F (farad)",
               "backTts": "Farad"
             },
             {
