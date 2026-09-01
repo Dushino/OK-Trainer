@@ -136,6 +136,19 @@ Text se běžně předává do TTS enginu telefonu beze změny — většina eng
 - Hlasová syntéza je nejlepší na Androidu. Windows má problémy s výslovností hlavně zkratek napsanýmch velkými písmeny.
 - Hlasová syntéza na Ubuntu je velmi špatná, doporučuji ji vůbec nepoužívat.
 
+## Doporučený způsob učení
+
+- Rozsáhlé znalosti je dobré rozdělit na menší celky. Proto byly v této aplikaci zavedeny oblasti.
+- Velmi rozsáhlé celky je dobré rozdělit na ještě menší celky. K tomu slouží podoblasti. Počet kartiček v podoblasti je třeba stanovit tak, abys novou látku zvládl naučit a ona tě nezahltila.
+- Při učení nové sady kartiček doporučuji postupovat následovně:
+  - Před učením nové látky si zopakuj starou — určitě poslední probranou podoblast, a pak podle vlastního výběru další.
+  - Novou látku se uč po podoblastech, tedy v rozumně malých celcích.
+  - Může pomoci, když budeš prokládat učení nové látky z různých oblastí.
+  - Až budeš umět všechny podoblasti z dané oblasti, zopakovat si můžeš celou oblast najednou.
+  - Pomůže, když si všímáš denní doby nebo míry únavy a tomu přizpůsobíš množství nové látky. Někdy nemá cenu se do učení nutit, i když je dobré to alespoň zkusit.
+  - Pamatuj, že zapomínat je úplně normální a proces učení je postupná minimalizace chyb — než se nová znalost pořádně usadí, obvykle ji několikrát zapomeneš a musíš si ji připomenout znovu. Tak nezoufej a vytrvej.
+  - U látky, která nedává smysl a její učení je těžké i při omezeném počtu karet v podoblasti (typicky prefixy v sadě HAREC A), si stanov cíl, že se v prvním průchodu chceš ze sady naučit třeba jen jednu nebo dvě karty. Pak v klidu ostatní ignoruj a odpovídej „Neznal jsem“, aniž bys četl odpovědi. Při příštím kole si můžeš přibrat další kartu a tak dokola, až najednou zjistíš, že to umíš.
+  
 ## Poznámky ke kartičkám HAREC A
 
 - V otázkách či odpovědích jsem udělal pouze minimální úpravy např. místo odpovědi "W" jsem doplnil "W (Watt)". 
