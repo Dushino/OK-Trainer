@@ -140,3 +140,16 @@ Text is normally passed to the device's TTS engine unchanged — most engines al
 - Speech synthesis works best on Android.
 - Windows has pronunciation issues, especially with abbreviations written in capital letters.
 - Speech synthesis on Ubuntu is very poor — I'd recommend not using it at all.
+
+## Recommended way of studying
+
+- It's a good idea to break a large body of knowledge into smaller chunks. That's why this app has areas.
+- Very large chunks are best split into even smaller ones — that's what subareas are for. Size a subarea's card count so that you can actually learn the new material without it overwhelming you.
+- When studying a new deck, I recommend the following approach:
+  - Before learning new material, review what you've already covered — definitely the subarea you studied last, and then others of your choosing.
+  - Learn new material subarea by subarea, i.e. in reasonably small chunks.
+  - It can help to interleave new material from different areas rather than sticking to just one.
+  - Once you know all the subareas within an area, you can review the whole area at once.
+  - It helps to notice the time of day or how tired you are, and adjust how much new material you take on accordingly. Sometimes it's not worth forcing yourself, though it's still worth at least trying.
+  - Remember that forgetting is completely normal, and learning is a gradual process of minimizing mistakes — before a new piece of knowledge really sticks, you'll usually forget it a few times and need to be reminded again. So don't despair, and keep at it.
+  - For material that doesn't lend itself to sense-making and is hard to learn even with a small number of cards in the subarea (typically the prefix lists in the HAREC A deck), set yourself a goal of learning just one or two cards from the deck on the first pass. Then calmly ignore the rest and answer **Don't know** for them without even reading the answer. Add one more card each round, and repeat, until you suddenly find you know it.
