@@ -448,6 +448,11 @@
     display:none;
   }
   .pass-dot.visible{display:inline-block;}
+  .urgency-triangle{
+    font-size:12px;
+    line-height:1;
+    flex-shrink:0;
+  }
   .stats-row{
     display:flex;
     align-items:center;
@@ -663,6 +668,7 @@ const EN_STRINGS = {
   label_set: "Card set",
   label_spell: "Spelling alphabet",
   label_stats: "Statistics for the current set",
+  urgency_title: "{pct}% likely forgotten by now",
   remaining: "remaining",
   tap_to_flip: "tap to flip",
   tap_to_flip_back: "tap to flip back",
@@ -1246,11 +1252,23 @@ document.getElementById("fileImportStatsInput").addEventListener("change", (e) =
 // Leitner "boxes" (repetition control) — tied to the active set
 // ============================================================
 function cardKey(cat, idx){ return cat + ":" + idx; }
-function getBox(cat, idx){
-  return progress[cardKey(cat, idx)] || 1;
+// A progress entry used to be a bare box number (1-5); it's now
+// {box, lastSeen, lapses} so we can estimate forgetting (see
+// cardUrgency() below). Old bare-number entries are normalized on read —
+// no eager migration needed.
+function getEntry(cat, idx){
+  const raw = progress[cardKey(cat, idx)];
+  if(raw && typeof raw === "object") return raw;
+  return {box: raw || 1, lastSeen: null, lapses: 0};
 }
-function setBox(cat, idx, box){
-  progress[cardKey(cat, idx)] = Math.max(1, Math.min(5, box));
+function getBox(cat, idx){
+  return getEntry(cat, idx).box;
+}
+function recordAnswer(cat, idx, good){
+  const entry = getEntry(cat, idx);
+  const box = Math.max(1, Math.min(5, good ? entry.box + 1 : 1));
+  const lapses = good ? entry.lapses : entry.lapses + 1;
+  progress[cardKey(cat, idx)] = {box, lastSeen: Date.now(), lapses};
   saveProgress();
 }
 
@@ -1424,8 +1442,7 @@ function flip(){
 function grade(good){
   const item = currentItem();
   if(!item) return;
-  const box = getBox(state.cat, item.idx);
-  setBox(state.cat, item.idx, good ? box+1 : 1);
+  recordAnswer(state.cat, item.idx, good);
   if(good) state.sessionGood++; else state.sessionBad++;
   state.pos++;
   state.flipped = false;
@@ -1580,6 +1597,48 @@ function passDotHtml(cat){
   return '<span class="pass-dot visible" style="background:'+info.color+';" title="'+Math.round(info.pct)+'%"></span>';
 }
 
+// Rough forgetting-curve estimate per card (Ebbinghaus/SM-2 shaped):
+// "stability" is how many days it roughly takes for recall to fade,
+// growing geometrically with the box (more boxes climbed = more durable)
+// and shrunk by lapses relative to the CURRENT box. Dividing by the box
+// (rather than keeping a flat lapse penalty) means old lapses matter less
+// once the card has since climbed back up on its own — avoids the classic
+// SM-2 "ease hell" of a card staying penalized forever after a rough start.
+const URGENCY_BASE_INTERVAL_DAYS = 1;
+const URGENCY_GROWTH_FACTOR = 2.2;
+function cardStabilityDays(entry){
+  const stability = URGENCY_BASE_INTERVAL_DAYS * Math.pow(URGENCY_GROWTH_FACTOR, entry.box - 1);
+  return stability / (1 + entry.lapses / entry.box);
+}
+// 0 (just reviewed, fresh) .. 1 (long overdue, probably forgotten). A card
+// with no lastSeen yet (never reviewed since this feature shipped) is
+// treated as fully due, same as a brand-new card.
+function cardUrgency(entry){
+  if(!entry.lastSeen) return 1;
+  const daysSince = (Date.now() - entry.lastSeen) / 86400000;
+  const stability = cardStabilityDays(entry);
+  return 1 - Math.exp(-daysSince / stability);
+}
+// Average urgency across an area/subarea's cards, fed through the same
+// red→green gradient as the box-mastery colors, just inverted (urgent =
+// red, fresh = green).
+function areaUrgency(cat, group){
+  const items = DATA[cat] || [];
+  let sum = 0, n = 0;
+  items.forEach((it, i) => {
+    if(group && group !== "__all__" && it.group !== group) return;
+    sum += cardUrgency(getEntry(cat, i));
+    n++;
+  });
+  return n ? sum/n : 0;
+}
+function urgencyTriangleHtml(cat, group){
+  const urgency = areaUrgency(cat, group);
+  const pct = Math.round(urgency * 100);
+  const color = successColor((1 - urgency) * 100);
+  return '<span class="urgency-triangle" style="color:'+color+';" title="'+t("urgency_title", {pct})+'">▶</span>';
+}
+
 function renderStats(){
   const container = document.getElementById("statsList");
   if(!container) return;
@@ -1588,6 +1647,7 @@ function renderStats(){
     const {counts, total} = boxCounts(cat, "__all__");
     html += '<div class="stats-cat" data-cat="'+cat+'" data-group="__all__">'
       + '<div class="stats-cat-head">'
+      + urgencyTriangleHtml(cat, "__all__")
       + '<span class="stats-cat-name">'+STATS_CAT_LABELS[cat]+'</span>'
       + passDotHtml(cat)
       + boxBarsHtml(counts, total)
@@ -1596,6 +1656,7 @@ function renderStats(){
       const g = boxCounts(cat, group);
       const safeGroup = group.replace(/"/g, '&quot;');
       html += '<div class="stats-row" data-cat="'+cat+'" data-group="'+safeGroup+'">'
+        + urgencyTriangleHtml(cat, group)
         + '<span class="stats-row-name">'+group+'</span>'
         + boxBarsHtml(g.counts, g.total)
         + '</div>';
