@@ -1647,7 +1647,8 @@ function urgencyBarHtml(cat, group){
   let marks = "";
   for(let i=0;i<3;i++){
     const filled = i < level;
-    marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'￭':'･')+'</span>';
+    // marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'￭':'･')+'</span>';
+    marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'◼':'◻')+'</span>';
   }
   return '<span class="urgency-bar" title="'+t("urgency_title", {pct})+'">'+marks+'</span>';
 }

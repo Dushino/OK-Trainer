@@ -69,7 +69,7 @@ Next to each area and subarea you'll see **5 small bars**, one per Leitner box. 
 
 For areas defined with a pass/fail exam minimum (see `maxErrors` in `FORMAT.md`), a colored dot next to the area name gives you a quick read on exam readiness: it's a fixed red below the minimum, and fades from orange to green above it, the same way the bars are colored. The dot's color is driven by a single number — the average box position across all of that area's cards, converted to a 0–100% scale (box 1 = 0%, box 5 = 100%) — read roughly as your current chance of answering a random question from that area correctly on the first try. Areas without a defined exam minimum don't show a dot.
 
-There's also a small colored **▶ triangle** in front of every area's and subarea's name, in the statistics list. It's a rough estimate — using a simplified forgetting-curve model in the same spirit as spaced-repetition tools like Anki — of how likely you are to have forgotten that material by now, so it points you toward what's worth reviewing next. It factors in how long it's been since you last reviewed each card, how high its Leitner box is (higher boxes are assumed to hold up longer), and how often that card has been sent back to box 1 in the past (a card that keeps lapsing is assumed to fade faster than one that climbed steadily). Green means it's likely still fresh in memory; red means it's probably time to go over it again. Unlike the pass/fail dot, it shows at both the area and subarea level and doesn't need any deck configuration — it's purely about timing, not exam readiness, and there's nothing to tune for it in the settings. Cards you haven't reviewed since this feature was added will show as fully "forgotten" (red) at first, until you review them again and the app has a timestamp to work from.
+There's also a small three-part indicator like **◼◻◻** in front of every area's and subarea's name in the list. It's a rough estimate — using a simplified forgetting-curve model, in the spirit of similar principles used by spaced-repetition tools like Anki — of how much you've probably forgotten of that material, to point you toward what's worth reviewing first. It factors in how long ago you last reviewed each card, how high a Leitner box it's in (higher boxes are assumed to hold up longer in memory), and how often that card has been sent back to box 1 in the past. A green ◼◻◻ means the material is probably still fresh; a red ◼◼◼ means it's time to go over it again.
 
 ## Interface language
 
@@ -112,7 +112,7 @@ Alternatively, you can simply bookmark the page in your browser. This works the 
 
 ## Fully offline use
 
-If you'd rather not rely on a live internet connection every time, you can download all the files from <https://github.com/Dushino/OK-Trainer> to your phone or computer (this step requires a connection) and then open the downloaded html file with your file manager in a browser (no connection needed after that).
+If you'd rather not rely on a live internet connection every time, you can download all the files from <https://github.com/Dushino/OK-Trainer> to your phone or computer (this step requires a connection) and then open the downloaded html file with your file manager in a browser (no connection needed after that), or bookmark it in your browser.
 
 ## Handsfree mode
 
@@ -130,17 +130,16 @@ Text is normally passed to the device's TTS engine unchanged — most engines al
 
 ## Things to know
 
+> **Always put your own safety and the safety of those around you first. Do not use this while driving!**
+
 - The app doesn't account for forgetting. That's both individual and beyond the scope of a simple HTML page — it would need to be a full-fledged application. So even if everything is green a few weeks before the exam, that doesn't mean you won't forget something by test day. The solution is regular review.
 - The number of cards in a study round is dynamic. When you know a topic well, each card appears just once; if you know all of them, each appears once again next time. If you don't know them, the next round will have more cards because the problematic ones appear more frequently.
 - **If the app behaves strangely, delete and then re-import freshly downloaded files, or alternatively uninstall and reinstall the entire app. This is because I sometimes make improvements, and the app might not be compatible with your saved JSON files.**
 
-> **Always put your own safety and the safety of those around you first. Do not use this while driving!**
-
 ## Notes on running the app on different platforms
 
 - I haven't yet found anyone who has tested the app on an Apple device. Feedback is very welcome!
-- Speech synthesis works best on Android.
-- Windows has pronunciation issues, especially with abbreviations written in capital letters.
+- Speech synthesis works best on Android. Windows has pronunciation issues, especially with abbreviations written in capital letters.
 - Speech synthesis on Ubuntu is very poor — I'd recommend not using it at all.
 
 ## Recommended way of studying
@@ -155,3 +154,4 @@ Text is normally passed to the device's TTS engine unchanged — most engines al
   - It helps to notice the time of day or how tired you are, and adjust how much new material you take on accordingly. Sometimes it's not worth forcing yourself, though it's still worth at least trying.
   - Remember that forgetting is completely normal, and learning is a gradual process of minimizing mistakes — before a new piece of knowledge really sticks, you'll usually forget it a few times and need to be reminded again. So don't despair, and keep at it.
   - For material that doesn't lend itself to sense-making and is hard to learn even with a small number of cards in the subarea (typically the prefix lists in the HAREC A deck), set yourself a goal of learning just one or two cards from the deck on the first pass. Then calmly ignore the rest and answer **Don't know** for them without even reading the answer. Add one more card each round, and repeat, until you suddenly find you know it.
+
