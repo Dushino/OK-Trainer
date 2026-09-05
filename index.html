@@ -448,10 +448,12 @@
     display:none;
   }
   .pass-dot.visible{display:inline-block;}
-  .urgency-triangle{
-    font-size:12px;
+  .urgency-bar{
+    font-family:var(--mono);
+    font-size:14px;
     line-height:1;
     flex-shrink:0;
+    display:inline-flex;
   }
   .stats-row{
     display:flex;
@@ -1632,11 +1634,22 @@ function areaUrgency(cat, group){
   });
   return n ? sum/n : 0;
 }
-function urgencyTriangleHtml(cat, group){
+// Discrete 3-step urgency indicator (colorblind-safe: level is shown by
+// how many of the 3 marks are filled, not just by color): 1 filled = fresh
+// (green), 2 = getting due (orange), 3 = overdue (red). Unfilled marks use
+// the same neutral gray as an empty Leitner box.
+function urgencyBarHtml(cat, group){
   const urgency = areaUrgency(cat, group);
   const pct = Math.round(urgency * 100);
-  const color = successColor((1 - urgency) * 100);
-  return '<span class="urgency-triangle" style="color:'+color+';" title="'+t("urgency_title", {pct})+'">▶</span>';
+  const level = urgency < 1/3 ? 1 : (urgency < 2/3 ? 2 : 3);
+  const color = level === 1 ? cssVar('--green-ui','#6fe3a0') : level === 2 ? cssVar('--panel-accent','#ffb020') : cssVar('--red-ui','#e2543a');
+  const neutral = cssVar('--border','#2a3436');
+  let marks = "";
+  for(let i=0;i<3;i++){
+    const filled = i < level;
+    marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'￭':'･')+'</span>';
+  }
+  return '<span class="urgency-bar" title="'+t("urgency_title", {pct})+'">'+marks+'</span>';
 }
 
 function renderStats(){
@@ -1647,7 +1660,7 @@ function renderStats(){
     const {counts, total} = boxCounts(cat, "__all__");
     html += '<div class="stats-cat" data-cat="'+cat+'" data-group="__all__">'
       + '<div class="stats-cat-head">'
-      + urgencyTriangleHtml(cat, "__all__")
+      + urgencyBarHtml(cat, "__all__")
       + '<span class="stats-cat-name">'+STATS_CAT_LABELS[cat]+'</span>'
       + passDotHtml(cat)
       + boxBarsHtml(counts, total)
@@ -1656,7 +1669,7 @@ function renderStats(){
       const g = boxCounts(cat, group);
       const safeGroup = group.replace(/"/g, '&quot;');
       html += '<div class="stats-row" data-cat="'+cat+'" data-group="'+safeGroup+'">'
-        + urgencyTriangleHtml(cat, group)
+        + urgencyBarHtml(cat, group)
         + '<span class="stats-row-name">'+group+'</span>'
         + boxBarsHtml(g.counts, g.total)
         + '</div>';
