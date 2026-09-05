@@ -1644,11 +1644,19 @@ function urgencyBarHtml(cat, group){
   const level = urgency < 1/3 ? 1 : (urgency < 2/3 ? 2 : 3);
   const color = level === 1 ? cssVar('--green-ui','#6fe3a0') : level === 2 ? cssVar('--panel-accent','#ffb020') : cssVar('--red-ui','#e2543a');
   const neutral = cssVar('--border','#2a3436');
+
+
   let marks = "";
   for(let i=0;i<3;i++){
     const filled = i < level;
     // marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'￭':'･')+'</span>';
-    marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'◼':'◻')+'</span>';
+    // marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'◼':'◻')+'</span>';
+    // marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'▶':'▷')+'</span>';
+    // marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'◼':'▪')+'</span>';
+    marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'●':'○')+'</span>';
+    // marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'●':'●')+'</span>';    
+    //marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'▩':'◣')+'</span>';    
+    //marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'▶':'▷')+'</span>';    
   }
   return '<span class="urgency-bar" title="'+t("urgency_title", {pct})+'">'+marks+'</span>';
 }
