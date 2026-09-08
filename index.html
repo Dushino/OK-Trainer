@@ -1658,8 +1658,9 @@ function urgencyBarHtml(cat, group){
     //marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'▶':'▷')+'</span>';    
     // marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'◼':'◻')+'</span>';        
     // marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'✱':'●')+'</span>';    
-    // ❱ ➧ ▣ ✱ ✛ ⇨ ═ ☐ ☒ ⚑ ♻ ♺ ▨ ⮞ ⯈
-    marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'❱':'･')+'</span>';    
+    // ❱ ➧ ▣ ✱ ✛ ⇨ ═ ☐ ☒ ⚑ ♻ ♺ ▨ ⮞ ⯈ ❱ ❭
+    // ** ** <- Figure space U+2007
+    marks += '<span style="color:'+(filled?color:neutral)+';">'+(filled?'◼':'◻')+'</span>';    
   }
   return '<span class="urgency-bar" title="'+t("urgency_title", {pct})+'">'+marks+'</span>';
 }
