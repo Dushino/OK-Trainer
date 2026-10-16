@@ -7,12 +7,16 @@
 // servírují "cache-first" — nečeká se na síť, aby na slabém spojení
 // nedošlo k tomu, že se pro stejný text zkombinují dva různé fonty.
 
-const CACHE_NAME = "ok-trainer-v4";
+const CACHE_NAME = "ok-trainer-v5";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
   "./icon.svg",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./icons/icon-maskable-512.png",
+  "./icons/apple-touch-icon.png",
   "./keepalive.wav",
   "./fonts/UbuntuMono-Regular.woff2",
   "./fonts/UbuntuMono-Regular-Latin.woff2",
