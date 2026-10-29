@@ -7,7 +7,10 @@
 // servírují "cache-first" — nečeká se na síť, aby na slabém spojení
 // nedošlo k tomu, že se pro stejný text zkombinují dva různé fonty.
 
-const CACHE_NAME = "ok-trainer-v5";
+// Na originu dushino.github.io běží i další apky (AddTurn GPX) se společným
+// úložištěm cache, proto se při aktivaci mažou jen cache s touto předponou.
+const CACHE_PREFIX = "ok-trainer-";
+const CACHE_NAME = CACHE_PREFIX + "v6";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -36,7 +39,7 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys()
       .then((keys) => Promise.all(
-        keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))
+        keys.filter((k) => k.startsWith(CACHE_PREFIX) && k !== CACHE_NAME).map((k) => caches.delete(k))
       ))
       .then(() => self.clients.claim())
   );
