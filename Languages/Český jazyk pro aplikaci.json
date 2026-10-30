@@ -67,6 +67,9 @@
     "import_stats_title": "Importovat statistiky",
     "err_stats_set_mismatch": "Tento soubor se statistikami patří k sadě \"{found}\", ale aktuálně vybraná sada je \"{expected}\". Nejdřív přepni na odpovídající sadu.",
     "err_stats_structure_mismatch": "Tento soubor se statistikami neodpovídá struktuře aktuální sady (jiný počet oblastí nebo kartiček). Může jít o starší nebo jinou verzi této sady.",
-    "confirm_stats_overwrite": "Import přepíše dosavadní statistiky pro sadu \"{name}\". Pokračovat?"
+    "confirm_stats_overwrite": "Import přepíše dosavadní statistiky pro sadu \"{name}\". Pokračovat?",
+    "update_available": "Je k dispozici nová verze",
+    "update_reload": "Načíst",
+    "update_later": "Později"
   }
 }

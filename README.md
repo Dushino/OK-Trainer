@@ -94,6 +94,8 @@ On the **Settings** page, under **Statistics for the current set**, you can expo
 
 The app can be "installed" on your phone as a quick-access icon, either as an app-like shortcut in your app list or as a home screen shortcut. This isn't a real binary installation — it's just a bookmark-style shortcut with an icon that opens the same web page, giving you faster access. And it works offline too.
 
+The app always starts straight away from the copy stored on your device, even with a weak or no signal. New versions are downloaded in the background; when one is ready, the bar *New version available* appears – tap **Reload** to switch to it (your progress is kept), or ✕ to keep practising and get it next time.
+
 ### Android (Google Chrome)
 
 1. Open Google Chrome on your phone.

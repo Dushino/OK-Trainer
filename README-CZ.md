@@ -90,6 +90,8 @@ Na stránce **Nastavení**, v části **Statistiky aktuální sady**, můžeš e
 
 Program je možné „nainstalovat" na telefon jako ikonu pro rychlý přístup, buď jako zástupce podobného aplikaci v seznamu aplikací, nebo jako zástupce na ploše. Nejde o skutečnou binární instalaci — je to jen záložka s ikonou, která otevírá tutéž webovou stránku, díky čemuž se k ní dostaneš rychleji. A funguje i offline.
 
+Aplikace se vždy spustí hned z kopie uložené v zařízení, i při slabém signálu nebo bez něj. Nové verze se stahují na pozadí; když je nová verze připravená, objeví se lišta *Je k dispozici nová verze* (v angličtině *New version available*) – klepnutím na **Načíst** se přepneš na novou verzi (pokrok zůstane zachovaný), ✕ ji odloží na příští spuštění.
+
 ### Android (Google Chrome)
 
 1. Otevři Google Chrome v telefonu.

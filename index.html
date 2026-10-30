@@ -106,6 +106,26 @@
   }
   .wrap{width:100%;max-width:640px;}
   .hidden{display:none;}
+  /* Lišta „nová verze“ */
+  #updateBar{
+    position:fixed;left:50%;top:12px;transform:translateX(-50%);
+    display:flex;align-items:center;gap:10px;
+    max-width:min(92vw,460px);
+    padding:6px 6px 6px 14px;
+    background:var(--panel);color:var(--text);
+    border:1px solid var(--panel-accent);border-radius:10px;
+    box-shadow:0 4px 16px rgba(0,0,0,.35);
+    font-size:14px;
+    z-index:1000;
+  }
+  #updateBar.hidden{display:none;}
+  #updateBar .update-reload{
+    height:40px;padding:0 14px;
+    font-family:var(--sans);font-size:14px;font-weight:600;
+    background:var(--panel-accent);color:#12181a;
+    border:1px solid var(--panel-accent);border-radius:8px;
+    cursor:pointer;
+  }
   header{margin-bottom:18px;text-align:center;position:relative;padding:0 52px;}
   .settings-btn{
     position:absolute;
@@ -482,6 +502,11 @@
 </style>
 </head>
 <body>
+<div id="updateBar" class="hidden" role="status">
+  <span data-i18n="update_available"></span>
+  <button id="btnUpdateReload" class="update-reload" data-i18n="update_reload"></button>
+  <button id="btnUpdateClose" class="icon-btn" data-i18n-title="update_later">✕</button>
+</div>
 <div class="wrap">
   <div id="mainScreen">
     <header>
@@ -714,7 +739,10 @@ const EN_STRINGS = {
   import_stats_title: "Import statistics",
   err_stats_set_mismatch: "This statistics file belongs to the set \"{found}\", but the currently selected set is \"{expected}\". Switch to the matching set first.",
   err_stats_structure_mismatch: "This statistics file doesn't match the structure of the current set (different number of areas or cards). It may be for an older or different version of this set.",
-  confirm_stats_overwrite: "Import will overwrite the existing statistics for the set \"{name}\". Continue?"
+  confirm_stats_overwrite: "Import will overwrite the existing statistics for the set \"{name}\". Continue?",
+  update_available: "New version available",
+  update_reload: "Reload",
+  update_later: "Later"
 };
 const BUILTIN_LANG_ID = "en";
 
@@ -2087,9 +2115,30 @@ if(window.matchMedia){
   });
 }
 
+// Service worker: apka se spouští z cache (viz sw.js). Nová verze se stáhne
+// na pozadí; když nový service worker převezme stránku, nabídne se
+// znovunačtení. Při prvním spuštění (stránka ještě neměla service worker)
+// se nic nenabízí. Vše je průběžně uložené v localStorage, reload nic neztratí.
+document.getElementById("btnUpdateReload").addEventListener("click", () => location.reload());
+document.getElementById("btnUpdateClose").addEventListener("click", () => {
+  document.getElementById("updateBar").classList.add("hidden");
+});
 if("serviceWorker" in navigator){
+  const hadController = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if(hadController) document.getElementById("updateBar").classList.remove("hidden");
+  });
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch(() => {});
+    navigator.serviceWorker.register("./sw.js").then((reg) => {
+      // Apka na mobilu běží často dlouho na pozadí → při návratu do popředí
+      // zkontrolovat novou verzi (nejvýš jednou za 10 minut)
+      let lastCheck = Date.now();
+      document.addEventListener("visibilitychange", () => {
+        if(document.visibilityState !== "visible" || Date.now() - lastCheck < 10 * 60 * 1000) return;
+        lastCheck = Date.now();
+        reg.update().catch(() => {});
+      });
+    }).catch(() => {});
   });
 }
 
